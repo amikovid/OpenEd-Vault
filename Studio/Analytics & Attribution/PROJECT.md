@@ -68,10 +68,42 @@ When this is done, every marketing activity can be traced to revenue impact.
 
 | System | Access | Status |
 |--------|--------|--------|
-| **Google Analytics 4** | Full | Active |
+| **Google Analytics 4** | Full | ✅ Working (tested 2026-01-20) |
+| **Google Search Console** | Full | ✅ Working (tested 2026-01-20) |
+| **DataForSEO** | Full | ✅ Working (tested 2026-01-20) |
+| **YouTube Data API** | Not enabled | ⏳ Needs setup (see below) |
 | **Webflow** | Full | Active |
-| **HubSpot** | Partial? | Need to verify permissions |
+| **HubSpot** | Partial? | ⏳ Access request pending |
 | **Enrollment system** | Unknown | Need to identify |
+
+---
+
+## Data Source Modules
+
+All modules live in `../SEO Content Production/seomachine/data_sources/modules/`
+
+| Module | File | Status |
+|--------|------|--------|
+| Google Analytics 4 | `google_analytics.py` | ✅ Working |
+| Google Search Console | `google_search_console.py` | ✅ Working |
+| DataForSEO | `dataforseo.py` | ✅ Working |
+| YouTube | `youtube.py` | ⏳ API needs enabling |
+
+### YouTube Setup (One-Time)
+
+1. Go to [Google Cloud Console → YouTube Data API](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview?project=1042105310712)
+2. Click "Enable"
+3. Add your channel ID to `.env`:
+   ```
+   YOUTUBE_CHANNEL_ID=UCxxxxxxxxxx
+   ```
+4. Find channel ID: Go to YouTube channel → About → Share → Copy channel ID
+
+### Weekly SEO Report
+
+Run: `python3 tools/weekly_seo_report.py` from seomachine folder
+
+Generates: Priority keyword tracking, quick wins, declining content, opportunities
 
 ---
 

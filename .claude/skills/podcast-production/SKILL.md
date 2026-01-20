@@ -16,6 +16,43 @@ Transform a raw podcast transcript into polished, multi-platform content assets 
 - Create `Checkpoint_3_YouTube_Strategy.md` (your feedback here)
 - Create `Checkpoint_4_Polished_Transcript_and_Blog.md` (final deliverable)
 
+---
+
+## Execution Model: Subagents for Context Preservation
+
+**CRITICAL**: Each checkpoint should be executed by a dedicated subagent (using the Task tool) to preserve context window in the main conversation. The workflow is:
+
+1. **Main agent** reads source material, confirms approach with user
+2. **Subagent 1** executes Checkpoint 1, writes file, reports back summary
+3. **User reviews**, provides feedback on Big Idea selection
+4. **Subagent 2** executes Checkpoint 2 (reads Checkpoint 1 + source), writes file, reports back
+5. **User reviews**, approves cold open and clips
+6. **Subagent 3** executes Checkpoint 3 (reads prior checkpoints), writes file, reports back
+7. **User reviews**, approves YouTube strategy
+8. **Subagent 4** executes Checkpoint 4 (reads all prior work), writes final deliverables
+
+**Subagent prompt template:**
+```
+You are executing [Checkpoint N] of the podcast production workflow.
+
+Episode: [Guest Name]
+Working directory: [path to episode folder]
+
+Read the following files:
+- SOURCE.MD (raw transcript)
+- [Any prior checkpoint files]
+
+Create: Checkpoint_[N]_[Name].md following the podcast-production skill format.
+
+[Specific checkpoint instructions from skill]
+
+Write the checkpoint file and report back with:
+1. Key decisions/recommendations
+2. Questions for user feedback
+```
+
+This preserves context by having each subagent start fresh with only the necessary files, rather than accumulating the entire conversation history.
+
 ## When to Use This Skill
 
 - You have a raw podcast transcript and need to identify the strongest marketing angle
@@ -48,27 +85,42 @@ This pulls latest content from Webflow to `Content/Master Content Database/` for
 
 ### Checkpoint 1: Comprehensive Analysis (90-120 min)
 
-**Goal**: Understand the episode, identify strongest themes, and inventory building blocks for all downstream content.
+**Goal**: Understand the episode, identify strongest themes, and inventory building blocks for all downstream content (social clips, long-form clips, blog posts, newsletters).
 
 **Your deliverable**: `Checkpoint_1_Comprehensive_Analysis.md`
 
-**What it contains**:
-- 5 Big Ideas (potential marketing angles)
-- The TED Talk Version (core insight)
-- AI Summary Beats (key narrative moments)
-- Chapter Outline (timestamped)
-- Surprising Points (contradictions with common belief)
-- Quote Bank (organized verbatim quotes)
-- **Snippet Inventory** (25-30 short quotable moments, 5-30 sec each, labeled S1-S29, categorized by type: Counterintuitive, Memorable Quotes, Relatable/Funny, Practical/Actionable, Emotional, Origin Story)
-- **Guest Voice Inventory** (sticky phrases, syntax patterns, named concepts to preserve throughout all content)
-- **Top Recommendation** (1-2 Big Ideas with reasoning for why they best represent the episode's actual arc, distinguishing between "what the episode is about" vs. "what would get clicks")
+**Document Structure** (in this order):
+1. **Episode Metadata** (guest, host, duration, credentials)
+2. **The TED Talk Version** (2-3 orthogonal angles that capture what the episode delivers - emphasize salience over clickability)
+3. **5 Big Ideas** (potential marketing angles for different assets)
+4. **Chapter Outline** (timestamped)
+5. **Snippet Inventory** (25-30 short quotable moments, 5-30 sec each, labeled S1-S29)
+6. **Guest Voice Inventory** (sticky phrases, syntax patterns, named concepts)
+7. **Quote Bank** (organized by theme)
+8. **Surprising Points** (contradictions with common belief)
+9. **Top Recommendation** (with reasoning)
 
-**User decision point**: Which Big Idea is strongest?
+**Snippet Inventory Format** - Each snippet MUST include:
+- Label (S1, S2, etc.)
+- Category (Counterintuitive, Memorable Quotes, Relatable/Funny, Practical/Actionable, Emotional, Origin Story)
+- Timestamp range
+- **Speaker attribution** (JOSHUA, ISAAC, ELA, etc.)
+- Verbatim quote
 
-**IMPORTANT**: Always conclude Checkpoint 1 with a clear recommendation that addresses:
-1. Which Big Idea best represents the episode's actual narrative arc
-2. Which Big Idea is most clickable/marketable (if different)
-3. A suggested approach for bridging both (e.g., "hook with X, deliver Y")
+Example:
+```
+**[S1] "No Shoulds, Only Coulds" (18:21-18:52) - JOSHUA**
+> "There are no shoulds, there are only coulds..."
+```
+
+**The TED Talk Version** - Provide 2-3 somewhat orthogonal angles:
+- What is this episode *actually* about? (salience)
+- What's the surprising/counterintuitive framing? (interest)
+- What's the practical takeaway? (utility)
+
+**User decision point**: Which Big Idea/angle to pursue for primary assets?
+
+**IMPORTANT**: Balance clickability with salience. Lean toward what the episode actually delivers rather than what might get the most clicks but misrepresent the content.
 
 **Reference**: See `references/checkpoint-1-example.md` for detailed example
 

@@ -2,8 +2,28 @@
 
 **Homeschool curriculum discovery tool** - Quiz determines philosophy, then Tinder-style swipe through matched curricula.
 
-**Domain:** curricu.love
-**Stack:** Next.js, Claude (quiz), Gemini (recommendations), Convex (planned)
+**Domain:** curricu.love (DNS configured)
+**Live:** Deploy via Vercel (connected to this repo)
+
+---
+
+## Stack
+
+| Layer | Technology | Status |
+|-------|------------|--------|
+| **Frontend** | Next.js 16.1 (Turbopack) | ✅ Working |
+| **Quiz Engine** | Deterministic scoring (no LLM) | ✅ Working |
+| **Recommendations** | Gemini 3 Flash Preview | ✅ Working |
+| **Database** | Convex | ✅ Deployed |
+| **Auth** | Clerk | ✅ Configured |
+| **Email Capture** | HubSpot API | ✅ Working |
+| **Voice Reviews** | Web Speech API + Gemini polish | ✅ Working |
+
+### Convex Deployment
+- **Project:** `curriculove-444f2`
+- **Deployment:** `dev:wary-gerbil-502`
+- **Dashboard:** https://dashboard.convex.dev/d/wary-gerbil-502
+- **URL:** `https://wary-gerbil-502.convex.cloud`
 
 ---
 
@@ -35,84 +55,107 @@ User takes quiz → Gets recommendations → Saves favorites → Shares result
 
 ---
 
-## Current State
+## Current State (2026-01-20)
 
-Working MVP:
-- Adaptive quiz (Claude Haiku) → determines philosophy
-- Gemini recommendations → matches to 216 curricula
-- Basic swipe UI → save favorites
+### What's Working
 
-**Run locally:** `npm run dev` → http://localhost:3000
+| Feature | Status | Notes |
+|---------|--------|-------|
+| **Philosophy Quiz** | ✅ | Deterministic 3-phase, 5-8 questions, ~90 sec |
+| **12-Dimension Profiling** | ✅ | Returns primary + 2 secondaries + confidence |
+| **Email Capture** | ✅ | HubSpot integration with state dropdown |
+| **Gemini Recommendations** | ✅ | Top 12 matches with personalized reasons |
+| **Swipe UI** | ✅ | Save/pass with match score badges |
+| **Voice Reviews** | ✅ | Web Speech API → Gemini polish → editable |
+| **Review Persistence** | ✅ | Saves to Convex database |
+| **User Auth** | ✅ | Clerk sign-in (optional for users) |
+| **PWA Install** | ✅ | Add to home screen on mobile |
+| **Bottom Navigation** | ✅ | Discover / Saves / Profile tabs |
+
+### Environment (`.env.local`)
+```
+CONVEX_DEPLOYMENT=dev:wary-gerbil-502
+NEXT_PUBLIC_CONVEX_URL=https://wary-gerbil-502.convex.cloud
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_...
+CLERK_SECRET_KEY=sk_...
+GEMINI_API_KEY=...
+ANTHROPIC_API_KEY=...
+HUBSPOT_API_KEY=...
+```
+
+### Run Locally
+```bash
+npm run dev
+# Visit http://localhost:3000
+```
 
 ---
 
 ## Architecture
 
+### User Flow
+
 ```
-Quiz (Claude Haiku)     →  Philosophy Result  →  Recommendations (Gemini)  →  Swipe UI
-   ↓                           ↓                        ↓
-Tool-use agent           12 philosophy tags        216 curricula
-asks 3-6 questions       + confidence %            ranked by match
+[Quiz Phase] 5-8 questions
+    ↓
+[Results] Philosophy breakdown with confidence %
+    ↓
+[Email Gate] Optional capture → HubSpot
+    ↓
+[Recommendations] Gemini matches 12 curricula
+    ↓
+[Swipe UI] Save/Pass with "Have you tried this?"
+    ↓
+[Voice Review] If yes → Web Speech → Gemini polish → Convex
+    ↓
+[Completion] View saves, browse more, or retake
 ```
 
-### Philosophy Tags (12)
+### Quiz Scoring (Deterministic - No LLM)
 
-| Tag | Name | Core Distinction |
-|-----|------|------------------|
-| CL | Classical | Great Books, Latin, Socratic, trivium |
-| CM | Charlotte Mason | Living books, nature study, narration |
-| TR | Traditional | Textbooks, grades, tests, school-at-home |
-| MO | Montessori | Prepared environment, child chooses work |
-| WA | Waldorf | Rhythm, imagination, delayed academics |
-| UN | Unschooling | Child-led, no curriculum |
-| EC | Eclectic | Mix and match |
-| PB | Project-Based | Real problems, authentic products |
-| NB | Nature-Based | Forest school, outdoor focus |
-| WF | Wild + Free | Wonder, nature, community |
-| FB | Faith-Based | Faith integrated throughout |
-| MS | Microschool | Small group, shared teaching |
+**3-Phase Flow:**
+1. **Opener** - 5 orthogonal options → initial philosophy bucketing
+2. **Guided Q2** - Based on opener choice, further disambiguates
+3. **Refinement** - 3-6 questions from discrimination bank until 75%+ confidence
 
----
+**12-Dimension Profile:**
+| Tag | Name | Category |
+|-----|------|----------|
+| CL | Classical | Core |
+| CM | Charlotte Mason | Core |
+| TR | Traditional | Core |
+| MO | Montessori | Method |
+| WA | Waldorf | Method |
+| UN | Unschooling | Freedom |
+| WF | Wild + Free | Movement |
+| NB | Nature-Based | Movement |
+| PB | Project-Based | Method |
+| EC | Eclectic | Movement |
+| MS | Microschool | Movement |
+| FB | Faith-Based | Values |
 
-## Data
+### Database Schema (Convex)
 
-### Curriculum Schema
-
+**reviews table:**
 ```typescript
 {
-  slug: string,
-  name: string,
-  imageUrl?: string,
-  logoUrl?: string,
-  website: string,
-  gradeRange: string,           // "K-5th", "PreK-12"
-
-  // Matching
-  philosophyTags: string[],     // ["CM", "NB"]
-  methodTags: string[],         // ["mastery-based", "adaptive"]
-  audienceTags: string[],       // ["secular", "christian"]
-
-  // Content
-  description: string,
-  pricingSummary: string,
-  priceTier: string,            // "$", "$$", "$$$", "$$$$"
-  openedInsight: string,        // Editorial summary
-
-  // Flags
-  isOpenEdVendor: boolean,      // Official partner
-  source: string,               // "webflow" | "markdown"
+  curriculumSlug, curriculumName,
+  rawTranscript, polishedReview, rating,
+  highlights[], concerns[], bestFor[],
+  userId?, userEmail?, userName?,
+  createdAt
 }
 ```
 
-**File:** `src/data/curricula-convex.json` (216 tools)
-
-### Transform Data
-
-```bash
-python3 scripts/transform-curriculum-data.py
+**users table:**
+```typescript
+{
+  clerkId, email, name?, imageUrl?,
+  primaryPhilosophy?, secondaryPhilosophies[],
+  favorites[], reviewCount,
+  createdAt, updatedAt
+}
 ```
-
-Reads from `OpenEd - Tools.csv`, outputs enriched JSON.
 
 ---
 
@@ -120,89 +163,106 @@ Reads from `OpenEd - Tools.csv`, outputs enriched JSON.
 
 | File | Purpose |
 |------|---------|
-| `src/app/page.tsx` | Main app (quiz → recs → favorites) |
+| `src/app/page.tsx` | Main app - state orchestration for all phases |
+| `src/app/layout.tsx` | Root layout with Clerk + Convex providers |
 | `src/components/Quiz.tsx` | Quiz UI |
-| `src/components/Recommendations.tsx` | Swipe UI |
-| `src/lib/quiz-agent/agent.ts` | Claude agent with tools |
-| `src/lib/quiz-agent/prompt.ts` | Quiz system prompt |
-| `src/app/api/quiz/*` | Quiz API routes |
+| `src/components/Recommendations.tsx` | Swipe UI + review prompts |
+| `src/components/VoiceReview.tsx` | Voice capture + AI polish |
+| `src/components/EmailGate.tsx` | Email capture form |
+| `src/lib/quiz-agent/scoring.ts` | Deterministic quiz engine (512 lines) |
 | `src/app/api/recommendations/route.ts` | Gemini matching |
-| `scripts/transform-curriculum-data.py` | Data transformation |
+| `src/app/api/polish-review/route.ts` | Review polishing |
+| `convex/reviews.ts` | Review mutations/queries |
+| `convex/users.ts` | User mutations/queries |
+| `src/data/curricula-convex.json` | 216 curricula dataset |
 
 ---
 
-## Future Enhancements
+## Data
 
-### Schema (add when needed)
-- `prepTimeScore` (1-10)
-- `teacherInvolvementLevel` (high/medium/low/zero)
-- `specialNeedsTags` (dyslexia, adhd friendly)
-- `lessonDuration` (short/medium/long)
-- `familyStyleFriendly` (boolean)
+### Curriculum Schema
+```typescript
+{
+  slug: string,
+  name: string,
+  imageUrl?: string,        // Currently null - needs scraping
+  logoUrl?: string,
+  website: string,
+  gradeRange: string,       // "K-5th", "PreK-12"
 
-### Quiz (Phase 2)
-- "Reality Check" questions (time, budget conflicts)
+  philosophyTags: string[], // ["CM", "NB"]
+  methodTags: string[],
+  audienceTags: string[],
+
+  description: string,
+  pricingSummary: string,
+  priceTier: string,        // "$", "$$", "$$$", "$$$$"
+  openedInsight: string | { quote?, attribution?, synthesis?, hasFullReview },
+
+  isOpenEdVendor: boolean,  // 49 of 216
+  prepTimeScore?: number,   // 1-10
+  teacherInvolvementLevel?: string,
+}
+```
+
+**File:** `src/data/curricula-convex.json` (216 tools)
+
+---
+
+## Q3 Priorities
+
+### ✅ Completed (This Session)
+- [x] Convex persistence - reviews save to database
+- [x] Clerk auth integration - user accounts work
+- [x] PWA manifest - mobile installable
+- [x] All API keys configured
+
+### 🔲 Remaining
+- [ ] UI polish pass (green accent, card refinements)
+- [ ] Image scraping for curricula (all imageUrl currently null)
+- [ ] Shareable image generation (Nano Banana templates)
+- [ ] Provider outreach template
+- [ ] Deploy to Vercel production
+
+### Future Features
+- "Reality Check" questions (time, budget)
 - Neurodivergence screening
-- "First year homeschooling?" filter
-- Multi-select options
+- "First year homeschooler?" mode
+- Advanced filtering on saves
+- Social sharing of quiz results
 
-### Features
-- Convex persistence
-- User accounts
-- Review/rating after save
-- Email capture → HubSpot
-- Image scraping for hero images
+---
 
-### Viral Mechanics (Q3 Priority)
-- **Shareable quiz results** - Pinterest-perfect images with philosophy match
-- **Nano Banana templates** - Customizable but templated images (engineered elements)
-- **Provider co-marketing** - "Your curriculum is listed, share with your audience"
-- **Instagram-ready assets** - Cute, shareable, drives traffic back
+## Provider Partnership Play
 
-### Provider Partnership Play
 1. Compile list of all 216 curriculum providers
 2. Create outreach template: "You're featured in our new app"
 3. Offer: Help them get reviews from their customers
 4. Ask: Would you share with your audience?
 5. Flywheel: Their audience → our app → our email list
 
----
-
-## Handoff Docs
-
-Separate tasks that can be done elsewhere:
-
-- `CONTENT-EXTRACTION-HANDOFF.md` - Scan content database for entities (GraphRAG)
-- `SWIPE-UI-SPEC.md` - Detailed swipe interface design
-- `DATA-TRANSFORMATION-PLAN.md` - Full transformation logic
+**OpenEd Vendors:** 49 of 216 are official partners (flagged `isOpenEdVendor: true`)
 
 ---
 
-## OpenEd Vendors (49 of 216)
+## Session Log
 
-Tools available through OpenEd partnership - flagged with `isOpenEdVendor: true`.
+### 2026-01-20 - MVP Infrastructure Complete
 
-See `scripts/transform-curriculum-data.py` for full list.
+**Completed:**
+- Created Convex project and deployed schema
+- Enabled review persistence to Convex
+- Configured all API keys (Convex, Clerk, Gemini, Anthropic, HubSpot)
+- Added PWA manifest for mobile install
+- Fixed Clerk provider issues (was breaking SSR)
+- Simplified auth flow - ClerkProvider always wraps app
 
----
+**Ready for:**
+- Internal team testing
+- Voice review collection
+- User authentication
 
-## Q3 Priorities
-
-### Must Do
-- [ ] UI polish pass (looks good, make it great)
-- [ ] Shareable image generation (Nano Banana templates)
-- [ ] Provider outreach template
-- [ ] Track as lead source in HubSpot
-
-### Success Metrics
-- Signups per week (trend)
-- Email → nurture → enrollment attribution
-- Provider partnership conversations started
-- Organic shares (viral coefficient proxy)
-
-### Separate Strategy Session Needed
-Full curricula strategy session to map out:
-- Detailed viral mechanics
-- Provider partnership program
-- Feature roadmap beyond Q3
-- Potential as "social platform for homeschool moms"
+**Next session:**
+- Deploy to Vercel
+- Test full flow with team
+- Image scraping for curricula

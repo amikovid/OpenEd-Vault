@@ -7,6 +7,7 @@ This example demonstrates the output format for Checkpoint 2: cold open variatio
 ## WHAT CHECKPOINT 2 DELIVERS
 
 A single document containing:
+
 1. **Cold Open Script** (one selected variation, verbatim clips only)
 2. **On-Screen Text Hooks** (2-4 words each for social media)
 3. **3 Approved Social Clips** (full verbatim transcripts with on-screen hooks)
@@ -21,10 +22,11 @@ A single document containing:
 **Format:** Verbatim clips arranged in narrative sequence (not chronological)
 
 **Requirements:**
+
 - Duration: 15-60 seconds total
 - All quotes must be verbatim (exactly as spoken)
 - Arranged for narrative impact (building tension/momentum)
-- Ends with unresolved cliffhanger
+- MIGHT ends with unresolved cliffhanger, or CURIOSITY LOOP
 - Include speaker labels and approximate timestamps
 
 **Example:**
@@ -65,6 +67,7 @@ PETER: 83% Check school. Nothing else came close.
 **Format:** Simple, punchy text designed for YouTube Shorts/TikTok captions
 
 **Requirements:**
+
 - 2-4 words maximum for mobile readability
 - Bold, contrarian, or surprising statement
 - Complementary to clip content (not redundant)
@@ -82,6 +85,7 @@ Clip 3: "We'd rather blame TikTok than admit the truth about school."
 ```
 
 **Design Notes:**
+
 - Font: Sans-serif, bold weight
 - Placement: Lower 1/3 of frame (doesn't obstruct speaker)
 - Duration: On-screen for entire clip
@@ -94,6 +98,7 @@ Clip 3: "We'd rather blame TikTok than admit the truth about school."
 **Format:** 3 distinct clips with complementary angles and on-screen hooks
 
 **Clip Structure:**
+
 - Clip title
 - Duration
 - On-screen hook (2-4 words)
@@ -203,6 +208,7 @@ has a halo around it.
 Before moving to Checkpoint 3, verify:
 
 ✅ **Cold Open Quality:**
+
 - ✓ Stranger: Opens with surprise/contradiction
 - ✓ Itch: Creates curiosity that demands answer
 - ✓ Stakes: Makes listener care about the outcome
@@ -210,12 +216,14 @@ Before moving to Checkpoint 3, verify:
 - ✓ Emotion: Touches emotional truth (guilt, validation, hope, etc.)
 
 ✅ **Cold Open Technical:**
+
 - ✓ Duration: 22-35 seconds
 - ✓ All clips verbatim (no paraphrasing)
 - ✓ Clear speaker labels and timestamps
 - ✓ Arranged for narrative momentum (not chronological)
 
 ✅ **Social Clips:**
+
 - ✓ 3 clips with distinct angles
 - ✓ Each 1:00-1:30 duration
 - ✓ Clear on-screen hooks (2-4 words max)
@@ -224,6 +232,7 @@ Before moving to Checkpoint 3, verify:
 - ✓ Clear use case for each
 
 ✅ **On-Screen Text:**
+
 - ✓ 2-4 words maximum
 - ✓ Complementary (not redundant with clip)
 - ✓ Readable on mobile (280px width)
@@ -265,8 +274,8 @@ After Checkpoint 2 is approved, move to:
 **Checkpoint 3: YouTube Strategy** (title, thumbnail, description, chapters)
 
 Checkpoint 3 takes the approved cold open and clips and develops:
+
 - YouTube title + thumbnail (with guest name)
 - YouTube description (hook + full description + resources)
 - Chapter breakdown (5-10 words per chapter, keyword-rich)
 - All clips organized with final on-screen hooks
-
