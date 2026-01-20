@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <style>
+        /* OpenEd Brand Guidelines */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;500&display=swap');
+
+        :root {
+            --orange: #f24915;
+            --blue: #03a4ea;
+            --dark: #141a1f;
+            --text: #333333;
+            --light-gray: #e0e0e0;
+            --bg: #fafaf6;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.75in 0.875in;
+
+            @top-right {
+                content: "opened.co";
+                font-family: 'Inter', -apple-system, sans-serif;
+                font-size: 9pt;
+                color: #999;
+            }
+
+            @bottom-center {
+                content: counter(page);
+                font-family: 'Inter', -apple-system, sans-serif;
+                font-size: 9pt;
+                color: #999;
+            }
+        }
+
+        @page:first {
+            @top-right {
+                content: none;
+            }
+            @bottom-center {
+                content: none;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+
+        /* Cover/Title Section */
+        .cover {
+            text-align: center;
+            padding: 2in 0 1in 0;
+            page-break-after: always;
+        }
+
+        .cover h1 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 28pt;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 0.5in;
+        }
+
+        .cover .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 14pt;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1in;
+        }
+
+        .cover .logo {
+            margin-top: 2in;
+        }
+
+        .cover .logo-text {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: 0.5pt;
+        }
+
+        .cover .tagline {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 9pt;
+            color: #999;
+            margin-top: 0.25in;
+        }
+
+        /* Content Headings */
+        h1 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 22pt;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 0.5in;
+            margin-bottom: 0.25in;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 16pt;
+            font-weight: 600;
+            color: var(--dark);
+            margin-top: 0.4in;
+            margin-bottom: 0.15in;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 0.1in;
+        }
+
+        h3 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13pt;
+            font-weight: 600;
+            color: var(--dark);
+            margin-top: 0.3in;
+            margin-bottom: 0.1in;
+            line-height: 1.3;
+        }
+
+        h4 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--orange);
+            margin-top: 0.2in;
+            margin-bottom: 0.08in;
+        }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 0.15in;
+            text-align: left;
+        }
+
+        /* Blockquotes - for scripts */
+        blockquote {
+            background: var(--bg);
+            border-left: 4px solid var(--orange);
+            padding: 0.15in 0.2in;
+            margin: 0.15in 0;
+            font-style: normal;
+        }
+
+        blockquote p {
+            margin-bottom: 0.08in;
+        }
+
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 0.15in 0;
+            padding-left: 0.3in;
+        }
+
+        li {
+            margin-bottom: 0.08in;
+        }
+
+        /* Strong/Bold */
+        strong {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Emphasis */
+        em {
+            font-style: italic;
+        }
+
+        /* Links */
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        /* Horizontal Rule */
+        hr {
+            border: none;
+            border-top: 1px solid var(--light-gray);
+            margin: 0.3in 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.2in 0;
+            font-size: 10pt;
+        }
+
+        th {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-weight: 600;
+            background: var(--bg);
+            padding: 0.1in;
+            text-align: left;
+            border-bottom: 2px solid var(--orange);
+        }
+
+        td {
+            padding: 0.1in;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Callout Box */
+        .callout {
+            background: var(--bg);
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+
+        .callout-title {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-weight: 600;
+            font-size: 10pt;
+            color: var(--orange);
+            margin-bottom: 0.1in;
+        }
+
+        /* Footer CTA Section */
+        .footer-cta {
+            margin-top: 0.5in;
+            padding-top: 0.3in;
+            border-top: 2px solid var(--orange);
+            page-break-inside: avoid;
+        }
+
+        .footer-cta h2 {
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 14pt;
+        }
+
+        .footer-cta p {
+            font-size: 10pt;
+        }
+
+        /* Utility Classes */
+        .page-break {
+            page-break-after: always;
+        }
+
+        .no-break {
+            page-break-inside: avoid;
+        }
+
+        .small {
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* First paragraph after heading - no indent */
+        h2 + p, h3 + p, h4 + p {
+            text-indent: 0;
+        }
+    </style>
+</head>
+<body>
+    {{CONTENT}}
+</body>
+</html>
