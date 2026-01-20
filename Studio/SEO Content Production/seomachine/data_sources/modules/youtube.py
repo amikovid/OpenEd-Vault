@@ -18,9 +18,9 @@ class YouTubeAnalytics:
         Initialize YouTube client
 
         Args:
-            credentials_path: Path to credentials JSON (defaults to env var)
+            credentials_path: Path to credentials JSON (defaults to env var YOUTUBE_CREDENTIALS_PATH)
         """
-        credentials_path = credentials_path or os.getenv('GA4_CREDENTIALS_PATH')
+        credentials_path = credentials_path or os.getenv('YOUTUBE_CREDENTIALS_PATH')
 
         if not credentials_path or not os.path.exists(credentials_path):
             raise ValueError(f"Credentials file not found: {credentials_path}")
