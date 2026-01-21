@@ -101,15 +101,14 @@ Whether you're considering alternative education, struggling with screen time bo
 
 **OpenEd**
 
-- Website: https://myopened.com/
-- Free consultation for families: https://myopened.com/consultation
+- Website: https://opened.co/
 
 **Connect**
 
 - Joshua on Instagram: @joshuafieldsmillburn
 - The Minimalists: @theminimalists
 - Isaac Morehouse: @isaacmorehouse
-- OpenEd: @myopened
+- OpenEd: @OpenEdHQ
 
 ### Hashtags
 

@@ -12,7 +12,7 @@ podcast_prospect: true
 # Platforms
 x_twitter: null  # TODO: lookup
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/lenoreskenazy/"
 youtube: null
 newsletter: null
 website: null

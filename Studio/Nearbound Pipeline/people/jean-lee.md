@@ -9,7 +9,7 @@ podcast_prospect: true
 
 x_twitter: null
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/jeanmertz/"
 youtube: null
 newsletter: null
 website: null

@@ -8,9 +8,9 @@ type:
 guest_contributor_potential: medium
 podcast_prospect: true
 
-x_twitter: null
+x_twitter: "@BenArment"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/benarment/"
 youtube: null
 newsletter: null
 website: null

@@ -10,7 +10,7 @@ podcast_prospect: false
 
 x_twitter: null
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/mark-hyatt-5110ba47/"
 youtube: null
 newsletter: null
 website: null

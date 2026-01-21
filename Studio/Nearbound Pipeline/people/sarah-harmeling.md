@@ -9,7 +9,7 @@ podcast_prospect: true
 
 x_twitter: null
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/sarah-harmeling-058697a1/"
 youtube: null
 newsletter: null
 website: null

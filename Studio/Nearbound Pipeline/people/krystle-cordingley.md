@@ -10,7 +10,7 @@ podcast_prospect: false
 
 x_twitter: null
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/krystle-cordingley-ab956387/"
 youtube: null
 newsletter: null
 website: null

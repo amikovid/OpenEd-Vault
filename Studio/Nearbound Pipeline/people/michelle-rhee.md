@@ -8,9 +8,9 @@ type:
 guest_contributor_potential: medium
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@MichelleRhee"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/marhee/"
 youtube: null
 newsletter: null
 website: null

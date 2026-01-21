@@ -8,9 +8,9 @@ type:
 guest_contributor_potential: low
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@salkhanacademy"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/khanacademy/"
 youtube: null
 newsletter: null
 website: null

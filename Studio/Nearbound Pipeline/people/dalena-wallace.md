@@ -8,9 +8,9 @@ type:
 guest_contributor_potential: high
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@DalenaWallace"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/dalena-wallace-4482b8262/"
 youtube: null
 newsletter: null
 website: null

@@ -211,25 +211,46 @@ npm run dev
 
 ## Q3 Priorities
 
-### ✅ Completed (This Session)
+### ✅ Completed
 - [x] Convex persistence - reviews save to database
 - [x] Clerk auth integration - user accounts work
 - [x] PWA manifest - mobile installable
-- [x] All API keys configured
+- [x] All API keys configured (Gemini, Convex, Clerk, HubSpot)
+- [x] Deploy to Vercel production (https://curricu.love)
+- [x] Image scraping script created (70/216 curricula have images)
+- [x] CTA button moved above the fold on Results page
 
-### 🔲 Remaining
+### 🔲 MVP Polish (This Week)
+- [ ] Fix Gemini API issue on local dev (caching old key)
+- [ ] Complete image scraping (146 remaining)
 - [ ] UI polish pass (green accent, card refinements)
-- [ ] Image scraping for curricula (all imageUrl currently null)
-- [ ] Shareable image generation (Nano Banana templates)
-- [ ] Provider outreach template
-- [ ] Deploy to Vercel production
 
-### Future Features
-- "Reality Check" questions (time, budget)
-- Neurodivergence screening
-- "First year homeschooler?" mode
-- Advanced filtering on saves
-- Social sharing of quiz results
+### 🔲 Feature Roadmap
+
+**Phase 1: Browsable Database**
+- [ ] Full curriculum catalog page (`/browse` or `/catalog`)
+- [ ] Search by name/keyword
+- [ ] Filter by: philosophy, grade range, price tier, OpenEd vendor
+- [ ] Sort by: name, match score (if quiz taken), popularity
+- [ ] Card grid view with curriculum details
+
+**Phase 2: Enhanced Discovery**
+- [ ] "Reality Check" questions (prep time, budget, teaching style)
+- [ ] Neurodivergence screening
+- [ ] "First year homeschooler?" mode
+- [ ] Side-by-side comparison tool
+
+**Phase 3: Social & Sharing**
+- [ ] Shareable quiz results (image generation)
+- [ ] Public review pages per curriculum
+- [ ] User profiles with saved curricula
+- [ ] Social sharing buttons
+
+**Phase 4: Growth**
+- [ ] Provider outreach template
+- [ ] Featured/sponsored curricula
+- [ ] Review request emails to users
+- [ ] Analytics dashboard
 
 ---
 
@@ -247,7 +268,33 @@ npm run dev
 
 ## Session Log
 
-### 2026-01-20 - MVP Infrastructure Complete
+### 2026-01-20 (Session 2) - Production Deploy + Feature Planning
+
+**Completed:**
+- Deployed to Vercel production at https://curricu.love
+- Set up Vercel env vars (Gemini, Convex, Clerk)
+- Created image scraping script (`scripts/scrape-images.ts`)
+- Ran image scraper: 70/216 curricula now have images
+- Moved "See Matching Curricula" CTA above the fold
+- Updated Gemini API key (old key was expired)
+
+**Known Issues:**
+- Local dev server caches old API key (needs `.next` cache clear + restart)
+- 146 curricula still need images (sites block scraping or no og:image)
+- Clerk using dev keys on production (fine for testing, need prod keys for launch)
+
+**Next Session - Browsable Database:**
+The app needs a full catalog view where users can:
+- Search curricula by name/keyword
+- Filter by philosophy, grade range, price tier
+- Sort by various criteria
+- View without taking the quiz first
+
+This is a significant feature that needs design + implementation.
+
+---
+
+### 2026-01-20 (Session 1) - MVP Infrastructure Complete
 
 **Completed:**
 - Created Convex project and deployed schema
@@ -261,8 +308,3 @@ npm run dev
 - Internal team testing
 - Voice review collection
 - User authentication
-
-**Next session:**
-- Deploy to Vercel
-- Test full flow with team
-- Image scraping for curricula

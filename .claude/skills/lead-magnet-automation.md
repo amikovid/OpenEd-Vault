@@ -8,7 +8,7 @@ End-to-end skill for launching "comment [KEYWORD] to get it" lead magnets.
 
 When you have lead magnet content ready and need to:
 1. Publish it to Notion
-2. Set up comment-to-DM automation
+2. Set up comment-to-DM automation (Instagram)
 3. Create social assets
 
 ---
@@ -17,32 +17,16 @@ When you have lead magnet content ready and need to:
 
 ### Step 1: Publish to Notion
 
-**Tool:** Rube MCP with `NOTION_ADD_MULTIPLE_PAGE_CONTENT`
+**Method:** Direct Notion API calls (see `/.claude/skills/notion-publisher.md`)
 
-**Parent page ID:** `28cafe52-ef59-802b-8648-d4c0a3d51672` (LEAD MAGNET)
+**Parent page ID:** `8eea70ee-9462-4ccd-9603-536ef5021a7c` (Lead Magnet Templates)
 
 **Process:**
-1. Create page under parent
-2. Add content in batches (~25 blocks per call)
-3. Use block types: `heading_2`, `heading_3`, `paragraph`, `quote`, `divider`
+1. Create page under parent using POST to `/v1/pages`
+2. Add content in batches using PATCH to `/v1/blocks/{page_id}/children`
+3. Use block types: `heading_2`, `heading_3`, `paragraph`, `quote`, `callout`, `bulleted_list_item`, `divider`
 
-**Constraints:**
-- Max 100 blocks per API call
-- Max 2000 characters per text block
-- Markdown auto-parses: **bold**, *italic*, [links](url)
-
-**Block format:**
-```json
-{
-  "parent_block_id": "page_id_here",
-  "content_blocks": [
-    {"content": "Section Title", "block_property": "heading_2"},
-    {"content": "Body text with **bold**.", "block_property": "paragraph"},
-    {"content": "Script text to say out loud.", "block_property": "quote"},
-    {"content": "", "block_property": "divider"}
-  ]
-}
-```
+**API Token:** Stored in `.mcp.json` under `notion.env.NOTION_API_KEY`
 
 ---
 
@@ -64,68 +48,95 @@ Paste the public URL here when ready.
 
 ---
 
-### Step 3: Set Up ManyChat Automation
+### Step 3: Set Up ManyChat Automation (Instagram)
+
+**IMPORTANT:** Instagram requires user engagement before you can send links. The flow must be:
+1. User comments keyword
+2. Bot asks them to reply
+3. User replies
+4. Bot sends the link
 
 **PROMPT USER with full instructions + copy:**
 
 ```
 Set up the ManyChat automation:
 
-1. Go to manychat.com → Automation → + New Automation
+1. Go to manychat.com > Automation > + New Automation
 
 2. NAME: [KEYWORD] Lead Magnet
 
 3. TRIGGER:
    - Click "Add Trigger"
-   - Select "Instagram" → "Comments"
+   - Select "Instagram" > "Comments"
    - Condition: "Comment contains keyword"
    - Keyword: [KEYWORD]
    - Case insensitive: ON
 
-4. ACTION:
-   - Click "Add Action" → "Send Message"
-   - Message type: Text
-   - Paste this message:
+4. FIRST MESSAGE (no link yet):
+   [INSERT MESSAGE 1 BELOW]
 
----
-[DM MESSAGE - INSERT BELOW]
----
+5. ADD CONDITION: Wait for Reply
+   - Add "Wait for Reply" step
+   - This captures their engagement
 
-5. Click "Publish" (top right) to set automation LIVE
+6. SECOND MESSAGE (after reply):
+   [INSERT MESSAGE 2 BELOW]
 
-The automation is now active. When someone comments [KEYWORD] on any post, they'll receive the DM automatically.
+7. Click "Publish" (top right)
 ```
 
-**DM Message Template:**
+---
+
+### Message Templates
+
+**Message 1 (engagement prompt):**
 ```
-Here are your [SHORT_DESCRIPTION]:
+Hey! I'd love to send you [SHORT_DESCRIPTION]. Reply YES and I'll send it right over.
+```
+
+**Message 2 (deliver content + email ask):**
+```
+Here you go!
 
 [PUBLIC_NOTION_URL]
 
-From OpenEd
+[BRIEF_DESCRIPTION_OF_CONTENTS]
+
+Quick question - what's the best email to send you more resources like this? We share stuff we don't post publicly.
+```
+
+**Message 3 (after email provided):**
+```
+Got it! You'll hear from us soon. [OPTIONAL_EXTRA_CTA]
 ```
 
 ---
 
 ### Step 4: Create Social Assets
 
-Generate caption for the Reel/post.
-
 **Caption Template:**
 ```
-[Hook - one line that complements the video]
+[Hook - speaks to the pain point]
 
-[Value prop - what they're getting, 1-2 lines]
+[What they're getting - 3-4 bullet points with arrows]
 
-Comment [KEYWORD] and we'll send it.
+Comment [KEYWORD] and I'll send it to your DMs.
 ```
 
-**Hashtags:**
+**Example:**
 ```
-#homeschool #homeschoolmom #homeschooling #alternativeeducation #homeschoollife
+Is your child struggling with reading?
+
+Here's a free guide with:
+→ 3 questions to know if it's a real problem
+→ The "4th grade cliff" (and why early matters)
+→ Free tools that actually work
+→ When to suspect dyslexia
+
+Comment READING and I'll send it to your DMs.
 ```
 
-Save to: `Studio/Lead Magnet Project/Quick Guides/[Name]-Social-Assets.md`
+Save to: `Studio/Lead Magnet Project/[Name]-Social-Assets.md`
 
 ---
 
@@ -135,11 +146,13 @@ Save to: `Studio/Lead Magnet Project/Quick Guides/[Name]-Social-Assets.md`
 ```
 Ready to launch:
 
-1. Post your Reel with the caption
+1. Post your Reel/post with the caption
 2. Test: Comment [KEYWORD] on the post from another account
-3. Verify: DM arrives with the correct link
+3. Verify: Bot asks for reply
+4. Reply YES
+5. Verify: DM arrives with the correct link
 
-Confirm when the test DM is received.
+Confirm when the test is complete.
 ```
 
 ---
@@ -150,45 +163,15 @@ Confirm when the test DM is received.
 ## Lead Magnet: [NAME]
 Keyword: [KEYWORD]
 
-- [ ] Content created (markdown)
-- [ ] Notion page created via Rube MCP
+- [ ] Content created
+- [ ] Notion page created via direct API
 - [ ] Notion page made PUBLIC
 - [ ] Public URL obtained
-- [ ] ManyChat automation created
-- [ ] DM message configured with public URL
+- [ ] ManyChat automation created (2-step: engage then deliver)
+- [ ] DM messages configured
 - [ ] Caption created
-- [ ] Reel posted
-- [ ] Test: Commented keyword, received DM
-```
-
----
-
-## Example: Confidence Scripts
-
-**Keyword:** SCRIPTS
-
-**Notion page ID:** `2e7afe52-ef59-81c5-b52a-c4a563f74808`
-
-**DM message:**
-```
-Here are your scripts for the 7 conversations you've been dreading.
-
-Word-for-word responses for when family and friends question your homeschool:
-
-[PUBLIC_URL]
-
-From OpenEd
-```
-
-**Caption:**
-```
-The hardest part isn't the teaching. You're already their teacher.
-
-The hardest part is the awkward conversations with the doubters.
-
-We put together scripts you can use to handle those conversations.
-
-Comment SCRIPTS and we'll send them.
+- [ ] Post/Reel published
+- [ ] Test: Commented keyword, replied, received DM
 ```
 
 ---
@@ -197,9 +180,17 @@ Comment SCRIPTS and we'll send them.
 
 | Page | ID |
 |------|-----|
-| LEAD MAGNET parent | `28cafe52-ef59-802b-8648-d4c0a3d51672` |
+| Lead Magnet Templates | `8eea70ee-9462-4ccd-9603-536ef5021a7c` |
+| Reading Guide | `2eeafe52-ef59-814d-a410-fe0583953011` |
 | Confidence Scripts | `2e7afe52-ef59-81c5-b52a-c4a563f74808` |
 
 ---
 
-*Created: 2026-01-13*
+## Related Skills
+
+- `/.claude/skills/notion-publisher.md` - Direct API calls for Notion publishing
+- `lead-magnet-generator.md` - Strategy and frameworks for creating lead magnets
+
+---
+
+*Updated: 2026-01-20*

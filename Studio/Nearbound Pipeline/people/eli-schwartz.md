@@ -7,9 +7,9 @@ type:
 guest_contributor_potential: medium
 podcast_prospect: true
 
-x_twitter: null
+x_twitter: "@5le"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/schwartze/"
 youtube: null
 newsletter: null
 website: null

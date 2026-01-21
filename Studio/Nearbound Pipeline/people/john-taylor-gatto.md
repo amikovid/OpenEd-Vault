@@ -7,7 +7,7 @@ type:
 guest_contributor_potential: null
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@realjohngatto"
 x_followers: null
 linkedin: null
 youtube: null

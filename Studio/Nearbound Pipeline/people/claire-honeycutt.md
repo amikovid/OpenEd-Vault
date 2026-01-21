@@ -7,9 +7,9 @@ type:
 guest_contributor_potential: high
 podcast_prospect: true
 
-x_twitter: null
+x_twitter: "@HippyMomPhD"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/claire-honeycutt-5b131621/"
 youtube: null
 newsletter: null
 website: null

@@ -7,9 +7,9 @@ type:
 guest_contributor_potential: medium
 podcast_prospect: true
 
-x_twitter: null
+x_twitter: "@ChadAldeman"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/chad-aldeman-a8a7989/"
 youtube: null
 newsletter: null
 website: null

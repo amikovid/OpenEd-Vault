@@ -86,9 +86,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Sanitize text for JSON (remove problematic characters)
-    const sanitize = (text: string | undefined | null): string => {
+    const sanitize = (text: string | object | undefined | null): string => {
       if (!text) return "";
-      return text
+      // Handle objects (like openedInsight with {quote, synthesis, etc.})
+      if (typeof text === "object") {
+        const obj = text as Record<string, unknown>;
+        // Try to extract useful text from object
+        const textValue = obj.synthesis || obj.quote || obj.summary || "";
+        return sanitize(String(textValue));
+      }
+      return String(text)
         .replace(/[\u0000-\u001F\u007F-\u009F]/g, " ") // Control characters
         .replace(/\\/g, "\\\\") // Backslashes
         .replace(/"/g, '\\"') // Quotes

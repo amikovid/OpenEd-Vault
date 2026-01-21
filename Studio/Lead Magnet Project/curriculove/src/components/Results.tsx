@@ -54,8 +54,8 @@ export default function Results({ result, onContinue }: ResultsProps) {
 
       <div className="flex-1 px-6 pb-6 overflow-auto">
         {/* Primary Result Card */}
-        <div className="card-elevated p-6 mb-6 animate-slide-up">
-          <div className="text-center mb-6">
+        <div className="card-elevated p-6 mb-4 animate-slide-up">
+          <div className="text-center mb-4">
             <span className="chip-primary mb-3 inline-block">
               <span className="material-symbols-outlined text-sm mr-1">star</span>
               Primary Match
@@ -67,6 +67,15 @@ export default function Results({ result, onContinue }: ResultsProps) {
               {result.primary.description}
             </p>
           </div>
+
+          {/* CTA Button - Above the fold */}
+          <button
+            onClick={onContinue}
+            className="w-full py-4 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-[var(--background-dark)] rounded-2xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98] mb-4"
+          >
+            <span>See Matching Curricula</span>
+            <span className="material-symbols-outlined text-xl">arrow_forward</span>
+          </button>
 
           {/* Primary score bar */}
           <div className="bg-[var(--surface-secondary)] rounded-xl p-4">
@@ -172,18 +181,8 @@ export default function Results({ result, onContinue }: ResultsProps) {
           </div>
         </div>
 
-        {/* CTA */}
-        <button
-          onClick={onContinue}
-          className="w-full py-4 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-[var(--background-dark)] rounded-2xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98]"
-        >
-          <span>See Matching Curricula</span>
-          <span className="material-symbols-outlined text-xl">arrow_forward</span>
-        </button>
-
-        <p className="text-center text-xs text-[var(--foreground-muted)] mt-4 pb-4">
-          Based on your answers, we'll show curricula that fit your style
-        </p>
+        {/* Bottom spacer */}
+        <div className="pb-4" />
       </div>
     </div>
   );

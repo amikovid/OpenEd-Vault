@@ -8,9 +8,9 @@ type:
 guest_contributor_potential: high
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@ben_m_somers"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/benjamin-somers-06612b10a/"
 youtube: null
 newsletter: null
 website: null

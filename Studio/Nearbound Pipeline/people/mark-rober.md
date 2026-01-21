@@ -7,9 +7,9 @@ type:
 guest_contributor_potential: low
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@MarkRober"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/mark-rober-a56a6b99/"
 youtube: null
 newsletter: null
 website: null

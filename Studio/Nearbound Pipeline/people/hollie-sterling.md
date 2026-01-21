@@ -7,9 +7,9 @@ type:
 guest_contributor_potential: high
 podcast_prospect: true
 
-x_twitter: null
+x_twitter: "@holliesterling"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/holliesterling/"
 youtube: null
 newsletter: null
 website: null

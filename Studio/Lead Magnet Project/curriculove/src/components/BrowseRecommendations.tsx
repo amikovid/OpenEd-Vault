@@ -56,23 +56,69 @@ export default function BrowseRecommendations({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPhilosophy, setSelectedPhilosophy] = useState<string>("all");
   const [selectedPriceTier, setSelectedPriceTier] = useState<string>("all");
-  const [viewMode, setViewMode] = useState<"swipe" | "list">("swipe");
+  const [selectedGradeRange, setSelectedGradeRange] = useState<string>("all");
+  const [openEdOnly, setOpenEdOnly] = useState(false);
+  const [sortBy, setSortBy] = useState<string>("name");
+  const [viewMode, setViewMode] = useState<"swipe" | "list">("list");
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
+  // Grade range options
+  const gradeRanges = [
+    { value: "all", label: "All Grades" },
+    { value: "prek", label: "PreK" },
+    { value: "k-5", label: "K-5th" },
+    { value: "6-8", label: "6th-8th" },
+    { value: "9-12", label: "9th-12th" },
+  ];
+
+  // Check if curriculum matches grade range filter
+  const matchesGrade = (gradeRange: string, filter: string): boolean => {
+    if (filter === "all") return true;
+    const gr = gradeRange.toLowerCase();
+    if (filter === "prek") return gr.includes("prek") || gr.includes("pre-k");
+    if (filter === "k-5") return gr.includes("k") || gr.includes("1") || gr.includes("2") || gr.includes("3") || gr.includes("4") || gr.includes("5");
+    if (filter === "6-8") return gr.includes("6") || gr.includes("7") || gr.includes("8") || gr.includes("middle");
+    if (filter === "9-12") return gr.includes("9") || gr.includes("10") || gr.includes("11") || gr.includes("12") || gr.includes("high");
+    return true;
+  };
+
   // Filter curricula based on search and filters
-  const filteredCurricula = allCurricula.filter(curriculum => {
-    const matchesSearch = searchQuery === "" ||
-      curriculum.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      curriculum.description.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredCurricula = allCurricula
+    .filter(curriculum => {
+      const matchesSearch = searchQuery === "" ||
+        curriculum.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        curriculum.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesPhilosophy = selectedPhilosophy === "all" ||
-      curriculum.philosophyTags.includes(selectedPhilosophy);
+      const matchesPhilosophy = selectedPhilosophy === "all" ||
+        curriculum.philosophyTags.includes(selectedPhilosophy);
 
-    const matchesPriceTier = selectedPriceTier === "all" ||
-      curriculum.priceTier === selectedPriceTier;
+      const matchesPriceTier = selectedPriceTier === "all" ||
+        curriculum.priceTier === selectedPriceTier;
 
-    return matchesSearch && matchesPhilosophy && matchesPriceTier;
-  });
+      const matchesGradeRange = matchesGrade(curriculum.gradeRange || "", selectedGradeRange);
+
+      const matchesOpenEd = !openEdOnly || curriculum.isOpenEdVendor;
+
+      return matchesSearch && matchesPhilosophy && matchesPriceTier && matchesGradeRange && matchesOpenEd;
+    })
+    .sort((a, b) => {
+      switch (sortBy) {
+        case "name":
+          return a.name.localeCompare(b.name);
+        case "name-desc":
+          return b.name.localeCompare(a.name);
+        case "price-low":
+          const priceOrder = { "$": 1, "$$": 2, "$$$": 3, "$$$$": 4, "": 5 };
+          return (priceOrder[a.priceTier as keyof typeof priceOrder] || 5) - (priceOrder[b.priceTier as keyof typeof priceOrder] || 5);
+        case "price-high":
+          const priceOrderDesc = { "$": 1, "$$": 2, "$$$": 3, "$$$$": 4, "": 5 };
+          return (priceOrderDesc[b.priceTier as keyof typeof priceOrderDesc] || 5) - (priceOrderDesc[a.priceTier as keyof typeof priceOrderDesc] || 5);
+        case "vendor":
+          return (b.isOpenEdVendor ? 1 : 0) - (a.isOpenEdVendor ? 1 : 0);
+        default:
+          return 0;
+      }
+    });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [swipeDirection, setSwipeDirection] = useState<"left" | "right" | null>(null);
@@ -141,7 +187,7 @@ export default function BrowseRecommendations({
   // Reset current index when filters change
   useEffect(() => {
     setCurrentIndex(0);
-  }, [searchQuery, selectedPhilosophy, selectedPriceTier]);
+  }, [searchQuery, selectedPhilosophy, selectedPriceTier, selectedGradeRange, openEdOnly, sortBy]);
 
   const current = filteredCurricula[currentIndex];
 
@@ -170,7 +216,7 @@ export default function BrowseRecommendations({
       </header>
 
       {/* Search and Filters */}
-      <div className="px-6 py-3 space-y-3 bg-[var(--background)]">
+      <div className="px-4 py-3 space-y-3 bg-[var(--background)]">
         {/* Search Bar */}
         <div className="relative">
           <input
@@ -178,14 +224,21 @@ export default function BrowseRecommendations({
             placeholder="Search curricula..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 pl-10 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-[var(--foreground)] placeholder-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+            className="w-full px-4 py-3 pl-10 bg-[var(--surface)] border border-[var(--border)] rounded-xl text-[var(--foreground)] placeholder-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
-          <span className="material-symbols-outlined absolute left-3 top-2.5 text-[var(--foreground-muted)]">search</span>
+          <span className="material-symbols-outlined absolute left-3 top-3.5 text-[var(--foreground-muted)]">search</span>
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute right-3 top-3.5 text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
+            >
+              <span className="material-symbols-outlined text-xl">close</span>
+            </button>
+          )}
         </div>
 
-        {/* Filters and View Toggle */}
-        <div className="flex gap-2 items-center">
-          {/* Philosophy Filter */}
+        {/* Filter Row 1: Philosophy + Grade */}
+        <div className="flex gap-2">
           <select
             value={selectedPhilosophy}
             onChange={(e) => setSelectedPhilosophy(e.target.value)}
@@ -197,34 +250,80 @@ export default function BrowseRecommendations({
             ))}
           </select>
 
-          {/* Price Tier Filter */}
+          <select
+            value={selectedGradeRange}
+            onChange={(e) => setSelectedGradeRange(e.target.value)}
+            className="flex-1 px-3 py-2 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-[var(--foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+          >
+            {gradeRanges.map(({ value, label }) => (
+              <option key={value} value={value}>{label}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Filter Row 2: Price + Sort */}
+        <div className="flex gap-2">
           <select
             value={selectedPriceTier}
             onChange={(e) => setSelectedPriceTier(e.target.value)}
             className="flex-1 px-3 py-2 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-[var(--foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           >
             <option value="all">All Prices</option>
-            <option value="$">$ (Under $100)</option>
-            <option value="$$">$$ ($100-300)</option>
-            <option value="$$$">$$$ ($300-600)</option>
-            <option value="$$$$">$$$$ ($600+)</option>
+            <option value="$">$ Budget</option>
+            <option value="$$">$$ Mid-range</option>
+            <option value="$$$">$$$ Premium</option>
+            <option value="$$$$">$$$$ Luxury</option>
           </select>
 
-          {/* View Toggle */}
-          <button
-            onClick={() => setViewMode(viewMode === "swipe" ? "list" : "swipe")}
-            className="p-2 bg-[var(--surface)] border border-[var(--border)] rounded-lg hover:bg-[var(--primary)] hover:text-white transition-colors"
-            title={viewMode === "swipe" ? "Switch to list view" : "Switch to swipe view"}
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="flex-1 px-3 py-2 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-[var(--foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           >
-            <span className="material-symbols-outlined">
-              {viewMode === "swipe" ? "list" : "swipe"}
+            <option value="name">Sort: A-Z</option>
+            <option value="name-desc">Sort: Z-A</option>
+            <option value="price-low">Price: Low-High</option>
+            <option value="price-high">Price: High-Low</option>
+            <option value="vendor">OpenEd Partners First</option>
+          </select>
+        </div>
+
+        {/* Toggle Row: OpenEd Only + View Mode */}
+        <div className="flex items-center justify-between">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={openEdOnly}
+              onChange={(e) => setOpenEdOnly(e.target.checked)}
+              className="w-4 h-4 accent-[var(--primary)]"
+            />
+            <span className="text-sm text-[var(--foreground-secondary)]">
+              OpenEd Partners Only ({allCurricula.filter(c => c.isOpenEdVendor).length})
             </span>
-          </button>
+          </label>
+
+          <div className="flex gap-1 bg-[var(--surface)] border border-[var(--border)] rounded-lg p-1">
+            <button
+              onClick={() => setViewMode("list")}
+              className={`p-1.5 rounded transition-colors ${viewMode === "list" ? "bg-[var(--primary)] text-white" : "text-[var(--foreground-muted)]"}`}
+              title="List view"
+            >
+              <span className="material-symbols-outlined text-lg">list</span>
+            </button>
+            <button
+              onClick={() => setViewMode("swipe")}
+              className={`p-1.5 rounded transition-colors ${viewMode === "swipe" ? "bg-[var(--primary)] text-white" : "text-[var(--foreground-muted)]"}`}
+              title="Swipe view"
+            >
+              <span className="material-symbols-outlined text-lg">swipe</span>
+            </button>
+          </div>
         </div>
 
         {/* Results Count */}
         <p className="text-[var(--foreground-secondary)] text-xs">
-          Showing {filteredCurricula.length} of {allCurricula.length} curricula
+          {filteredCurricula.length} of {allCurricula.length} curricula
+          {searchQuery && ` matching "${searchQuery}"`}
         </p>
       </div>
 

@@ -8,9 +8,9 @@ type:
 guest_contributor_potential: medium
 podcast_prospect: true
 
-x_twitter: null
+x_twitter: "@William_Blake"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/michael-patrick-gibson-56b6973/"
 youtube: null
 newsletter: null
 website: null

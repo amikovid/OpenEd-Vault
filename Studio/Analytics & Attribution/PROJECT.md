@@ -71,7 +71,8 @@ When this is done, every marketing activity can be traced to revenue impact.
 | **Google Analytics 4** | Full | ✅ Working (tested 2026-01-20) |
 | **Google Search Console** | Full | ✅ Working (tested 2026-01-20) |
 | **DataForSEO** | Full | ✅ Working (tested 2026-01-20) |
-| **YouTube Data API** | Not enabled | ⏳ Needs setup (see below) |
+| **YouTube Data API** | Full | ✅ Working (tested 2026-01-20) |
+| **Meta (FB + IG)** | Full | ✅ Working (tested 2026-01-20) |
 | **Webflow** | Full | Active |
 | **HubSpot** | Partial? | ⏳ Access request pending |
 | **Enrollment system** | Unknown | Need to identify |
@@ -87,17 +88,19 @@ All modules live in `../SEO Content Production/seomachine/data_sources/modules/`
 | Google Analytics 4 | `google_analytics.py` | ✅ Working |
 | Google Search Console | `google_search_console.py` | ✅ Working |
 | DataForSEO | `dataforseo.py` | ✅ Working |
-| YouTube | `youtube.py` | ⏳ API needs enabling |
+| YouTube | `youtube.py` | ✅ Working |
+| Meta (FB + IG) | `meta.py` | ✅ Working |
 
-### YouTube Setup (One-Time)
+### YouTube Setup ✅ Complete
 
-1. Go to [Google Cloud Console → YouTube Data API](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview?project=1042105310712)
-2. Click "Enable"
-3. Add your channel ID to `.env`:
-   ```
-   YOUTUBE_CHANNEL_ID=UCxxxxxxxxxx
-   ```
-4. Find channel ID: Go to YouTube channel → About → Share → Copy channel ID
+Channel ID: `UCzfHIDt2uKzwEclA94tom_Q` (OpenEd / Unstandard Education)
+- 1,160 subscribers | 301,761 total views | 497 videos
+
+### Meta Setup ✅ Complete
+
+- **Facebook:** OpenEd HQ (5,146 followers)
+- **Instagram:** @openedhq (2,200 followers, 547 posts)
+- Token expires ~60 days - regenerate via Graph API Explorer
 
 ### Weekly SEO Report
 

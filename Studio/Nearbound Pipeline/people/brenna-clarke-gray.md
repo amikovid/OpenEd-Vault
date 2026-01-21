@@ -8,7 +8,7 @@ type:
 guest_contributor_potential: high
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@brennacgray"
 x_followers: null
 linkedin: null
 youtube: null

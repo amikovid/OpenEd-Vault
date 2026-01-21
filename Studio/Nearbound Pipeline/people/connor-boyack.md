@@ -9,9 +9,9 @@ type:
 guest_contributor_potential: medium
 podcast_prospect: false
 
-x_twitter: null
+x_twitter: "@cboyack"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/cboyack/"
 youtube: null
 newsletter: null
 website: null
