@@ -4,13 +4,13 @@ description: Three-pillar retargeting campaign to recover lost pipeline and maxi
 status: active
 parent: OpenEd Vault
 created: 2026-01-07
-updated: 2026-01-07
+updated: 2026-01-21
 ---
 
 # Retargeting Strategy: FY26-27
 
 **Primary Goal:** Recover lost pipeline and maximize ROI by re-engaging high-intent audiences
-**Status:** Planning - Pre-launch setup phase
+**Status:** Pillar 1 creative complete - awaiting campaign setup
 **Priority:** High (Q1 2026 enrollment cycle)
 
 ---
@@ -19,10 +19,11 @@ updated: 2026-01-07
 
 **What is this?** A three-pillar retargeting strategy to convert non-enrollees, capture website visitors, and scale via lookalikes.
 
-**Current phase:** Foundation setup (January - February 2026)
+**Current phase:** Pillar 1 creative done, campaign setup next
 
 **Key dates:**
-- January 19-31: Pre-launch setup
+- ~~January 19-31: Pre-launch setup~~
+- February 9-15: Build Pillar 1 ads
 - February 10: Enrollment tasks open
 - February 16: Launch Pillar 1
 - March 1: Launch Pillars 2 & 3
@@ -33,36 +34,49 @@ updated: 2026-01-07
 
 ```
 Retargeting Strategy FY26-27/
-├── PROJECT.md ← You are here (master context)
-├── IMPLEMENTATION-CHECKLIST.md ← Task tracking by phase
+├── PROJECT.md                      ← You are here (master context)
+├── Pillar-1-Creative-Proposals.md  ← 20 concepts with all ad elements (DONE)
+├── Pillar-1-Handoff-Notes-Ella.md  ← Campaign setup checklist & open questions
 │
-├── Audiences/
-│   ├── pillar-1-known-leads.md ← 11,380 non-enrollees breakdown
-│   ├── pillar-2-website-visitors.md ← Digital behavior audiences
-│   └── pillar-3-lookalikes.md ← 17,000+ enrolled family lookalikes
-│
-├── Creative/
-│   ├── CREATIVE-MATRIX.md ← All concepts by pillar
-│   ├── pillar-1-concepts/ ← Known lead recovery creative
-│   ├── pillar-2-concepts/ ← Website visitor creative
-│   └── pillar-3-concepts/ ← Lookalike audience creative
-│
-├── Technical/
-│   ├── meta-pixel-audit.md
-│   ├── google-tag-audit.md
-│   └── custom-audience-setup.md
-│
-└── Reports/
-    └── (weekly performance reports)
+└── (Future)
+    ├── Pillar-2-Creative-Proposals.md
+    └── Pillar-3-Creative-Proposals.md
 ```
+
+**Related:** 100 ad concepts in `Studio/Meta Ads/` (50-Ad-Concepts-January-2026.md, 50-Ad-Concepts-V2-January-2026.md)
 
 ---
 
-## Strategic Overview
+## Progress Summary
 
-### Objective
+### Pillar 1: Known Lead Recovery
 
-Recover lost pipeline and maximize ROI by re-engaging high-intent audiences who didn't convert, while building sustainable retargeting infrastructure for ongoing optimization.
+| Item | Status |
+|------|--------|
+| Creative concepts (20) | Done |
+| Standardized primary text (4 options) | Done |
+| Video testimonials identified | Done (Cassie, Brettani) |
+| Handoff notes for Ella | Done |
+| Lead list pull | Pending |
+| Meta Custom Audience setup | Pending |
+| Campaign build | Week of Feb 9 |
+| Launch | Feb 16 |
+
+### Pillar 2: Website Visitors
+
+| Item | Status |
+|------|--------|
+| Creative concepts | Not started |
+| Pixel validation | Pending |
+| Launch | March 1 |
+
+### Pillar 3: Lookalike Audiences
+
+| Item | Status |
+|------|--------|
+| Creative concepts | Not started |
+| Enrolled family list for lookalikes | Pending |
+| Launch | March 1 |
 
 ---
 
@@ -75,11 +89,21 @@ Recover lost pipeline and maximize ROI by re-engaging high-intent audiences who 
 **Audiences:**
 - 11,380 interested or applied non-enrollees from SY25-26 (6,878) and MY26 (4,502)
 - Single unified Meta Custom Audience for simplified targeting
-- Sequential creative strategy addresses all funnel stages
 
-**Tactics:**
-- Email nurture campaigns
-- Meta Custom Audience retargeting (one audience, multiple creative variations)
+**Creative ready:** 20 concepts across 11 formats
+- 6 text-only static
+- 3 text-over-video
+- 2 video testimonials (assets exist)
+- 2 split-screen comparisons
+- 2 carousels
+- Plus: Notes App, Reddit post, meme, testimonial card, UGC, ad reaction
+
+**Recommended starting set:**
+1. We Saved Your Spot (text-only)
+2. Cassie Shepherd (video testimonial)
+3. Same Kid. Different Results. (text-only)
+4. Anxiety Before/After (split-screen)
+5. Drake Meme (pattern interrupt)
 
 ---
 
@@ -92,10 +116,15 @@ Recover lost pipeline and maximize ROI by re-engaging high-intent audiences who 
 - Ad clickers and video viewers
 - Social media engagers
 
-**Tactics:**
-- Meta Pixel retargeting
-- Google Display/YouTube remarketing
-- Sequential messaging based on engagement level
+**Creative needed:** Different messaging than Pillar 1 - these people never started an application. No "finish your application" language.
+
+**Concept ideas (from Melissa's notes):**
+1. Still Have Questions?
+2. Is This Right For You?
+3. Get Started in 10 Minutes
+4. Other Families Just Like Yours
+
+**Status:** Creative not started - adapt from 100-concept library when ready
 
 ---
 
@@ -105,82 +134,59 @@ Recover lost pipeline and maximize ROI by re-engaging high-intent audiences who 
 
 **Audiences:**
 - Lookalike audiences built from 17,000+ enrolled families
+- 1% lookalikes for quality, 3-5% for scale
 
-**Tactics:**
-- 1% lookalikes for quality
-- 3-5% lookalikes for scale
-- Continuous optimization based on conversion data
+**Creative needed:** Awareness-building for cold-ish traffic. Can pull from existing Meta Ads concepts.
 
----
-
-## Phased Implementation
-
-### Phase 1: Foundation (January - February 2026)
-
-#### January 19-31: Pre-Launch Setup
-- [ ] Technical audit: Meta Pixel, Google Tag validation
-- [ ] Pull Lists
-- [ ] Set up Meta Custom Audience structure
-- [ ] Develop 4-6 creative variations (video + static)
-
-#### February 1-15: Final Preparation
-- [ ] Upload lists to Meta Custom Audiences
-- [ ] Configure campaign structure
-- [ ] Set up email nurture sequences
-- [ ] February 10: Enrollment tasks open
-
-#### February 16: Launch
-- [ ] Launch Pillar 1 campaigns (11,380 non-enrollees)
-
-#### March 1: Full Launch
-- [ ] Launch Pillar 2 (website visitor retargeting)
-- [ ] Launch Pillar 3 (lookalike audiences)
-
----
-
-## Creative Concepts
-
-### Pillar 1: Known Lead Recovery
-
-*For people who filled out a form but did not complete enrollment.*
-
-**Core rotation:**
-1. We Saved Your Spot
-2. Join 17,000+ Families
-3. Parent Testimonial - Why We Enrolled
-4. How It Works
-5. Student Success Story
-6. Apply in 10 Minutes
-        
-**Rotation concepts (introduce if fatigue detected):**
-- What You're Missing
-- Is This Right For My Kid?
-- Myth vs Reality
-- What Parents Say
-- A Day in Our Life
-
----
-
-### Pillar 2: Website Visitors
-
-*For people who visited the site but didn't apply.*
-
-1. Still Have Questions?
-2. Is This Right For You?
-3. Get Started in 10 Minutes
-4. Other Families Just Like Yours
-
----
-
-### Pillar 3: Lookalike Audiences
-
-*For cold-ish traffic similar to enrolled families.*
-
+**Concept ideas (from Melissa's notes):**
 1. Here's Your Sign
-2. Revised Notes Concept
-3. Instagram Comment
-4. TBD
-5. TBD
+2. Notes App format
+3. Instagram Comment style
+
+**Status:** Creative not started - adapt from 100-concept library when ready
+
+---
+
+## Open Questions (for Ella/Team)
+
+1. **Landing page** - Is there a retargeting-specific page that acknowledges they started? Would convert better than standard application.
+
+2. **Email nurture** - Who's writing the sequences that complement these ads?
+
+3. **Video b-roll** - Some concepts need footage of parent/child learning together. Do we have this?
+
+4. **Pillars 2 & 3 creative** - Need to adapt concepts before March 1. Different messaging than Pillar 1.
+
+---
+
+## Dependencies & Blockers
+
+- [x] Creative concepts for Pillar 1
+- [ ] Access to historical lead lists (SY25-26, MY26)
+- [ ] Meta Pixel properly configured
+- [ ] Upload lists to Meta Custom Audiences
+- [ ] Email nurture sequences written
+- [ ] Creative concepts for Pillars 2 & 3
+- [ ] Video b-roll for text-over-video concepts
+
+---
+
+## Next Steps
+
+### Immediate (This Week)
+1. Melissa reviews Pillar 1 creative proposals
+2. Ella begins campaign setup prep (see handoff notes)
+3. Confirm who pulls lead lists and when
+
+### Before Feb 16
+1. Build 5 Pillar 1 ads in Meta Ads Manager
+2. Upload lead lists to Custom Audiences
+3. Email nurture sequences ready
+
+### Before March 1
+1. Develop Pillar 2 creative (website visitors)
+2. Develop Pillar 3 creative (lookalikes)
+3. Set up additional campaigns
 
 ---
 
@@ -196,24 +202,4 @@ Recover lost pipeline and maximize ROI by re-engaging high-intent audiences who 
 
 ---
 
-## Dependencies & Blockers
-
-- [ ] Access to historical lead lists (SY25-26, MY26)
-- [ ] Meta Pixel properly configured
-- [ ] Google Tag properly configured
-- [ ] Creative assets (video + static)
-- [ ] Email nurture sequences written
-- [ ] CRM reporting set up
-
----
-
-## Next Steps
-
-1. Complete technical audit (Meta Pixel, Google Tag)
-2. Pull and validate lead lists
-3. Begin creative development for Pillar 1
-4. Set up campaign structure in Meta Ads Manager
-
----
-
-*Last Updated: 2026-01-07*
+*Last Updated: 2026-01-21*

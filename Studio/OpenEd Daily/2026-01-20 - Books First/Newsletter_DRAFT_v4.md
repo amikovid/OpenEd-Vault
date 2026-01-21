@@ -6,7 +6,7 @@
 
 Greetings Eddies!
 
-Quick announcement before we dive in: our February Drop-In Tutoring schedule is live. Every Monday through Thursday at 1:00 pm MST, your student can join a virtual session for math skills, reading fluency, or homework help - all grade levels welcome. [Sign up here](#) to get the classroom link.
+Quick announcement before we dive in: our February Drop-In Tutoring schedule is live. Every Monday through Thursday at 1:00 pm MST, your student can join a virtual session for math skills, reading fluency, or homework help - all grade levels welcome. [Sign up here](#) to get the classroom linkYeah this is pretty good. If we can add Rachel Davy as an author to the author's CMS via the API, that would be great. And then walk me through the designer toggle while you draft.
 
 Now, onto the good stuff. Before the holidays, Ela sat down with Janssen Bradshaw for the [Open Ed Podcast](https://www.youtube.com/@OpenEducation). Janssen runs [Everyday Reading](https://everyday-reading.com/) and has over half a million followers on [Instagram](https://www.instagram.com/everydayreading) where she shares book recommendations for families. She also co-founded Savvy Learning, which is in our marketplace.
 
