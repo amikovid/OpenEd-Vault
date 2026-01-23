@@ -203,6 +203,14 @@ Mention the source by name EARLY in the blurb with a hyperlink woven naturally i
 
 The goal is conversational flow, not academic citation style.
 
+**Hyperlinking Rules:**
+When provided a link, always hyperlink it **in the body of the text** (never at the end). Link the **main action or subject** using only **2-3 key words max**.
+
+**Good:** "Ken Danford has been [running North Star](URL) since 1996..."
+**Bad:** "[Ken Danford has been running North Star, a physical community center where teens can legally homeschool](URL)"
+
+When multiple sources are provided with body text to reference, **hyperlink ALL links** where the referenced content is used. Don't let any provided link go unhyperlinked.
+
 ### Phase 6: QA & Finalization
 
 **Quality Checklist:**

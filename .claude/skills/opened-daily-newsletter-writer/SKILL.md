@@ -207,6 +207,17 @@ P.S. [Optional announcement]
 - ✅ `---` between sections
 - ✅ 500-800 words total
 
+### Hyperlinking Rules
+
+When provided a link, always hyperlink it **in the body of the text** (never at the end). Link the **main action or subject** using only **2-3 key words max**.
+
+**Good:** "A new [MIT study](URL) claims LLM users underperform..."
+**Good:** "Ken Danford has been [running North Star](URL) since 1996..."
+**Bad:** "A new MIT study claims LLM users underperform. (Link)"
+**Bad:** "[A new MIT study claims LLM users consistently underperform on cognitive tests](URL)"
+
+When multiple sources are provided with body text to reference, **hyperlink ALL links** where the referenced content is used in the newsletter. Don't let any provided link go unhyperlinked.
+
 ---
 
 ## Segment Archetypes

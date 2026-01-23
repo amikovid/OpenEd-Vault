@@ -1,151 +1,99 @@
 # OpenEd Tool Review Template
 
-## Frontmatter (Required)
-
-```yaml
----
-title_tag: "[Tool Name] Review: Pros, Cons, Pricing, Alternatives | OpenEd"
-meta_description: "Review of [Tool Name] for homeschooling. See pricing, key features, who it's best for, pros and cons, and parent feedback."
-slug: [tool-name]
-author: [Author Name]
-author_bio: "[One sentence about their homeschool approach]"
----
-```
+**Title Tag:** `[Tool Name] Review: Pros, Cons, Pricing, Alternatives | OpenEd`
+**Meta:** `Review of [Tool Name] for homeschooling. See pricing, key features, who it's best for, pros and cons, and parent feedback.`
 
 ---
 
-## Article Structure
+## Page Structure
 
-### H1: [Tool Name] Review
+### H1: [Tool Name] Review (page title - automatic)
 
-*Intro paragraph with quick context and primary intent*
+### Toggle 1: Teacher's Take
+**CMS Field:** `subject-content`
 
-**Voice:** Author's personal experience hook if available, otherwise neutral intro.
+- Author byline: *Reviewed by [Name], OpenEd Teacher*
+- Personal intro hook (1-2 paragraphs)
+- Weave in colleague quotes naturally ("My colleague Keely notes...")
+- **H2: Quick Verdict** - One paragraph summary
+- **H2: Who [Tool] Is Best For** - Bullet list
+- **H2: Who [Tool] May Not Fit** - Bullet list (honest)
 
----
+### Toggle 2: What Parents Say
+**CMS Field:** `teaching-format-content`
 
-### H2: Quick Verdict
+- External community quotes (blogs, forums)
+- Woven as prose, not stacked blockquotes
+- Link to source blogs
 
-One-paragraph summary + 3-5 bullet highlight list
+### Toggle 3: How It Works
+**CMS Field:** `pricing-content`
 
-**Voice:** Author's opinion. This is where their real take goes.
+- **H2: What [Tool] Covers** - Subjects, grade levels
+- **H2: [Tool] Materials** - What's included
+- **H2: [Tool] Lesson Flow** - Daily/weekly structure
+- **H2: Parent Involvement** - Time commitment
 
----
+### Toggle 4: Pricing
+**CMS Field:** `parent-involvement`
 
-### H2: Who It's Best For
+- **H2: [Tool] Pricing** - Costs, tiers
+- **H2: Cost-Saving Tips** - Bullet list
 
-- Age/grade bands
-- Learning styles  
-- Teaching time required
-- Budget fit
+### Toggle 5 (or Tab): FAQs & Alternatives
+**CMS Field:** `parent-feedback-content`
 
-**Voice:** Can blend author experience with factual info.
-
----
-
-### H2: What It Covers and How It Works
-
-- Scope and sequence
-- Delivery format
-- Support options
-
-**Voice:** Mostly factual/boilerplate. Can pull from official site.
-
----
-
-### H2: [Tool Name] Pricing
-
-- Price tiers
-- Refund policy
-- Discounts/promos
-
-**Voice:** Boilerplate. Research from official site.
+- **H2: [Tool] FAQs** - 4-6 common questions
+- **H2: Alternatives to [Tool]** - 3-5 options with internal links
 
 ---
 
-### H2: Pros and Cons of [Tool Name]
+## Webflow CMS Field Mapping
 
-**Pros:**
-- 3-7 bullets, skimmable
-
-**Cons:**
-- 3-7 bullets, skimmable
-
-**Voice:** Author's honest take. This is where podcast quotes shine.
-
----
-
-### H2: What Parents Say
-
-1-2 paragraph synthesis + selected quotes with attribution
-
-**Voice:** Quotes from podcast guests, community feedback. This is the gold.
+| Toggle Label | CMS Field | Content |
+|--------------|-----------|---------|
+| Teacher's Take | `subject-content` | Author intro, verdict, best for / not for |
+| What Parents Say | `teaching-format-content` | External quotes as prose |
+| How It Works | `pricing-content` | Coverage, materials, lesson flow, parent role |
+| Pricing | `parent-involvement` | Costs, savings tips |
+| FAQs & Alternatives | `parent-feedback-content` | Common questions + alternatives |
 
 ---
 
-### H2: Top Alternatives to [Tool Name]
-
-3-5 options with one-line positioning and internal links
-
-- [Alternative 1](/tools/alternative-1) — One-line positioning
-- [Alternative 2](/tools/alternative-2) — One-line positioning
-- [Alternative 3](/tools/alternative-3) — One-line positioning
-
-**Voice:** Boilerplate. Always link to internal tool pages where they exist.
-
----
-
-### H2: FAQs
-
-4-6 common questions using search phrasing:
-
-- Is [Tool Name] worth it?
-- What ages is [Tool Name] for?
-- How much does [Tool Name] cost?
-- Is [Tool Name] secular or religious?
-
-**Voice:** Factual answers, can incorporate author perspective.
-
----
-
-### H2: About This Review
-
-Short section: author byline + one-line methodology note.
-
-**Reviewed by:** [Name]
-*[One sentence bio]*
-
-**Voice:** Keep brief. Author bio comes from frontmatter.
-
----
-
-### CTAs
-
-- "Explore [Tool Name]" (external link)
-- "Compare [Tool Name] vs. [Alternative]" (internal link)
-
----
-
-## Content Priority
+## Source Priority
 
 | Section | Voice | Source |
 |---------|-------|--------|
-| Quick Verdict | Author | Podcast transcript |
-| Pros/Cons | Author | Podcast transcript |
-| What Parents Say | Quotes | Podcast transcript |
-| Who It's For | Mixed | Author + research |
-| What It Covers | Boilerplate | Official site |
-| Pricing | Boilerplate | Official site |
-| Alternatives | Boilerplate | Internal links |
-| FAQs | Mixed | Research + author |
+| Teacher's Take | Author | Slack quotes, podcast, interviews |
+| What Parents Say | External | Homeschool blogs, forums |
+| How It Works | Factual | Official site |
+| Pricing | Factual | Official site |
+| FAQs & Alternatives | Mixed | Research + author perspective |
 
 ---
 
 ## Workflow
 
-1. **Pull podcast transcript sections** for the tool
-2. **Identify author** (guest who discussed it)
-3. **Draft Quick Verdict + Pros/Cons** in their voice
-4. **Fill boilerplate sections** from research
-5. **Send to author** via Google Docs for approval
-6. **Publish** with byline to Webflow
+1. **Mine Slack** for tool mentions and teacher quotes
+2. **Identify primary author** (teacher with most quotes/experience)
+3. **Draft Teacher's Take** weaving in colleague voices
+4. **Source external quotes** for What Parents Say
+5. **Fill How It Works + Pricing** from official site
+6. **Write FAQs** using search-phrasing questions
+7. **Push to Webflow** via API
+8. **Publish**
+
+---
+
+## Anti-AI Writing Checklist
+
+- [ ] No correlative constructions ("X isn't Y - it's Z")
+- [ ] No em dashes (use hyphens with spaces - like this)
+- [ ] No: delve, comprehensive, crucial, leverage, landscape, navigate
+- [ ] No: "The best part?", "Here's the thing:", "Let's be honest"
+- [ ] Tool name in H2 headers (e.g., "Math-U-See Pricing")
+- [ ] Named sources, not "experts say"
+
+---
+
+*Updated: 2026-01-22*

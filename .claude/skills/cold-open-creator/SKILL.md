@@ -1,25 +1,120 @@
 ---
 name: cold-open-creator
-description: Create 25-35 second cold opens that hook listeners by dropping them into a specific moment that encapsulates the episode's themes. Merge Descript's character-driven narrative with Colin & Samir's rearrangement technique.
+description: Create 25-35 second cold opens that hook listeners by dropping them into a specific moment that encapsulates the episode's themes. Uses narrative snippets method (story arcs with beats) combined with Colin & Samir's rearrangement technique.
 ---
 
-# Podcast Cold Open Creator - Hybrid Method
+# Podcast Cold Open Creator
 
 ## Purpose
 
-Create 25-35 second cold opens that drop listeners into a specific moment, character, or conflict that encapsulates the episode's core themes. You are doing the work of a **scene selector** (finding the right moment) combined with a **film editor** (rearranging clips for dramatic impact).
+Create 25-35 second cold opens that drop listeners into a **story arc** - someone who wanted something, encountered obstacles, and figured something out. The cold open cuts at the tension peak, before the resolution.
 
-**Core Philosophy:** The cold open is not a summary or a trailer. It's a psychological hook that makes listeners feel like they're stepping into the middle of an important conversation or revelation. They should finish the cold open asking "How did we get here?" and "What happens next?"
+**Core Philosophy:** The cold open is not a summary or a trailer. It's a story interrupted at the moment of maximum tension. They should finish the cold open asking "How did we get here?" and "What happens next?"
+
+---
+
+## The Narrative Snippets Method (Primary Approach)
+
+The best cold opens follow recognizable story beats. Instead of searching for "good moments," search for **complete story arcs**, then cut them at the right point.
+
+### The Story Beats
+
+Every compelling story follows this pattern:
+
+| Beat | What Happens | Cold Open Role |
+|------|--------------|----------------|
+| **1. Setup** | Protagonist in their world, pursuing something | INCLUDE - establishes context |
+| **2. Disaster** | Something disrupts the status quo | INCLUDE - creates tension |
+| **3. Failed Approach** | They try the obvious solution, it backfires | INCLUDE - shows stakes |
+| **4. New Insight** | A realization that changes everything | TEASE or CUT HERE |
+| **5. Resolution** | They apply the insight, it works | CUT BEFORE THIS |
+| **6. Reflection** | The universal takeaway | CUT BEFORE THIS |
+
+**The Rule:** Include beats 1-3 (maybe hint at 4). Cut BEFORE beats 5-6. The cold open ends with the question unresolved.
+
+### Finding Story Arcs in Transcripts
+
+Scan for these signal phrases:
+
+**Disaster signals:**
+- "Then everything fell apart..."
+- "I was diagnosed with..."
+- "The call came and they said no..."
+- "I realized I was doing it wrong..."
+
+**Failed approach signals:**
+- "I tried X but it didn't work..."
+- "We did everything we were supposed to..."
+- "Most people just accept it and move on..."
+
+**Insight signals (CUT HERE OR JUST BEFORE):**
+- "Then I realized..."
+- "That's when it clicked..."
+- "So what we do instead is..." [CUT]
+- "The real reason was..." [CUT]
+
+### Example: The Schultz Story
+
+**Full arc (as it might appear in transcript):**
+
+1. **Setup:** Schultz flew to SF for a dinner meeting, hoping to get a job at Starbucks. He'd spent a year flying back and forth.
+2. **Optimism:** "The dinner went exceptionally well. I was convinced I had the job sown up."
+3. **Disaster:** "I'm sorry Howard, I have bad news... It's too risky, too much change."
+4. **Failed approach (what most do):** "Most people, when turned down for a job, just go away."
+5. **Different response:** "But this was a turning point in my life. It had to happen."
+6. **Makes case:** "Jerry, you're making a terrible mistake... This isn't about me, it's about you."
+7. **Resolution:** "I'm sorry about the twenty-four hour impasse. We're going forward."
+8. **Success:** Five years later, bought the company, grew to 40,000 stores.
+9. **Reflection:** "Life is a series of near misses. But a lot of what we ascribe to luck is not luck at all."
+
+**For cold open:** Include beats 1-4. Hint at beat 5. CUT before beat 7.
+
+**Cold open version:**
+> "The dinner went exceptionally well. I was convinced I had the job sown up."
+>
+> [beat]
+>
+> "I'm sorry Howard, I have bad news... It's too risky, too much change."
+>
+> [beat]
+>
+> "Most people, when turned down for a job, just go away."
+>
+> [beat]
+>
+> "But this was a turning point in my life. It had to happen. So I called him back the next day and said—"
+>
+> [CUT]
+
+The listener NEEDS to know what Schultz said. That's the hook.
 
 ## When to Use This Skill
 
 Use this skill when you need to:
 - Create cold opens for podcast episodes
 - Hook listeners in the first 25-35 seconds
-- Find the scene/moment that best represents the episode
+- Find story arcs or scenes that best represent the episode
 - Rearrange existing transcript clips to maximize tension and curiosity
 - Create a sense of "you're already late to this conversation"
 
+---
+
+## Two Approaches
+
+### Approach A: Narrative Snippets (Preferred)
+Use when the episode contains **personal stories with clear arcs** - someone who wanted something, faced obstacles, figured something out. Works best for:
+- Origin stories
+- Failure-to-success journeys
+- Realization/discovery moments
+- Before/after transformations
+
+### Approach B: Scene Selection (Fallback)
+Use when the episode is more **philosophical/conversational** without clear narrative arcs. Works best for:
+- Expert interviews about concepts
+- Debates or discussions
+- Episodes heavy on advice/tips rather than stories
+
+**Decision rule:** Scan the transcript for story arcs first. If you find one with beats 1-4 clearly present, use Approach A. If the content is more abstract/conceptual, use Approach B.
 
 ---
 
@@ -90,10 +185,28 @@ End by gesturing toward what's to come without giving it away.
 
 ## The Workflow: 4 Steps
 
-### Step 1: Identify Your Scene
-Before selecting clips, identify which moment or sequence best encapsulates the episode.
+### Step 1: Find Story Arcs (Narrative Snippets Approach)
 
-**Scan the transcript for:**
+**First pass:** Scan the transcript for complete story arcs - someone who wanted something, encountered obstacles, figured something out.
+
+**Signal phrases for story arcs:**
+
+| Beat | Signal Phrases |
+|------|----------------|
+| **Setup** | "Back then I was..." / "I had been trying to..." / "For years I thought..." |
+| **Disaster** | "Then everything fell apart..." / "I was diagnosed with..." / "The call came and they said no..." |
+| **Failed Approach** | "I tried X but..." / "We did everything we were supposed to..." / "Most people just accept it..." |
+| **Insight** | "Then I realized..." / "That's when it clicked..." / "So what we do instead is..." |
+
+**If you find a story arc with beats 1-4:** Use the Narrative Snippets approach. Extract the arc, identify where to cut (after beat 3 or partway through beat 4).
+
+**If no clear story arcs:** Fall back to Scene Selection approach below.
+
+---
+
+### Step 1B: Scene Selection (Fallback)
+
+For episodes without clear narrative arcs, scan for standalone moments:
 
 **Inflection Points** (moments of shift):
 - "I was diagnosed with ADHD..."
@@ -114,11 +227,6 @@ Before selecting clips, identify which moment or sequence best encapsulates the 
 - "5,000 studies showed that..."
 - "The weakest skill wasn't attention, it was..."
 - "What nobody talks about is..."
-
-**Character in Action** (doing, not describing):
-- "I kept drawing myself into the couch cushions..."
-- "She got an A in college as a ninth grader..."
-- "I had to make his bucket so big..."
 
 Choose ONE scene that:
 - Contains a character (ideally the guest)

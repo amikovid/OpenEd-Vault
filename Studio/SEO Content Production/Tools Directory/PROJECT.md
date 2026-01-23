@@ -1,10 +1,10 @@
 ---
 name: Tools Directory
-description: Parent-reviewed curriculum and tool database with real voices and named authors
-status: planning
+description: Teacher-reviewed curriculum database with E-E-A-T signals from OpenEd staff + parent voices
+status: active
 parent: SEO Content Production
 created: 2026-01-01
-updated: 2026-01-07
+updated: 2026-01-21
 ---
 
 # Tools Directory Project
@@ -149,21 +149,125 @@ Tools Directory/
 
 ---
 
+## Webflow CMS Integration
+
+**Site:** opened.co
+**Tools Collection ID:** `6811bc7ab1372f43ab83dec6`
+**Authors Collection ID:** `68089af9024139c740e4b922`
+
+### Field Mapping (E-E-A-T First Structure)
+
+| Toggle Label | CMS Field | Content |
+|--------------|-----------|---------|
+| **Teacher's Take** | `subject-content` | Author byline, review intro, quick verdict, best for / not for |
+| **What Parents Say** | `teaching-format-content` | OpenEd teacher quotes + external quotes (woven as prose) |
+| **How It Works** | `pricing-content` | Subjects, grade levels, materials, lesson structure, parent involvement |
+| **Pricing** | `parent-involvement` | Costs, cost-saving tips |
+| **FAQs & Alternatives** | `parent-feedback-content` | Common questions, alternative curriculum links |
+
+### Publishing via API
+
+```bash
+# Update item
+curl -X PATCH "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}" \
+  -H "Authorization: Bearer $WEBFLOW_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"fieldData": {...}}'
+
+# Publish (required for changes to go live)
+curl -X POST "https://api.webflow.com/v2/collections/{collection_id}/items/publish" \
+  -H "Authorization: Bearer $WEBFLOW_API_KEY" \
+  -d '{"itemIds": ["{item_id}"]}'
+```
+
+---
+
+## Slack Mining (Source Material)
+
+**Report:** `slack-reports/tool-mentions-2026-01-21.md`
+**Tools mined:** 70+ curriculum tools with 150+ authentic teacher quotes
+
+### Top Tools by Quote Volume (prioritize these)
+1. Math-U-See (Rachael Davie - 4 quotes) ✓ DRAFTED
+2. Teaching Textbooks (Chelsea Forsythe)
+3. Saxon Math (Rachael Davie)
+4. Beast Academy (Danielle Randall)
+5. Life of Fred (Morgann Wray)
+
+---
+
+## Session Notes (2026-01-22)
+
+### Published Reviews (3 live)
+
+| Tool | Author | URL |
+|------|--------|-----|
+| Math-U-See | Rachael Davie | opened.co/tools/math-u-see |
+| Saxon Math | Rachael Davie | opened.co/tools/saxon-math |
+| Beast Academy | Danielle Randall | opened.co/tools/beast-academy-online |
+
+### Template Finalized
+
+- **Teacher's Take** leads with named author, weaves colleague quotes ("My colleague Keely notes...")
+- **What Parents Say** = external community only (blogs, forums)
+- **H2 headers** include tool name for SEO (e.g., "Math-U-See Pricing")
+- **Honest Best For / May Not Fit** lists
+- **Toggles kept** for UX - Google confirms accordion content indexed in mobile-first
+
+### Pending
+
+- **Teaching Textbooks** - Draft ready, needs Webflow item created first
+- **Author links** - Not yet connected to author profiles (hardcoded in template)
+- **External quotes** - What Parents Say sections need more attributed blog quotes
+
+### Authors in Webflow
+
+| Author | ID | Specialty |
+|--------|-----|-----------|
+| Rachael Davie | `697133d342e4976b0b0f8019` | Math, former HS teacher |
+| Danielle Randall | TBD | Gifted learners |
+| Chelsea Forsythe | TBD | Independent curricula |
+
+---
+
 ## Metrics
 
-- **Interviews conducted:** 0
-- **Reviews drafted:** 0
-- **Reviews published:** 0 / 20
+- **Slack tools mined:** 70+
+- **Reviews drafted:** 4 (Math-U-See, Saxon, Beast Academy, Teaching Textbooks)
+- **Reviews published:** 3 / 20
 
 ---
 
 ## Skills to Chain
 
-- `verified-review` - Review format and voice
 - `ghostwriter` - Human voice, anti-AI patterns
-- `seo-content-writer` - Optimization
-- `hook-and-headline-writing` - Titles
+- `ai-tells` - Check for AI writing patterns before publish
+
+---
+
+## Drafts Ready
+
+```
+Tools Directory/drafts/
+├── math-u-see-v2.md        ✓ PUBLISHED
+├── saxon-math.md           ✓ PUBLISHED
+├── beast-academy.md        ✓ PUBLISHED
+├── teaching-textbooks.md   READY (needs Webflow item)
+└── khan-academy-review-draft.md  (older format)
+```
+
+## Next Priority Reviews
+
+From Slack mining, by quote volume:
+1. ~~Math-U-See~~ ✓
+2. ~~Saxon Math~~ ✓
+3. ~~Beast Academy~~ ✓
+4. Teaching Textbooks (draft ready)
+5. Life of Fred (Morgann Wray)
+6. All About Reading
+7. Singapore Math
 
 ---
 
 *Created: 2026-01-01*
+*Updated: 2026-01-22*
