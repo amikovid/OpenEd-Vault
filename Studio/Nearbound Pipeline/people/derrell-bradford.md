@@ -9,8 +9,8 @@ guest_contributor_potential: high
 podcast_prospect: false
 
 x_twitter: "@Dyrnwyn"
-x_followers: null
-linkedin: null
+x_followers: 6011
+linkedin: "https://www.linkedin.com/in/dyrnwyn/"
 youtube: null
 newsletter: null
 website: null

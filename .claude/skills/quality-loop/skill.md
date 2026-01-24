@@ -9,16 +9,37 @@ Iterative drafting system with backpressure from judge personas. Creates high-qu
 
 ## When to Use This Skill
 
-Use when:
-- Creating profiles, deep dives, guides, or articles
-- Any writing requiring multiple drafts with quality control
-- Content that needs to pass AI detection and accuracy checks
-- Projects requiring systematic source compilation
+**UNIVERSAL QUALITY GATES:** This skill triggers for ALL public-facing content.
 
-Do NOT use for:
-- Quick social posts or captions
-- Simple edits to existing content
-- Content without SEO or accuracy requirements
+### Trigger Points by Content Type
+
+| Content Type | Trigger Point | Mode |
+|--------------|---------------|------|
+| **Newsletter** | After draft, before send | Full 5-judge |
+| **Deep Dive/Article** | Before Webflow publish | Full 5-judge |
+| **Podcast blog** | Before publish | Full 5-judge |
+| **LinkedIn post** | After draft, before schedule | Lite 3-judge |
+| **X post** | After draft, before schedule | Lite 3-judge |
+| **Instagram** | After draft + visual | Lite 3-judge |
+| **Facebook** | After draft, before schedule | Lite 3-judge |
+
+### Full 5-Judge Mode
+
+For long-form content (articles, newsletters, blog posts):
+- Human Detector (BLOCKING)
+- Accuracy Checker (BLOCKING)
+- OpenEd Voice (BLOCKING)
+- Reader Advocate (BLOCKING)
+- SEO Advisor (ADVISORY)
+
+### Lite 3-Judge Mode
+
+For social posts (faster, focused on voice and AI tells):
+- AI-Tell Judge (BLOCKING) - Hard blocks only
+- Voice Judge (BLOCKING) - Brand alignment
+- Platform Judge (ADVISORY) - Platform-specific optimization
+
+See "Lite Quality Loop for Social" section below.
 
 ---
 
@@ -293,6 +314,55 @@ Maintain a tracking document showing status of each piece.
 - OV = OpenEd Voice
 - RA = Reader Advocate
 - SEO = SEO Advisor
+
+---
+
+## Lite Quality Loop for Social
+
+Faster quality checks for social posts. Run after draft, before scheduling.
+
+### Judge 1: AI-Tell Judge (BLOCKING)
+
+**Hard blocks - auto-reject if ANY found:**
+
+- [ ] Correlative constructions ("X isn't just Y - it's Z")
+- [ ] Banned words: delve, comprehensive, crucial, leverage, landscape
+- [ ] Setup phrases: "The best part?", "What if I told you", "Here's the thing"
+- [ ] Staccato patterns: "No fluff. No filler. Just results."
+- [ ] Em dashes without spaces (use " - " not "—")
+
+**VERDICT:** PASS only if zero hard blocks found.
+
+### Judge 2: Voice Judge (BLOCKING)
+
+**Checks:**
+- [ ] Sounds like OpenEd/brand account (not personal blog)
+- [ ] Aligns with Open Education values (parent empowerment, learner agency)
+- [ ] Appropriate tone for platform
+- [ ] No preachy or prescriptive language
+
+**VERDICT:** PASS only if brand-aligned.
+
+### Judge 3: Platform Judge (ADVISORY)
+
+**Platform-specific checks:**
+
+| Platform | Checklist |
+|----------|-----------|
+| LinkedIn | 200-500 words, links in comments, 3-5 hashtags, hook in first 2 lines |
+| X | 70-100 chars optimal, 1-2 hashtags, retweet-worthy |
+| Instagram | Visual-first, caption supports, 5-10 hashtags, first 150 chars hook |
+| Facebook | No external links, no hashtags, ends with question/engagement prompt |
+
+**VERDICT:** Advisory feedback - does not block.
+
+### Lite Loop Process
+
+```
+DRAFT → AI-Tell Judge → Voice Judge → Platform Judge → SCHEDULE
+             ↓ (fail)        ↓ (fail)
+           FIX & RETRY     FIX & RETRY
+```
 
 ---
 

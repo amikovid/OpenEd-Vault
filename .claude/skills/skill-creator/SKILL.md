@@ -207,3 +207,36 @@ After testing the skill, users may request improvements. Often this happens righ
 2. Notice struggles or inefficiencies
 3. Identify how SKILL.md or bundled resources should be updated
 4. Implement changes and test again
+
+---
+
+## Note: Content Engine Skills (OpenEd Vault)
+
+For skills in the OpenEd content engine, apply a modified approach that prioritizes **examples over prescriptive rules**:
+
+### Key Differences from Standard Skills
+
+1. **Examples do the heavy lifting** - Swipe files and real examples are more valuable than detailed structural explanations. A name + example for each framework is often sufficient.
+
+2. **Framework fitting approach** - When describing formats or templates, provide: pattern name, brief description (1 line), 2-3 real examples. Don't spell out detailed structure unless truly necessary.
+
+3. **Avoid scoring systems** - Systems like "10 Commandments," "4 U's test," or detailed rubrics feel prescriptive and aren't useful in practice. Trust pattern recognition over checklists.
+
+4. **Avoid prescriptive rules** - Rules like "must be less than three sentences" or "aim for 4-6 commandments" constrain without adding value. Show good examples instead.
+
+5. **Selective technique application** - Techniques like "sticky sentences" or specific writing patterns should note *when* to apply them, not be blanket recommendations.
+
+6. **Keep constraints minimal** - State hard constraints (word counts, format requirements) but leave creative decisions to pattern matching from examples.
+
+### Example Structure for Content Engine Skills
+
+```markdown
+## Pattern Name
+Brief description (1 line)
+
+- "Example 1"
+- "Example 2"
+- "Example 3"
+```
+
+This approach trusts that Claude can extrapolate from good examples rather than needing exhaustive procedural guidance.

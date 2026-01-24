@@ -9,11 +9,11 @@ guest_contributor_potential: high
 podcast_prospect: false
 
 x_twitter: "@kerry_edu"
-x_followers: null
+x_followers: 22300
 linkedin: "https://www.linkedin.com/in/kerrymcdonald02138/"
 youtube: null
-newsletter: null
-website: null
+newsletter: "https://liberatedpodcast.com/"
+website: "https://fee.org/kerry"
 
 total_reach: null
 engagement_score: high

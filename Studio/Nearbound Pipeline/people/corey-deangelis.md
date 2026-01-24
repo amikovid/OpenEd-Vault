@@ -12,8 +12,8 @@ podcast_prospect: false  # already a podcast guest
 
 # Platforms
 x_twitter: "@DeAngelisCorey"
-x_followers: null  # TODO: lookup count
-linkedin: null
+x_followers: null
+linkedin: "https://www.linkedin.com/in/corey-deangelis-826b3333/"
 youtube: null
 newsletter: null
 website: null

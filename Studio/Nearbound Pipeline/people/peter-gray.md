@@ -10,9 +10,9 @@ guest_contributor_potential: high
 podcast_prospect: false  # already a podcast guest
 
 # Platforms
-x_twitter: null  # TODO: lookup
+x_twitter: null  # No Twitter/X account - uses Facebook & Substack instead
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/in/peter-gray-76773838/"
 youtube: null
 newsletter: null
 website: null
@@ -75,8 +75,10 @@ Already interviewed - perfect candidate for guest article. Could repurpose podca
 - "What the Research Says About Play-Based Learning"
 - "Why School Anxiety Drops in Summer (And What That Tells Us)"
 
-## Social Research TODO
+## Social Presence
 
-- [ ] Find X/Twitter handle
-- [ ] Find Psychology Today column
-- [ ] Check for newsletter/Substack
+- **X/Twitter:** No account (uses Facebook and Substack instead)
+- **LinkedIn:** [peter-gray-76773838](https://www.linkedin.com/in/peter-gray-76773838/)
+- **Psychology Today:** [Freedom to Learn blog](https://www.psychologytoday.com/us/contributors/peter-gray-phd)
+- **Substack:** "Play Makes Us Human"
+- **Website:** [petergray.org](https://www.petergray.org/)

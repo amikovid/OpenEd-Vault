@@ -9,8 +9,8 @@ guest_contributor_potential: high
 podcast_prospect: false
 
 x_twitter: "@MattBeaudreau"
-x_followers: null
-linkedin: null
+x_followers: 8614
+linkedin: "https://www.linkedin.com/in/matt-beaudreau-071a5b99/"
 youtube: null
 newsletter: null
 website: null

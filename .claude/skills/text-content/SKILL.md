@@ -291,12 +291,59 @@ Spin concept through desire lenses:
 
 ---
 
+## Parallel Sub-Agent Pattern (For Batch Processing)
+
+When processing multiple snippets or creating content across platforms simultaneously, use parallel sub-agents.
+
+### When to Use Sub-Agents
+
+- Processing hub content into spokes (e.g., newsletter → 6 social posts)
+- Creating platform variations of same snippet
+- Batch content creation for scheduling
+
+### Sub-Agent Workflow
+
+```
+Source Content
+    │
+    └─→ Extract 3-5 standalone snippets
+         │
+         ├─→ LinkedIn Sub-Agent (parallel)
+         │   └─→ Load TEMPLATE_INDEX.md → 2-3 drafts
+         │
+         ├─→ X Sub-Agent (parallel)
+         │   └─→ Load TEMPLATE_INDEX.md → 2-3 drafts
+         │
+         ├─→ Instagram Sub-Agent (parallel)
+         │   └─→ Load TEMPLATE_INDEX.md → visual + caption
+         │
+         └─→ Facebook Sub-Agent (parallel)
+             └─→ Load TEMPLATE_INDEX.md → engagement post
+```
+
+### Sub-Agent Prompts
+
+Full prompts at: `Studio/_content-engine-refactor/template-drafts/sub-agent-prompts/`
+
+- `linkedin-agent.md` - Authority, story, contrarian formats
+- `x-agent.md` - Punchy single tweets and threads
+- `instagram-agent.md` - Visual direction + captions
+- `facebook-agent.md` - Engagement-driving formats
+
+### Key Files
+
+- **Lightweight index:** `references/templates/TEMPLATE_INDEX.md` (~200 tokens)
+- **Full templates:** Load on-demand from `references/` subdirectories
+
+---
+
 ## Related Skills
 
 - `short-form-video` - Video production workflow
 - `video-caption-creation` - On-screen text and video hooks
 - `ghostwriter` - Voice and anti-AI patterns
 - `hook-and-headline-writing` - Opening lines
+- `quality-loop` - Quality gates for all content
 - `linkedin-content` - DEPRECATED: Use this skill with LinkedIn references
 
 ---

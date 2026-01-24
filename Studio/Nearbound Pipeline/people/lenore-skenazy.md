@@ -10,8 +10,8 @@ guest_contributor_potential: high
 podcast_prospect: true
 
 # Platforms
-x_twitter: null  # TODO: lookup
-x_followers: null
+x_twitter: "@FreeRangeKids"
+x_followers: 46700
 linkedin: "https://www.linkedin.com/in/lenoreskenazy/"
 youtube: null
 newsletter: null
@@ -62,9 +62,8 @@ Major thought leader in the child independence movement. Her philosophy aligns p
 - Could do guest contributor article on free-range philosophy
 - Dream podcast guest
 
-## Social Research TODO
+## Social Presence
 
-- [ ] Find X/Twitter handle
-- [ ] Find LinkedIn
-- [ ] Check Let Grow website for contact
-- [ ] Review her existing content for repurposing angles
+- **X/Twitter:** [@FreeRangeKids](https://x.com/FreeRangeKids) (46.7K followers)
+- **LinkedIn:** [lenoreskenazy](https://www.linkedin.com/in/lenoreskenazy/)
+- **Website:** [Let Grow](https://letgrow.org/) / [Free-Range Kids blog](https://freerangekids.wordpress.com/)

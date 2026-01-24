@@ -10,7 +10,7 @@ podcast_prospect: false
 
 x_twitter: "@mikeroweworks"
 x_followers: null
-linkedin: null
+linkedin: "https://www.linkedin.com/company/mikeroweworks"  # company page, not personal
 youtube: null
 newsletter: null
 website: null
