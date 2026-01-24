@@ -87,7 +87,8 @@ Each project has a `PROJECT.md` with full context. Navigate there first.
 Load these skills for writing tasks:
 - `ghostwriter` - Anti-AI patterns, authentic voice
 - `opened-identity` - Sarah persona, brand voice
-- `hook-and-headline-writing` - Power words, formulas
+- `newsletter-subject-lines` - For email subject lines (10 Commandments + formulas)
+- `article-titles` - For blog/SEO headlines (journalistic, formal)
 
 ---
 
@@ -169,16 +170,20 @@ After completing a hub, **proactively offer spokes**.
 | Text posts | `text-content` (360+ templates) |
 | Newsletter → Social | `newsletter-to-social` (router) |
 | Archive repurposing | `archive-suggest` (daily suggestions) |
+| Slack distribution | `slack-social-distribution` (post to #market-daily) |
 | Video production | `short-form-video` |
 | Video hooks/captions | `video-caption-creation` |
 | Podcast | `podcast-production` |
 | Newsletter | `opened-daily-newsletter-writer` |
+| Subject lines | `newsletter-subject-lines` |
+| Article titles | `article-titles` |
 | SEO content | `seo-content-writer` |
 | Deep dives | `open-education-hub-deep-dives` |
 | Quality control | `quality-loop` |
 | AI images | `image-prompt-generator` |
+| Work summaries | `work-summary` (git → Slack updates) |
 
-All skills: `.claude/skills/` (40+ active)
+All skills: `.claude/skills/` (45+ active)
 
 ---
 
@@ -214,19 +219,18 @@ When creating social posts, check if any mentioned people are in the Nearbound i
 
 - Update `NOW.md` at session end
 - Use `/handoff` to capture session context
+- Use `/work-summary` to generate Slack-friendly daily updates
 - Update PROJECT.md when structural changes occur
 - Sync from Webflow: `python3 agents/webflow_sync_agent.py`
 
-### Content Engine Refactor
+### Key Folders
 
-Project folder: `Studio/_content-engine-refactor/`
-
-Contains:
-- Sub-agent prompts for parallel platform processing
-- Nearbound people index templates
-- SEO report template
-- Curation pipeline plan
-- Implementation checklist
+| Folder | Purpose |
+|--------|---------|
+| `.claude/skills/` | 45+ active skills |
+| `.claude/work-summaries/` | Daily work updates for Slack |
+| `Studio/_content-engine-refactor/` | Architecture docs, sub-agent prompts |
+| `Studio/_content-engine-refactor/nearbound/` | Contact profiles with social handles |
 
 ---
 
