@@ -172,6 +172,10 @@ Visual representation of compelling data.
 
 ## TEXT POST FORMATS (X/LinkedIn)
 
+**For full methodology and 360+ templates:** Invoke `text-content` skill.
+
+Below are OpenEd's highest-performing patterns for quick reference.
+
 ### A. Contrarian Takes
 Challenge conventional wisdom without correlative constructions.
 

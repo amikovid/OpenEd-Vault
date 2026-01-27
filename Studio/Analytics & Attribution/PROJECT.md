@@ -2,7 +2,7 @@
 
 **Marketing analytics infrastructure** - Connect the dots from content channels to subscriber acquisition to enrollment revenue.
 
-**Status:** Setup phase
+**Status:** Active - HubSpot module complete
 **Location:** `Studio/Analytics & Attribution/`
 **Ops Contact:** TBD (request HubSpot permissions)
 
@@ -24,6 +24,20 @@
 - **GA4:** https://analytics.google.com
 - **HubSpot:** https://app.hubspot.com
 - **Webflow:** https://webflow.com
+- **Databox:** Ask Alex for access (has existing dashboards)
+
+---
+
+## QBR Action Items (2026-01-26)
+
+| Action | Status | Notes |
+|--------|--------|-------|
+| Show Melissa Search Console integration | ⏳ Tomorrow | Add to 1:1 agenda |
+| Set up Monday morning SEO report to Slack | ⏳ This week | Pages getting closer to page 1 |
+| Request Databox access from Alex | ⏳ This week | He has existing dashboards |
+| YouTube ads research | ✅ Complete | See `youtube-vs-meta-ads-research.md` |
+
+**YouTube Ads Recommendation:** Test $1,500-2,000 over 8 weeks for fall enrollment. Video Action Campaigns with lead forms, targeting ESA states.
 
 ---
 
@@ -74,7 +88,7 @@ When this is done, every marketing activity can be traced to revenue impact.
 | **YouTube Data API** | Full | ✅ Working (tested 2026-01-20) |
 | **Meta (FB + IG)** | Full | ✅ Working (tested 2026-01-20) |
 | **Webflow** | Full | Active |
-| **HubSpot** | Partial? | ⏳ Access request pending |
+| **HubSpot** | Partial | ✅ Contacts working (no lists/forms) |
 | **Enrollment system** | Unknown | Need to identify |
 
 ---
@@ -90,6 +104,8 @@ All modules live in `../SEO Content Production/seomachine/data_sources/modules/`
 | DataForSEO | `dataforseo.py` | ✅ Working |
 | YouTube | `youtube.py` | ✅ Working |
 | Meta (FB + IG) | `meta.py` | ✅ Working |
+| HubSpot CRM | `hubspot.py` | ✅ Working |
+| HubSpot Insights | `hubspot_insights.py` | ✅ Working |
 
 ### YouTube Setup ✅ Complete
 
@@ -101,6 +117,75 @@ Channel ID: `UCzfHIDt2uKzwEclA94tom_Q` (OpenEd / Unstandard Education)
 - **Facebook:** OpenEd HQ (5,146 followers)
 - **Instagram:** @openedhq (2,200 followers, 547 posts)
 - Token expires ~60 days - regenerate via Graph API Explorer
+
+### HubSpot Setup ✅ Full Access (Updated 2026-01-26)
+
+Portal ID: `45961901`
+**Token:** `HUBSPOT_API_KEY_REDACTED`
+
+**Available scopes:**
+- `content` - Email campaigns, landing pages, blog
+- `business-intelligence` - Analytics API
+- `crm.lists.read`, `crm.lists.write` - List management
+- `forms`, `forms-uploaded-files` - Form data
+- `communication_preferences.read`, `communication_preferences.read_write` - Subscriptions
+- `crm.objects.contacts.read`, `crm.objects.contacts.write` - Contacts
+- `files` - File manager
+
+**Modules:**
+- `hubspot.py` - Core CRM + email analytics
+- `hubspot_insights.py` - Automated pattern detection
+
+**Reports:**
+- `weekly_hubspot_report.py` - Weekly attribution report
+- `hubspot_deep_dive.py` - Comprehensive audit
+
+**Key Features (CRM):**
+- Source attribution (organic, paid, social, referral, direct)
+- Landing page conversion tracking
+- Curriculove lead magnet analytics
+- Funnel conversion rates
+- Week-over-week trends
+
+**Key Features (Email - NEW):**
+- Campaign stats: sent, opens, clicks, bounces, unsubs
+- Open/click rates by campaign
+- Link click tracking (which URLs clicked)
+- Subscription type management
+- List membership and growth
+
+**Run Reports:**
+```bash
+cd "Studio/SEO Content Production/seomachine"
+
+# Email stats summary
+python3 -c "
+from dotenv import load_dotenv; load_dotenv('data_sources/config/.env')
+from data_sources.modules.hubspot import HubSpotAnalytics
+hs = HubSpotAnalytics()
+stats = hs.get_email_stats_summary(limit=30)
+print(f'Avg Open Rate: {stats[\"totals\"][\"avg_open_rate\"]}%')
+print(f'Avg Click Rate: {stats[\"totals\"][\"avg_click_rate\"]}%')
+"
+
+# Full marketing dashboard
+python3 -c "
+from dotenv import load_dotenv; load_dotenv('data_sources/config/.env')
+from data_sources.modules.hubspot import HubSpotAnalytics
+import json
+hs = HubSpotAnalytics()
+print(json.dumps(hs.get_full_marketing_dashboard(), indent=2))
+"
+
+# Lists with member counts
+python3 -c "
+from dotenv import load_dotenv; load_dotenv('data_sources/config/.env')
+from data_sources.modules.hubspot import HubSpotAnalytics
+hs = HubSpotAnalytics()
+for l in hs.get_lists()[:10]:
+    print(f'{l[\"name\"]}: {l[\"count\"]:,}')
+"
+```
 
 ### Weekly SEO Report
 

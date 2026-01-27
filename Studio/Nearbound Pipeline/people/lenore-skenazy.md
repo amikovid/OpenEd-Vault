@@ -23,7 +23,7 @@ engagement_score: unknown
 
 # Relationship
 relationship_status: featured
-warmth_score: null
+warmth_score: 3
 last_contact: null
 outreach_status: null
 

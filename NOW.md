@@ -1,6 +1,54 @@
 # OpenEd NOW
 
-**Last Updated:** 2026-01-23
+**Last Updated:** 2026-01-26
+
+---
+
+## QBR Action Items (2026-01-26)
+
+**From Q2 QBR meeting - do not let slip:**
+
+| Action | Owner | When | Status |
+|--------|-------|------|--------|
+| Show Melissa Search Console integration | Charlie | Tomorrow (add to agenda) | ⏳ |
+| Talk to Melissa about daily cadence | Charlie | Tomorrow | ⏳ |
+| Set up Monday morning SEO report to Slack | Charlie | This week | ⏳ |
+| Request Databox access from Alex | Charlie | This week | ⏳ |
+| Align with Ela on Chavilah task allocation | Charlie + Ela | This week | ⏳ |
+| Savvy Learning article → coordinate with Ela | Charlie | Before publish | ⏳ |
+
+**Daily cadence decision pending:** Currently 3-4/week. Trade-off: More bandwidth vs. more nearbound at-bats. Discuss with Melissa tomorrow.
+
+**YouTube ads research:** Complete research saved to `Studio/Analytics & Attribution/youtube-vs-meta-ads-research.md`. Recommendation: Test $1,500-2,000 over 8 weeks for fall enrollment.
+
+---
+
+## Guest Contributor Pipeline - ACTIVE
+
+**Architecture:** Notion database + vault templates
+- **Notion:** [Guest Contributor Pipeline](https://www.notion.so/2f4afe52ef5981bc8d7accc5e00e1a17) - tracking, source material, article angles
+- **Vault:** `Studio/SEO Content Production/Guest Contributors/` - PROJECT.md, outreach templates, examples
+
+### Wave 1 - Ready to Send
+| Contact | Company | Topic | Status |
+|---------|---------|-------|--------|
+| **Justin Skycak** | Math Academy | Math acceleration | HOT LEAD - praised our AI tutoring article |
+| **Mason Pashia** | Getting Smart | Marketplace data | Active convo Dec 2025, SEND EMAIL |
+| **Michael Vilardo** | Subject.com | Netflix of high school | TED transcript + pitch ready, via Hollie |
+| **Janssen Bradshaw** | Everyday Reading | Literacy/reading | AGREED - needs SEO topic |
+| **Matt Beaudreau** | Apogee | Microschooling | Full Apogee blueprint in Notion |
+| **Savvy Learning founder** | Savvy Learning | TBD | NEW - coordinate with Ela on partnership angle |
+
+### Wave 2 - Warm Leads
+| Contact | Company | Topic | Notes |
+|---------|---------|-------|-------|
+| Robin Smith | Surge Academy | Coding education | Highly engaged (5 replies) |
+| Kathleen Ouellette | VictoryXR | VR education | Follow up needed |
+| Jon England | Libertas | Microschool policy | Pitch drafted |
+| Peter Gray | Self-Directed Ed | | Podcast done |
+| Michael Horn | Disruption | | Gave book blurb |
+
+**Full content in Notion:** Transcripts, source material, pitch emails, article angles for all Wave 1-2 contributors.
 
 ---
 
@@ -76,16 +124,16 @@ All phases complete. The content engine is now documented and streamlined.
 
 ---
 
-## Guest Contributor Pipeline - READY TO SEND
+## Key Dates (Q3)
 
-| Contact | Company | Topic | Status |
-|---------|---------|-------|--------|
-| Mason Pashia | Getting Smart | Marketplace data | Ready |
-| Kathleen Ouellette | VictoryXR | VR education | Ready |
-| Robin Smith | Surge Academy | Coding/game design | Ready |
-| Jon England | Libertas Institute | Microschools | Ready |
+| Date | Event | Impact |
+|------|-------|--------|
+| **Feb 10** | Enrollment tasks open | Interest → Application conversion focus |
+| **Feb 16** | Retargeting Pillar 1 launch | 4-6 ad variations needed |
+| **Q3** | 4 new states launching | State pages become critical path |
+| **Fall 2026** | Enrollment cycle | YouTube ads test window |
 
-**Drafts:** `Studio/SEO Content Production/Guest Contributors/Drafts/`
+---
 
 ---
 

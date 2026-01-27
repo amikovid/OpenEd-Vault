@@ -54,6 +54,18 @@ coverage/
 *.mp3
 *.wav
 *.flac
+*.webm
+*.ogg
+*.aac
+*.wma
+*.wmv
+*.flv
+*.3gp
+*.m4v
+*.vob
+*.ogv
+*.ts
+*.mts
 
 # Large data files
 *.json
@@ -139,3 +151,4 @@ temp/
 # iCloud conflict files
 *(Autosaved)*
 *conflicted*
+.nomendex/

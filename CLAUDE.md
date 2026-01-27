@@ -180,7 +180,7 @@ After completing a hub, **proactively offer spokes**.
 | SEO content | `seo-content-writer` |
 | Deep dives | `open-education-hub-deep-dives` |
 | Quality control | `quality-loop` |
-| AI images | `image-prompt-generator` |
+| AI images | `nano-banana-image-generator` |
 | Work summaries | `work-summary` (git → Slack updates) |
 
 All skills: `.claude/skills/` (45+ active)

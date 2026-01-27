@@ -11,15 +11,30 @@ Creates Monday-Thursday daily newsletters (500-800 words) that challenge standar
 
 ---
 
-## Workflow Overview
+## Content Workflow Order
+
+**Full content drop order of operations:**
+1. Draft social media assets (use `newsletter-to-social`)
+2. Publish blog post on Webflow
+3. Share social media with blog link where appropriate
+4. **Newsletter last** (use `hubspot-email-draft` skill)
+
+The newsletter often links to the blog post and social content, so it goes last.
+
+---
+
+## Newsletter Workflow
 
 ```
-Phase 1: Content Curation     → Source_Material.md
-Phase 2: Angle Development    → Checkpoint_1.md (USER APPROVAL REQUIRED)
+Phase 1: Source + Format      → Source_Material.md (identify social formats FIRST)
+Phase 2: Angles + Checkpoint  → Checkpoint_1.md (USER APPROVAL REQUIRED)
 Phase 3: Newsletter Writing   → Newsletter_DRAFT.md
-Phase 4: Social Media         → Optional repurposing
+Phase 4: Social Spin-offs     → Social posts from newsletter content
 Phase 5: QA & Archive         → Newsletter_FINAL.md
+Phase 6: HubSpot Draft        → hubspot-email-draft skill → one-click publish
 ```
+
+**Key insight:** Identify which snippets have natural social formats BEFORE writing the newsletter. Social constraints produce tighter angles.
 
 ---
 
@@ -70,10 +85,22 @@ For specific items, use `notion-fetch` with the page ID.
 ### Create Working Folder
 
 ```bash
-mkdir "Studio/OpenEd Daily/[YYYY-MM-DD] - [Brief Theme]/"
+mkdir "Studio/OpenEd Daily Studio/[YYYY-MM-DD] - [Brief Theme]/"
 ```
 
-Create `Source_Material.md` with URLs, key quotes, and angle notes.
+Create `Source_Material.md` with:
+- URLs and key quotes
+- For each piece: what's the core insight? (one sentence)
+- Format fit: X one-liner, Instagram carousel, LinkedIn story, or newsletter segment?
+
+**Social-first check:** If a snippet has an obvious social format, note it. You may draft that version first - social constraints often reveal the strongest angle.
+
+| Snippet Type | Natural Format |
+|--------------|----------------|
+| Single stat + interpretation | X one-liner |
+| Comparison/contrast | Instagram carousel |
+| Transformation arc | LinkedIn story |
+| Counterintuitive claim | X paradox |
 
 ---
 
@@ -82,21 +109,6 @@ Create `Source_Material.md` with URLs, key quotes, and angle notes.
 🛑 **CHECKPOINT 1 - Do not proceed to Phase 3 without user approval.**
 
 Create `Checkpoint_1_Angles.md` with:
-
-### Socials-First Check (Before Drafting Angles)
-
-Before developing newsletter angles, check if any segment has an obvious social format:
-
-| Segment Content | Social Format Match | Action |
-|-----------------|---------------------|--------|
-| Single stat + hot take | X/LinkedIn one-liner | Draft social first, expand for newsletter |
-| Visual comparison | Instagram carousel | Design visual, then write supporting copy |
-| Story arc | LinkedIn transformation | Draft full story, then compress for newsletter |
-| Contrarian take | X paradox hook | Test punchiest version first |
-
-**Why:** Social constraints often produce tighter, more compelling angles. If a segment has a natural social format, draft that version first - it may reveal the strongest angle for the newsletter.
-
-Load `TEMPLATE_INDEX.md` for format matching.
 
 ### For Each Segment (3-4 angle options)
 
@@ -189,36 +201,52 @@ Create `Newsletter_DRAFT.md` after Checkpoint 1 approval.
 ### Newsletter Structure
 
 ```markdown
+# Newsletter Draft - YYYY-MM-DD (Day)
+
 **SUBJECT:** [From Checkpoint 1]
 **PREVIEW:** [From Checkpoint 1]
+
 ---
 
-[Opening Letter]
+Greetings Eddies!
+
+[Opening Letter - 100-150 words]
+
+– Charlie (the OpenEd newsletter guy)
+
 ---
 
-## [SEGMENT 1 TITLE - ALL CAPS]
+# [SEGMENT TYPE]: [TITLE - ALL CAPS]
+
 [100-120 words]
+
 ---
 
-## [SEGMENT 2 TITLE - ALL CAPS]
+# [SEGMENT TYPE]: [TITLE - ALL CAPS]
+
 [100-120 words]
+
 ---
 
-## [SEGMENT 3 TITLE - ALL CAPS]
+# [SEGMENT TYPE]: [TITLE - ALL CAPS]
+
 [100-120 words]
+
 ---
 
 That's all for today!
 
 – Charlie (the OpenEd newsletter guy)
 
-P.S. [Optional announcement]
+P.S. [Optional announcement or link to podcast/blog]
 ```
+
+**Note:** Use `# THOUGHT:`, `# TOOL:`, `# TREND:` (H1 headers) for segments. This format ports directly into HubSpot via the `hubspot-email-draft` skill.
 
 ### Format Requirements
 
 - ❌ NO EMOJIS (non-negotiable)
-- ✅ ALL CAPS H2 titles for segments
+- ✅ H1 headers for segments (# not ##)
 - ✅ **Bold** for key quotes/stats
 - ✅ Hyperlinks throughout (not just at ends)
 - ✅ `---` between sections
@@ -237,45 +265,29 @@ When multiple sources are provided with body text to reference, **hyperlink ALL 
 
 ---
 
-## Segment Archetypes
-
-**Load on-demand:** `references/segment-archetypes.md`
-
-Contains 5 THOUGHT patterns, 4 TREND patterns, and 4 TOOL patterns with examples.
-
----
-
 ## Voice & Writing Style
 
-**The Core Rhythm: Substance → Take**
+**Read these examples before writing. This is the voice.**
 
-The OpenEd Daily voice alternates between:
-- **Substance:** Facts, quotes, data, specific details
-- **Take:** Interpretation, implication, what it means
+### Example 1: AI Study (calling out the obvious)
 
-This creates prose that feels both informed and opinionated. Don't just report facts. Don't just share opinions. Weave them together: ground the reader in something specific, then tell them what to think about it.
+> "A new MIT study claims LLM users 'consistently underperform' on neural and linguistic tests — and AI doomers are obsessed. A professor on Bluesky declares the 'death knell' of AI, and normies are 'terrified' ChatGPT will rot our brains. Of course, none of them read the 206-page report, which reveals 18 college students had 20min to write essays based on (boring) SAT prompts using only ChatGPT. They could barely recall what they 'wrote,' meaning they just copy/pasted, lol, and their brain activity diminished. I mean, obviously, doing nothing tanks your brain activity (thank you, science)."
 
-**For full examples, load:** `references/opening-letter-patterns.md` (includes segment examples showing this rhythm)
+### Example 2: Parent authority (the "you're the problem" move)
 
-**For detailed voice guidance, load:**
-- `references/pirate-wires-segment-techniques.md` - A la carte techniques for TTT segments (longer excerpts, specific applications)
-- `references/witty-voice-patterns.md` - General wit patterns (opening letters)
-- `ai-tells` skill - Hard blocks (correlatives, banned words)
-- `ghostwriter` skill - Humanization patterns
+> "Two things: unstructured time is the fundamental substrate for creativity. And, uh, have you guys tried just… dealing with this? Take away their devices. Give them chores. Chalk. Challenges. You don't have to pay for your kids to play outside. You can just force them to, for free. Take it from my boomer dad, who used to lock us out of the house in 100-degree heat. When we were thirsty, we drank from the hose, and nobody died lol. O accursed parents of modernity, you've forgotten that you guys are literally adults. Make choices, face consequences. It's gonna be OK."
 
-### Core Principles (Always Apply)
+### Example 3: AI funding (let's be honest)
 
-**Context + Substance:** Every segment needs both WHO/WHAT/WHY and the actual insight.
+> "Last week, former OpenAI CTO Mira Murati raised $2 billion in seed funding (!) for her stealth AI startup, Thinking Machines Lab, valuing the six-month-old company at around $10 billion with, from best I can tell, no product or business. I think it's safe to say we've reached the 'irrational exuberance' stage of the AI hype cycle — but let's remember these guys are trying to catalyze a utopian singularity, which probably can't be overhyped? Then, just in terms of the salaries, I'm glad America is paying our star nerds more than our star basketball players (finally). Sorry haters, the only problem I see here is my own slow start."
 
-**High-Density Prose:** Every sentence carries meaning. Cut dramatic pauses.
+### What makes these work
 
-**Trust the Reader:** Show, don't tell how to feel. No fake questions.
-
-### Setup Phrases to Eliminate
-
-- "Here's the thing..." / "But here's the kicker..."
-- "The clever part:" / "What's interesting:"
-- "Here's why that matters..." / "Let that sink in."
+- **Complete flowing sentences** - not fragments
+- **Parentheticals are rare and punchy** - "(from best I can tell, no product or business)"
+- **Says what everyone thinks** - "Of course, none of them read..."
+- **Confident, not snarky** - states observations directly
+- **Casual interjections** - "lol," "I mean," - but sparingly
 
 ### Tone: Curious > Accusatory
 
@@ -285,33 +297,23 @@ Notice gaps, don't blame. Let readers draw conclusions.
 
 **Good:** "Skycak's point isn't that educators are villains. It's that maximizing learning isn't the only thing schools are trying to do."
 
+### Hard Blocks
+
+Load `ai-tells` skill for banned words and patterns. The #1 tell: correlative constructions ("X isn't just Y - it's Z").
+
 ---
 
 ## Segment Titles
 
-**For detailed patterns and examples, load:** `references/segment-titles.md`
+- **Format:** `# TYPE: TITLE` (H1 header)
+- **Types:** THOUGHT, TOOL, TREND
+- **Title:** 1-6 words, ALL CAPS, creates information gap
+- **Reader must read to understand** - don't give away the insight
 
-### Quick Reference
-
-- **1-6 words max** - must fit one line of narrow email box
-- **ALL CAPS** in final output
-- **Create information gap** - reader must read to understand
-
-### Patterns
-
-| Pattern | Example | Why It Works |
-|---------|---------|--------------|
-| **Label** | THE GETTING BY TRAP | Names phenomenon, creates curiosity |
-| **Stat** | 83% OF PARENTS AGREE | Number + incomplete info |
-| **Object** | TOOL: CHOMPSAW | Clear, direct |
-| **Contrast** | SMALL SCHOOLS BIG IMPACT | Tension between two things |
-| **Counterintuitive** | THE OTHER KIND OF TESTING | Challenges assumption |
-
-### Sticky Techniques (Use Sparingly)
-
-- **Alliteration:** PRACTICE PRODUCES PERMANENCE
-- **Contrast:** SMALL SCHOOLS BIG DIFFERENCE
-- **Rhythm:** Two short balanced phrases
+Examples:
+- `# THOUGHT: THE GETTING BY TRAP`
+- `# TREND: 83% OF PARENTS AGREE`
+- `# TOOL: BEPRESENT`
 
 ---
 
@@ -340,11 +342,22 @@ For social repurposing, use the `social-content-creation` skill or create `Socia
 
 - [ ] Segments are orthogonal (related but not repetitive)
 - [ ] NO EMOJIS in body
-- [ ] ALL CAPS H2 titles
+- [ ] H1 headers for segments (# THOUGHT:, # TOOL:, # TREND:)
+- [ ] Dividers (---) between opening letter and first segment
+- [ ] Dividers (---) between each segment
+- [ ] Sign-off: "– Charlie (the OpenEd newsletter guy)"
 - [ ] 500-800 words total
 - [ ] All links work
 - [ ] Voice sounds human, not performative
 - [ ] Headlines create information gaps
+
+### HubSpot Integration
+
+After approval, use `hubspot-email-draft` skill to create the draft in HubSpot:
+1. Clones most recent OED email (keeps template + targeting)
+2. Converts markdown to HTML (H1s → `<h1>`, dividers → `<hr>`)
+3. Updates subject, preview, body
+4. Returns edit link - one click to publish
 
 ### Archive
 
@@ -364,40 +377,34 @@ cp [working-folder]/Newsletter_FINAL.md daily-newsletter-workflow/examples/[YYYY
 
 ### Anti-Patterns
 
+- **Fragments for punch:** "Thousands of dollars. Five bucks a pop." → Write complete sentences
+- **Snarky parentheticals:** "(Thank you, intrinsic motivation.)" → Only use when genuinely adding punch
 - **Forced cheerfulness:** "TGIF Eddies! Hope your week was AMAZING!" → Just "Greetings Eddies."
 - **Transcript dump:** Pasting quotes with minimal synthesis → Extract one insight, reframe in your voice
-- **Info overload:** 5 stats and 3 sources → One stat, one human voice, one implication
 - **Fake question:** "What if schools actually taught kids to think?" → Just tell them
-- **Setup-payoff crutch:** "The clever part: [explanation]" → Remove the label, write naturally
 
 ---
 
 ## Reference Files
 
-**Skill references (load on-demand):**
-- `references/pirate-wires-segment-techniques.md` - A la carte Pirate Wires techniques for TTT segments (longer excerpts)
-- `references/segment-archetypes.md` - THOUGHT, TREND, TOOL patterns
-- `references/opening-letter-patterns.md` - Charlie's voice examples + substance→take rhythm
-- `references/segment-titles.md` - Segment headline patterns (1-6 words, sticky)
-- `references/witty-voice-patterns.md` - General wit patterns for opening letters
+**Primary voice reference (LOAD BEFORE WRITING):**
+- `.claude/skills/ghostwriter/references/pirate-wires-examples.md` - 11 real examples of the voice
+
+**Opening letter examples:**
+- `references/opening-letter-patterns.md` - Charlie's actual openings
 
 **Content resources:**
 - [Tool Database](../../../Studio/Lead Magnet Project/OpenEd_Tool_Database.md)
-- [Content Queue](../../../Studio/OpenEd Daily/CONTENT_QUEUE.md)
 
 **Related skills:**
 - `ai-tells` - Hard blocks (correlatives, banned words)
-- `ghostwriter` - Humanization patterns
-- `newsletter-subject-lines` - Subject line writing (dedicated skill)
-- `opened-weekly-newsletter-writer` - Friday digest
-- `newsletter-to-social` - Social repurposing router
-- `TEMPLATE_INDEX.md` - Social format matching
+- `newsletter-to-social` - Social repurposing after newsletter is done
 
 ---
 
 ## File Naming
 
-Working folder: `Studio/OpenEd Daily/[YYYY-MM-DD] - [Theme]/`
+Working folder: `Studio/OpenEd Daily Studio/[YYYY-MM-DD] - [Theme]/`
 
 Files:
 - `Source_Material.md`

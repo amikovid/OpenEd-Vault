@@ -1,0 +1,226 @@
+MARKET QBR
+Q2 25/26
+
+QBR Guardrails
+Core Principles
+Embody company culture & values
+Prioritize customer impact
+Demonstrate Extreme Ownership
+Where you and we lived up to or did not live up to our values
+
+Presentation Essentials
+Time limit: 
+Department Lead Section = 5-10 minutes
+Team Member Sections = 3-5 minutes per team member
+It shouldn’t take more than 30 minutes to 1 hour to build your slides
+Be creative, concise, and impactful
+Showcase key metrics and their trends when possible. 
+A goal should be attainable/measurable. 
+Insights are more valuable than observations – what did you learn and what are you doing about it?
+Align with company objectives
+NOT a place to be defensive or justify your activities, but to share open and honestly whether you did well or not, and WHY, and what it means for the future.
+
+Melissa Wurzel QBR
+Q2 25/26
+
+Q2 Attainment
+What were your 1-3 targets and objectives? What was your attainment or result?
+Target, Objective or KPI
+Goal Attainment % or Measure 
+Apps: 2,500
+~3,100 by Nov. 10 (app deadline)
+Apps
+3,881
+155%
+2,500
+
+Attainment
+Goal
+
+Q2 RETRO
+Insight
+Learning
+New stage of funnel (interest form)HDYHAU Data
+Interest > App lower CVR; need to concentrate on the customer experience; need to launch with enrollment tasks open
+Confirmed how important initial relationships and trust moments are
+Win
+Why it matters (& any kudos)
+Nevada
+Major growth lever; out the gate strong for MY
+Loss or Miss
+Additional Notes
+Tracking; List Reliability
+
+Making Decisions with Data
+Still do not have proper attribution tracking in HubSpot. New Metabase enrollment funnel work should help once HubSpot sync is fully working; will need Ops to confirm. Dynamic lists will be built in Metabase and then synced to HubSpot—there is still work to be done on this integration.Need to raise the bar on how we inspect what we expect. To hit our growth targets, we must be more strategic, data-driven, and proactive in challenging assumptions. Can't do the same things at the same pace and expect different results.
+
+Q3 TARGETS & OBJECTIVES
+What are your top 1-3 targets, objectives, or KPI’s for this quarter? How will you measure them? 
+Target, Objective or KPI
+Goal Attainment % or Measure 
+Interest Forms: 5,000
+Track weekly pacing; measure against 1,667 per month baseline across January-March
+
+Q3 FOCUS AREAS
+Focus
+What are the top 1-3 things that you are focused on this quarter to make and exceed this quarter’s goals?
+Improve Interest > Application conversion rate (baseline 57% from Q2 data)
+Optimize enrollment customer experience—reduce friction points identified in funnel analysis
+Launch 4 new states
+
+What You Need for Success
+The top 1-3 business asks/needs from the Company and/or Management.
+Complete Metabase-to-HubSpot sync for reliable attribution tracking and dynamic list functionality
+Engineering support to resolve enrollment funnel friction points (enrollment tasks, form optimization)
+Charlie to own analysis of OpenEd Daily data and make strategic recommendations on frequency/approach
+
+
+Please use data and attainment when possible
+
+Ela Richmond QBR
+Q2 25/26
+
+Q2 Attainment
+What were your 1-3 targets and objectives? What was your attainment or result?
+Target, Objective or KPI
+Goal Attainment % or Measure 
+Apps: 2,500
+~3,100 by Nov. 10 (app deadline)
+Apps
+3,881
+155%
+2,500
+
+Attainment
+Goal
+
+Q2 RETRO
+Insight
+Learning
+How we begin in a state really matters
+Our weakest launches are where we also have slower growth. How we make people feel in their first year with OpenEd is how willing they are to recommend us to others. 
+Win
+Why it matters (& any kudos)
+Effective launch checklist
+
+Enabled ambassadors
+We struggled for a while to launch in our new states without hiccups. By the end of MY25, we were launching smoothly with a checklist that ensured we didn’t miss anything.
+We didn’t have to be present at everything. We had other people present, singing our praises. 
+Loss or Miss
+Additional Notes
+1- Ground game outreach
+I’ve reached out to people cold with low levels of success. I will still reach out to people, but the ground game for me is really going to shift to be enable the people who already trust us or are trying us out.
+
+Q3 TARGETS & OBJECTIVES
+What are your top 1-3 targets, objectives, or KPI’s for this quarter? How will you measure them? 
+Target, Objective or KPI
+Goal Attainment % or Measure 
+Interest Forms: 5,000
+Track weekly pacing; measure against 1,667 per month baseline across January-March
+
+Q3 FOCUS AREAS
+Focus
+What are the top 1-3 things that you are focused on this quarter to make and exceed this quarter’s goals?
+Make our first families feel like CHAMPIONS & help them to share OpenEd.
+Execute state launch checklists seamlessly.
+Website updates—simplify home page, push people to their state pages.
+BONUS: Test Saavy Learning partnership.
+
+What You Need for Success
+The top 1-3 business asks/needs from the Company and/or Management.
+Chavilah – As I build out my playbook for making families feel like champions, I’d love help executing the repeatable things.
+
+
+Please use data and attainment when possible
+
+Chavilah Stowers QBR
+Q2 25/26
+
+Q2 Attainment
+What were your 1-3 targets and objectives? What was your attainment or result?
+Target, Objective or KPI
+Goal Attainment % or Measure 
+Own the Sending and Scheduling of Content
+Coordinate and send 100% of newsletters, reels, marketing socials, and nearbound
+Execute all Content and Minor Design Changes in Webflow
+Complete all content changes and minor design/SEO updates within 48 hours
+Draft and Execute all Nearbound
+Send email within 24 hours of the mention being published.
+
+Q2 RETRO
+Insight
+Learning
+Nearbound audience growth
+
+Day in the Life
+Customizing the ask we pair with nearbound (social platform, podcast, author) = more conversations and audience growth. 
+People love hearing and sharing their day in the life. Increases authors on our website. 
+Win
+Why it matters (& any kudos)
+Excitement around nearbound 
+Found several people who were really excited to share our content. Kudos charlie for the articles that mentioned them. (Dr. Brian Ray, Justin Skycak, Mason Ember) 
+Loss or Miss
+Additional Notes
+Content that didn’t perform
+Posting types of content that didn’t performing without learning properly. Tested enough to types to figure out which posts performs better on which platforms. 
+
+Q3 TARGETS & OBJECTIVES
+What are your top 1-3 targets, objectives, or KPI’s for this quarter? How will you measure them? 
+Target, Objective or KPI
+Goal Attainment % or Measure 
+Own 7 Steps of State Launches
+Execute 100% of the steps assigned to me in the new playbook for each state launched. 
+Weighted Audience 2,841
+
+Use nearbound and social collaborations to help reach this number. Send email/message to everyone mentioned in the Daily within 24 hours.  
+Own SEO Errors
+Maintain our site health (80%-85%), and fix all new SEO errors. 
+
+Q3 FOCUS AREAS
+Focus
+What are the top 1-3 things that you are focused on this quarter to make and exceed this quarter’s goals?
+Prep state materials ahead of the official launch.
+Expand our nearbound ask (beyond socials) to increase podcasts and guest authors.  
+Learn more ways to improve our SEO score. 
+
+What You Need for Success
+The top 1-3 business asks/needs from the Company and/or Management.
+Charlie & Ela – since I have tasks from both, I need clear expectations on workload, deadlines, and reducing day of tasks. 
+
+
+Please use data and attainment when possible
+
+Charlie Deist QBR
+Q2 25/26
+
+Q2 Attainment
+What were your 1-3 targets and objectives? What was your attainment or result?
+Target, Objective or KPI
+Goal Attainment % or Measure 
+
+Q2 RETRO
+Insight
+Learning
+Win
+Why it matters (& any kudos)
+Loss or Miss
+Additional Notes
+
+Q3 TARGETS & OBJECTIVES
+What are your top 1-3 targets, objectives, or KPI’s for this quarter? How will you measure them? 
+Target, Objective or KPI
+Goal Attainment % or Measure 
+
+Q3 FOCUS AREAS
+Focus
+What are the top 1-3 things that you are focused on this quarter to make and exceed this quarter’s goals?
+A
+
+What You Need for Success
+The top 1-3 business asks/needs from the Company and/or Management.
+A
+
+
+Please use data and attainment when possible
+
+Opening the world for every learner.

@@ -289,7 +289,7 @@ Based on 2025-2026 SEO research, to avoid thin content penalties when scaling st
 | State | SEO Priority | Status | Notes |
 |-------|--------------|--------|-------|
 | Oregon | Q1 High | Not started | 3rd highest traffic, growth target |
-| Nevada | Q1 High | Not started | New launch, high growth potential |
+| Nevada | Q1 HIGH - CRITICAL | Not started | **Melissa: "Could be major growth lever" - conversations pending with state. Prep content NOW.** |
 | Indiana | Q1 High | Not started | Brand confusion ("Braintree"), local SEO needed |
 | Utah | Q1 Medium | Not started | HQ state, Charlie has local resources database |
 | Kansas | Q2 | Not started | Ambassador: Delina Wallace |
@@ -297,6 +297,8 @@ Based on 2025-2026 SEO research, to avoid thin content penalties when scaling st
 | Iowa | Q2 | Not started | |
 | Minnesota | Q2 | Not started | |
 | Montana | Q3 | Not started | |
+
+**2026-01-26 QBR NOTE:** Ela mentioned homepage updates to push people to "go to your state" - makes state pages critical path for Q3. 4 new states launching Q3.
 
 **Not Operating (Don't Create Pages):** Arizona, Florida, California, Texas - high volume but no program.
 

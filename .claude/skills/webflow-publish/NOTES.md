@@ -270,10 +270,33 @@ html = '\n\n'.join(convert_block(b) for b in blocks if convert_block(b))
 
 ---
 
+## Author Detection
+
+**Authors Collection ID:** `68089af9024139c740e4b922`
+
+**Known Authors:**
+- Charlie Deist: `68089b4d33745cf5ea4d746d`
+
+**Default:** If no author specified, use Charlie Deist.
+
+---
+
+## Thumbnail Handling
+
+**CRITICAL:** The thumbnail image should NOT be included in the article body content. Webflow automatically displays the thumbnail above the article header based on the template design.
+
+If the markdown has a header image at the top:
+1. Upload it as the thumbnail (via `thumbnail` field with `fileId` and `url`)
+2. Remove it from the HTML body content before creating the post
+
+---
+
 ## Future Enhancements
 
+- [x] Convert to formal skill with JSON payload generation (see SKILL.md)
+- [x] Add update/PATCH workflow for existing posts
+- [x] Author detection and handling
 - [ ] Script to batch-add email subscribe embeds to old posts (CMS operation)
-- [ ] Convert to formal skill with JSON payload generation
-- [ ] Add update/PATCH workflow for existing posts
 - [ ] Integrate with existing `webflow_sync_agent.py` for bidirectional sync
+- [ ] Create new authors when not found in Authors collection
 

@@ -5,7 +5,7 @@ type:
   - influencer
   - thought-leader
 
-guest_contributor_potential: low
+guest_contributor_potential: high
 podcast_prospect: false
 
 x_twitter: "@JFM"
@@ -18,8 +18,8 @@ website: null
 total_reach: null
 engagement_score: high
 
-relationship_status: mentioned
-warmth_score: 1
+relationship_status: warm
+warmth_score: 4
 last_contact: null
 outreach_status: null
 
