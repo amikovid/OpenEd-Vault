@@ -1,50 +1,98 @@
 # OpenEd NOW
 
-**Last Updated:** 2026-01-15
+**Last Updated:** 2026-01-26
 
 ---
 
-## Session: Vault Audit (2026-01-15)
+## QBR Action Items (2026-01-26)
 
-### Cruft Cleaned
-- Deleted `quality-loop copy` and `quality-loop2` (duplicate skills)
-- Deleted `OpenEd Daily.zip` (stale backup)
-- Deleted `4dc9011b086c410392982e6bbf2940ef/` UUID folder in podcasts
-- Deleted `Untitled.md` orphans in archived podcasts
+**From Q2 QBR meeting - do not let slip:**
 
-### New Asset Created
-**`Studio/Social Media/FORMAT_INVENTORY.md`** - Unified format inventory combining:
-- Andrew Muto video formats (Tier 1-4 evaluation)
-- Content concepts text patterns (formerly X_Post_Batch_Review)
-- User feedback preferences (reject correlatives, like stats+one-liners)
-- Decision trees for format selection
-- Daily production targets (2 videos + 2 text posts)
+| Action | Owner | When | Status |
+|--------|-------|------|--------|
+| Show Melissa Search Console integration | Charlie | Tomorrow (add to agenda) | ⏳ |
+| Talk to Melissa about daily cadence | Charlie | Tomorrow | ⏳ |
+| Set up Monday morning SEO report to Slack | Charlie | This week | ⏳ |
+| Request Databox access from Alex | Charlie | This week | ⏳ |
+| Align with Ela on Chavilah task allocation | Charlie + Ela | This week | ⏳ |
+| Savvy Learning article → coordinate with Ela | Charlie | Before publish | ⏳ |
 
-### Remaining " 1" Podcast Folders
-Left in place - contain unique content, not duplicates:
-- `Corey DeAngelis 1/`
-- `Kade Hinkle... 1/`
-- `Michael Gibson 1/`
+**Daily cadence decision pending:** Currently 3-4/week. Trade-off: More bandwidth vs. more nearbound at-bats. Discuss with Melissa tomorrow.
 
-### Meta Ads UUID Files
-50+ files with Notion UUID suffixes remain in `Ad Creative Concepts/`. Too many to rename safely; content is valid.
+**YouTube ads research:** Complete research saved to `Studio/Analytics & Attribution/youtube-vs-meta-ads-research.md`. Recommendation: Test $1,500-2,000 over 8 weeks for fall enrollment.
 
 ---
 
-## Current Focus
+## Guest Contributor Pipeline - ACTIVE
 
-### Content Concepts Calibration - AWAITING FEEDBACK
-105 content concepts generated with inline feedback patterns applied.
+**Architecture:** Notion database + vault templates
+- **Notion:** [Guest Contributor Pipeline](https://www.notion.so/2f4afe52ef5981bc8d7accc5e00e1a17) - tracking, source material, article angles
+- **Vault:** `Studio/SEO Content Production/Guest Contributors/` - PROJECT.md, outreach templates, examples
 
-**File:** `Studio/Social Media/staging/Content_Concepts.md` (moved from X_Post_Batch_Review.md)
+### Wave 1 - Ready to Send
+| Contact | Company | Topic | Status |
+|---------|---------|-------|--------|
+| **Justin Skycak** | Math Academy | Math acceleration | HOT LEAD - praised our AI tutoring article |
+| **Mason Pashia** | Getting Smart | Marketplace data | Active convo Dec 2025, SEND EMAIL |
+| **Michael Vilardo** | Subject.com | Netflix of high school | TED transcript + pitch ready, via Hollie |
+| **Janssen Bradshaw** | Everyday Reading | Literacy/reading | AGREED - needs SEO topic |
+| **Matt Beaudreau** | Apogee | Microschooling | Full Apogee blueprint in Notion |
+| **Savvy Learning founder** | Savvy Learning | TBD | NEW - coordinate with Ela on partnership angle |
 
-**User Feedback Patterns (apply to all future posts):**
-- REJECT: Correlative constructions ("X isn't Y - it's Z")
-- REJECT: Soft/preachy endings
-- REJECT: Tired openers ("Hot take:", "Unpopular opinion:", "Genuine question:")
-- LIKE: Stats + provocative one-liner
-- LIKE: Visual concepts (cartoons, graphs, reels)
-- ADD: Alternating caps for mocking ("bUt WhAt AbOuT...")
+### Wave 2 - Warm Leads
+| Contact | Company | Topic | Notes |
+|---------|---------|-------|-------|
+| Robin Smith | Surge Academy | Coding education | Highly engaged (5 replies) |
+| Kathleen Ouellette | VictoryXR | VR education | Follow up needed |
+| Jon England | Libertas | Microschool policy | Pitch drafted |
+| Peter Gray | Self-Directed Ed | | Podcast done |
+| Michael Horn | Disruption | | Gave book blurb |
+
+**Full content in Notion:** Transcripts, source material, pitch emails, article angles for all Wave 1-2 contributors.
+
+---
+
+## Content Engine Refactor - COMPLETE
+
+**Project folder:** `Studio/_content-engine-refactor/`
+
+All phases complete. The content engine is now documented and streamlined.
+
+### What Was Done
+
+**New Skills Created:**
+- `newsletter-to-social` - Router for hub-to-spoke workflow
+- `archive-suggest` - Daily suggestions from content archive
+- `slack-social-distribution` - Post to #market-daily as threads
+- `newsletter-subject-lines` - Dedicated subject line skill (split from hook-writing)
+- `article-titles` - SEO-focused headline skill (split from hook-writing)
+- `work-summary` - Translate git commits to Slack-friendly updates
+
+**Skills Refactored (8,400 words removed):**
+| Skill | Reduction |
+|-------|-----------|
+| ghostwriter | 64% |
+| meta-ads-creative | 63% |
+| cold-open-creator | 61% |
+| hook-and-headline-writing | 59% (then split) |
+| opened-daily-newsletter-writer | 37% |
+| podcast-production | 29% |
+
+**Architecture Documented:**
+- `SKILL_ARCHITECTURE_MAP.md` - Visual map of entire content engine
+- "Examples Over Instructions" philosophy added to skill-creator
+- Fixed 7 broken skill references
+
+**Infrastructure:**
+- Work summaries folder: `.claude/work-summaries/`
+- Nearbound profiles: 8 updated with social handles
+
+### Next Session Approach
+
+**Test skills through actual workflows** rather than isolated audits:
+- Run a newsletter → social spoke workflow
+- Run a podcast clip extraction
+- Note friction points in real use
 
 ---
 
@@ -76,67 +124,16 @@ Left in place - contain unique content, not duplicates:
 
 ---
 
-## Guest Contributor Pipeline - READY TO SEND
+## Key Dates (Q3)
 
-| Contact | Company | Topic | Status |
-|---------|---------|-------|--------|
-| Mason Pashia | Getting Smart | Marketplace data | Ready |
-| Kathleen Ouellette | VictoryXR | VR education | Ready |
-| Robin Smith | Surge Academy | Coding/game design | Ready |
-| Jon England | Libertas Institute | Microschools | Ready |
-
-**Drafts:** `Studio/SEO Content Production/Guest Contributors/Drafts/`
+| Date | Event | Impact |
+|------|-------|--------|
+| **Feb 10** | Enrollment tasks open | Interest → Application conversion focus |
+| **Feb 16** | Retargeting Pillar 1 launch | 4-6 ad variations needed |
+| **Q3** | 4 new states launching | State pages become critical path |
+| **Fall 2026** | Enrollment cycle | YouTube ads test window |
 
 ---
-
-## Folder Structure
-
-```
-OpenEd Vault/
-├── CLAUDE.md                    # Navigation + writing rules
-├── NOW.md                       # This file - living handoff
-├── Master_Content_Index.md      # 406 published pieces indexed
-│
-├── Studio/                      # Active projects + workflows
-│   ├── Eddie Awards/PROJECT.md
-│   ├── Meta Ads/PROJECT.md
-│   ├── SEO Content Production/PROJECT.md
-│   ├── Lead Magnet Project/curriculove/    # Next.js app
-│   ├── Retargeting Strategy FY26-27/PROJECT.md
-│   ├── KPI Discussions/PROJECT.md
-│   ├── Social Media/FORMAT_INVENTORY.md    # Unified format guide
-│   ├── Social Media/staging/Content_Concepts.md  # 105 concepts awaiting review
-│   ├── OpenEd Daily/                       # Workflow
-│   ├── Open Ed Podcasts/                   # Workflow
-│   ├── Open Education Hub/                 # Workflow
-│   └── _archive/                           # Archived projects
-│
-├── Content/Master Content Database/        # Published archive
-├── CRM/                                    # 382 contacts
-├── Archive/                                # Historical content
-│   └── Andrew Muto/                        # Gold: 40+ video formats
-│
-└── .claude/
-    ├── skills/          # 39 active skills (cleaned 2 duplicates)
-    ├── references/      # SEO commands, program details, etc.
-    └── sessions/        # Historical handoffs
-```
-
----
-
-## Skills Architecture
-
-| Content Type | Primary Skill | Notes |
-|--------------|---------------|-------|
-| **Text posts** | `text-content` | 360+ templates, platform routing |
-| **Short-form video** | `short-form-video` | Production workflow |
-| **Video hooks** | `video-caption-creation` | Triple Word Score system |
-| **Podcast** | `podcast-production` | Full episode workflow |
-| **Newsletter** | `opened-daily-newsletter-writer` | Mon-Thu format |
-| **SEO content** | `seo-content-writer` | Hub page optimization |
-| **Deep dives** | `open-education-hub-deep-dives` | Quality-loop integration |
-| **Quality control** | `quality-loop` | 5-judge system |
-| **AI image gen** | `image-prompt-generator` | Nano Banana Pro |
 
 ---
 
@@ -151,17 +148,6 @@ OpenEd Vault/
 | GA4 | ✅ | Analytics access |
 | GetLate | ✅ | 8 platforms connected |
 | Gemini | ✅ | gemini-3-flash-preview |
-
----
-
-## High Engagement Contacts
-
-| Contact | Company | Opportunity |
-|---------|---------|-------------|
-| Sara Jean Kwapien | Outschool | Pitch article |
-| Ryhen Miller-Hollis | Education Reimagined | Reciprocal blog |
-| The Good and the Beautiful | - | Major curriculum brand |
-| Rainbow Resource | - | Largest retailer |
 
 ---
 

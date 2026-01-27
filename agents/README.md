@@ -7,9 +7,24 @@ Automation agents for content management and workflow optimization.
 ```
 agents/
 ├── webflow_sync.py           # Main Webflow sync script (use this)
+├── webflow_sync_agent.py     # Enhanced sync with agent pattern
+├── run_webflow_sync.py       # Simple runner for scheduled sync
+├── schedule_webflow_sync.py  # Cron-style scheduler
+├── webflow_mcp_sync.py       # MCP server integration
+├── webflow_sync_command.py   # Command-line wrapper
 ├── .webflow_sync_state.json  # Tracks last sync timestamp
+│
 ├── social_media_agent.py     # Social media posting via GetLate
+├── post_linkedin.py          # Direct LinkedIn posting
+├── post_tweet.py             # Direct Twitter/X posting
+├── post_with_image.py        # Post with image attachment
 ├── content_multiplier.py     # Content repurposing utilities
+│
+├── audit_platforms.py        # Audit connected platforms
+├── connect_accounts.py       # OAuth account connection
+├── debug_api.py              # API debugging utility
+├── test_*.py                 # Test scripts (debugging)
+│
 ├── _archived/                # Old scripts kept for reference
 └── README.md
 ```

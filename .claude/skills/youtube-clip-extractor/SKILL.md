@@ -420,8 +420,8 @@ This skill integrates with:
 | Skill | When to Use | What It Provides |
 |-------|-------------|------------------|
 | **video-caption-creation** | Phase 4 | On-screen text hook categories, Triple Word Score system, platform caption guidelines |
-| **hook-and-headline-writing** | Phase 4 | 15 hook formulas, 4 U's test, sticky sentence techniques |
-| **social-content-creation** | After clips ready | Framework fitting for text posts about clips |
+| **youtube-downloader** | Phase 1 (alternative) | Detailed yt-dlp installation checks, error handling, transcript-only workflow |
+| **text-content** | After clips ready | Framework fitting for text posts about clips |
 | **podcast-production** | Full episode workflow | Complete 4-checkpoint production system |
 
 ### Skill Cross-References
@@ -432,16 +432,10 @@ This skill integrates with:
 - Platform-specific hashtag counts
 - McDonald's Test for accessibility
 
-**From hook-and-headline-writing:**
-- 15 headline formulas
-- 4 U's test (Useful, Urgent, Unique, Ultra-specific)
-- Sticky sentence techniques (alliteration, symmetry, contrast)
-- 10 Commandments of engagement
-
-**From social-content-creation:**
+**From text-content:**
 - Platform voice guidelines (LinkedIn vs Facebook vs Instagram)
 - Framework fitting method
-- SCAMPER proliferation for variations
+- 360+ templates in references/
 
 ---
 

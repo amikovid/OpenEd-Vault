@@ -21,7 +21,7 @@ engagement_score: unknown
 relationship_status: interviewed
 warmth_score: 4
 last_contact: 2025-12-17
-outreach_status: null
+outreach_status: agreed
 
 featured_in:
   - title: "She Did Everything Right - Her Daughter Still Couldn't Read"
@@ -33,7 +33,10 @@ featured_in:
 assigned_topic: null
 pitch_draft: null
 notes: |
-  School librarian. Personal story about daughter's reading struggles.
-  Recent podcast guest - warm relationship.
-  Strong guest contributor candidate on literacy topics.
+  School librarian. Runs Everyday Reading site.
+  Personal story about daughter's reading struggles.
+  Recent podcast guest (Dec 2025) - warm relationship.
+
+  **AGREED** to guest contributor article (Jan 2026).
+  Need SEO topic research - find something on-brand with Everyday Reading.
 ---

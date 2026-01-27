@@ -11,15 +11,30 @@ Creates Monday-Thursday daily newsletters (500-800 words) that challenge standar
 
 ---
 
-## Workflow Overview
+## Content Workflow Order
+
+**Full content drop order of operations:**
+1. Draft social media assets (use `newsletter-to-social`)
+2. Publish blog post on Webflow
+3. Share social media with blog link where appropriate
+4. **Newsletter last** (use `hubspot-email-draft` skill)
+
+The newsletter often links to the blog post and social content, so it goes last.
+
+---
+
+## Newsletter Workflow
 
 ```
-Phase 1: Content Curation     → Source_Material.md
-Phase 2: Angle Development    → Checkpoint_1.md (USER APPROVAL REQUIRED)
+Phase 1: Source + Format      → Source_Material.md (identify social formats FIRST)
+Phase 2: Angles + Checkpoint  → Checkpoint_1.md (USER APPROVAL REQUIRED)
 Phase 3: Newsletter Writing   → Newsletter_DRAFT.md
-Phase 4: Social Media         → Optional repurposing
+Phase 4: Social Spin-offs     → Social posts from newsletter content
 Phase 5: QA & Archive         → Newsletter_FINAL.md
+Phase 6: HubSpot Draft        → hubspot-email-draft skill → one-click publish
 ```
+
+**Key insight:** Identify which snippets have natural social formats BEFORE writing the newsletter. Social constraints produce tighter angles.
 
 ---
 
@@ -70,10 +85,22 @@ For specific items, use `notion-fetch` with the page ID.
 ### Create Working Folder
 
 ```bash
-mkdir "Studio/OpenEd Daily/[YYYY-MM-DD] - [Brief Theme]/"
+mkdir "Studio/OpenEd Daily Studio/[YYYY-MM-DD] - [Brief Theme]/"
 ```
 
-Create `Source_Material.md` with URLs, key quotes, and angle notes.
+Create `Source_Material.md` with:
+- URLs and key quotes
+- For each piece: what's the core insight? (one sentence)
+- Format fit: X one-liner, Instagram carousel, LinkedIn story, or newsletter segment?
+
+**Social-first check:** If a snippet has an obvious social format, note it. You may draft that version first - social constraints often reveal the strongest angle.
+
+| Snippet Type | Natural Format |
+|--------------|----------------|
+| Single stat + interpretation | X one-liner |
+| Comparison/contrast | Instagram carousel |
+| Transformation arc | LinkedIn story |
+| Counterintuitive claim | X paradox |
 
 ---
 
@@ -145,6 +172,8 @@ Create `Newsletter_DRAFT.md` after Checkpoint 1 approval.
 
 ### Opening Letter (~100-150 words)
 
+**For more examples, load:** `references/opening-letter-patterns.md`
+
 **Structure:**
 1. **Greeting:** "Greetings Eddies!", "Welcome Eddies!", or "Greetings!"
 2. **Hook:** Story, startling statistic, contrarian question, or community milestone
@@ -152,7 +181,7 @@ Create `Newsletter_DRAFT.md` after Checkpoint 1 approval.
 4. **Tease:** Mention what's coming without summarizing
 5. **Sign-off:** "Let's dive in."
 
-**Opening Letter Examples:**
+**Quick Examples (by hook type):**
 
 **Milestone/Community:**
 > Greetings Eddies! It just came to my attention that the OpenEd Daily hit a new milestone: 20,000 subscribers! Rather than resting on our laurels, we take this as a sign of the growing appetite for trustworthy content related to the opening up of education. Onward & upward,
@@ -172,282 +201,119 @@ Create `Newsletter_DRAFT.md` after Checkpoint 1 approval.
 ### Newsletter Structure
 
 ```markdown
+# Newsletter Draft - YYYY-MM-DD (Day)
+
 **SUBJECT:** [From Checkpoint 1]
 **PREVIEW:** [From Checkpoint 1]
+
 ---
 
-[Opening Letter]
+Greetings Eddies!
+
+[Opening Letter - 100-150 words]
+
+– Charlie (the OpenEd newsletter guy)
+
 ---
 
-## [SEGMENT 1 TITLE - ALL CAPS]
+# [SEGMENT TYPE]: [TITLE - ALL CAPS]
+
 [100-120 words]
+
 ---
 
-## [SEGMENT 2 TITLE - ALL CAPS]
+# [SEGMENT TYPE]: [TITLE - ALL CAPS]
+
 [100-120 words]
+
 ---
 
-## [SEGMENT 3 TITLE - ALL CAPS]
+# [SEGMENT TYPE]: [TITLE - ALL CAPS]
+
 [100-120 words]
+
 ---
 
 That's all for today!
 
 – Charlie (the OpenEd newsletter guy)
 
-P.S. [Optional announcement]
+P.S. [Optional announcement or link to podcast/blog]
 ```
+
+**Note:** Use `# THOUGHT:`, `# TOOL:`, `# TREND:` (H1 headers) for segments. This format ports directly into HubSpot via the `hubspot-email-draft` skill.
 
 ### Format Requirements
 
 - ❌ NO EMOJIS (non-negotiable)
-- ✅ ALL CAPS H2 titles for segments
+- ✅ H1 headers for segments (# not ##)
 - ✅ **Bold** for key quotes/stats
 - ✅ Hyperlinks throughout (not just at ends)
 - ✅ `---` between sections
 - ✅ 500-800 words total
 
----
+### Hyperlinking Rules
 
-## Segment Archetypes
+When provided a link, always hyperlink it **in the body of the text** (never at the end). Link the **main action or subject** using only **2-3 key words max**.
 
-Use these patterns to structure each segment type.
+**Good:** "A new [MIT study](URL) claims LLM users underperform..."
+**Good:** "Ken Danford has been [running North Star](URL) since 1996..."
+**Bad:** "A new MIT study claims LLM users underperform. (Link)"
+**Bad:** "[A new MIT study claims LLM users consistently underperform on cognitive tests](URL)"
 
-### THOUGHT Archetypes
-
-**1. THE PARABLE (Best performer)**
-Story with embedded lesson. Reader discovers the insight through narrative, not lecture.
-
-> An old man lived alone. One day, local kids start throwing rocks at his house. Instead of yelling, he offers them a dollar each to come back tomorrow. They do. Next day, fifty cents. Then a quarter. Finally, he says he can't afford to pay them anymore. The kids, now feeling underpaid, never return.
-
-Pattern: [Surprising situation] → [Counterintuitive action] → [Unexpected resolution] → [Reader draws conclusion]
-
-**2. THE VIVID ANALOGY**
-Maps education concepts onto familiar objects.
-
-> Homeschooling used to mean a specific thing. Now it's like 'cable' - a bundle of options (co-ops, pods, tutors, online courses) that you assemble yourself.
-
-Pattern: [Old understanding] → [New reality] → [Clarifying metaphor]
-
-**3. THE SUBVERSIVE REFRAME**
-Concede the conventional view, then flip it.
-
-> Schools say they're preparing kids for the real world. But Ansel Adams's mother pulled him OUT of school precisely because the real world - nature, exploration, self-direction - couldn't be found inside one.
-
-Pattern: [Acknowledge common belief] → [Historical example that subverts it] → [New frame]
-
-**4. THE GUT-PUNCH QUOTE**
-Let someone else deliver the insight.
-
-> A mother shares her child's question: "Mommy, did you get distracted too?" after being pulled from traditional school.
-
-Pattern: [Brief setup] → [Powerful quote] → [Let it land without over-explaining]
-
-**5. THE ONE-LINER**
-Single sentence that reframes everything. Rare, but devastating when done right.
-
-> "Education isn't filling a bucket. It's lighting a fire."
-
-Only use when you find genuine gold. Don't manufacture these.
-
-### TREND Archetypes
-
-**1. ALARMING STAT + HUMAN VOICE**
-Data creates urgency; human story creates connection.
-
-> 83% of parents believe schools aren't preparing kids for the AI economy. But talk to Maria Gonzales in Houston, and it's not abstract: "My son's math teacher spent three months on a unit the Khan Academy covered in two weeks."
-
-Pattern: [Stat] → [Named person + location] → [Direct quote]
-
-**2. FOLLOW THE SMART MONEY**
-What are sophisticated actors actually doing?
-
-> When you hear what Google executives are doing with their own kids' education, it makes you wonder what they know that they're not telling us.
-
-Pattern: [High-status group] + [Surprising behavior] → [Implication]
-
-**3. HISTORICAL PARALLEL**
-Today's trend maps onto past movements.
-
-Pattern: [Current trend] → [Historical parallel] → [What happened then] → [What it suggests now]
-
-**4. CONCRETE CASE STUDY**
-One family, one school, one district - told in detail.
-
-> The Johnsons in Tampa have three kids in three different arrangements: one full-time homeschool, one hybrid with the district, one in a microschool. Here's how they make it work.
-
-Pattern: [Family/school name] + [Location] + [Specific arrangement] + [How/why]
-
-### TOOL Archetypes
-
-**1. HOW-TO IN DISGUISE**
-Don't describe the tool - show how to use it.
-
-> Open your state's ESA application portal. Click 'Account Setup.' Before you fill in anything, do this first...
-
-Pattern: [Immediate action verb] + [Specific first step] + [One useful tip]
-
-**2. PERSONAL ENDORSEMENT**
-You or a named source vouches for it.
-
-> I've tried every transcript tool. This is the only one I still use three months later.
-
-Pattern: [Credibility statement] + [Specific endorsement] + [Why it stuck]
-
-**3. PROBLEM-SOLUTION FRAME**
-Name the pain point first.
-
-> Tracking learning across three different platforms is a nightmare. Until you discover [Tool], which...
-
-Pattern: [Specific pain point] + [Tool introduction] + [How it solves it]
-
-**4. "WE TRIED THIS" ENDORSEMENT**
-Team/community validation.
-
-> Three of our team members ran their curriculum through [Tool] last month. Here's what they found...
-
-Pattern: [Group who tried it] + [Results/findings] → [Recommendation]
+When multiple sources are provided with body text to reference, **hyperlink ALL links** where the referenced content is used in the newsletter. Don't let any provided link go unhyperlinked.
 
 ---
 
 ## Voice & Writing Style
 
-### The Core Principle: Context + Substance
+**Read these examples before writing. This is the voice.**
 
-Every segment must deliver both:
-1. **Context** - Who is this person? What did they do? Why should I care?
-2. **Substance** - What's the actual insight, data, or takeaway?
+### Example 1: AI Study (calling out the obvious)
 
-**Bad:** "Justin Skycak runs Math Academy and has interesting ideas about education."
+> "A new MIT study claims LLM users 'consistently underperform' on neural and linguistic tests — and AI doomers are obsessed. A professor on Bluesky declares the 'death knell' of AI, and normies are 'terrified' ChatGPT will rot our brains. Of course, none of them read the 206-page report, which reveals 18 college students had 20min to write essays based on (boring) SAT prompts using only ChatGPT. They could barely recall what they 'wrote,' meaning they just copy/pasted, lol, and their brain activity diminished. I mean, obviously, doing nothing tanks your brain activity (thank you, science)."
 
-**Good:** "Justin Skycak runs Math Academy. His argument: schools use teaching methods that research abandoned decades ago - spaced repetition, retrieval practice, deliberate practice. Researchers have studied this since the 1900s. Schools just don't do it."
+### Example 2: Parent authority (the "you're the problem" move)
 
-The second version delivers substance. The first is a placeholder.
+> "Two things: unstructured time is the fundamental substrate for creativity. And, uh, have you guys tried just… dealing with this? Take away their devices. Give them chores. Chalk. Challenges. You don't have to pay for your kids to play outside. You can just force them to, for free. Take it from my boomer dad, who used to lock us out of the house in 100-degree heat. When we were thirsty, we drank from the hose, and nobody died lol. O accursed parents of modernity, you've forgotten that you guys are literally adults. Make choices, face consequences. It's gonna be OK."
 
-### High-Density Prose
+### Example 3: AI funding (let's be honest)
 
-Every sentence should carry meaning. If a sentence exists only to create dramatic space for the next sentence, cut it.
+> "Last week, former OpenAI CTO Mira Murati raised $2 billion in seed funding (!) for her stealth AI startup, Thinking Machines Lab, valuing the six-month-old company at around $10 billion with, from best I can tell, no product or business. I think it's safe to say we've reached the 'irrational exuberance' stage of the AI hype cycle — but let's remember these guys are trying to catalyze a utopian singularity, which probably can't be overhyped? Then, just in terms of the salaries, I'm glad America is paying our star nerds more than our star basketball players (finally). Sorry haters, the only problem I see here is my own slow start."
 
-**Low-density (bad):**
-> A new MIT study just dropped.
-> It claims LLM users "consistently underperform" on cognitive tests.
-> AI doomers are obsessed with it.
-> But here's the thing.
-> None of them actually read the report.
+### What makes these work
 
-**High-density (good):**
-> A new MIT study claims LLM users "consistently underperform" on cognitive tests - and AI doomers are obsessed. Of course, none of them read the 206-page report, which reveals 18 college students had 20 minutes to write essays based on boring SAT prompts using only ChatGPT.
+- **Complete flowing sentences** - not fragments
+- **Parentheticals are rare and punchy** - "(from best I can tell, no product or business)"
+- **Says what everyone thinks** - "Of course, none of them read..."
+- **Confident, not snarky** - states observations directly
+- **Casual interjections** - "lol," "I mean," - but sparingly
 
-Six units became one. "But here's the thing" disappeared. The substance undermines the panic - that's the insight, delivered in the flow.
+### Tone: Curious > Accusatory
 
-### Setup Phrases to Eliminate
-
-These signal "the important part is coming" instead of delivering it:
-
-- "Here's the thing..."
-- "But here's the kicker..."
-- "The clever part:"
-- "What's interesting:"
-- "Here's why that matters..."
-- "Let that sink in."
-
-If you need to tell the reader something is important, it probably isn't.
-
-### Rhythm vs. Staccato
-
-Short sentences are fine when they carry meaning:
-> Take away their devices. Give them chores. Chalk. Challenges.
-
-Short sentences are NOT fine when they're dramatic pauses:
-> Schools aren't working. Not anymore. Not for most kids. And here's why.
-
-**The test:** Does the short sentence carry meaning, or create a pause before meaning?
-
-### The Vibe
-
-A smart person talking to another smart person. No performance. No manipulation. Just: here's what happened, here's why it matters.
-
-- **Trust the reader.** Don't tell them how to feel. Show them the thing.
-- **Say less.** If you wrote it twice, delete one.
-- **No fake questions.** "The top concerns?" is a crutch. Just tell them.
-- **Short sentences are fine.** Fragments too. "Stomach aches gone." works.
-
----
-
-## AI Tells to Avoid
-
-### #1 CRITICAL - Correlative Constructions
-
-This is the biggest AI tell. Never use:
-- "X isn't just Y - it's Z"
-- "It's not about X, it's about Y"
-- "She wasn't X. She was Y."
-- "The secret isn't X. It's Y."
-
-Find another way. Rewrite the sentence. This pattern screams AI.
-
-### Other AI Tells
-
-- Rhetorical questions that set up your own point
-- "Meanwhile:" at the start of paragraphs (use sparingly)
-- Trying to sound punchy instead of actually being clear
-- "X:" pattern before explanations ("The classic study:" / "The clever part:")
-- Triple Threat Syndrome (grouping everything in threes)
-- Empty enthusiasm ("Absolutely!", "Great question!")
-- Thesaurus abuse ("utilize" instead of "use")
-- Forced transitions ("Speaking of X..." / "On a related note...")
-- Editorializing with judgments you can't back up
-
-**The test:** Read it aloud. Does it sound like a person talking? Or like someone performing "good writing"?
-
----
-
-## Tone: Curious > Accusatory
-
-Notice things. Don't blame.
-
-When critiquing institutions, observe the gap rather than attack. Let the reader draw conclusions.
+Notice gaps, don't blame. Let readers draw conclusions.
 
 **Bad:** "Schools prioritize fun over learning. Educators are failing our kids."
 
-**Good:** "Skycak's point isn't that educators are villains. It's that maximizing learning isn't the only thing schools are trying to do, and maybe not even the main thing."
+**Good:** "Skycak's point isn't that educators are villains. It's that maximizing learning isn't the only thing schools are trying to do."
 
-The reader will notice. You don't have to tell them how to feel.
+### Hard Blocks
 
-### Don't Editorialize
-
-Stick to what you can prove. Avoid sweeping claims like:
-- "There weren't any protests. Just millions of families quietly making a different choice."
-- "The institutions still don't get it."
-
-If you can't cite it, soften it to a question or cut it.
-
-**Instead of:** "Institutions keep waiting for families to come back. They're not coming back."
-
-**Try:** "The question worth asking is what families discovered during those COVID years at home that made them decide not to go back."
-
-The question form invites curiosity. The statement form invites argument.
+Load `ai-tells` skill for banned words and patterns. The #1 tell: correlative constructions ("X isn't just Y - it's Z").
 
 ---
 
-## Headlines
+## Segment Titles
 
-Section titles (H2s) should create an information gap - reader needs to read to close it.
+- **Format:** `# TYPE: TITLE` (H1 header)
+- **Types:** THOUGHT, TOOL, TREND
+- **Title:** 1-6 words, ALL CAPS, creates information gap
+- **Reader must read to understand** - don't give away the insight
 
-### Patterns That Work
-
-- **The Label:** "THE GETTING BY TRAP" - names a phenomenon
-- **The Stat:** "83% OF PARENTS AGREE" - specific number creates credibility
-- **The Object:** "TOOL: CHOMPSAW" - clear, direct
-
-### Avoid
-
-- Generic labels ("WHAT WE LEARNED")
-- Questions as headlines ("WHAT IF...?")
-- Clickbait that doesn't deliver
-- Puns that sacrifice clarity
-
-**Counterintuitive framing works:** "The other kind of testing" challenges assumptions (testing = bad?) without revealing the answer.
+Examples:
+- `# THOUGHT: THE GETTING BY TRAP`
+- `# TREND: 83% OF PARENTS AGREE`
+- `# TOOL: BEPRESENT`
 
 ---
 
@@ -476,11 +342,22 @@ For social repurposing, use the `social-content-creation` skill or create `Socia
 
 - [ ] Segments are orthogonal (related but not repetitive)
 - [ ] NO EMOJIS in body
-- [ ] ALL CAPS H2 titles
+- [ ] H1 headers for segments (# THOUGHT:, # TOOL:, # TREND:)
+- [ ] Dividers (---) between opening letter and first segment
+- [ ] Dividers (---) between each segment
+- [ ] Sign-off: "– Charlie (the OpenEd newsletter guy)"
 - [ ] 500-800 words total
 - [ ] All links work
 - [ ] Voice sounds human, not performative
 - [ ] Headlines create information gaps
+
+### HubSpot Integration
+
+After approval, use `hubspot-email-draft` skill to create the draft in HubSpot:
+1. Clones most recent OED email (keeps template + targeting)
+2. Converts markdown to HTML (H1s → `<h1>`, dividers → `<hr>`)
+3. Updates subject, preview, body
+4. Returns edit link - one click to publish
 
 ### Archive
 
@@ -500,30 +377,34 @@ cp [working-folder]/Newsletter_FINAL.md daily-newsletter-workflow/examples/[YYYY
 
 ### Anti-Patterns
 
+- **Fragments for punch:** "Thousands of dollars. Five bucks a pop." → Write complete sentences
+- **Snarky parentheticals:** "(Thank you, intrinsic motivation.)" → Only use when genuinely adding punch
 - **Forced cheerfulness:** "TGIF Eddies! Hope your week was AMAZING!" → Just "Greetings Eddies."
 - **Transcript dump:** Pasting quotes with minimal synthesis → Extract one insight, reframe in your voice
-- **Info overload:** 5 stats and 3 sources → One stat, one human voice, one implication
 - **Fake question:** "What if schools actually taught kids to think?" → Just tell them
-- **Setup-payoff crutch:** "The clever part: [explanation]" → Remove the label, write naturally
 
 ---
 
 ## Reference Files
 
+**Primary voice reference (LOAD BEFORE WRITING):**
+- `.claude/skills/ghostwriter/references/pirate-wires-examples.md` - 11 real examples of the voice
+
+**Opening letter examples:**
+- `references/opening-letter-patterns.md` - Charlie's actual openings
+
 **Content resources:**
 - [Tool Database](../../../Studio/Lead Magnet Project/OpenEd_Tool_Database.md)
-- [Content Queue](../../../Studio/OpenEd Daily/CONTENT_QUEUE.md)
-- [OpenEd Identity Framework](../../Frameworks/Basic Context/OpenEd Identity Framework.md)
 
 **Related skills:**
-- `weekly-newsletter-workflow` - Friday digest
-- `social-content-creation` - Social repurposing
+- `ai-tells` - Hard blocks (correlatives, banned words)
+- `newsletter-to-social` - Social repurposing after newsletter is done
 
 ---
 
 ## File Naming
 
-Working folder: `Studio/OpenEd Daily/[YYYY-MM-DD] - [Theme]/`
+Working folder: `Studio/OpenEd Daily Studio/[YYYY-MM-DD] - [Theme]/`
 
 Files:
 - `Source_Material.md`

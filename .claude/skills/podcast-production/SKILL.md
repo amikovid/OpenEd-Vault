@@ -288,160 +288,35 @@ All outputs reflect OpenEd visual and tonal guidelines. Homeschool parents shoul
 
 ---
 
-## SKILL DEPENDENCIES & WHERE TO USE THEM
+## SKILL DEPENDENCIES
 
-### Checkpoint 1 Dependencies
-- **No specific skills required** — This is pure analysis work
+| Checkpoint | Required Skills | Optional Skills |
+|------------|-----------------|-----------------|
+| **1** | None (pure analysis) | — |
+| **2** | `cold-open-creator`, `video-caption-creation` | — |
+| **3** | `youtube-title-creator`, `opened-identity` | — |
+| **4** | `transcript-polisher`, `podcast-blog-post-creator` | `day-in-the-life`, `verified-review` |
 
-### Checkpoint 2 Dependencies
-**Cold Open Creation**:
-- Use: [cold-open-creator SKILL](../cold-open-creator/SKILL.md)
-- Why: Methodology for identifying scenes, arranging clips, testing against quality gates
-
-**Caption Suggestions**:
-- Use: [video-caption-creation SKILL](../video-caption-creation/SKILL.md)
-- Why: Guidelines for on-screen text, platform-specific captions, engagement tactics
-
-### Checkpoint 3 Dependencies
-**YouTube Titles & Thumbnails**:
-- Use: [youtube-title-creator SKILL](../youtube-title-creator/SKILL.md)
-- Why: Title + thumbnail synergy, search optimization, design strategy
-
-**Brand Alignment**:
-- Use: [opened-identity SKILL](../opened-identity/SKILL.md)
-- Why: Verify messaging aligns with OpenEd mission, values, and audience understanding
-
-### Checkpoint 4 Dependencies
-**Transcript Polish**:
-- Use: [transcript-polisher SKILL](../transcript-polisher/SKILL.md)
-- Why: Clean, readable transcript formatting for blog post integration
-
-**Blog Post Creation**:
-- Use: [podcast-blog-post-creator SKILL](../podcast-blog-post-creator/SKILL.md)
-- Why: Narrative-driven blog post in Ela's voice; SEO optimization; guest representation
-
-**Day-in-the-Life Post** (Optional):
-- Use: [day-in-the-life SKILL](../day-in-the-life/SKILL.md)
-- Why: When guest describes their daily/weekly homeschool structure in detail
-- Creates: Personal narrative (~800-1,200 words) + tool inventory for practical takeaways
-- **Voice approach**: Opening can be styled/crafted; body sections relax to guest's natural speech patterns. Use Guest Voice Inventory from Checkpoint 1 to pepper sticky phrases throughout so guest recognizes themselves.
-
-**Verified Reviews** (Optional):
-- Use: [verified-review SKILL](../verified-review/SKILL.md)
-- Why: When guest mentions specific curricula, tools, or products they use
-- Creates: Structured reviews (300-500 words each) with real parent attribution
+**Optional skill triggers:**
+- `day-in-the-life`: When guest describes daily/weekly homeschool structure. Use Guest Voice Inventory to preserve their voice.
+- `verified-review`: When guest mentions specific curricula/tools. Creates 300-500 word reviews with real parent attribution.
 
 ---
 
-## QUALITY GATES (At Each Decision Point)
+## QUALITY GATES
 
-### Before Checkpoint 1 → Checkpoint 2:
-**Is the analysis complete?**
-- ✅ All 5 Big Ideas clearly differentiate from each other?
-- ✅ One Big Idea is "the obvious choice" for marketing?
-- ✅ Have you mined the entire transcript (not just first/last sections)?
-- ✅ Quote bank is organized by theme?
-- ✅ Chapter outline matches actual content?
-
-### Before Checkpoint 2 → Checkpoint 3:
-**Does the cold open work?**
-- ✅ Passes 4 out of 5 quality tests? (Stranger, Itch, Stakes, Tease, Emotion)
-- ✅ Ends with unresolved cliffhanger (doesn't answer the question)?
-- ✅ All clips are verbatim (no paraphrasing)?
-- ✅ Duration is 22-35 seconds?
-- ✅ Social clips have distinct angles (not all making same point)?
-- ✅ On-screen hooks are 2-4 words max?
-
-### Before Checkpoint 3 → Checkpoint 4:
-**Is the strategy aligned?**
-- ✅ YouTube title clearly communicates core finding?
-- ✅ Title includes guest name for authority?
-- ✅ Thumbnail is simple (2-4 words only)?
-- ✅ Thumbnail visual is complementary (not redundant with title)?
-- ✅ Description hook is compelling (1 sentence)?
-- ✅ Chapter titles are 5-10 words (keyword-rich, compelling)?
-- ✅ All resources/links are correct?
-- ✅ Aligned with OpenEd brand?
-
-### Before Checkpoint 4 → Publication:
-**Are final assets publication-ready?**
-- ✅ Transcript is clean and readable?
-- ✅ Blog post is ~1,000 words with clear narrative arc?
-- ✅ All quotes are verbatim with proper attribution?
-- ✅ Guest bio includes credentials and links?
-- ✅ SEO headers present and optimized?
-- ✅ Tone is conversational (sounds like Ela, not formal)?
-- ✅ Ready for blog publishing?
-- ✅ Social clips ready to post with on-screen hooks?
+| Transition | Key Checks |
+|------------|------------|
+| **1→2** | 5 distinct Big Ideas? One obvious choice? Entire transcript mined? |
+| **2→3** | Cold open passes 4/5 tests (Stranger, Itch, Stakes, Tease, Emotion)? Ends on cliffhanger? 22-35 sec? All verbatim? |
+| **3→4** | Title clear + includes guest? Thumbnail simple (2-4 words)? Chapter titles keyword-rich? Brand aligned? |
+| **4→Publish** | Transcript clean? Blog ~1,000 words? Conversational tone? All assets ready? |
 
 ---
 
-## COMMON MISTAKES TO AVOID
+## COMMON MISTAKES
 
-- ❌ Using only one section of transcript (mine the entire episode)
-- ❌ Paraphrasing quotes (all quotes must be verbatim)
-- ❌ Creating complex thumbnails (keep to 3 elements max)
-- ❌ Choosing the "safe" angle instead of the surprising one
-- ❌ Making cold open too long (25-35 seconds max)
-- ❌ Resolving the cliffhanger (always cut before the answer)
-- ❌ Skipping quality gates (get approval before each phase)
-- ❌ Making blog post too long or too short (target ~1,000 words)
-- ❌ Burying guest credentials (introduce early and naturally)
-- ❌ Writing blog post in formal tone (write like Ela is talking to you)
-
----
-
-## FILE STRUCTURE & DELIVERABLES
-
-### Source Material Phase
-**`[Guest]_Source_Material.md`**
-- Raw transcript (rough or cleaned)
-- Guest background/context
-- Episode links and resources
-- Notes on tone, highlights, structure
-
-### Checkpoint 1 Output
-**`Checkpoint_1_Comprehensive_Analysis.md`**
-- 5 Big Ideas (potential marketing angles)
-- TED Talk Version (core insight)
-- Chapter outline with timestamps
-- Quote bank (organized by theme)
-- Surprising points
-- Social clip highlights
-📌 **You provide feedback**: Which Big Idea is strongest?
-
-### Checkpoint 2 Output
-**`Checkpoint_2_Cold_Opens_and_Clips.md`**
-- One approved cold open script (22-35 seconds)
-- On-screen text hooks (2-4 words each)
-- 3 approved social clips (1:00-1:30 each)
-- Design specifications
-- Platform recommendations
-📌 **You provide feedback**: Approve cold open and clips, suggest on-screen hook edits
-
-### Checkpoint 3 Output
-**`Checkpoint_3_YouTube_Strategy.md`**
-- YouTube title (with guest name)
-- Thumbnail specification (visual + 2-4 words)
-- YouTube description (hook + full description + resources)
-- Chapter breakdown (5-10 words per chapter, keyword-rich)
-- Cold open script (final)
-- All 3 social clips (with final on-screen hooks)
-📌 **You provide feedback**: Approve title/thumbnail/chapters
-
-### Checkpoint 4 Output (Final Deliverables)
-**`Checkpoint_4_Polished_Transcript_and_Blog.md`**
-- Full polished transcript (cleaned for readability)
-- ~1,000 word blog post (in Ela's voice)
-- Guest bio with credentials and links
-- SEO headers and structure
-📌 **You provide feedback**: Review for publication
-
-### Ready for Distribution
-- YouTube: Upload video with Checkpoint 3 specs (title, thumbnail, description, chapters)
-- Blog: Publish Checkpoint 4 content
-- Social: Share Checkpoint 2 clips with on-screen hooks
-- Newsletter: Promote with Checkpoint 4 blog excerpt
+❌ Mining only part of transcript | ❌ Paraphrasing (all quotes verbatim) | ❌ Complex thumbnails (3 elements max) | ❌ Safe over surprising | ❌ Cold open too long (25-35s max) | ❌ Resolving cliffhanger | ❌ Skipping quality gates | ❌ Blog too formal (write like Ela)
 
 ---
 
@@ -457,36 +332,15 @@ For detailed instructions and examples, see:
 
 ## RELATED SKILLS
 
-- **[cold-open-creator](../cold-open-creator/SKILL.md)**: Scene selection, clip arrangement, quality testing
-- **[video-caption-creation](../video-caption-creation/SKILL.md)**: Caption/overlay suggestions for clips
-- **[youtube-title-creator](../youtube-title-creator/SKILL.md)**: YouTube title and thumbnail strategy
-- **[podcast-blog-post-creator](../podcast-blog-post-creator/SKILL.md)**: SEO-optimized blog post in Ela's voice
-- **[transcript-polisher](../transcript-polisher/SKILL.md)**: Polish raw transcript for readability
-- **[opened-identity](../opened-identity/SKILL.md)**: Brand alignment verification
-- **[day-in-the-life](../day-in-the-life/SKILL.md)**: Day-in-the-Life blog posts with tool inventory
-- **[verified-review](../verified-review/SKILL.md)**: Structured product/curriculum reviews
+`cold-open-creator` | `video-caption-creation` | `youtube-title-creator` | `podcast-blog-post-creator` | `transcript-polisher` | `opened-identity` | `day-in-the-life` | `verified-review`
 
 ---
 
 ## SUCCESS METRICS
 
-**For YouTube Performance**:
-- CTR: Title + thumbnail is compelling (>6% for ADHD/education content)
-- Retention: Cold open hooks in first 5 seconds
-- Conversion: Viewers finish episode
-
-**For Blog Performance**:
-- SEO: Post ranks for homeschooling-specific keywords
-- Engagement: Readers make it to guest bio/links
-- Sharing: Post is shareable (format, length, voice)
-
-**For Social Performance**:
-- Shareability: Clips standalone compelling
-- Captions: Text makes sense without audio
-- Platform fit: Clips work on target platforms
-
-**For Overall Strategy**:
-- Alignment: All assets reinforce same theme
-- Brand consistency: Recognizable across formats
-- Topic clarity: Viewers immediately understand episode topic
-- Asset completeness: All deliverables ready for team handoff
+| Platform | Key Metrics |
+|----------|-------------|
+| **YouTube** | CTR >6%, retention in first 5 sec, viewers finish |
+| **Blog** | SEO ranking, engagement to guest bio, shareability |
+| **Social** | Clips standalone, text works without audio, platform fit |
+| **Overall** | Theme alignment, brand consistency, team handoff ready |

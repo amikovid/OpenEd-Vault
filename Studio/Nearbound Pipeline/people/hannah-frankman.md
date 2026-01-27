@@ -4,7 +4,7 @@ slug: hannah-frankman
 type:
   - thought-leader
 
-guest_contributor_potential: medium
+guest_contributor_potential: high
 podcast_prospect: true
 
 x_twitter: "@HannahFrankman"
@@ -17,8 +17,8 @@ website: null
 total_reach: null
 engagement_score: unknown
 
-relationship_status: featured
-warmth_score: 2
+relationship_status: interviewed
+warmth_score: 4
 last_contact: 2025-12-08
 outreach_status: null
 

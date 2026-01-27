@@ -10,6 +10,7 @@ podcast_prospect: true
 x_twitter: "@TylerThigpen"
 x_followers: null
 linkedin: "https://www.linkedin.com/in/thigpentyler/"
+website: "http://www.tylerthigpen.com/"
 youtube: null
 newsletter: null
 website: null

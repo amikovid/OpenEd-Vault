@@ -20,9 +20,9 @@ Use this skill when you need to:
 - Generate strategic hashtag sets (10-12, broad to specific)
 
 **Do NOT use for:**
-- Text-only social posts (use `social-content-creation` skill instead)
+- Text-only social posts (use `text-content` skill instead)
 - Long-form YouTube videos (separate workflow)
-- Podcast show notes (separate podcast workflow)
+- Podcast show notes (use `podcast-production` skill)
 
 ---
 
@@ -161,7 +161,7 @@ For each video clip, create file: `[Clip Name]_Captions.md`
 - **Format:** Hook → insight → CTA (save, comment, share)
 - **Example:** "Your kid's 'screen addiction' might be teaching them more than traditional school. Minecraft builds problem-solving, creativity, and systems thinking. #Education #Parenting #21stCenturyLearning"
 
-**Note:** For LinkedIn posts, use the `social-content-creation` skill instead of this skill.
+**Note:** For LinkedIn posts, use the `text-content` skill instead of this skill.
 
 #### Platform-Specific Caption Template
 
@@ -352,15 +352,11 @@ Minecraft isn't just a game—it's problem-solving, creativity, and systems thin
 
 ## Bundled Resources
 
-This skill references:
+This skill is self-contained. All guidance is inline above.
 
-### Detailed Guidelines
-- `references/platform-guidelines.md` - Platform-specific rules and best practices
-- `references/hook-categories.md` - Detailed hook category examples and when to use each
-
-### Style & Voice
-- `Frameworks/Style/Pirate Wires Imitation Style Guide.md` - Authentic voice principles
-- `Frameworks/Podcast Wizard/Short-form Video Captions.md` - Complete caption guide (source material)
+### Cross-References
+- `text-content/references/platforms/` - Platform-specific guidelines for text posts
+- `short-form-video/` - Production workflow including FORMAT_INVENTORY.md
 
 ---
 
@@ -379,9 +375,10 @@ A successful video caption:
 
 ## Related Skills
 
-- `social-content-creation` - For text-only social posts (LinkedIn, X/Twitter, Facebook)
-- `daily-newsletter-workflow` - Newsletters often generate video clip concepts
-- `weekly-newsletter-workflow` - Weekly content can be repurposed as video
+- `text-content` - For text-only social posts (LinkedIn, X/Twitter, Facebook)
+- `youtube-clip-extractor` - Complete workflow from YouTube URL to publishable clips
+- `opened-daily-newsletter-writer` - Newsletters often generate video clip concepts
+- `short-form-video` - Full short-form video production workflow
 
 ---
 
