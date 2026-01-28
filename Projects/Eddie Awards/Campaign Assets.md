@@ -4,11 +4,10 @@ type: campaign-bundle
 status: drafts-ready
 owner: Charlie
 collaborators: Ella (design)
-created: 2026-01-12
-updated: 2026-01-12
-related: "[[PROJECT]]"
+created: 2026-01-12T00:00:00.000Z
+updated: 2026-01-12T00:00:00.000Z
+related: '[[PROJECT]]'
 ---
-
 # The 2026 Eddy Awards - Campaign Assets
 
 Everything needed to launch The Eddys, in one shareable document.
@@ -19,22 +18,28 @@ Everything needed to launch The Eddys, in one shareable document.
 
 ### Visual Assets (Ella)
 
-- [ ] **Trophy concept sketch** - Silver horse head + black glasses. Get rough sketch for buy-in before final render.
-- [ ] **Eddy badge/logo** - Sub-brand mark. Purple primary, clean/tech-y. Needs 3 sizes (hero, social corner, icon).
-- [ ] **Social templates** - Branded frames for announcements. Create once, reuse all 5 weeks.
-- [ ] **Staff shareable graphics** - "Nominate someone" or "I'm voting" templates for Slack drops.
+- \[ \] **Trophy concept sketch** - Silver horse head + black glasses. Get rough sketch for buy-in before final render.
+
+- \[ \] **Eddy badge/logo** - Sub-brand mark. Purple primary, clean/tech-y. Needs 3 sizes (hero, social corner, icon).
+
+- \[ \] **Social templates** - Branded frames for announcements. Create once, reuse all 5 weeks.
+
+- \[ \] **Staff shareable graphics** - "Nominate someone" or "I'm voting" templates for Slack drops.
 
 ### Copy/Infrastructure (Charlie)
 
-- [ ] **Landing page** - Build in Webflow at `/eddy-awards`. Copy drafted below.
-- [ ] **Nomination form** - Google Form with category branching. Fields specified below.
-- [ ] **Internal Slack announcement** - Ready for Feb 10. Options drafted below.
-- [ ] **Judging panel** - Recruit 3-5 open education experts before March 8.
+- \[ \] **Landing page** - Build in Webflow at `/eddy-awards`. Copy drafted below.
+
+- \[ \] **Nomination form** - Google Form with category branching. Fields specified below.
+
+- \[ \] **Internal Slack announcement** - Ready for Feb 10. Options drafted below.
+
+- \[ \] **Judging panel** - Recruit 3-5 open education experts before March 8.
 
 ### Content Calendar
 
 | Week | Dates | Focus | Key Asset |
-|------|-------|-------|-----------|
+| --- | --- | --- | --- |
 | -1 | Feb 10-14 | Internal pre-launch | Slack announcement + staff assets |
 | 0-1 | Feb 17-28 | Hype & awareness | Landing page live, daily newsletters |
 | 2 | Mar 1-7 | Nominations | Form open, one category/day |
@@ -48,21 +53,33 @@ Everything needed to launch The Eddys, in one shareable document.
 **For Ella - design kickoff**
 
 ### Trophy Concept
+
 - **Form:** Horse head (Ed mascot) in silver/metallic finish
+
 - **Glasses:** Black-framed, Ed's signature
+
 - **Base:** Could be book, apple, or educational symbol
+
 - **Size:** Desktop-worthy, 6-8 inches
+
 - **Vibe:** Oscar meets Ed. Prestigious but playful.
 
 ### Badge/Logo
+
 - **Primary color:** Purple (differentiates from OpenEd orange/blue)
+
 - **Style:** Tech-y, clean, crisp
+
 - **Text:** "The Eddy Awards" or "The Eddys" + optional year
+
 - **Sizes needed:** Hero (landing page), compact (social corner), icon (favicon)
 
 ### Questions for Ella
+
 1. Purple shades - royal/deep or bright/electric?
+
 2. Trophy - realistic render or illustrated?
+
 3. Physical trophy vendor - need file specs?
 
 ---
@@ -73,7 +90,7 @@ Everything needed to launch The Eddys, in one shareable document.
 
 ### Hero
 
-> **The 2026 Eddy Awards**
+> **The 2026 Eddy Awards**\
 > Celebrating Innovation in Open Education
 
 Subhead: The first major awards honoring the parents, educators, creators, and innovators making personalized learning possible.
@@ -92,24 +109,24 @@ Every year, we honor standouts in five categories - chosen by a panel of open ed
 
 ### The Five Categories
 
-**Parent Educator of the Year**
-Honoring the parent or guardian who has built an innovative, comprehensive learning approach for their family.
+**Parent Educator of the Year**\
+Honoring the parent or guardian who has built an innovative, comprehensive learning approach for their family.\
 *This isn't about having it all figured out. It's about showing what's possible when you design education around your actual kids.*
 
-**Innovator of the Year**
-Recognizing the teacher, tutor, microschool founder, or community organizer reimagining instruction outside traditional classrooms.
+**Innovator of the Year**\
+Recognizing the teacher, tutor, microschool founder, or community organizer reimagining instruction outside traditional classrooms.\
 *Pods, online programs, co-ops - if you're building something that works, we want to know about it.*
 
-**Inspiring Student of the Year**
-Celebrating a young person whose educational journey shows what personalized learning can unlock.
+**Inspiring Student of the Year**\
+Celebrating a young person whose educational journey shows what personalized learning can unlock.\
 *Overcoming challenges. Pursuing passions. Starting something. There are many ways to be inspiring.*
 
-**Communicator of the Year**
-Honoring the YouTuber, podcaster, blogger, or creator making open education content that actually helps families.
+**Communicator of the Year**\
+Honoring the YouTuber, podcaster, blogger, or creator making open education content that actually helps families.\
 *The voices helping parents feel less alone and more equipped.*
 
-**Open Education Resource of the Year**
-Recognizing a standout curriculum, tool, app, or platform giving families more power and flexibility.
+**Open Education Resource of the Year**\
+Recognizing a standout curriculum, tool, app, or platform giving families more power and flexibility.\
 *The products that actually work - as voted by the people using them.*
 
 ### How It Works
@@ -137,56 +154,91 @@ Recognizing a standout curriculum, tool, app, or platform giving families more p
 **Platform:** Google Form with category branching
 
 ### Section 1: Your Info
+
 - Your Name (required)
+
 - Your Email (required)
+
 - Relationship to Nominee (dropdown: Parent, Student, Colleague, Community member, Customer, Self-nomination, Other)
 
 ### Section 2: Category Selection
+
 Radio buttons → branches to category-specific questions
 
 ### Category-Specific Questions
 
 **Parent Educator:**
+
 - Nominee's Name
+
 - Location (City, State)
+
 - What makes their approach innovative? (500 char)
+
 - What results have you seen? (500 char)
+
 - Link to learn more (optional)
 
 **Innovator:**
+
 - Nominee's Name
+
 - Organization/School Name
+
 - Type (checkboxes: Microschool, Pod, Online, Tutoring, Co-op, Other)
+
 - Describe their innovation (500 char)
+
 - Impact (500 char)
+
 - Website/social link
 
 **Student:**
+
 - First Name only (privacy)
+
 - Age
+
 - State
+
 - Education type (checkboxes: Homeschool, Online, Microschool, Hybrid, Unschool, Other)
+
 - What makes them inspiring? (750 char)
+
 - Parent/Guardian email (required for permission)
 
 **Communicator:**
+
 - Name or Channel Name
+
 - Platform (checkboxes: YouTube, Podcast, Blog, Instagram, TikTok, Book, Newsletter, Other)
+
 - Link to content (required)
+
 - What makes their content valuable? (500 char)
+
 - Audience size estimate (dropdown)
+
 - One piece we should check out (optional URL)
 
 **Resource:**
+
 - Resource Name
+
 - Type (checkboxes: Full curriculum, Single subject, Platform/app, Tool, Subscription box, Assessment, Other)
+
 - Website (required)
+
 - What makes it stand out? (500 char)
+
 - How has it helped? (500 char)
+
 - Price point (dropdown)
 
 ### Final Questions (all)
+
 - How did you hear about The Eddys? (dropdown)
+
 - Subscribe to OpenEd Daily? (checkbox)
 
 ---
@@ -258,7 +310,7 @@ Hit :horse: if Ed can count on you.
 **Feb 17-28: Hype & Awareness**
 
 | Day | Angle | Subject Line |
-|-----|-------|--------------|
+| --- | --- | --- |
 | Feb 17 | Launch announcement | "Open education just got its Oscars" |
 | Feb 18 | Parent Educator deep-dive | "The award nobody thought to create" |
 | Feb 19 | Innovator deep-dive | "The educators building what schools can't" |
@@ -270,7 +322,7 @@ Hit :horse: if Ed can count on you.
 
 ### Launch Newsletter Draft (Feb 17)
 
-**Subject:** Open education just got its Oscars
+**Subject:** Open education just got its Oscars\
 **Preview:** Five categories. Real trophies. The first awards honoring parents, educators, and innovators in open education.
 
 ---
@@ -292,10 +344,15 @@ So we're fixing that.
 Starting March 1, we're opening nominations for the first major awards in open education.
 
 Five categories:
+
 - **Parent Educator of the Year**
+
 - **Innovator of the Year**
+
 - **Inspiring Student of the Year**
+
 - **Communicator of the Year**
+
 - **Open Education Resource of the Year**
 
 Three nominees per category. Winners chosen by a panel of experts. Real trophies shipped to real people.
@@ -310,13 +367,13 @@ Three nominees per category. Winners chosen by a panel of experts. Real trophies
 
 Start thinking: Which parent educator inspires you? Which creator makes content you trust? Which tool changed your family's education?
 
-[Learn More About The Eddys →]
+\[Learn More About The Eddys →\]
 
 ---
 
 That's all for today!
 
--- Charlie
+\-- Charlie
 
 P.S. Know someone who should be nominated? Forward this. Self-nominations welcome.
 
@@ -325,6 +382,7 @@ P.S. Know someone who should be nominated? Forward this. Self-nominations welcom
 ## Social Templates
 
 ### LinkedIn Launch
+
 ```
 Open education just got its Oscars.
 
@@ -347,6 +405,7 @@ Nominations open March 1.
 ```
 
 ### Twitter Launch Thread
+
 ```
 1/ Open education just got its Oscars.
 
@@ -372,6 +431,7 @@ Nominations open March 1: [link]
 ```
 
 ### Facebook Launch
+
 ```
 🏆 Introducing The 2026 Eddy Awards
 
@@ -383,6 +443,7 @@ Nominations open March 1. Who would YOU nominate?
 ```
 
 ### Staff Shareable
+
 ```
 My company just launched The Eddy Awards - first major recognition for open education innovators.
 
@@ -396,6 +457,7 @@ Nominations open March 1: [link]
 ## Nominee/Winner Templates
 
 ### Nominee Announcement
+
 ```
 🏆 [CATEGORY] NOMINEES
 
@@ -407,6 +469,7 @@ Winner announced [date].
 ```
 
 ### Winner Announcement
+
 ```
 🏆 [CATEGORY] WINNER: [NAME]
 
@@ -420,9 +483,13 @@ Congratulations! The Eddy is on its way. 🐴
 ## Next Actions
 
 1. **This week:** Share this doc with Ella, schedule design kickoff
+
 2. **By Feb 1:** Trophy sketch approved, badge designed
+
 3. **By Feb 7:** Landing page built, form created
+
 4. **Feb 10:** Internal Slack announcement
+
 5. **Feb 17:** Public launch
 
 ---
