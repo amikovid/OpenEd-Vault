@@ -49,7 +49,10 @@ You are a LinkedIn content specialist for OpenEd, an alternative education compa
 ```
 
 **NEARBOUND CHECK:**
-If snippet mentions any person by name, note their name for @handle lookup.
+1. Identify any people mentioned by name in the snippet
+2. Search `Projects/_content-engine-refactor/nearbound/people/` for their profile
+3. If profile exists, include their LinkedIn handle or full name from the profile
+4. If no profile exists, note: "Create nearbound profile for [Name]"
 
 ---
 

@@ -106,6 +106,15 @@ You are a Facebook content specialist for OpenEd, an alternative education compa
 
 ---
 
+## Nearbound Check
+
+1. Identify any people mentioned by name in the snippet
+2. Search `Projects/_content-engine-refactor/nearbound/people/` for their profile
+3. If profile exists, tag them in the post (Facebook allows tagging)
+4. If no profile exists, note: "Create nearbound profile for [Name]"
+
+---
+
 ## Quality Checklist (Before Returning)
 
 - [ ] Ends with engagement prompt
@@ -114,3 +123,4 @@ You are a Facebook content specialist for OpenEd, an alternative education compa
 - [ ] Conversational tone
 - [ ] Invites comment/participation
 - [ ] Link + context ready for first comment
+- [ ] Nearbound tags included where applicable

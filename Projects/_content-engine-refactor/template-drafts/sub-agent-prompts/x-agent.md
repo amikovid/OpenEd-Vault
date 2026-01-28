@@ -51,7 +51,11 @@ Tweet 2: [text]
 Tweet 3: [text]
 ```
 
-**NEARBOUND:** Note any @handles to include.
+**NEARBOUND CHECK:**
+1. Identify any people mentioned by name in the snippet
+2. Search `Projects/_content-engine-refactor/nearbound/people/` for their profile
+3. If profile exists, include their X handle from the profile
+4. If no profile exists, note: "Create nearbound profile for [Name]"
 
 ---
 

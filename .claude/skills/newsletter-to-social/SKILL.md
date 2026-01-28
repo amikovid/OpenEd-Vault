@@ -112,9 +112,12 @@ Apply Lite Quality Loop (3-judge):
 ## Phase 4: Nearbound Check
 
 Before finalizing, check if any people are mentioned:
-1. Search Nearbound Pipeline/people/ for name
-2. If found, add @handle to post
-3. If not found, note for future profile creation
+1. Search `Projects/_content-engine-refactor/nearbound/people/` for name
+2. If found, add platform-appropriate @handle to post:
+   - LinkedIn: Full name or @handle if connected
+   - X: @handle
+   - Instagram: @handle in caption
+3. If not found, note for future profile creation (use template: `Projects/_content-engine-refactor/nearbound/people/_template.md`)
 
 ## Phase 5: Schedule
 
