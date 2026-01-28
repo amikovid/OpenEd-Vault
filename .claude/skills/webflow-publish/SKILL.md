@@ -77,6 +77,8 @@ curl -X POST "https://api.webflow.com/v2/collections/68089af9024139c740e4b922/it
 
 **CRITICAL: Thumbnail image goes in `thumbnail` field ONLY - do NOT include it in article body content.** The thumbnail automatically displays above the article header in Webflow's design.
 
+**CRITICAL: Image upload is a TWO-STEP process.** Step 2a creates an asset placeholder. Step 2b actually uploads the file. If you skip Step 2b, the asset ID exists but the image won't load. You MUST verify Step 2b returns HTTP 201 with an XML response containing `<PostResponse>`.
+
 For each image (excluding thumbnail from body):
 
 **Step 2a: Request presigned URL**
@@ -252,6 +254,9 @@ After publishing:
 ---
 
 ## Common Issues
+
+**Issue:** Thumbnail not appearing in CMS (most common)
+**Fix:** The presigned URL request creates an asset placeholder, but you MUST complete the S3 upload for the image to actually exist. Verify the S3 upload returns status 201 with XML containing `<PostResponse><Location>...</Location></PostResponse>`. If the S3 upload wasn't completed, the asset ID exists but has no actual file - re-request the presigned URL and complete the upload.
 
 **Issue:** Thumbnail appears twice
 **Fix:** Don't include thumbnail/header image in the `content` field - it auto-displays above the header

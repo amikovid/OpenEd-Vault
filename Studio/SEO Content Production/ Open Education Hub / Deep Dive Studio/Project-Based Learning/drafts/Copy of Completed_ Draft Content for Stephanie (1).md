@@ -279,7 +279,7 @@ Documentation helps. Learning logs, photos of projects, portfolios of work. But 
 
 ### **"What about standardized tests?"**
 
-Research consistently shows project-based learners perform as well or better on standardized tests than traditionally educated peers \- while developing skills tests don't measure. The German "Realschule" system has combined rigorous academics with practical training for over a century with strong outcomes.
+Research consistently shows project-based learners perform as well or better on standardized tests than traditionally educated peers \- while developing skills tests don't measure. Germany's Realschule system has combined rigorous academics with practical training for over a century.
 
 ### **"I don't have the skills to mentor projects."**
 
@@ -364,7 +364,7 @@ Remember Jack Casdorph and the compass experiment that killed his love of scienc
 
 But that treehouse his father helped him build? Twenty years later, it's still standing. So is the curiosity his father rekindled by refusing to do the work for him.
 
-That's the difference project-based learning makes. Not experiments followed by worksheets, but real problems that demand real solutions. Not "just in case" memorization, but "just in time" discovery.
+That's the difference project-based learning makes. Real problems that demand real solutions. "Just in time" discovery instead of "just in case" memorization.
 
 Your child doesn't need more worksheets. They need a project worth caring about \- and a parent willing to help them build it.
 
