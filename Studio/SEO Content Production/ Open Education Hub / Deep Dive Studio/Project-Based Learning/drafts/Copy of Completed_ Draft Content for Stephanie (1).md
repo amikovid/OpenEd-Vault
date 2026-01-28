@@ -96,7 +96,7 @@ He proposes his favorite version of the scientific method, which comes from *Ses
 
 ## **The Benefits of Project-Based Learning**
 
-In a viral experiment, Mark Rober \- the former NASA engineer with 110 million YouTube subscribers \- gave 50,000 people a simple coding puzzle.
+In a viral experiment, [Mark Rober](https://www.youtube.com/@MarkRober) \- the former NASA engineer with 110 million YouTube subscribers \- gave 50,000 people a simple coding puzzle.
 
 Half the participants lost points every time they failed. The other half faced no penalty for trying.
 
