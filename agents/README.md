@@ -53,18 +53,21 @@ python3 webflow_sync.py
 ### How It Works
 
 1. **State tracking**: Uses `.webflow_sync_state.json` to remember last sync timestamp
+
 2. **Incremental sync**: Only fetches posts updated after last sync (saves API calls)
+
 3. **Duplicate prevention**: Checks existing `webflow_id` in database files
+
 4. **Full metadata**: Captures title, slug, URL, type, date, thumbnail, author, summary, and full content
 
 ### Commands
 
 | Command | Description |
-|---------|-------------|
-| `python3 webflow_sync.py` | Sync new posts since last sync |
-| `python3 webflow_sync.py --status` | Show sync status and pending posts |
-| `python3 webflow_sync.py --dry-run` | Preview without actually syncing |
-| `python3 webflow_sync.py --full` | Full re-sync (use sparingly) |
+| --- | --- |
+| python3 webflow_sync.py | Sync new posts since last sync |
+| python3 webflow_sync.py --status | Show sync status and pending posts |
+| python3 webflow_sync.py --dry-run | Preview without actually syncing |
+| python3 webflow_sync.py --full | Full re-sync (use sparingly) |
 
 ### Output Format
 
@@ -110,30 +113,40 @@ WEBFLOW_API_KEY=your_token_here
 ```
 
 **To get a new API key:**
+
 1. Go to [Webflow Dashboard](https://webflow.com/dashboard)
+
 2. Navigate to: **Workspace Settings** → **Integrations** → **API Access**
+
 3. Click "Generate API Token"
+
 4. Select permissions: **CMS read** (minimum required)
+
 5. Copy the token and add to `.env` file
 
 ### Webflow IDs Reference
 
 | Resource | ID |
-|----------|-----|
-| **Site** | opened.co |
-| **Posts Collection** | `6805bf729a7b33423cc8a08c` |
-| **Blog Posts Type** | `6805d44048df4bd97a0754ed` |
-| **Daily Newsletters Type** | `6805d5076ff8c966566279a4` |
-| **Podcasts Type** | `6805d42ba524fabb70579f4e` |
-| **Announcements Type** | `6812753c2611e43906dc13d6` |
+| --- | --- |
+| Site | opened.co |
+| Posts Collection | 6805bf729a7b33423cc8a08c |
+| Blog Posts Type | 6805d44048df4bd97a0754ed |
+| Daily Newsletters Type | 6805d5076ff8c966566279a4 |
+| Podcasts Type | 6805d42ba524fabb70579f4e |
+| Announcements Type | 6812753c2611e43906dc13d6 |
 
 ### Content Organization
 
 Posts are organized into folders by type:
+
 - `Blog Posts/` - Articles and long-form content
+
 - `Daily Newsletters/` - Newsletter content
+
 - `Podcasts/` - Podcast episodes
+
 - `Announcements/` - Important updates
+
 - `Other/` - Uncategorized
 
 ---
@@ -158,17 +171,22 @@ Utilities for repurposing content across formats.
 ## Troubleshooting
 
 **API returns 403 or missing scopes:**
+
 - Regenerate API key with correct permissions (CMS read)
 
 **No state file found:**
+
 - Run `python3 webflow_sync.py --full --dry-run` to see all posts
+
 - Or manually create `.webflow_sync_state.json` with a timestamp
 
 **Duplicate posts appearing:**
+
 - Check that `webflow_id` is being captured in frontmatter
+
 - The sync checks this ID to prevent duplicates
 
 ---
 
-*Part of the OpenEd Vault automation ecosystem*
+*Part of the OpenEd Vault automation ecosystem*\
 *Last updated: 2026-01-12*
