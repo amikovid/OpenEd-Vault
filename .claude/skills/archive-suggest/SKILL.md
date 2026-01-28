@@ -100,26 +100,23 @@ Load TEMPLATE_INDEX.md and generate draft posts.
 
 ### Step 4: Post to Slack
 
-Post suggestions to #content-suggestions channel.
+Post suggestions to **#content-inbox** (C0ABV2VQQKS) using the standard format.
 
 **Slack Message Format:**
 
 ```
-📚 ARCHIVE SUGGESTION - [Date]
+*[Article Title]*
+_Archive | [Type: Blog/Daily/Podcast] | Published [date]_
 
-*From:* [Article Title] (published [date])
-🔗 [URL]
+[Best standalone snippet - 1-2 sentences]
 
-*Why now:* [Evergreen/seasonal/news hook reason]
+OpenEd angle: [Why share now - evergreen/seasonal/news hook]
+Suggested: LinkedIn, X
 
-*LinkedIn draft:*
-> [Draft post text]
-
-*X draft:*
-> [Draft post text]
-
-✅ Use | ✏️ Edit | ❌ Skip
+[URL]
 ```
+
+**Note:** No emojis in the main format. Reactions (`✍️` to develop, `❌` to skip) are added by users.
 
 ---
 
@@ -129,7 +126,7 @@ Post suggestions to #content-suggestions channel.
 - [ ] Identify 3-5 candidates (mix of evergreen + seasonal)
 - [ ] Extract snippets from each
 - [ ] Generate draft posts (LinkedIn + X minimum)
-- [ ] Post to Slack #content-suggestions
+- [ ] Post to Slack #content-inbox (C0ABV2VQQKS)
 - [ ] Log selections in Performance tracking
 
 ---

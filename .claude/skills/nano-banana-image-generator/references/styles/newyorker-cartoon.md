@@ -7,22 +7,49 @@ Use this reference when the user asks for "New Yorker style" cartoons, single-pa
 ## Visual Style
 
 **Line Work:**
-- Fine crosshatching ink illustration
-- Soft, organic lines (not rigid digital precision)
-- Minimal shading - let crosshatching do the work
-- Soft vignette fade at edges (not hard borders)
+- Simple pen-and-ink illustration - like it was sketched with a single pen
+- Clean, confident lines - NOT heavily detailed or overly rendered
+- Minimal to NO crosshatching - when used, very sparse and suggestive
+- Organic, slightly loose linework - not rigid or digital
+- NO vignette fade - clean edges that stop naturally
+
+**CRITICAL - Keep It Simple:**
+- The magic of New Yorker cartoons is restraint
+- Think quick sketch, not detailed illustration
+- Characters should be simple, almost schematic
+- Backgrounds minimal or suggested with just a few lines
+- The fewer lines, the better - every line must earn its place
 
 **Format:**
 - 1:1 square aspect ratio (ideal for social)
 - Single panel only
-- Clean white/cream background
-- No color - pure black ink on white
+- Plain white background - NO texture, NO cream, NO paper grain
+- Pure black ink on clean white - high contrast
 
 **Caption:**
 - Italic serif font (Garamond, Times, or similar)
 - Centered below illustration
 - One sentence only
 - Period at end (not exclamation)
+
+---
+
+## What Makes It Distinctly New Yorker
+
+The New Yorker cartoon is NOT:
+- Detailed illustration with lots of crosshatching
+- Heavily rendered or shaded
+- Cartoonish in a Pixar/animation way
+- Textured or atmospheric
+
+The New Yorker cartoon IS:
+- Quick, confident pen strokes
+- Almost like a napkin sketch elevated to art
+- Sparse - 80% white space
+- Characters that are simple but expressive
+- Environments suggested with minimal lines
+
+**Reference artists:** Roz Chast, Bruce Eric Kaplan, Liana Finck, Edward Koren
 
 ---
 
@@ -77,7 +104,7 @@ The New Yorker cartoon voice is:
 ## Prompt Template
 
 ```
-A New Yorker-style single panel cartoon. Fine crosshatching ink illustration, 1:1 square format, soft vignette fade at edges.
+A New Yorker-style single panel cartoon. Simple pen-and-ink sketch, 1:1 square format.
 
 Scene: [SETTING with CHARACTERS]
 
@@ -85,7 +112,16 @@ Visual detail: [THE ABSURD ELEMENT visible in the scene]
 
 Caption in italic serif below: "[THE UNDERSTATED OBSERVATION]"
 
-Style: Observational humor, detached irony, the reader feels "seen" rather than laughing. Clean black ink on white, no color.
+CRITICAL STYLE NOTES:
+- Simple, quick pen strokes - like a confident napkin sketch
+- NO detailed crosshatching - only sparse, suggestive lines if any shading
+- Plain white background - NO texture, NO paper grain
+- Characters should be simple and schematic, not detailed
+- Minimal environment - suggest setting with just a few lines
+- 80% white space - restraint is everything
+- Think Roz Chast, Bruce Eric Kaplan - simple but expressive
+
+AVOID: Heavy crosshatching, detailed rendering, textured backgrounds, cartoonish/animated style, busy compositions, too many lines.
 ```
 
 ---

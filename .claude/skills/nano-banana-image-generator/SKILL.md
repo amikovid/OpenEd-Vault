@@ -392,3 +392,118 @@ Sketch to Ad:
 Sprite Sheet:
 "Sprite sheet of a woman doing a backflip on a drone, 3x3 grid, sequence, frame by frame animation, square aspect ratio. Follow the structure of the attached reference image exactly."
 ```
+
+---
+
+## OpenEd Content Playbooks
+
+### Instagram Carousel Playbook
+
+For OpenEd deep dives, blog posts, and educational content - use this workflow to create consistent, branded carousels.
+
+**Specs:**
+- **Dimensions:** 1080x1350 (4:5 portrait) - use `--aspect 3:4`
+- **Style:** Watercolor-line (default for OpenEd)
+- **Typical structure:** Intro → Numbered steps → CTA
+
+**Workflow:**
+
+1. **Generate Slide 1 first** - This establishes the visual style
+   - Include step number, title, visual concept
+   - Use watercolor-line style from `references/styles/watercolor-line.md`
+
+2. **Use Slide 1 as reference for all subsequent slides**
+   ```bash
+   python3 generate_image.py "prompt" \
+     --input path/to/slide1.png \
+     --model pro --aspect 3:4
+   ```
+   - This ensures consistent style, colors, positioning across all slides
+
+3. **Slide structure:**
+   - **Intro slide:** Title + subtitle + OpenEd logo (see logo reference below)
+   - **Step slides:** Large number (upper left), step title, visual that represents the concept
+   - **CTA slide:** Can reuse/edit the intro or create distinct CTA
+
+4. **Adding the OpenEd logo:**
+   - Logo file: `references/assets/opened-logo.png`
+   - Use rework mode to add logo to existing slide:
+   ```bash
+   python3 generate_image.py \
+     "Replace the 'O' in 'OpenEd' with the OpenEd logo - two curved parentheses forming an O, left half burnt orange, right half sky blue. Keep watercolor style." \
+     --input path/to/intro-slide.png \
+     --model pro
+   ```
+
+5. **Common edits:**
+   - Character appearance (race, age, etc.): Regenerate with explicit description
+   - Adding CTA text: Use rework mode
+   - Style consistency fixes: Reference slide 1 in prompt
+
+**Example carousel structure (7-step method):**
+
+| Slide | Type | Content |
+|-------|------|---------|
+| 0 | Intro | Title + "in 7 Steps" + logo |
+| 1-7 | Steps | Number + title + visual |
+| 8 | CTA | "Subscribe to OpenEd Daily" or similar |
+
+**Naming convention:**
+- `carousel-intro.png`
+- `carousel-step1.png` through `carousel-step7.png`
+- `carousel-cta.png`
+
+### Infographic Playbook
+
+For wide-format infographics (spectrum diagrams, comparisons, timelines):
+
+**Specs:**
+- **Dimensions:** 21:9 ultra-wide or 16:9 - use `--aspect 16:9` (closest supported)
+- **Style:** Watercolor-line with Vox-style information hierarchy
+- **Text:** Minimal - labels only, no explanatory paragraphs
+
+**Key principles:**
+- Visual hierarchy does the work, not text
+- Icons should be hand-drawn style (not emoji)
+- Generous white space
+- Clear left-to-right or top-to-bottom flow
+
+### Thumbnail Playbook
+
+For blog posts and deep dives:
+
+**Specs:**
+- **Dimensions:** 16:9 - use `--aspect 16:9`
+- **Style:** Watercolor-line (default)
+
+**Concepts that work for education content:**
+- Child engaged in hands-on activity
+- The "before/after" or "wrong way/right way" tension
+- Metaphorical objects (treehouse = building your own path)
+- Avoid: Clipart children, raised hands, classroom settings
+
+### New Yorker Cartoon Playbook
+
+For editorial commentary, LinkedIn posts, newsletter illustrations:
+
+**Specs:**
+- **Dimensions:** 1:1 square - use `--aspect 1:1`
+- **Style:** See `references/styles/newyorker-cartoon.md`
+
+**Key principles:**
+- Simple pen-and-ink, NOT heavily crosshatched
+- Plain white background, NO texture
+- Caption in italic serif below
+- The humor is understated, observational
+- 80% white space - restraint is everything
+
+---
+
+## References
+
+### references/assets/
+Brand assets for OpenEd content:
+- `opened-logo.png` - OpenEd logo mark (orange/blue parentheses)
+
+### references/styles/
+(as listed above)

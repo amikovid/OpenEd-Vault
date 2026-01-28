@@ -187,6 +187,35 @@ requests.patch(
 
 ---
 
+### Step 6: Generate Social Suggestions (Automatic)
+
+**After publishing, automatically run social extraction.**
+
+This step chains to `newsletter-to-social` skill:
+
+1. Extract 3-5 standalone snippets from the published content
+2. Match each to best-fit social templates
+3. Post suggestions to **#content-inbox** (C0ABV2VQQKS)
+4. User triages with reactions (✍️ develop, ✅ approve, ❌ skip)
+
+**Prompt to run:**
+```
+Content published to Webflow:
+- Title: [post title]
+- URL: [webflow URL]
+- Type: [Blog/Newsletter/Podcast]
+
+Now generating social suggestions...
+
+[Run newsletter-to-social skill with this content]
+```
+
+**Expected output:** 6-9 social suggestions posted to #content-inbox.
+
+**Note:** This step runs automatically as part of the Webflow publish workflow - no separate invocation needed.
+
+---
+
 ## CMS Field Schema
 
 | Field | Type | Required | Notes |
@@ -213,6 +242,12 @@ Before publishing:
 - [ ] Post created as draft
 - [ ] Reviewed in Webflow dashboard
 - [ ] Published when ready
+
+After publishing:
+
+- [ ] Social suggestions generated (Step 6 - automatic)
+- [ ] Suggestions posted to #content-inbox
+- [ ] Report URL to user for verification
 
 ---
 

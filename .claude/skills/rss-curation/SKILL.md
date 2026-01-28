@@ -1,6 +1,6 @@
 # RSS Curation Skill
 
-Fetches RSS feeds, scores for OpenEd relevance, posts to Slack #market-daily.
+Fetches RSS feeds, scores for OpenEd relevance, posts to Slack #content-inbox.
 
 ## Invocation
 
@@ -16,7 +16,7 @@ User says: "run curation", "check feeds", "daily curation", "/rss-curation"
 
 2. **Score items** - Use 3-tier system (see `scoring-prompt.md`)
 
-3. **Post to Slack** - Each DEFINITELY item gets its own message to #market-daily (C07U9S53TLL)
+3. **Post to Slack** - Each DEFINITELY item gets its own message to #content-inbox (C0ABV2VQQKS)
 
 4. **Develop on request** - When user reacts or says "develop [item]", fetch article and draft social posts
 
