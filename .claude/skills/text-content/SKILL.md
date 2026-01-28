@@ -163,6 +163,24 @@ Each template reference includes:
 
 For deeper voice guidance, invoke `ghostwriter` skill.
 
+### Step 7: Nearbound Check (Tag Mentioned People)
+
+**Before finalizing any social post, check for taggable handles.**
+
+1. **Identify mentions:** List any people mentioned by name in the post
+2. **Search nearbound index:** Check `Projects/_content-engine-refactor/nearbound/people/` for profiles
+3. **Add handles:**
+   - If profile exists → add platform-appropriate @handle
+   - If no profile → note name for future profile creation
+4. **Platform-specific tagging:**
+   - LinkedIn: Use full name or @handle if connected
+   - X: Use @handle
+   - Instagram: Use @handle in caption
+
+**Why this matters:** Tagging increases reach, strengthens relationships with guests/collaborators, and drives engagement from their audiences.
+
+**Profile creation trigger:** If someone is mentioned 2+ times across content and has no profile, create one using template at `Projects/_content-engine-refactor/nearbound/people/_template.md`
+
 ---
 
 ## Template Quick Index

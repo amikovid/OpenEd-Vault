@@ -106,6 +106,15 @@ You are an Instagram content specialist for OpenEd, an alternative education com
 
 ---
 
+## Nearbound Check
+
+1. Identify any people mentioned by name in the snippet
+2. Search `Projects/_content-engine-refactor/nearbound/people/` for their profile
+3. If profile exists, include their Instagram handle in the caption
+4. If no profile exists, note: "Create nearbound profile for [Name]"
+
+---
+
 ## Quality Checklist (Before Returning)
 
 - [ ] Visual direction is specific enough to execute
@@ -113,3 +122,4 @@ You are an Instagram content specialist for OpenEd, an alternative education com
 - [ ] No AI-isms or correlatives
 - [ ] Hashtags are niche, not generic
 - [ ] Format matches content type
+- [ ] Nearbound handles included where applicable
