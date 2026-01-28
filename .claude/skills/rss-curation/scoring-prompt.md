@@ -2,24 +2,26 @@
 
 ## 3-Tier Scoring
 
-### ✅ DEFINITELY (Post to Slack)
-- **State news** for AR, IN, IA, KS, MN, MT, NV, OR, UT
+### DEFINITELY (Post to Slack)
 - **Families mixing approaches** - Charlotte Mason + Singapore Math + screens, eclectic homeschool
-- **Kids thriving outside traditional school** - success stories, outcomes
+- **Kids thriving outside traditional school** - success stories, outcomes, real families
 - **Practical help for overwhelmed parents** - real solutions, not theory
-- **Research on homeschool/alternative ed outcomes**
 - **Relatable parent moments** - Reddit questions showing real pain points, decision journeys
+- **Research on homeschool/alternative ed outcomes**
+- **Neurodiversity / "doesn't fit the mold"** - 2e, learning differences, kids who struggled in traditional school
+- **Curriculum/method stories** - how families actually use things, not product reviews
 
-### 🤔 PROBABLY (Include but lower priority)
+### PROBABLY (Include but lower priority)
 - General homeschool/unschool content with fresh angle
-- Neurodiversity / "doesn't fit the mold" stories
 - Curriculum comparisons (without declaring winners)
 - EdTech that could benefit homeschoolers
-- ESA/school choice policy news (not the main focus)
+- Microschool/hybrid school models (focus on family experience, not policy)
+- State-specific news IF it directly affects families (not just policy wins)
 
-### ❌ NO (Skip)
+### NO (Skip)
+- **School choice policy / ESA news** - not our topic
+- **Political school choice content** - even if pro-choice
 - Public school focused with no homeschool angle
-- Pure political school choice (no family/practical angle)
 - Generic parenting content
 - Trashes public schools without offering alternatives
 - Dogmatic single-method advocacy ("unschooling is the ONLY way")
@@ -28,24 +30,24 @@
 
 ## Post Format
 
-Each DEFINITELY item gets its own Slack message:
+Each DEFINITELY item gets its own Slack message (no emojis):
 
 ```
-📰 *[Title]*
-_[Source] · [X hours ago]_
+*[Title]*
+_[Source] - [X hours ago]_
 
 [1-2 sentence summary]
 
-💡 *OpenEd angle:* [Why this matters to our audience]
+OpenEd angle: [Why this matters to our audience]
 
-🔗 [URL]
+[URL]
 ```
 
 PROBABLY items get a single summary message at the end.
 
 ## Develop Workflow
 
-When user reacts ✅ to an item or says "develop [item]":
+When user says "develop [item]":
 1. Fetch full article via WebFetch
 2. Check nearbound index for mentioned people
 3. Web search for social handles if not in nearbound

@@ -7,9 +7,9 @@
 
 Greetings Eddies!
 
-Later this week, we're dropping a must-listen podcast episode featuring Joshua Fields Millburn - one half of The Minimalists, the duo behind [200+ million podcast downloads](https://www.theminimalists.com/podcast/), a [Netflix documentary](https://www.netflix.com/title/81074662), and four NYT bestselling books about living with less.
+Later this week, we're dropping a must-listen podcast episode featuring Joshua Fields Millburn - one half of The Minimalists, the duo behind 200+ million podcast downloads, a Netflix documentary, and four NYT bestselling books about living with less. <Hyperlink the relevant Netflix documentary, and then the books page of the minimalist website. Also bookmark the link to the podcast episode as well >
 
-In the episode, he tells the long-form version of a story he shared a glimpse of when [The Minimalists hosted Isaac last year](https://www.theminimalists.com/p501/) - about why he pulled his daughter out of school and, more importantly, what she did next.
+In the upcoming episode, he tells the long-form version of a story he shared a glimpse of when The Minimalists hosted Isaac last year - about why he pulled his daughter out of school and, more importantly, what she did next.
 
 Let's dive in.
 
