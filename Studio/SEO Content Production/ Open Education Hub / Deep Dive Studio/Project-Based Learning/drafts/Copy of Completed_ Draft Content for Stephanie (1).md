@@ -130,9 +130,7 @@ A first-grader in our program proudly reports daily egg collection and chick hea
 
 Different children progress through hands-on projects at different speeds. That's not a bug; it's a feature. One child might spend six months obsessed with robotics. Another might cycle through cooking, coding, and carpentry in the same period. Both are learning.
 
-[Edutopia published a roundup of research showing that project-based learners outperform traditional students on standardized measures](https://www.edutopia.org/pbl-research-practices-disciplines) \- while also developing collaboration, creativity, and problem-solving skills that tests don't capture. For instance, [a randomized control trial on a project-based high school economics curriculum](https://www.edutopia.org/pbl-research-annotated-bibliography#finkelstein) found that PBL students "scored significantly higher on problem-solving skills and in their ability to apply knowledge to real-world economic challenges than students taught economics using traditional methods."
-
-Research backs this up. Studies from Edutopia consistently show project-based learners outperform traditional students on standardized measures—while developing collaboration, creativity, and problem-solving skills that tests don't capture. 
+[Edutopia published a roundup of research showing that project-based learners outperform traditional students on standardized measures](https://www.edutopia.org/pbl-research-practices-disciplines) \- while also developing collaboration, creativity, and problem-solving skills that tests don't capture. For instance, [a randomized control trial on a project-based high school economics curriculum](https://www.edutopia.org/pbl-research-annotated-bibliography#finkelstein) found that PBL students "scored significantly higher on problem-solving skills and in their ability to apply knowledge to real-world economic challenges than students taught economics using traditional methods." 
 
 ---
 
@@ -226,7 +224,7 @@ They started with three essential questions:
 
 Your child's education requires the same approach. Their educational landscape is unmapped terrain waiting to be explored. You can't use someone else's map or calendar. You need to chart your own course.
 
-This doesn't mean abandoning all structure. It means building structure around your specific child, their specific interests, and your specific resources \- rather than ~~forcing~~ conforming them ~~in~~to a template designed for a classroom of thirty.
+This doesn't mean abandoning all structure. It means building structure around your specific child, their specific interests, and your specific resources \- rather than conforming them to a template designed for a classroom of thirty.
 
 ---
 
