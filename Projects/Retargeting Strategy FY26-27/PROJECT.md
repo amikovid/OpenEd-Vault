@@ -2,16 +2,17 @@
 name: Retargeting Strategy FY26-27
 description: Three-pillar retargeting campaign to recover lost pipeline and maximize ROI
 status: active
-parent: OpenEd Vault
+parent: Project Dandelion
 created: 2026-01-07
-updated: 2026-01-21
+updated: 2026-01-29
 ---
 
 # Retargeting Strategy: FY26-27
 
 **Primary Goal:** Recover lost pipeline and maximize ROI by re-engaging high-intent audiences
-**Status:** Pillar 1 creative complete - awaiting campaign setup
+**Status:** Pillar 1 creative refined - awaiting campaign setup
 **Priority:** High (Q1 2026 enrollment cycle)
+**Parent Project:** [Project Dandelion](../Project-Dandelion/PROJECT.md)
 
 ---
 
@@ -19,7 +20,7 @@ updated: 2026-01-21
 
 **What is this?** A three-pillar retargeting strategy to convert non-enrollees, capture website visitors, and scale via lookalikes.
 
-**Current phase:** Pillar 1 creative done, campaign setup next
+**Current phase:** Pillar 1 creative refined with performance data, campaign setup next
 
 **Key dates:**
 - ~~January 19-31: Pre-launch setup~~
@@ -30,20 +31,31 @@ updated: 2026-01-21
 
 ---
 
+## Important: Performance Research
+
+**New creative direction based on historical data analysis.** See:
+- `Project-Dandelion/research/meta-ads-performance-analysis-2026-01-28.md` - What works/fails
+- `Project-Dandelion/research/retargeting-ad-concepts-2026-01-28.md` - Improved Pillar 1 concepts
+
+**Key finding:** "Evidence over accusation" approach outperforms. Show compelling outcomes rather than pressuring ("finish what you started"). Lo-fi, native formats deliver best CPA.
+
+---
+
 ## File Structure
 
 ```
 Retargeting Strategy FY26-27/
 ├── PROJECT.md                      ← You are here (master context)
-├── Pillar-1-Creative-Proposals.md  ← 20 concepts with all ad elements (DONE)
-├── Pillar-1-Handoff-Notes-Ella.md  ← Campaign setup checklist & open questions
+├── Pillar-1-Creative-Proposals.md  ← Original 20 concepts
+├── Pillar-1-Handoff-Notes-Ella.md  ← Campaign setup checklist
 │
-└── (Future)
-    ├── Pillar-2-Creative-Proposals.md
-    └── Pillar-3-Creative-Proposals.md
+└── See also:
+    Project-Dandelion/research/retargeting-ad-concepts-2026-01-28.md  ← IMPROVED concepts
 ```
 
-**Related:** 100 ad concepts in `Studio/Meta Ads/` (50-Ad-Concepts-January-2026.md, 50-Ad-Concepts-V2-January-2026.md)
+**Related:**
+- `Project-Dandelion/` - Parent project with research and performance analysis
+- `Studio/Meta Ads/` - 100 ad concepts library (V1 + V2)
 
 ---
 
@@ -202,4 +214,16 @@ Retargeting Strategy FY26-27/
 
 ---
 
-*Last Updated: 2026-01-21*
+---
+
+## Related Projects
+
+| Project | Location | Relationship |
+|---------|----------|--------------|
+| **Project Dandelion** | `Projects/Project-Dandelion/` | Parent project - research, performance analysis |
+| **Meta Ads** | `Studio/Meta Ads/` | 100 ad concepts, creative skill |
+| **Analytics & Attribution** | `Studio/Analytics & Attribution/` | Tracking, attribution |
+
+---
+
+*Last Updated: 2026-01-29*
