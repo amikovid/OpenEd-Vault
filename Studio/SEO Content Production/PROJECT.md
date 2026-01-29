@@ -253,6 +253,37 @@ Before publishing, ask:
 
 ---
 
+## seomachine Tooling
+
+**Location:** `seomachine/`
+
+Python tooling for SEO data and automation. Works but needs cleanup.
+
+### Active Tools
+| Tool | Purpose | Status |
+|------|---------|--------|
+| `tools/weekly_seo_report.py` | Weekly SEO report with GSC/GA4/DataForSEO | Working |
+| `tools/seo_history.py` | Historical tracking for week-over-week comparison | New (2026-01-28) |
+| `tools/markdown_to_webflow.py` | Convert markdown to Webflow HTML | Working |
+| `tools/content_brief_generator.py` | Generate content briefs from keywords | Working |
+| `data_sources/modules/` | API wrappers (GSC, GA4, DataForSEO, Webflow) | Working |
+
+### History Tracking
+SEO reports now save weekly snapshots to `seomachine/data/seo_history.json`. Run `--history-only` to export progress tables showing position changes over time.
+
+### Cleanup Needed
+- [ ] Audit `seomachine/` for dead code and cruft
+- [ ] Consider extracting key tools into a skill (seo-report skill?)
+- [x] Remove duplicate/unreachable code in `weekly_seo_report.py` (done 2026-01-28)
+- [ ] Clean up example content briefs in `tools/` (60+ .md files)
+- [ ] Evaluate if `examples/castos/` is needed or can be archived
+
+### Credentials
+- GA4/GSC: `seomachine/data_sources/config/.env` (points to archived credentials)
+- DataForSEO: Same .env file
+
+---
+
 ## Next Steps
 
 1. **Grade Level Guides:** Get Andrea's curriculum recommendations
@@ -263,3 +294,4 @@ Before publishing, ask:
 ---
 
 *Created: 2026-01-07*
+*Updated: 2026-01-28*

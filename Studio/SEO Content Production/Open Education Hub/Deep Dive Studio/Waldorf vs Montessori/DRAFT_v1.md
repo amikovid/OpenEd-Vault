@@ -51,13 +51,13 @@ This developmental view shapes everything in Waldorf education:
 
 **Limited technology.** Most Waldorf approaches delay screens until at least age 7, some until 12 or later.
 
-One thing worth knowing: Waldorf education has roots in anthroposophy, Steiner's spiritual philosophy. Some families find this enriching. Others find it uncomfortable. Schools vary in how explicitly they incorporate these elements - it's worth asking directly.
+One thing worth knowing: Waldorf education has roots in [anthroposophy](https://www.waldorfeducation.org/waldorf-education/what-is-anthroposophy), Steiner's spiritual philosophy. Some families find this enriching. Others find it uncomfortable. Schools vary in how explicitly they incorporate these elements - it's worth asking directly.
 
 ---
 
 ## What Is Montessori Education?
 
-Maria Montessori opened her first classroom in 1907 in a Roman tenement - for children others had labeled "unteachable." She was a physician, Italy's first female doctor, and she approached education as a scientist: observe children, then design environments that support their natural development.
+Maria Montessori opened her first classroom in 1907 in a Roman tenement - for children others had labeled "unteachable." (For more on her methods, the [American Montessori Society](https://amshq.org/About-Montessori) offers a comprehensive overview.) She was a physician, Italy's first female doctor, and she approached education as a scientist: observe children, then design environments that support their natural development.
 
 Her core insight: children are born curious. Given the right environment and materials, they teach themselves.
 
@@ -113,7 +113,7 @@ Both Waldorf and Montessori delay formal academics compared to conventional scho
 
 **Montessori** doesn't force a timeline but creates conditions for reading to emerge. Children work with the Moveable Alphabet, building words before their hands can write letters. Reading often develops between ages 5-7, but there's no pressure.
 
-The evidence on delayed reading is reassuring for both approaches. Finland - one of the world's highest-performing education systems - doesn't start formal schooling until age 7. [Our research on reading readiness](https://opened.co/blog/when-to-worry-if-your-child-is-behind-in-reading) found that "Waldorf schools report the same pattern: students read later, but once they start, they catch up by fourth grade and often become more engaged readers because they have the maturity to understand what they're reading."
+The evidence on delayed reading is reassuring for both approaches. [Finland](https://www.oecd.org/en/topics/sub-issues/quality-and-equity-in-schools-and-education-systems/finland-education.html) - one of the world's highest-performing education systems - doesn't start formal schooling until age 7. [Our research on reading readiness](https://opened.co/blog/when-to-worry-if-your-child-is-behind-in-reading) found that "Waldorf schools report the same pattern: students read later, but once they start, they catch up by fourth grade and often become more engaged readers because they have the maturity to understand what they're reading."
 
 ---
 
@@ -165,9 +165,11 @@ Despite their differences, Waldorf and Montessori share core principles that set
 
 ## Do You Have to Choose?
 
-Someone asked homeschool mom Courtney Meyerhofer: "So is your homeschool more unschooling or waldorf or classical?"
+At OpenEd, we hear some version of this question weekly: "Should we go Waldorf or Montessori?"
 
-Her answer: "Yes."
+Our answer is usually another question: "Why not both?"
+
+Homeschool mom Courtney Meyerhofer gets asked this too. "So is your homeschool more unschooling or waldorf or classical?" Her answer: "Yes."
 
 "Waldorf for culture and arts. Classical for great works and a strong foundation. Unschooling for learning that's rooted in practical life. Every philosophy has a golden nugget. Take it."
 

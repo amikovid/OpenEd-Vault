@@ -23,6 +23,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+from seo_history import SEOHistory
+
 
 def _project_root() -> Path:
     return Path(__file__).resolve().parent.parent
@@ -128,10 +130,13 @@ class WeeklyReport:
         "high school",
     ]
 
-    def __init__(self, domain: str, competitors: List[str] = None):
+    def __init__(self, domain: str, competitors: List[str] = None, track_history: bool = True):
         self.domain = domain
         self.competitors = competitors or []
         self.modules = _import_modules()
+        self.track_history = track_history
+        self.history = SEOHistory() if track_history else None
+        self.changes = {}  # Week-over-week changes
         self.data = {
             "quick_wins": [],
             "declining_content": [],
@@ -349,41 +354,7 @@ class WeeklyReport:
             self.data["errors"].append(f"Keyword opportunities failed: {e}")
             return []
 
-        try:
-            dfs = self.modules["dataforseo"]()
-
-            seed_keywords = [
-                f"{self.domain.replace('.', ' ')} alternatives",
-                "homeschool curriculum",
-                "education choice",
-            ]
-
-            opportunities = []
-            for seed in seed_keywords[:1]:
-                try:
-                    ideas = dfs.get_keyword_ideas(seed, limit=20)
-                    for kw in ideas:
-                        vol = kw.get("search_volume", 0)
-                        if vol and vol >= 50:
-                            opportunities.append(
-                                {
-                                    "keyword": kw.get("keyword"),
-                                    "volume": vol,
-                                    "cpc": kw.get("cpc", 0),
-                                    "competition": kw.get("competition", 0),
-                                }
-                            )
-                except:
-                    pass
-
-            opportunities.sort(key=lambda x: x["volume"], reverse=True)
-            return opportunities[:10]
-
-        except Exception as e:
-            self.data["errors"].append(f"Keyword opportunities failed: {e}")
-            return []
-
-    def generate(self) -> Dict:
+    def generate(self, save_snapshot: bool = True) -> Dict:
         """Generate the full report."""
         print(f"Generating weekly SEO report for {self.domain}...")
         print()
@@ -403,7 +374,25 @@ class WeeklyReport:
         self.data["generated_at"] = datetime.now().isoformat()
         self.data["domain"] = self.domain
 
+        # Save to history and get week-over-week changes
+        if self.track_history and self.history and save_snapshot:
+            print("  Saving to history...")
+            self.changes = self.history.add_snapshot(self.data)
+            self.data["changes"] = self.changes
+
         return self.data
+
+    def export_history(self, output_path: Optional[Path] = None) -> str:
+        """Export historical tracking as markdown."""
+        if not self.history:
+            return "History tracking not enabled."
+        return self.history.export_markdown(output_path)
+
+    def get_history_summary(self) -> Dict:
+        """Get summary of historical data."""
+        if not self.history:
+            return {"status": "History tracking not enabled"}
+        return self.history.get_summary()
 
     def format_console(self) -> str:
         """Format report for console output."""
@@ -455,6 +444,28 @@ class WeeklyReport:
             for opp in self.data["keyword_opportunities"][:5]:
                 lines.append(f"  {opp['keyword'][:45]:<45} | Vol: {opp['volume']:,}")
             lines.append("")
+
+        # Week-over-week changes
+        if self.changes:
+            has_changes = any([
+                self.changes.get("improved"),
+                self.changes.get("declined"),
+                self.changes.get("new_rankings"),
+                self.changes.get("lost_rankings")
+            ])
+            if has_changes:
+                lines.append("📈 WEEK-OVER-WEEK CHANGES")
+                lines.append("-" * 50)
+                if self.changes.get("improved"):
+                    for item in self.changes["improved"][:3]:
+                        lines.append(f"  ↑ {item['keyword'][:30]}: #{item['from']:.0f} → #{item['to']:.0f}")
+                if self.changes.get("declined"):
+                    for item in self.changes["declined"][:3]:
+                        lines.append(f"  ↓ {item['keyword'][:30]}: #{item['from']:.0f} → #{item['to']:.0f}")
+                if self.changes.get("new_rankings"):
+                    for item in self.changes["new_rankings"][:2]:
+                        lines.append(f"  🆕 {item['keyword'][:30]}: Now #{item['position']:.0f}")
+                lines.append("")
 
         if self.data["warnings"]:
             lines.append("⚠️  WARNINGS")
@@ -635,6 +646,43 @@ class WeeklyReport:
             md.append("---")
             md.append("")
 
+        # Week-over-Week Changes (from history)
+        if self.changes:
+            md.append("## 📈 Week-over-Week Changes")
+            md.append("")
+
+            if self.changes.get("improved"):
+                md.append("**Improved (moved up 3+ positions):**")
+                for item in self.changes["improved"][:5]:
+                    md.append(f"- **{item['keyword']}**: #{item['from']:.0f} → #{item['to']:.0f} (+{item['change']:.0f})")
+                md.append("")
+
+            if self.changes.get("declined"):
+                md.append("**Declined (dropped 3+ positions):**")
+                for item in self.changes["declined"][:5]:
+                    md.append(f"- **{item['keyword']}**: #{item['from']:.0f} → #{item['to']:.0f} ({item['change']:.0f})")
+                md.append("")
+
+            if self.changes.get("new_rankings"):
+                md.append("**New Rankings:**")
+                for item in self.changes["new_rankings"][:5]:
+                    md.append(f"- **{item['keyword']}**: Now ranking #{item['position']:.0f}")
+                md.append("")
+
+            if self.changes.get("lost_rankings"):
+                md.append("**Lost Rankings:**")
+                for item in self.changes["lost_rankings"][:5]:
+                    md.append(f"- **{item['keyword']}**: Was #{item['was']:.0f}, no longer ranking")
+                md.append("")
+
+            if not any([self.changes.get("improved"), self.changes.get("declined"),
+                       self.changes.get("new_rankings"), self.changes.get("lost_rankings")]):
+                md.append("No significant position changes since last report.")
+                md.append("")
+
+            md.append("---")
+            md.append("")
+
         # Footer
         md.append("## Data Sources Status")
         md.append("")
@@ -774,11 +822,17 @@ def main():
         "--competitors", default="", help="Comma-separated competitor domains"
     )
     parser.add_argument(
-        "--output", choices=["console", "slack", "json", "markdown"], default="console"
+        "--output", choices=["console", "slack", "json", "markdown", "history"], default="console"
     )
     parser.add_argument("--save", help="Save output to file")
     parser.add_argument(
         "--slack-webhook", help="Slack webhook URL (or set SLACK_WEBHOOK_URL env var)"
+    )
+    parser.add_argument(
+        "--no-history", action="store_true", help="Don't save to history (dry run)"
+    )
+    parser.add_argument(
+        "--history-only", action="store_true", help="Just export history without running report"
     )
 
     args = parser.parse_args()
@@ -787,8 +841,18 @@ def main():
 
     competitors = [c.strip() for c in args.competitors.split(",") if c.strip()]
 
-    report = WeeklyReport(domain=args.domain, competitors=competitors)
-    report.generate()
+    # History-only mode - just export existing data
+    if args.history_only:
+        report = WeeklyReport(domain=args.domain, competitors=competitors)
+        output = report.export_history()
+        print(output)
+        if args.save:
+            Path(args.save).write_text(output)
+            print(f"\nSaved to: {args.save}")
+        return 0
+
+    report = WeeklyReport(domain=args.domain, competitors=competitors, track_history=not args.no_history)
+    report.generate(save_snapshot=not args.no_history)
 
     # Handle Slack delivery
     webhook_url = args.slack_webhook or os.environ.get("SLACK_WEBHOOK_URL")
@@ -812,6 +876,14 @@ def main():
     elif args.output == "json":
         output = json.dumps(report.data, indent=2, default=str)
         print(output)
+    elif args.output == "history":
+        # Show both current report and historical tracking
+        output = report.format_markdown()
+        print(output)
+        print("\n" + "=" * 60 + "\n")
+        history_output = report.export_history()
+        print(history_output)
+        output = output + "\n\n---\n\n" + history_output
 
     if args.save:
         save_output = output if isinstance(output, str) else json.dumps(output)
