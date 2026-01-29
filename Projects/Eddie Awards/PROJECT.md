@@ -197,9 +197,21 @@ Eddie Awards/
 - [ ] Create nomination Google Form
 - [ ] Draft internal Slack announcement
 - [ ] Create Week 1 hype content
-- [ ] Assemble judging panel
+- [x] Assemble judging panel candidates - see Google Doc below
 - [ ] Create shareable staff assets
+- [ ] Finalize Week 2 nominations comms
+
+---
+
+## Working Documents
+
+| Document | Location | Contents |
+|----------|----------|----------|
+| **Judge Selection & Outreach** | [Google Doc](https://docs.google.com/document/d/1jNCFz_fgTPkpWEzwPdn1GI4mfsRpUnxr9VSfsU2skJk/edit) | 27 potential judges by tier, personalized email templates |
+| **Campaign Assets** | `Campaign Assets.md` | Landing page copy, form fields, Slack announcements, social templates |
+| **Nominations Comms** | `Nominations-Comms.md` | Week 2 content: Facebook posts, Instagram options, newsletter draft |
 
 ---
 
 *Created: 2026-01-07*
+*Updated: 2026-01-28*
