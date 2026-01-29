@@ -2,14 +2,16 @@
 name: Meta Ads Creative System
 description: Ad concepts, skills, and research for OpenEd Meta advertising campaigns
 status: active
-parent: OpenEd Vault
+parent: Project Dandelion
 created: 2026-01-07
-updated: 2026-01-07
+updated: 2026-01-29
 ---
 
 # Meta Ads Creative System
 
-**Purpose:** Centralized system for creating, testing, and iterating Meta ad creative for OpenEd.
+**Purpose:** Centralized creative library for OpenEd Meta advertising campaigns.
+
+**Parent Project:** [Project Dandelion](../../Projects/Project-Dandelion/PROJECT.md)
 
 ---
 
@@ -20,6 +22,22 @@ This project contains:
 - A meta-ads-creative skill with reference documents
 - 2026 ad trends research
 - Testimonials database for copy mining
+- Curriculum-specific targeting campaign concept
+
+---
+
+## Key Performance Insights
+
+**From Dandelion performance analysis** (see `Projects/Project-Dandelion/research/meta-ads-performance-analysis-2026-01-28.md`):
+
+| Format | CPA | Volume | Takeaway |
+|--------|-----|--------|----------|
+| Notes App | $5.33 | 747 apps | Best high-volume performer |
+| MG2 (video + text) | $4.25 | 142 apps | Lowest CPA |
+| Text-Heavy (black/white) | $5.82 | 1,278 apps | Highest volume |
+| Text-Heavy (styled) | $121.77 | 10 apps | **Same copy, 28x worse** |
+
+**Key lesson:** Lo-fi, native-feeling formats dramatically outperform polished designs. Same copy with "corporate" styling (highlights, underlines) performed 28x worse
 
 ---
 
