@@ -8,10 +8,171 @@
 ## Content Checklist
 
 - [ ] **OpenEd Daily** - Opening letter announcing nominations are open
-- [ ] **Facebook Posts** - 2-3 posts driving nominations
-- [ ] **Instagram Carousel** - "5 Categories" explainer
-- [ ] **Image Assets** - Memes/comics via Nano Banana
-- [ ] **Reels** - Easel/chalkboard reveal format
+- [ ] **Facebook Posts** - 5 text-on-background posts (one per day per category)
+- [ ] **Instagram Posts** - 5 graphic + caption posts (one per day per category)
+- [ ] **Instagram Carousel** - "5 Categories" explainer (optional)
+- [ ] **New Yorker Cartoon** - For newsletter/social
+- [ ] **Reels** - Easel/chalkboard reveal format (for nominee announcements Week 3)
+
+---
+
+## Facebook - Text-on-Background (Daily)
+
+Short text, colored background. OpenEd adds first comment with nomination instructions.
+
+### Monday - Parent Educator
+
+```
+Who's the best homeschool parent you know?
+```
+
+### Tuesday - Innovator
+
+```
+Know someone who started a microschool, pod, or co-op that actually works?
+```
+
+### Wednesday - Inspiring Student
+
+```
+What kid's education journey would inspire other families?
+```
+
+### Thursday - Communicator
+
+```
+Who made the content that helped you figure this out?
+```
+
+### Friday - Resource
+
+```
+What's the one curriculum or tool you'd actually recommend?
+```
+
+### First Comment (Same Every Day)
+
+```
+Tag them here or email reply@opened.co if you want to stay anonymous. We're nominating for the Eddy Awards.
+```
+
+---
+
+## Instagram - Option A: Simple Graphic + Caption (Daily)
+
+One sentence on graphic. Caption includes nomination instructions.
+
+| Day | Graphic Text | Caption |
+|-----|--------------|---------|
+| Mon | Who's the best homeschool parent you know? | Parent Educator of the Year - nominations open. Tag them or email reply@opened.co to stay anonymous. |
+| Tue | Who started something that actually works? | Innovator of the Year - microschool founder, pod organizer, tutor. Tag them or email reply@opened.co to stay anonymous. |
+| Wed | What kid would inspire other families? | Inspiring Student of the Year. Tell us here or email reply@opened.co to stay anonymous. |
+| Thu | Who made the content that helped you figure this out? | Communicator of the Year - podcaster, blogger, creator. Tag them or email reply@opened.co to stay anonymous. |
+| Fri | What's the one curriculum or tool you'd actually recommend? | Resource of the Year. Drop it in the comments. |
+
+---
+
+## Instagram - Option B: "Rules They Broke" Carousel
+
+**Frame:** "We're giving awards to people who broke the rules."
+
+| Slide | Text |
+|-------|------|
+| 1 | **THE 2026 EDDY AWARDS** / 5 categories. 1 question: Who made open education better this year? |
+| 2 | **PARENT EDUCATOR OF THE YEAR** / Rule broken: You have to be a certified teacher to educate. |
+| 3 | **INNOVATOR OF THE YEAR** / Rule broken: Learning happens in a classroom. |
+| 4 | **INSPIRING STUDENT OF THE YEAR** / Rule broken: Success looks the same for every kid. |
+| 5 | **COMMUNICATOR OF THE YEAR** / Rule broken: Parents can't figure this out alone. |
+| 6 | **RESOURCE OF THE YEAR** / Rule broken: Good curriculum costs a fortune. |
+| 7 | **KNOW SOMEONE?** / Nominate them. Link in bio. |
+
+**Caption:**
+We're giving out awards. 5 categories. Real trophies. (They're horse heads with glasses.)
+
+Nominations open through Friday. Tag someone who deserves one or email reply@opened.co to stay anonymous.
+
+---
+
+## Instagram - Option C: Specific Examples (Daily)
+
+More evocative graphic text with concrete examples.
+
+### Monday - Parent Educator
+
+**Graphic:**
+```
+That mom who assembled her
+whole curriculum from scratch.
+
+The dad running a one-room
+schoolhouse for four kids.
+
+You know who I'm talking about.
+```
+
+**Caption:**
+Parent Educator of the Year - nominations open. Tag them or email reply@opened.co to stay anonymous.
+
+---
+
+### Tuesday - Innovator
+
+**Graphic:**
+```
+Started a pod in their garage.
+Runs a co-op out of a church basement.
+Teaches 12 kids math on Zoom
+and they actually like it.
+```
+
+**Caption:**
+Innovator of the Year. Tag them or email reply@opened.co to stay anonymous.
+
+---
+
+### Wednesday - Inspiring Student
+
+**Graphic:**
+```
+The 14-year-old who started a business.
+The kid who went from "won't read"
+to finishing 40 books.
+The one who found their thing.
+```
+
+**Caption:**
+Inspiring Student of the Year. Tell us about them - reply@opened.co to stay anonymous.
+
+---
+
+### Thursday - Communicator
+
+**Graphic:**
+```
+The podcast you binged at 2am
+when you were panicking about curriculum.
+
+The blog that finally explained
+how co-ops actually work.
+```
+
+**Caption:**
+Communicator of the Year. Tag them or email reply@opened.co to stay anonymous.
+
+---
+
+### Friday - Resource
+
+**Graphic:**
+```
+The curriculum that clicked.
+The app your kids ask to use.
+The subscription box that's
+actually worth renewing.
+```
+
+**Caption:**
+Resource of the Year. Drop it in the comments.
 
 ---
 
@@ -56,145 +217,52 @@ Self-nominations absolutely welcome. Humility is overrated.
 
 ---
 
-## Facebook Posts
+## New Yorker Cartoon Concept
 
-### Post 1: Launch Announcement
+**Scene:** Horse trophy (Ed) prominently displayed on a shelf between a macaroni necklace and a faded participation ribbon. Parent stands nearby, gazing at it with quiet pride. Simple living room setting.
 
-We're giving out awards this year.
+**Caption options:**
 
-Not for perfect test scores. Not for sitting still. Not for following the rules.
+1. *"She says it's her Oscar. We're not allowed to touch it."*
+2. *"Apparently there's an awards show for not sending your kids to school. She won."*
 
-The Eddy Awards celebrate the parents, educators, creators, and innovators who are proving there's another way to learn.
-
-Five categories. Real trophies. (Yes, they're horse heads with glasses.)
-
-Nominations open NOW through March 7.
-
-Who would you nominate?
-
-[LINK]
+**Style:** Simple pen-and-ink, plain white background, understated humor. See `references/styles/newyorker-cartoon.md` for prompt template.
 
 ---
 
-### Post 2: Category Spotlight (Rotate Daily)
+## Reel Concept - Easel Reveal (Week 3 - Nominee Announcements)
 
-**[MONDAY - Parent Educator]**
+**Setup:** Easel covered with blanket
 
+**Action:** Pull blanket to reveal chalkboard with nominee names
+
+**Board text:**
+```
 PARENT EDUCATOR OF THE YEAR
 
-Know a homeschool parent who figured something out? Built a curriculum from scratch? Created a learning environment that actually works for their kids?
-
-We want to hear about them.
-
-Nominations close Friday.
-
-[NOMINATE A PARENT EDUCATOR]
-
----
-
-### Post 3: Mid-Week Push
-
-3 days left to nominate someone for an Eddy.
-
-The categories:
-- Parent Educator of the Year
-- Innovator of the Year
-- Inspiring Student of the Year
-- Communicator of the Year
-- Open Education Resource of the Year
-
-Who comes to mind?
-
-[LINK]
-
----
-
-## Instagram Carousel - "The 5 Categories"
-
-**Format:** 7 slides, swipe-through
-
-| Slide | Visual | Text |
-|-------|--------|------|
-| 1 | Eddy badge/logo | **THE 2026 EDDY AWARDS** / Nominations now open |
-| 2 | Icon: house/family | **PARENT EDUCATOR OF THE YEAR** / The parent who built something remarkable |
-| 3 | Icon: lightbulb | **INNOVATOR OF THE YEAR** / The educator reimagining what learning looks like |
-| 4 | Icon: star | **INSPIRING STUDENT OF THE YEAR** / The kid whose journey shows what's possible |
-| 5 | Icon: microphone | **COMMUNICATOR OF THE YEAR** / The creator who makes you feel less alone |
-| 6 | Icon: tools/puzzle | **RESOURCE OF THE YEAR** / The curriculum or tool that actually works |
-| 7 | CTA | **KNOW SOMEONE?** / Nominate them. Link in bio. |
-
-**Caption:**
-We're giving out awards. Not for test scores - for the people making open education work.
-
-5 categories. Real trophies. (They're horse heads with glasses.)
-
-Nominations open through Friday. Link in bio to nominate.
-
-Who deserves an Eddy?
-
----
-
-## Image Asset Ideas (For Nano Banana)
-
-### Comic/Meme Concepts
-
-**Concept 1: "Award Show Comparison"**
-Split panel: Left side shows fancy Oscar ceremony. Right side shows homeschool parent at kitchen table with coffee, laptop, and chaos. Caption: "Same energy. Different venue."
-
-**Concept 2: "The Trophy"**
-Ed the horse (with glasses) as a trophy on a pedestal. Very formal, very serious. Caption: "Coming to a shelf near you."
-
-**Concept 3: "Nominee Reaction"**
-Four-panel comic: Person gets email > "You've been nominated for an Eddy" > Confused face > Shows trophy image > Big grin. Wordless or minimal text.
-
-**Concept 4: "Categories as Characters"**
-5 distinct illustrated characters representing each category:
-- Parent Educator: Coffee-powered superhero
-- Innovator: Mad scientist with lightbulb
-- Student: Kid with cape made of books
-- Communicator: Person with megaphone/microphone
-- Resource: Toolbox with arms and legs
-
-**Concept 5: "New Yorker Style"**
-Dry cartoon: Kid holding Eddy trophy, parent in background. Caption: "He won it for 'most improved attitude after we stopped doing worksheets.'"
-
----
-
-## Reel Concept - Easel Reveal
-
-**Setup:** Covered easel with cloth/blanket
-
-**Reveal text on chalkboard:**
-```
-THE EDDY AWARDS
-Nominations Open
-
-Who deserves one?
-Link in bio
+THE NOMINEES:
+- [Name 1]
+- [Name 2]
+- [Name 3]
 ```
 
 **Audio:** Trending sound or dramatic reveal music
 
 **Duration:** 5-8 seconds
 
-**Batch film option:** Same setup, swap board text for each category:
-- "PARENT EDUCATOR OF THE YEAR / Who should win?"
-- "INNOVATOR OF THE YEAR / Who should win?"
-- etc.
+Batch film all 5 in one session - swap board between takes.
 
 ---
 
 ## Platform Summary
 
-| Platform | Content | Quantity |
-|----------|---------|----------|
-| OpenEd Daily | Opening letter | 1 (March 1) |
-| Facebook | Posts | 3 (launch, mid-week, final push) |
-| Instagram | Carousel | 1 (categories explainer) |
-| Instagram | Reels | 1-5 (easel reveals) |
-| X/Twitter | Thread | 1 (launch) |
-| LinkedIn | Post | 1 (professional angle) |
+| Platform | Content | Quantity | Format |
+|----------|---------|----------|--------|
+| OpenEd Daily | Opening letter | 1 (March 1) | Newsletter |
+| Facebook | Text-on-background | 5 (daily) | Native text post |
+| Instagram | Graphic + caption | 5 (daily) | Image post |
+| Instagram | Carousel | 1 (optional) | Swipe-through |
 
 ---
 
-*Created: January 28, 2026*
+*Last Updated: January 28, 2026*

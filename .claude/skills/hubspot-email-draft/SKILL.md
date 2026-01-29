@@ -256,7 +256,8 @@ This skill converts that structure to HTML - it doesn't add formatting.
 
 ## API Reference
 
-**Token:** `HUBSPOT_API_KEY_REDACTED`
+**Token:** Use key from `Studio/SEO Content Production/seomachine/data_sources/config/.env` (has email scopes)
+**Note:** The root `.env` token does NOT have email scopes - use the seomachine config token.
 **Portal:** 45961901
 
 | Endpoint | Purpose |
