@@ -25,30 +25,52 @@ try:
         Filter,
     )
     from google.oauth2.credentials import Credentials
+    from google.oauth2 import service_account
 except ImportError:
     print("Missing dependencies. Install with:")
     print("  pip install google-analytics-data google-auth-oauthlib")
     sys.exit(1)
 
+SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
+
 
 def get_credentials():
-    """Get OAuth credentials from environment variables."""
+    """Get credentials - tries service account first, then OAuth."""
+    # Option 1: Service account JSON file (preferred for automation)
+    sa_path = os.environ.get("GOOGLE_SERVICE_ACCOUNT_PATH")
+    if sa_path and os.path.exists(sa_path):
+        return service_account.Credentials.from_service_account_file(
+            sa_path, scopes=SCOPES
+        )
+
+    # Option 2: Service account JSON content in env var
+    sa_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
+    if sa_json:
+        import json
+        sa_info = json.loads(sa_json)
+        return service_account.Credentials.from_service_account_info(
+            sa_info, scopes=SCOPES
+        )
+
+    # Option 3: OAuth credentials (requires user auth flow)
     client_id = os.environ.get("GOOGLE_CLIENT_ID")
     client_secret = os.environ.get("GOOGLE_CLIENT_SECRET")
     refresh_token = os.environ.get("GOOGLE_REFRESH_TOKEN")
-    
-    if not all([client_id, client_secret, refresh_token]):
-        print("Error: Missing environment variables.")
-        print("Required: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN")
-        sys.exit(1)
-    
-    return Credentials(
-        token=None,
-        refresh_token=refresh_token,
-        client_id=client_id,
-        client_secret=client_secret,
-        token_uri="https://oauth2.googleapis.com/token",
-    )
+
+    if all([client_id, client_secret, refresh_token]):
+        return Credentials(
+            token=None,
+            refresh_token=refresh_token,
+            client_id=client_id,
+            client_secret=client_secret,
+            token_uri="https://oauth2.googleapis.com/token",
+        )
+
+    print("Error: No credentials found. Set one of:")
+    print("  Option 1: GOOGLE_SERVICE_ACCOUNT_PATH=/path/to/service-account.json")
+    print("  Option 2: GOOGLE_SERVICE_ACCOUNT_JSON='{...}'")
+    print("  Option 3: GOOGLE_CLIENT_ID + GOOGLE_CLIENT_SECRET + GOOGLE_REFRESH_TOKEN")
+    sys.exit(1)
 
 
 def parse_filter(filter_str):
