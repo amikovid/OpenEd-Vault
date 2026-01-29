@@ -1,8 +1,8 @@
 # Pillar 1: Known Lead Recovery - Creative Proposals
 
-**Audience:** 11,380 interested or applied non-enrollees (SY25-26 + MY26)
-**Build:** Week of Feb 9
-**Launch:** Feb 16
+**Audience:** 11,380 interested or applied non-enrollees (SY25-26 + MY26)\
+**Build:** Week of Feb 9\
+**Launch:** Feb 16\
 **Concepts:** 20 total (recommend starting with 5, add as needed)
 
 ---
@@ -12,23 +12,27 @@
 ### Primary Text Options (Rotate Across Concepts)
 
 **Option A - Direct + Social Proof (Default)**
+
 > You started exploring OpenEd for a reason. That reason is still there. 17,000+ families made the switch - tuition-free curriculum, dedicated teacher support, flexible schedule. 5 minutes to finish your application.
 
 **Option B - Acknowledge Hesitation (Emotional Concepts)**
+
 > Life got busy. Doubts crept in. But you started an application for a reason. OpenEd families finish core learning by early afternoon. No homework battles. Tuition-free. 5 minutes to finish what you started.
 
 **Option C - Short + Punchy (Memes/Casual Formats)**
+
 > You already did the hard part - deciding to explore something new. Tuition-free. Real support. 17,000+ families. 5 minutes to finish.
 
 **Option D - Outcome-Focused (Proof-Heavy Concepts)**
+
 > C students becoming 4.0 students. Anxious kids finding peace. Parents getting their evenings back. You started exploring this for a reason. Finish your application - 5 minutes.
 
 ### CTA Buttons
 
 | CTA | Use For |
-|-----|---------|
-| **Complete Application** | Default - most concepts |
-| **Finish What You Started** | Casual/meme formats |
+| --- | --- |
+| Complete Application | Default - most concepts |
+| Finish What You Started | Casual/meme formats |
 
 ---
 
@@ -36,9 +40,9 @@
 
 ---
 
-### 1. We Saved Your Spot
+### 1\. We Saved Your Spot
 
-**Format:** Text-Only Static
+**Format:** Text-Only Static\
 **Difficulty:** Easy
 
 **Media:** Bold text on solid background
@@ -59,9 +63,9 @@ Your application is still waiting.
 
 ---
 
-### 2. Join 17,000+ Families
+### 2\. Join 17,000+ Families
 
-**Format:** Text-Only Static
+**Format:** Text-Only Static\
 **Difficulty:** Easy
 
 **Media:** Bold text, clean design
@@ -81,10 +85,10 @@ What are you waiting for?
 
 ---
 
-### 3. Cassie Shepherd Testimonial
+### 3\. Cassie Shepherd Testimonial
 
-**Format:** Video Testimonial (UGC)
-**Difficulty:** Ready - video exists
+**Format:** Video Testimonial (UGC)\
+**Difficulty:** Ready - video exists\
 **Asset:** Cassie_Shepherd_Final.mp4
 
 **Video:** Parent testimonial about twins finding educational freedom
@@ -99,9 +103,9 @@ What are you waiting for?
 
 ---
 
-### 4. Same Kid. Different Results.
+### 4\. Same Kid. Different Results.
 
-**Format:** Text-Only Static
+**Format:** Text-Only Static\
 **Difficulty:** Easy
 
 **Media:** Bold text on solid background
@@ -120,9 +124,9 @@ Different results.
 
 ---
 
-### 5. The Grades Reality
+### 5\. The Grades Reality
 
-**Format:** Split-Screen Comparison
+**Format:** Split-Screen Comparison\
 **Difficulty:** Easy
 
 **Media:** Side-by-side or top/bottom
@@ -143,9 +147,9 @@ TEXT OVERLAY: Same kid. Different environment.
 
 ---
 
-### 6. Anxiety Before/After
+### 6\. Anxiety Before/After
 
-**Format:** Split-Screen Comparison
+**Format:** Split-Screen Comparison\
 **Difficulty:** Easy
 
 **Media:** Side-by-side comparison
@@ -172,14 +176,15 @@ AFTER OPENED:
 
 ---
 
-### 7. The Joy Recovery
+### 7\. The Joy Recovery
 
-**Format:** Testimonial Card
+**Format:** Testimonial Card\
 **Difficulty:** Easy
 
 **Media:** Photo of happy child learning + quote card design
 
 **Quote:**
+
 > "My son was greatly struggling with the expectations of public school. He was losing his passion for learning. With OpenEd, he went from being behind in math to about one grade level ahead. He has recovered his joy for learning."
 
 **Attribution:** OpenEd Parent
@@ -192,13 +197,14 @@ AFTER OPENED:
 
 ---
 
-### 8. Brettani Experience
+### 8\. Brettani Experience
 
-**Format:** Video Testimonial (UGC)
-**Difficulty:** Ready - video exists
+**Format:** Video Testimonial (UGC)\
+**Difficulty:** Ready - video exists\
 **Asset:** https://www.youtube.com/watch?v=f5ilqpvYqgc
 
 **Text Overlay:**
+
 ```
 "We were able to explore that further and find
 some culinary classes and get reimbursed for those costs."
@@ -218,14 +224,15 @@ these amazing live classes and clubs."
 
 ---
 
-### 9. POV: It's 2027
+### 9\. POV: It's 2027
 
-**Format:** Text-Over-Video
+**Format:** Text-Over-Video\
 **Difficulty:** Medium (needs b-roll)
 
 **Media:** Warm video of parent and child doing engaging learning activity together
 
 **Text Overlay Sequence:**
+
 ```
 POV: It's 2027
 
@@ -250,14 +257,15 @@ You already started. Finish in 5 minutes.
 
 ---
 
-### 10. Addressing Your Hesitation
+### 10\. Addressing Your Hesitation
 
-**Format:** Ad Reaction / Green Screen Commentary
+**Format:** Ad Reaction / Green Screen Commentary\
 **Difficulty:** Medium (needs creator)
 
 **Setup:** Creator with their old "homeschool fears" notes visible behind them
 
 **Script:**
+
 ```
 "I found my notes from before we started homeschooling...
 
@@ -290,9 +298,9 @@ this is your sign to go back and complete it."
 
 ---
 
-### 11. The Homeschool Reality Check
+### 11\. The Homeschool Reality Check
 
-**Format:** Notes App Screenshot
+**Format:** Notes App Screenshot\
 **Difficulty:** Easy
 
 **Media:** iPhone Notes screenshot with checklist
@@ -323,9 +331,9 @@ THINGS THAT ACTUALLY HAPPENED:
 
 ---
 
-### 12. The Budget Win
+### 12\. The Budget Win
 
-**Format:** Reddit Post Screenshot
+**Format:** Reddit Post Screenshot\
 **Difficulty:** Easy
 
 **Media:** Reddit post style (r/homeschool)
@@ -361,9 +369,9 @@ Why isn't everyone talking about this?
 
 ---
 
-### 13. Drake Meme - Finish What You Started
+### 13\. Drake Meme - Finish What You Started
 
-**Format:** Drake Approval Meme
+**Format:** Drake Approval Meme\
 **Difficulty:** Easy
 
 **Media:** Drake approval meme template
@@ -382,9 +390,9 @@ Why isn't everyone talking about this?
 
 ---
 
-### 14. Worksheets Aren't Wisdom
+### 14\. Worksheets Aren't Wisdom
 
-**Format:** Text-Only Static
+**Format:** Text-Only Static\
 **Difficulty:** Easy
 
 **Media:** Bold text on solid background
@@ -405,26 +413,26 @@ There's a better way.
 
 ---
 
-### 15. The 5 Signs Carousel
+### 15\. The 5 Signs Carousel
 
-**Format:** Carousel (6 slides)
+**Format:** Carousel (6 slides)\
 **Difficulty:** Easy
 
 **Slide 1:** "5 Signs You're Ready to Finish That Application"
 
-**Slide 2:** "1. You're still thinking about it"
+**Slide 2:** "1. You're still thinking about it"\
 *(You started exploring for a reason)*
 
-**Slide 3:** "2. Morning battles haven't gotten better"
+**Slide 3:** "2. Morning battles haven't gotten better"\
 *(They won't without change)*
 
-**Slide 4:** "3. Your kid's spark is fading"
+**Slide 4:** "3. Your kid's spark is fading"\
 *(It doesn't have to)*
 
-**Slide 5:** "4. You've done the research"
+**Slide 5:** "4. You've done the research"\
 *(You already know the answer)*
 
-**Slide 6:** "5. You're reading this ad"
+**Slide 6:** "5. You're reading this ad"\
 *(This is your sign)*
 
 **Final Slide:** "OpenEd - Tuition-free personalized education. Finish your application."
@@ -437,14 +445,15 @@ There's a better way.
 
 ---
 
-### 16. The Specialist Was Wrong
+### 16\. The Specialist Was Wrong
 
-**Format:** Text-Over-Video
+**Format:** Text-Over-Video\
 **Difficulty:** Medium (needs b-roll)
 
 **Media:** Video showing child confidently learning/creating/thriving
 
 **Text Overlay Sequence:**
+
 ```
 The specialist said:
 
@@ -475,12 +484,13 @@ The specialist was wrong.
 
 ---
 
-### 17. The Mom Confession
+### 17\. The Mom Confession
 
-**Format:** UGC Talking Head
+**Format:** UGC Talking Head\
 **Difficulty:** Medium (needs creator)
 
 **Script:**
+
 ```
 [Mom in casual home setting, iPhone footage feel]
 
@@ -515,14 +525,15 @@ Go finish it. Seriously. It takes 5 minutes."
 
 ---
 
-### 18. The Chair, Not the Child
+### 18\. The Chair, Not the Child
 
-**Format:** Text-Over-Video
+**Format:** Text-Over-Video\
 **Difficulty:** Medium (needs b-roll)
 
 **Media:** Video of child engaged in hands-on learning activity
 
 **Text Overlay Sequence:**
+
 ```
 "He can't sit still."
 
@@ -554,9 +565,9 @@ to thriving learner.
 
 ---
 
-### 19. Homework Is a Scam
+### 19\. Homework Is a Scam
 
-**Format:** Text-Only Static
+**Format:** Text-Only Static\
 **Difficulty:** Easy
 
 **Media:** Bold text on solid background
@@ -575,14 +586,15 @@ Change my mind.
 
 ---
 
-### 20. Before & After Carousel
+### 20\. Before & After Carousel
 
-**Format:** Carousel (5 slides)
+**Format:** Carousel (5 slides)\
 **Difficulty:** Easy
 
 **Slide 1:** "Before & After OpenEd: Real Family Stories"
 
 **Slide 2:**
+
 ```
 BEFORE: C student, dreading school, no energy for homework
 AFTER: 4.0 student, mental health improved, actually engaged
@@ -590,6 +602,7 @@ AFTER: 4.0 student, mental health improved, actually engaged
 ```
 
 **Slide 3:**
+
 ```
 BEFORE: Daily stomach problems, crying fits, severe anxiety
 AFTER: All of that is gone. She's thriving, asking to do more.
@@ -597,6 +610,7 @@ AFTER: All of that is gone. She's thriving, asking to do more.
 ```
 
 **Slide 4:**
+
 ```
 BEFORE: Behind in math, losing passion for learning
 AFTER: One grade level ahead, recovered joy of learning
@@ -618,7 +632,7 @@ AFTER: One grade level ahead, recovered joy of learning
 ### Full Concept List
 
 | # | Concept | Format | Primary Text | Difficulty |
-|---|---------|--------|--------------|------------|
+| --- | --- | --- | --- | --- |
 | 1 | We Saved Your Spot | Text-Only Static | A | Easy |
 | 2 | Join 17,000+ Families | Text-Only Static | A | Easy |
 | 3 | Cassie Shepherd | Video Testimonial | D | Ready |
@@ -643,7 +657,7 @@ AFTER: One grade level ahead, recovered joy of learning
 ### Format Distribution
 
 | Format | Count |
-|--------|-------|
+| --- | --- |
 | Text-Only Static | 6 |
 | Text-Over-Video | 3 |
 | Video Testimonial | 2 |
@@ -659,7 +673,7 @@ AFTER: One grade level ahead, recovered joy of learning
 ### Primary Text Distribution
 
 | Option | Use Case | Count |
-|--------|----------|-------|
+| --- | --- | --- |
 | A - Direct + Social Proof | Default | 8 |
 | B - Acknowledge Hesitation | Emotional concepts | 6 |
 | C - Short + Punchy | Memes/casual | 2 |
@@ -668,17 +682,25 @@ AFTER: One grade level ahead, recovered joy of learning
 ### Recommended Starting Set (5 concepts)
 
 1. **We Saved Your Spot** - Text-only, easy, direct retargeting message
+
 2. **Cassie Shepherd** - Video ready, testimonial proof
+
 3. **Same Kid. Different Results.** - Text-only, punchy reframe
+
 4. **Anxiety Before/After** - Split-screen, emotional transformation
+
 5. **Drake Meme** - Pattern interrupt, low-commitment feel
 
 ### Add When Ready
 
 - Brettani video testimonial
+
 - The 5 Signs carousel
+
 - Before & After carousel
+
 - POV: It's 2027 (once you have b-roll)
+
 - The Mom Confession (if you find a creator)
 
 ---
