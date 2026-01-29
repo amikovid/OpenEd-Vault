@@ -1,14 +1,36 @@
-# Elijah Sprint Kickoff - Jan 27, 2026
+# Sprint 01: Foundation
 
-**Sprint Duration:** 2 weeks (Jan 27 - Feb 7)
-**Rate:** $35/hr, ~10-15 hrs/week
+**Sprint Duration:** 2 weeks (Jan 27 - Feb 7, 2026)
+**Operator:** Elijah
 **Manager:** Charlie
+**Rate:** $35/hr, ~10-15 hrs/week
 
 ---
 
-## The Vibe
+## Sprint Status
 
-We're treating this like a game. High agency, creative experimentation, increasingly scientific. The goal is to find **replicable formats** that work - then scale what hits.
+**Current Phase:** Week 1 Complete, Week 2 In Progress
+**Last Updated:** 2026-01-29
+
+### Completed
+
+- [x] Audit existing retargeting ads → Performance analysis complete (see `research/meta-ads-performance-analysis-2026-01-28.md`)
+- [x] Access Meta Ads Manager confirmed
+- [x] Reviewed historical concepts + drafted improved versions (see `research/retargeting-ad-concepts-2026-01-28.md`)
+- [x] Pulled competitor examples and testimonial content
+
+### In Progress
+
+- [ ] 3 refreshed retargeting ad concepts (draft stage)
+- [ ] YouTube Ads research summary
+- [ ] Tracking setup documentation
+
+### Remaining (Week 2)
+
+- [ ] 5 retargeting ads live in Meta
+- [ ] 1-3 short-form videos published
+- [ ] Format playbook v1
+- [ ] YouTube Ads recommendation
 
 ---
 
@@ -25,35 +47,46 @@ Test multiple formats fast. Document what works. Build a playbook.
 
 ---
 
-## Sprint Goals
+## Key Research Finding
+
+**Lo-fi wins.** From performance analysis:
+- Notes App format: $5.33 CPA at 747 applications
+- Same copy with corporate styling: $121.77 CPA (28x worse)
+- Native-feeling, text-heavy content dramatically outperforms polished designs
+
+See `research/meta-ads-performance-analysis-2026-01-28.md` for full breakdown.
+
+---
+
+## Sprint Goals (Original)
 
 ### End of Day Wednesday (Jan 29)
 
-| Task | Owner | Deliverable |
-|------|-------|-------------|
-| Audit existing retargeting ads | Elijah | List of current ads + performance notes |
-| Access Meta Ads Manager | Elijah | Confirmed access, can see campaigns |
-| Review Andrew Muto brainstorm doc | Elijah | List of 5 concepts to test first |
-| Pull 3 competitor ad examples | Elijah | Screenshots + notes on why they work |
+| Task | Owner | Status |
+|------|-------|--------|
+| Audit existing retargeting ads | Elijah | ✅ Complete |
+| Access Meta Ads Manager | Elijah | ✅ Complete |
+| Review Andrew Muto brainstorm doc | Elijah | ✅ Complete |
+| Pull 3 competitor ad examples | Elijah | ✅ Complete |
 
 ### End of Week 1 (Friday Jan 31)
 
-| Task | Owner | Deliverable |
-|------|-------|-------------|
-| 3 refreshed retargeting ad concepts | Elijah | Draft creative (image/video + copy) |
-| 1 short-form video published | Elijah | Posted to IG Reels or TikTok |
-| Tracking setup documented | Elijah | How we'll know if ads are working |
-| YouTube Ads research summary | Elijah | 1-pager: YouTube vs Meta for our goals |
+| Task | Owner | Status |
+|------|-------|--------|
+| 3 refreshed retargeting ad concepts | Elijah | 🔄 In Progress |
+| 1 short-form video published | Elijah | ⏳ |
+| Tracking setup documented | Elijah | ⏳ |
+| YouTube Ads research summary | Elijah | ⏳ |
 
 ### End of Week 2 (Friday Feb 7)
 
-| Task | Owner | Deliverable |
-|------|-------|-------------|
-| 5 retargeting ads live | Elijah | Running in Meta with budget |
-| 3 short-form videos published | Elijah | Testing different formats |
-| Performance baseline captured | Elijah | Screenshot of metrics to compare against |
-| Format playbook v1 | Elijah | Doc: what formats, what worked, what to try next |
-| YouTube Ads recommendation | Elijah | Should we test? If yes, with what? |
+| Task | Owner | Status |
+|------|-------|--------|
+| 5 retargeting ads live | Elijah | ⏳ |
+| 3 short-form videos published | Elijah | ⏳ |
+| Performance baseline captured | Elijah | ⏳ |
+| Format playbook v1 | Elijah | ⏳ |
+| YouTube Ads recommendation | Elijah | ⏳ |
 
 ---
 
