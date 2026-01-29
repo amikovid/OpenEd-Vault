@@ -34,7 +34,7 @@ Jack Casdorph remembers the day clearly. His class magnetized a needle, floated 
 
 Instead, the teacher handed out worksheets. For the next half hour, students copied \- verbatim \- what they were supposed to have learned. "Even though matter and energy were not created or destroyed," Jack recalls, "my interest in science at that time was totally destroyed."
 
-Jack went on to become a mechanical engineer and educator who now advocates for project-based learning \- the approach that saved his own curiosity years later, when his father refused to build him a treehouse and offered to help him build one instead.
+Jack recovered. He went on to become a mechanical engineer and educator who now runs Clean Your Craft - a company that builds hands-on STEM kits that let kids build pinball machines, car launchers, and other projects that teach kids science through action. It's the approach that saved his own curiosity after the botched science lesson, when his father refused to build him a treehouse and offered to help him build one instead.
 
 ---
 
