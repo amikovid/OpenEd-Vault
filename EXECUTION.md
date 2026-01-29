@@ -113,6 +113,10 @@
 - [x] Updated PROJECT.md with research findings and cross-references (2026-01-29)
 - [x] Linked Retargeting Strategy as child of Dandelion (2026-01-29)
 - [x] Created playbook/ folder structure (2026-01-29)
+- [x] Updated Meta Ads PROJECT.md with Dandelion cross-references (2026-01-29)
+- [x] Archived 67 legacy Ad Creative Concepts files (2026-01-29)
+- [x] Deleted redundant Notion CSV export (2026-01-29)
+- [x] Moved beehiiv webinar PDF to Archive (2026-01-29)
 
 ---
 
