@@ -270,7 +270,7 @@ POSTED
 | Newsletter to social | `.claude/skills/newsletter-to-social/SKILL.md` |
 | Schedule approved | `.claude/skills/schedule-approved/SKILL.md` |
 | Template library | `.claude/skills/text-content/references/templates/TEMPLATE_INDEX.md` |
-| Nearbound people | `Projects/_content-engine-refactor/nearbound/people/` |
+| Nearbound people | `Studio/Nearbound Pipeline/people/` |
 | Notion schema | `.claude/references/notion-content-schema.md` |
 
 ---

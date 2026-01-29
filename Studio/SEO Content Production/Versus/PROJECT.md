@@ -72,7 +72,7 @@ Before publishing ANY versus page, it must pass:
 
 **Meta Title:** [Product A] vs [Product B]: Honest Comparison for Homeschool
 **Meta Description:** [Product A] or [Product B]? We break down the real differences to help you choose the right [curriculum/program] for your homeschool.
-**URL:** /compare/[product-a]-vs-[product-b]
+**URL:** /blog/[product-a]-vs-[product-b]
 
 ---
 

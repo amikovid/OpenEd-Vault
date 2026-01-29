@@ -1,174 +1,92 @@
-# RSS Curation Skill
+# RSS Daily Curation
 
-Fetches RSS feeds, scores for OpenEd relevance, posts to Slack #content-inbox.
+Automated RSS feed curation for OpenEd social content. Fetches from 64 education/homeschool feeds, scores with DEFINITELY/PROBABLY/NO criteria, and posts to Slack.
 
-## Invocation
+## When to Use
 
-User says: "run curation", "check feeds", "daily curation", "/rss-curation"
+- Daily curation runs (morning)
+- Ad-hoc content discovery
+- Weekly catchup (7-day window)
+
+## Quick Start
+
+```bash
+# Run curation (saves to file, attempts Slack)
+python3 agents/rss_curation.py
+
+# Run without Slack (just save file)
+python3 agents/rss_curation.py --no-slack
+
+# Then post via MCP Slack (if bot not in channel)
+# Read the daily file and post using mcp__slack__conversations_add_message
+```
 
 ## Workflow
 
-1. **Fetch feeds** - Run script or read pre-fetched output:
-   ```bash
-   python3 /path/to/curate.py --json --days 1
-   # Or read: .claude/skills/rss-curation/output/latest.json
-   ```
+1. **Fetch** - Parse 64 feeds (last 24 hours by default)
+2. **Score** - Apply DEFINITELY/PROBABLY/NO rules
+3. **Save** - Write to `Projects/RSS-Curation/daily/YYYY-MM-DD.md`
+4. **Post** - Send DEFINITELY items to Slack #market-daily
 
-2. **Score items** - Use 3-tier system (see `scoring-prompt.md`)
+## Scoring Criteria
 
-3. **Post to Slack** - Each DEFINITELY item gets its own message to #content-inbox (C0ABV2VQQKS)
+### DEFINITELY (Post to Slack)
+- Mixed approach families (one child homeschool, one not)
+- Kids thriving outside traditional school
+- Practical parent help (curriculum, routines)
+- Relatable parent moments (struggles, joys)
+- Neurodiversity focus (ADHD, autism, 2e)
+- Free-range / independence themes
 
-4. **Develop on request** - When user reacts or says "develop [item]", fetch article and draft social posts
+### NO (Skip)
+- School choice policy / ESA news
+- Political content (ICE, legislation)
+- Public school focused
+- Generic parenting
 
-## 3-Tier Scoring
+### High-Value Sources (Boosted)
+- Lenore Skenazy, Peter Gray, Let Grow
+- Kerry McDonald, Jon Haidt
+- r/homeschool, r/unschool (gold mines)
+- Pam Barnhill, 1000 Hours Outside
 
-| Tier | When to Use |
-|------|-------------|
-| DEFINITELY | Families mixing approaches, kids thriving outside traditional school, practical parent help, relatable parent moments, neurodiversity |
-| PROBABLY | Fresh homeschool/alt-ed angle, curriculum comparisons, microschool models (family experience not policy) |
-| NO | School choice policy/ESA news, political content, public school focused, generic parenting, clickbait, dogmatic |
+## Output Files
 
-**School choice / ESA policy is NOT our topic.** Skip even if pro-homeschool.
+| File | Purpose |
+|------|---------|
+| `Projects/RSS-Curation/daily/YYYY-MM-DD.md` | Scored curation |
+| `Projects/RSS-Curation/FEEDS.md` | 64 feed URLs |
+| `agents/rss_curation.py` | Standalone script |
 
-Full criteria: `scoring-prompt.md`
+## Automation Options
 
-## Slack Post Format
-
-**Each DEFINITELY item = separate message (no emojis):**
-```
-*[Title]*
-_[Source] - [X hours ago]_
-
-[1-2 sentence summary]
-
-OpenEd angle: [Why this matters]
-
-[URL]
-```
-
-**PROBABLY items = one summary message at end**
-
-## Develop Workflow (Framework Fitting)
-
-When user says "develop [item]" or for auto-develop on slam-dunk items:
-
-### Step 1: Fetch & Extract
-1. WebFetch the full article
-2. **Extract 2-3 standalone snippets** (not a summary):
-   - Hot takes / opinions that stand alone
-   - Stats or data points with interpretation
-   - Story arcs / transformation moments
-   - Quotable lines
-
-### Step 2: Find Handles (Nearbound)
-1. Check `Studio/Nearbound/people/` for mentioned names
-2. If not found, web search for social handles:
-   - Twitter/X: `[name] [org] twitter`
-   - LinkedIn: `[name] [org] linkedin`
-   - Instagram: `[name] [org] instagram`
-
-### Step 3: Match Snippets to Platforms
-| Snippet Type | Best Platform | Template Style |
-|--------------|---------------|----------------|
-| Hot take | X, LinkedIn | Contrarian hook, paradox |
-| Stat/data | LinkedIn | Authority, "Here's what this means" |
-| Story arc | LinkedIn, Instagram | Transformation, before/after |
-| Quote | Instagram, X | Quote card, commentary |
-
-### Step 4: Draft Posts (OpenEd Voice)
-Use `text-content` skill templates. Key rules:
-- No correlative constructions ("X isn't just Y - it's Z")
-- No AI-isms: delve, journey, landscape, comprehensive
-- Conversational, like sharing with a friend
-- Include @handles for tagging
-
-### Step 5: Screenshot (Optional)
-Use screenshot tool for article captures:
-
+### Option 1: Cron (Standalone)
 ```bash
-cd "/Users/charliedeist/Desktop/New Root Docs/.claude/tools/playwright"
-node screenshot.mjs "[article-url]" "/path/to/Studio/Social Screenshots/YYYY-MM-DD/[slug].png"
+# Add to crontab -e
+0 6 * * * cd ~/Desktop/New\ Root\ Docs/OpenEd\ Vault && python3 agents/rss_curation.py --no-slack >> /tmp/rss_curation.log 2>&1
 ```
 
-## Auto-Develop (Slam Dunks)
+### Option 2: Clawdbot Heartbeat
+Add to HEARTBEAT.md:
+- [ ] RSS curation: Run python3 agents/rss_curation.py --no-slack then post daily file to #market-daily
 
-For DEFINITELY items, spawn a sub-agent to develop into social posts:
+### Option 3: Claude Code Manual
+"Run RSS curation for today"
 
-```
-Task tool prompt:
+## Ed the Horse Voice
 
-Develop this article into social posts for OpenEd:
+For X posts from curated items, use Ed the Horse patterns:
+- **Values**: "Normalize [thing]." / "[Thing] is valid."
+- **Observation**: "[Thing] happened. [Dry comment]."
+- **Question**: "Why do we [accepted norm]?"
+- **Contrarian**: "[Opposite of expected]. Think about it."
 
-URL: [article url]
-Title: [title]
-Source: [source]
+## Related Skills
 
-Steps:
-1. WebFetch the full article
-2. Extract 2-3 standalone snippets (not a summary):
-   - Hot takes that stand alone
-   - Stats with interpretation
-   - Story moments
-   - Quotable lines
-3. Web search for social handles of people/orgs mentioned
-4. Draft 2 LinkedIn variations and 2 X variations
-5. Voice rules: no emojis, no AI-isms, no correlative constructions ("X isn't just Y - it's Z"), conversational tone
+- text-content - Template library for posts
+- x-posting - Schedule via Getlate
+- content-repurposer - Multi-platform distribution
 
-Return: snippets, handles found, and draft posts ready for review.
-```
+---
 
-This can be run manually ("develop the Pam Barnhill article") or spawned automatically for slam dunks.
-
-## Handles to Tag
-
-Always search for handles when developing posts:
-- Web search: `[name] [org] twitter` or `linkedin`
-- Common sources:
-  - Getting Smart: @Getting_Smart (X), /company/getting-smart (LinkedIn)
-  - Pam Barnhill: @paborgnfld (X), pambarnhill.com
-  - Kerry McDonald: @kaborgnfld (X)
-  - EdSurge: @EdSurge (X)
-  - Michael B. Horn: @michaelbhorn (X)
-
-## Chained Skills
-
-This skill references:
-- `text-content` - 360+ social templates
-- `screenshots` - Playwright article screenshots
-- `ghostwriter` - Anti-AI voice patterns
-- `ai-tells` - Patterns to avoid
-
-## Feed Sources
-
-Tiers are for organizing the feed list, not prejudging content. **Each article is scored individually** against DEFINITELY/PROBABLY/NO criteria.
-
-| Tier | Type | Examples |
-|------|------|----------|
-| 1 | Usually relevant | Kerry McDonald, Pam Barnhill, Fab Fridays, Let Grow |
-| 2 | Education blogs | EdSurge, Getting Smart, Peter Gray |
-| 3 | Homeschool community | Simply Charlotte Mason, r/homeschool |
-| 4 | Substacks | Ed3 World, Austin Scholar |
-| 5 | Podcasts/video | Future of Ed Podcast |
-| 6 | Mixed (policy + family) | EdChoice, The 74 Million, Google News |
-
-A policy-heavy source can still have family-focused pieces worth sharing.
-
-## Files
-
-- `SKILL.md` - This file
-- `feeds.json` - Feed list (40+ feeds)
-- `curate.py` - Fetcher script
-
-## Adding Feeds
-
-1. WebFetch the URL to verify it's valid RSS
-2. Determine tier (1-6)
-3. Edit `feeds.json` and add to homeschool array
-
-## Kill the Newsletter
-
-For newsletters without direct RSS:
-1. Go to https://kill-the-newsletter.com/
-2. Create feed → get email + Atom URL
-3. Subscribe newsletter to that email
-4. Add Atom URL to feeds.json under ktn_feeds
+*Last updated: 2026-01-29*

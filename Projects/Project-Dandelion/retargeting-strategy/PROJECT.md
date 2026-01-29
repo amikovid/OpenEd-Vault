@@ -12,7 +12,7 @@ updated: 2026-01-29
 **Primary Goal:** Recover lost pipeline and maximize ROI by re-engaging high-intent audiences
 **Status:** Pillar 1 creative refined - awaiting campaign setup
 **Priority:** High (Q1 2026 enrollment cycle)
-**Parent Project:** [Project Dandelion](../Project-Dandelion/PROJECT.md)
+**Parent Project:** [Project Dandelion](../PROJECT.md)
 
 ---
 
@@ -31,30 +31,35 @@ updated: 2026-01-29
 
 ---
 
-## Important: Performance Research
+## Creative Direction: Evidence Over Accusation
 
 **New creative direction based on historical data analysis.** See:
-- `Project-Dandelion/research/meta-ads-performance-analysis-2026-01-28.md` - What works/fails
-- `Project-Dandelion/research/retargeting-ad-concepts-2026-01-28.md` - Improved Pillar 1 concepts
+- `../research/meta-ads-performance-analysis-2026-01-28.md` - What works/fails
 
 **Key finding:** "Evidence over accusation" approach outperforms. Show compelling outcomes rather than pressuring ("finish what you started"). Lo-fi, native formats deliver best CPA.
+
+The current `Pillar-1-Creative-Proposals.md` uses this improved approach. The original pushy version is archived as `Pillar-1-Creative-Proposals-ORIGINAL.md`.
 
 ---
 
 ## File Structure
 
 ```
-Retargeting Strategy FY26-27/
-├── PROJECT.md                      ← You are here (master context)
-├── Pillar-1-Creative-Proposals.md  ← Original 20 concepts
-├── Pillar-1-Handoff-Notes-Ella.md  ← Campaign setup checklist
+Project-Dandelion/
+├── PROJECT.md                      ← Parent project
+├── SPRINT-01.md                    ← Current sprint
+├── research/                       ← Performance analysis
+├── playbook/                       ← Format templates
 │
-└── See also:
-    Project-Dandelion/research/retargeting-ad-concepts-2026-01-28.md  ← IMPROVED concepts
+└── retargeting-strategy/           ← You are here
+    ├── PROJECT.md                  ← This file
+    ├── Pillar-1-Creative-Proposals.md      ← IMPROVED concepts (evidence over accusation)
+    ├── Pillar-1-Creative-Proposals-ORIGINAL.md  ← Original concepts (archived)
+    └── Pillar-1-Handoff-Notes-Ella.md      ← Campaign setup checklist
 ```
 
 **Related:**
-- `Project-Dandelion/` - Parent project with research and performance analysis
+- `../research/` - Performance analysis
 - `Studio/Meta Ads/` - 100 ad concepts library (V1 + V2)
 
 ---

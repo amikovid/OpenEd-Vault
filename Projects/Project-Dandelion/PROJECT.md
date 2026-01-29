@@ -50,7 +50,7 @@ From Lewis Kallow's research on complex contagions:
 **Key insight from performance analysis:** Lo-fi, native-feeling formats dramatically outperform polished designs. Notes App format delivers $5.33 CPA at volume. Same copy with "corporate" styling performed 28x worse.
 
 **Related projects:**
-- `Retargeting Strategy FY26-27/` - Campaign structure, Pillar 1/2/3 audiences
+- `retargeting-strategy/` - Campaign structure, Pillar 1/2/3 audiences (subfolder)
 - `Studio/Meta Ads/` - 100 ad concepts (V1 + V2), creative skill
 
 **Current state:**
@@ -155,7 +155,12 @@ Project-Dandelion/
 │   ├── parent-testimonial-content-2026-01-27.md
 │   ├── tool-discovery-2026-01-27.md
 │   └── how-to-scale-your-newsletter-nathan-may.md
-└── playbook/            # (To create) Replicable format templates
+├── playbook/            # Replicable format templates
+│   └── README.md
+└── retargeting-strategy/    # Pillar 1/2/3 campaign strategy
+    ├── PROJECT.md
+    ├── Pillar-1-Creative-Proposals.md
+    └── Pillar-1-Handoff-Notes-Ella.md
 ```
 
 ---
@@ -166,7 +171,7 @@ Project-Dandelion/
 
 | Project | Location | Relationship |
 |---------|----------|--------------|
-| **Retargeting Strategy** | `Projects/Retargeting Strategy FY26-27/` | Campaign structure, Pillar 1/2/3 |
+| **Retargeting Strategy** | `retargeting-strategy/` | Subfolder - Pillar 1/2/3 campaigns |
 | **Meta Ads** | `Studio/Meta Ads/` | 100 ad concepts, creative skill |
 | **Analytics & Attribution** | `Studio/Analytics & Attribution/` | Tracking, HubSpot, data |
 

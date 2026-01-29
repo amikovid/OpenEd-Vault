@@ -276,7 +276,7 @@ Send to Notion ──────────────►  STAGING
 
 ## Related Projects
 
-- `_content-engine-refactor/` - Architecture docs, sub-agent prompts
+- `Projects/OpenEd-Content-OS/` - Content OS docs, skill architecture map
 - `Social Media/` - Platform strategies, format definitions
 - `Analytics & Attribution/` - Post-publish tracking
 

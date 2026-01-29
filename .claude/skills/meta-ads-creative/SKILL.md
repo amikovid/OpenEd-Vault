@@ -220,6 +220,7 @@ Before finalizing any concept:
 
 ## Related Skills
 
+- `dude-with-sign-writer` - One-liners for text-only ads (12 punchy patterns)
 - `hook-and-headline-writing` - Hook formulas (extensive overlap, use for hook optimization)
 - `social-content-creation` - Organic content that can become ads
 - `opened-identity` - Brand voice framework

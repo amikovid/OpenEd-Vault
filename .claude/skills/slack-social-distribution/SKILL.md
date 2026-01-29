@@ -59,7 +59,7 @@ For tagged content, include the handles in posts:
 - `@mikeroweworks` (Mike Rowe)
 - `@SmartPathHQ` (SmartPath)
 
-Check `Studio/_content-engine-refactor/nearbound/` for more handles.
+Check `Studio/Nearbound Pipeline/people/` for more handles.
 
 ---
 

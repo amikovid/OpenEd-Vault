@@ -131,7 +131,7 @@ OpenEd Vault/.claude/skills/meta-ads-creative/
 | Project | Location | Relationship |
 |---------|----------|--------------|
 | **Project Dandelion** | `Projects/Project-Dandelion/` | Parent - research, performance analysis, playbook |
-| **Retargeting Strategy** | `Projects/Retargeting Strategy FY26-27/` | Pillar 1/2/3 campaign structure |
+| **Retargeting Strategy** | `Projects/Project-Dandelion/retargeting-strategy/` | Pillar 1/2/3 campaign structure |
 | **Curriculove** | `Projects/Lead Magnet Project/curriculove/` | Curriculum-targeting landing page |
 | **Analytics & Attribution** | `Studio/Analytics & Attribution/` | Tracking, HubSpot, pixel |
 

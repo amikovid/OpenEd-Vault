@@ -1,6 +1,6 @@
 # OpenEd NOW
 
-**Last Updated:** 2026-01-26
+**Last Updated:** 2026-01-29
 
 ---
 
@@ -56,11 +56,13 @@
 
 ---
 
-## Content Engine Refactor - COMPLETE
+## Content Engine Refactor - ARCHIVED
 
-**Project folder:** `Studio/_content-engine-refactor/`
+**Archived to:** `Projects/_archive/_content-engine-refactor-archived-2026-01-29/`
 
-All phases complete. The content engine is now documented and streamlined.
+All phases complete. Valuable parts moved:
+- Sub-agent prompts → `.claude/skills/content-repurposer/references/sub-agents/`
+- Architecture map → `Projects/OpenEd-Content-OS/SKILL_ARCHITECTURE_MAP.md`
 
 ### What Was Done
 
@@ -115,17 +117,35 @@ All phases complete. The content engine is now documented and streamlined.
 
 ---
 
+## SEO Comparison Articles - ACTIVE
+
+**New initiative (2026-01-29):** Pedagogy comparison SEO strategy.
+
+**Master keyword list:** `Studio/SEO Content Production/Open Education Hub/Deep Dive Studio/PEDAGOGY_COMPARISON_KEYWORDS.md`
+
+| Article | Volume | Status | Notes |
+| --- | --- | --- | --- |
+| Waldorf vs Montessori | 2,900/mo | ✅ Ready to publish | Passed 5-judge quality loop |
+| Montessori vs Reggio Emilia | 1,900/mo | 📋 Brief created | Next priority |
+| Khan Academy vs IXL | 590/mo | 📋 Queued | Ed-tech comparison |
+| Unschooling vs Homeschooling | 320/mo | 📋 Queued | Strong OpenEd angle |
+
+**Production cadence:** 2 articles/week using established template.
+
+---
+
 ## Active Projects (Studio/)
 
 | Project | Location | Status | Priority |
 | --- | --- | --- | --- |
 | Lead Magnet | Lead Magnet Project/PROJECT.md | Active dev (curriculove) | HIGH |
 | Meta Ads | Meta Ads/PROJECT.md | 100 concepts ready | HIGH |
-| SEO Content | SEO Content Production/PROJECT.md | PBL article complete | MEDIUM |
+| SEO Content | SEO Content Production/PROJECT.md | Comparison series active | HIGH |
 | Eddie Awards | Eddie Awards/PROJECT.md | Website planning | MEDIUM |
 | KPI Discussions | KPI Discussions/PROJECT.md | Q1 bonus planning | MEDIUM |
 | Social Media | Social Media/FORMAT_INVENTORY.md | Format inventory done | LOW |
-| Retargeting | Retargeting Strategy FY26-27/PROJECT.md | Planning | LOW |
+| Project Dandelion | Project-Dandelion/PROJECT.md | Active | HIGH |
+| ↳ Retargeting | Project-Dandelion/retargeting-strategy/ | Pillar 1 Feb 16 | HIGH |
 
 ### Ongoing Workflows
 

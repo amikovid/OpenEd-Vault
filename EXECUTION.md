@@ -48,7 +48,7 @@
 | **Lead Magnet / Curriculove** | 🔄 Active | Quiz dev continues | Ongoing |
 | **Tools Directory** | 🔄 Active | Publish Teaching Textbooks | This week |
 | **KPI Discussions** | 📋 Planning | Q1 bonus structure | TBD |
-| **Notion Social Staging** | 🔄 Active | Test schedule-approved flow | This week |
+| **Content Staging Pipeline** | 🔄 Active | Test schedule-approved flow | This week |
 
 ### Studio (Ongoing Workflows)
 
@@ -117,6 +117,20 @@
 - [x] Archived 67 legacy Ad Creative Concepts files (2026-01-29)
 - [x] Deleted redundant Notion CSV export (2026-01-29)
 - [x] Moved beehiiv webinar PDF to Archive (2026-01-29)
+- [x] Created OpenEd Content OS project (2026-01-29)
+- [x] Mapped all skill chains: newsletter, podcast, SEO, video (2026-01-29)
+- [x] Defined auto-invoke triggers for skill chaining (2026-01-29)
+- [x] Documented format inventory (360+ templates, 20+ video formats) (2026-01-29)
+- [x] Defined repurposing agent concept (2026-01-29)
+- [x] Moved Retargeting Strategy INTO Project Dandelion as subfolder (2026-01-29)
+- [x] Archived _content-engine-refactor folder to Projects/_archive/ (2026-01-29)
+- [x] Moved sub-agent prompts to content-repurposer skill references (2026-01-29)
+- [x] Updated all nearbound path references across skills (2026-01-29)
+- [x] Consolidated Notion staging docs: merged Notion Social Staging → Content Staging Pipeline (2026-01-29)
+- [x] Moved Q3 planning docs into KPI Discussions (2026-01-29)
+- [x] Moved Mason Pashia doc to Guest Contributors (2026-01-29)
+- [x] Updated SKILL_ARCHITECTURE_MAP.md with current paths (2026-01-29)
+- [x] Cleaned Content OS PROJECT.md - removed verbose session log (2026-01-29)
 
 ---
 

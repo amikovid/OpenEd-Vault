@@ -12,6 +12,8 @@
 | Need | Go To |
 | --- | --- |
 | Current state / priorities | NOW.md |
+| Weekly tasks | EXECUTION.md |
+| Content OS (pathways, skills, formats) | Projects/OpenEd-Content-OS/PROJECT.md |
 | Project context | Studio/[project]/PROJECT.md |
 | Published content | Master_Content_Index.md (406 articles by tag) |
 
@@ -37,12 +39,12 @@ Each project has a `PROJECT.md` with full context. Navigate there first.
 
 | Project | Location | Status |
 | --- | --- | --- |
-| Lead Magnet | Studio/Lead Magnet Project/ | Active (curriculove app) |
+| Lead Magnet | Projects/Lead Magnet Project/ | Active (curriculove app) |
 | Meta Ads | Studio/Meta Ads/PROJECT.md | 100 concepts ready |
 | SEO Content | Studio/SEO Content Production/PROJECT.md | Active |
-| Eddie Awards | Studio/Eddie Awards/PROJECT.md | Planning |
-| KPI Discussions | Studio/KPI Discussions/PROJECT.md | Active |
-| Retargeting | Studio/Retargeting Strategy FY26-27/PROJECT.md | Planning |
+| Eddie Awards | Projects/Eddie Awards/PROJECT.md | Planning |
+| Project Dandelion | Projects/Project-Dandelion/PROJECT.md | Active (paid acquisition) |
+| ↳ Retargeting | Projects/Project-Dandelion/retargeting-strategy/ | Subfolder of Dandelion |
 
 ### Ongoing Workflows
 
@@ -149,7 +151,7 @@ For batch processing, spawn platform sub-agents in parallel:
 
 - Aggregates for human selection
 
-**Sub-agent prompts:** `Studio/_content-engine-refactor/template-drafts/sub-agent-prompts/`
+**Sub-agent prompts:** `.claude/skills/content-repurposer/references/sub-agents/`
 
 ---
 
@@ -193,6 +195,7 @@ After completing a hub, **proactively offer spokes**.
 | Content Type | Primary Skill |
 | --- | --- |
 | Text posts | text-content (360+ templates) |
+| Multi-platform repurposing | content-repurposer (framework fitting specialist) |
 | Newsletter → Social | newsletter-to-social (router) |
 | Archive repurposing | archive-suggest (daily suggestions) |
 | Slack distribution | slack-social-distribution (post to #market-daily) |
@@ -202,10 +205,11 @@ After completing a hub, **proactively offer spokes**.
 | Newsletter | opened-daily-newsletter-writer |
 | Subject lines | newsletter-subject-lines |
 | Article titles | article-titles |
-| SEO content | seo-content-writer |
+| SEO content | seo-content-production |
 | Deep dives | open-education-hub-deep-dives |
 | Quality control | quality-loop |
 | AI images | nano-banana-image-generator |
+| Meta ads | meta-ads-creative + dude-with-sign-writer |
 | Work summaries | work-summary (git → Slack updates) |
 
 All skills: `.claude/skills/` (45+ active)
@@ -220,13 +224,36 @@ When creating social posts, check if any mentioned people are in the Nearbound i
 
 1. Note any names mentioned in content
 
-2. Check `Studio/_content-engine-refactor/nearbound/people/` for profile
+2. Check `Studio/Nearbound Pipeline/people/` for profile
 
 3. If found, add @handle to post
 
 4. If not found, note for future profile creation
 
 **Priority people:** Podcast guests, quoted experts, tool/curriculum founders.
+
+---
+
+## Proactive Behaviors
+
+**The Content OS encourages automatic skill invocation at specific stages.**
+
+### Auto-Invoke Triggers
+
+| When | Automatically Invoke |
+| --- | --- |
+| Hub content complete (newsletter, podcast, article) | `content-repurposer` → offer social spokes |
+| Article draft complete | `article-titles` → 10+ title options |
+| Newsletter draft complete | `newsletter-subject-lines` → 10+ subject options |
+| Any publishable content | `quality-loop` → appropriate judge panel |
+| Names mentioned in content | Check nearbound → add @handles |
+| Visual asset needed | `nano-banana-image-generator` |
+
+### Continual Learning
+
+- When a new format works well, document it in FORMAT_INVENTORY.md
+- When a skill chain proves effective, add it to Content OS pathways
+- When a transformation is requested multiple times, consider creating a dedicated pathway
 
 ---
 
@@ -262,9 +289,10 @@ When creating social posts, check if any mentioned people are in the Nearbound i
 | --- | --- |
 | .claude/skills/ | 45+ active skills |
 | .claude/work-summaries/ | Daily work updates for Slack |
-| Studio/_content-engine-refactor/ | Architecture docs, sub-agent prompts |
-| Studio/_content-engine-refactor/nearbound/ | Contact profiles with social handles |
+| Projects/OpenEd-Content-OS/ | Content OS - pathways, formats, architecture |
+| Projects/Project-Dandelion/ | Paid acquisition hub |
+| Studio/Nearbound Pipeline/people/ | Contact profiles with social handles |
 
 ---
 
-*Last Updated: 2026-01-23*
+*Last Updated: 2026-01-29*

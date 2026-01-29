@@ -57,7 +57,7 @@ One thing worth knowing: Waldorf education has roots in [anthroposophy](https://
 
 ## What Is Montessori Education?
 
-Maria Montessori opened her first classroom in 1907 in a Roman tenement - for children others had labeled "unteachable." (For more on her methods, the [American Montessori Society](https://amshq.org/About-Montessori) offers a comprehensive overview.) She was a physician, Italy's first female doctor, and she approached education as a scientist: observe children, then design environments that support their natural development.
+Maria Montessori opened her first classroom in 1907 in a Roman tenement - for children others had labeled "unteachable." (For more on her methods, the [American Montessori Society](https://amshq.org/About-Montessori) offers a full introduction.) She was a physician, Italy's first female doctor, and she approached education as a scientist: observe children, then design environments that support their natural development.
 
 Her core insight: children are born curious. Given the right environment and materials, they teach themselves.
 
@@ -169,11 +169,17 @@ At OpenEd, we hear some version of this question weekly: "Should we go Waldorf o
 
 Our answer is usually another question: "Why not both?"
 
-Homeschool mom Courtney Meyerhofer gets asked this too. "So is your homeschool more unschooling or waldorf or classical?" Her answer: "Yes."
+The methods share enough common ground that combining them works surprisingly well. Both value hands-on learning. Both respect developmental readiness. Both prioritize the prepared adult. The differences - materials vs. rhythm, scientific vs. spiritual roots - can complement rather than conflict.
 
-"Waldorf for culture and arts. Classical for great works and a strong foundation. Unschooling for learning that's rooted in practical life. Every philosophy has a golden nugget. Take it."
+**Practical combinations we see working:**
 
-This is what we see working at OpenEd. Families using [Oak Meadow](https://opened.co/blog/kindergarten-homeschool-curriculum) - a Waldorf-inspired curriculum - alongside math apps. Parents doing Montessori practical life activities in the morning and nature walks in the afternoon. [Classical education](https://opened.co/blog/classical-education) combined with Waldorf storytelling.
+**Montessori mornings, Waldorf afternoons.** Self-directed work with Montessori materials during peak focus hours. Storytelling, art, and nature walks when energy shifts.
+
+**Waldorf rhythms with Montessori practical life.** The predictable daily and weekly patterns of Waldorf provide structure. Montessori's approach to cooking, cleaning, and self-care builds independence within that rhythm.
+
+**Waldorf-inspired curriculum plus Montessori math.** Families using [Oak Meadow](https://opened.co/blog/kindergarten-homeschool-curriculum) for its story-based approach add Montessori materials for concrete math understanding. The Golden Beads make arithmetic tangible in a way that complements Waldorf's artistic methods.
+
+**Seasonal festivals with self-directed days.** Waldorf's celebration of seasonal rhythms and holidays provides cultural richness. Day-to-day, children choose their own work Montessori-style.
 
 The category matters less than the fit. Both methods emerged over a century ago. Neither anticipated your specific child in your specific situation. The founders would probably approve of adapting their ideas - both believed in observing what actually works for actual children.
 

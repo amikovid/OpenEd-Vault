@@ -168,7 +168,7 @@ For deeper voice guidance, invoke `ghostwriter` skill.
 **Before finalizing any social post, check for taggable handles.**
 
 1. **Identify mentions:** List any people mentioned by name in the post
-2. **Search nearbound index:** Check `Projects/_content-engine-refactor/nearbound/people/` for profiles
+2. **Search nearbound index:** Check `Studio/Nearbound Pipeline/people/` for profiles
 3. **Add handles:**
    - If profile exists → add platform-appropriate @handle
    - If no profile → note name for future profile creation
@@ -179,7 +179,7 @@ For deeper voice guidance, invoke `ghostwriter` skill.
 
 **Why this matters:** Tagging increases reach, strengthens relationships with guests/collaborators, and drives engagement from their audiences.
 
-**Profile creation trigger:** If someone is mentioned 2+ times across content and has no profile, create one using template at `Projects/_content-engine-refactor/nearbound/people/_template.md`
+**Profile creation trigger:** If someone is mentioned 2+ times across content and has no profile, create one in `Studio/Nearbound Pipeline/people/`
 
 ---
 
@@ -341,7 +341,7 @@ Source Content
 
 ### Sub-Agent Prompts
 
-Full prompts at: `Studio/_content-engine-refactor/template-drafts/sub-agent-prompts/`
+Full prompts at: `.claude/skills/content-repurposer/references/sub-agents/`
 
 - `linkedin-agent.md` - Authority, story, contrarian formats
 - `x-agent.md` - Punchy single tweets and threads

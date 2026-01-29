@@ -251,6 +251,41 @@ Example:
 
 ---
 
+## Final Assets Bundle (Post-Checkpoint)
+
+After all checkpoints are complete, consolidate publication-ready assets into a `final-assets/` folder:
+
+```
+Studio/Podcast Studio/[Episode Name]/
+├── SOURCE.md
+├── Checkpoint_1_*.md
+├── Checkpoint_2_*.md
+├── Checkpoint_3_*.md
+├── Checkpoint_4_*.md
+└── final-assets/
+    ├── blog-post.md       # Polished blog ready for Webflow
+    ├── social-plan.md     # Platform-specific posts + 7-day schedule
+    └── clips/             # (optional) Downloaded clip files
+```
+
+**`blog-post.md`** - The polished blog post from Checkpoint 4, cleaned up and ready to paste into Webflow. No checkpoint artifacts, just the final article.
+
+**`social-plan.md`** - Contains:
+- Guest and brand handles for tagging
+- Clips inventory with Descript links
+- Long-form YouTube clip titles and descriptions
+- Short-form captions (Reels/TikTok/Shorts)
+- Platform-specific posts (LinkedIn, X, Facebook)
+- 7-day posting schedule
+- Isaac coordination notes (if applicable)
+- Execution checklist
+
+This bundle structure keeps all publication-ready assets in one place, separate from working checkpoint files. When the episode is done, the `final-assets/` folder contains everything needed for distribution.
+
+**Archiving**: After publication, move checkpoint files and old drafts to `_archive/` subfolder to keep the episode folder clean.
+
+---
+
 ## WORKFLOW TIMELINE & FILE STRUCTURE
 
 | Phase | Duration | Input | Output File | Your Action |
@@ -260,7 +295,8 @@ Example:
 | **Checkpoint 2** | 120-150 min | Checkpoint 1 approved | `Checkpoint_2_Cold_Opens_and_Clips.md` | Approve cold open & clips |
 | **Checkpoint 3** | 90-120 min | Checkpoint 2 approved | `Checkpoint_3_YouTube_Strategy.md` | Approve title/thumbnail/chapters |
 | **Checkpoint 4** | 120-180 min | Checkpoint 3 approved | `Checkpoint_4_Polished_Transcript_and_Blog.md` | Review & publish |
-| **TOTAL** | **6-8 hours** | Raw transcript | All publication-ready assets | 5 decision points |
+| **Final Bundle** | 15-30 min | All checkpoints complete | `final-assets/` folder | Consolidate for distribution |
+| **TOTAL** | **6-9 hours** | Raw transcript | All publication-ready assets | 5 decision points |
 
 ---
 

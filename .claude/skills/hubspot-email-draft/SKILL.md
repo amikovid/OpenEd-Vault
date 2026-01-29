@@ -265,7 +265,56 @@ This skill converts that structure to HTML - it doesn't add formatting.
 | GET `/email/public/v1/campaigns` | Find OED emails to clone |
 | POST `/marketing/v3/emails/clone` | Clone template |
 | PATCH `/marketing/v3/emails/{id}` | Update content |
+| POST `/filemanager/api/v3/files/upload` | Upload images |
+
+---
+
+## Uploading Thumbnail Images
+
+**IMPORTANT:** Thumbnails must be uploaded to HubSpot File Manager and placed ABOVE the H1 title in the content.
+
+### Step 1: Upload to File Manager
+
+```python
+upload_url = "https://api.hubapi.com/filemanager/api/v3/files/upload"
+
+with open(image_path, 'rb') as f:
+    files = {'file': ('thumbnail.png', f, 'image/png')}
+    data = {
+        'folderPath': '/newsletters/2026-01',
+        'options': '{"access": "PUBLIC_INDEXABLE"}'
+    }
+    headers = {"Authorization": f"Bearer {TOKEN}"}
+
+    resp = requests.post(upload_url, headers=headers, files=files, data=data)
+    file_url = resp.json().get('objects', [{}])[0].get('url', '')
+```
+
+### Step 2: Place in Content
+
+Insert the image HTML **after the opening letter divider** and **before the H1 title**.
+
+**IMPORTANT:** Use `<center>` wrapper and explicit `width`/`height` attributes - this is the format that works in HubSpot emails:
+
+```html
+<hr>
+
+<center><img src="{file_url}" width="600" height="338" style="width: 600px; height: auto; max-width: 600px; margin-left: auto; margin-right: auto; display: block;" align="center"></center>
+
+<h1>Article Title</h1>
+```
+
+**Key format requirements:**
+- Wrap in `<center>` tags
+- Include explicit `width` and `height` attributes
+- Use `align="center"` attribute
+- Full inline styles for margin and display
+
+### Folder Convention
+
+Use `/newsletters/YYYY-MM/` for organization (e.g., `/newsletters/2026-01/`).
 
 ---
 
 *Created: 2026-01-27*
+*Updated: 2026-01-29 - Added thumbnail upload workflow*
