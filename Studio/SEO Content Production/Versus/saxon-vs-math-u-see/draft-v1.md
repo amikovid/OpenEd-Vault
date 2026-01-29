@@ -1,8 +1,8 @@
 # Saxon Math vs Math-U-See: Which Is Right for Your Family? (2026)
 
 **Meta Title:** Saxon Math vs Math-U-See: Honest Comparison for Homeschool
-**Meta Description:** Saxon Math or Math-U-See? We break down the real differences—spiral vs mastery, drill vs manipulatives—to help you choose the right math curriculum.
-**URL:** /compare/saxon-math-vs-math-u-see
+**Meta Description:** Saxon Math or Math-U-See? We break down the real differences - spiral vs mastery, drill vs manipulatives - to help you choose the right math curriculum.
+**URL:** /blog/saxon-math-vs-math-u-see
 
 ---
 
@@ -184,16 +184,42 @@ You want the best of both worlds—Math-U-See for initial concept introduction (
 Neither Saxon Math nor Math-U-See is currently in the OpenEd marketplace. However, OpenEd families have flexibility in choosing curriculum. Many of our families use these curricula successfully.
 
 For math practice and gap-filling, consider:
-- **[IXL](/marketplace)** (free supplement in marketplace)
-- **[Exact Path](/marketplace)** (diagnostic + learning path)
-- **[ALEKS](/marketplace)** (adaptive math)
+- **[IXL](https://opened.co/marketplace)** (free supplement in marketplace)
+- **[Exact Path](https://opened.co/marketplace)** (diagnostic + learning path)
+- **[ALEKS](https://opened.co/marketplace)** (adaptive math)
+
+For more math options, see our [Best Homeschool Math Curriculum](https://opened.co/blog/best-homeschool-math-curriculum) guide.
+
+---
+
+## Frequently Asked Questions
+
+**Is Saxon Math too repetitive?**
+
+For some students, yes. Saxon's spiral approach means constant review, which builds fluency but can bore kids who master concepts quickly. If your child gets frustrated doing the same types of problems repeatedly, Saxon may not be the best fit.
+
+**Is Math-U-See good for kids who hate math?**
+
+Often yes. The manipulative blocks make abstract concepts concrete, which helps many struggling students. Steve Demme's calm video teaching style also reduces math anxiety. Many families switch to Math-U-See specifically because their child was frustrated with other programs.
+
+**Can you switch from Saxon to Math-U-See mid-year?**
+
+Yes, but use Math-U-See's placement test first. The programs cover concepts in different orders, so your child may need to start at a different level than expected. Most families find the transition smooth if they place correctly.
+
+**Which is better for gifted math students?**
+
+Saxon's consistent challenge and lack of hand-holding works well for self-motivated students. However, gifted students may find the repetition tedious. Math-U-See's mastery approach lets students move faster through concepts they understand quickly.
+
+**Do you need the Math-U-See blocks?**
+
+For younger students (through Zeta/6th grade), the blocks are central to the method and highly recommended. For Pre-Algebra and above, the blocks become optional as students transition to abstract thinking.
 
 ---
 
 ## Related Comparisons
-- [IXL vs Exact Path](/compare/ixl-vs-exact-path)
-- [Khan Academy vs IXL](/compare/khan-academy-vs-ixl)
-- [Teaching Textbooks vs Saxon Math](/compare/teaching-textbooks-vs-saxon)
+- [IXL vs Exact Path](/blog/ixl-vs-exact-path)
+- [Khan Academy vs IXL](/blog/khan-academy-vs-ixl)
+- [Teaching Textbooks vs Saxon Math](/blog/teaching-textbooks-vs-saxon)
 
 ---
 

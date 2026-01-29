@@ -2,7 +2,7 @@
 
 **Meta Title:** IXL vs Exact Path: Which Should Your Homeschooler Use?
 **Meta Description:** Our teachers work with both daily. Here's when to use IXL, when to use Exact Path—and why most families should use both.
-**URL:** /compare/ixl-vs-exact-path
+**URL:** /blog/ixl-vs-exact-path
 
 <!-- NOTE FOR FRED: Title/meta need your input. Current title is placeholder. -->
 
@@ -87,7 +87,7 @@ They're similar in that both adapt to your child. But Exact Path is diagnostic-f
 <tr><th></th><th>Exact Path</th><th>IXL</th></tr>
 <tr><td><strong>Pros</strong></td>
 <td>
-• Comprehensive diagnostic<br>
+• Thorough diagnostic<br>
 • Teaches (not just drills)<br>
 • Auto-generated learning path
 </td>
@@ -99,7 +99,7 @@ They're similar in that both adapt to your child. But Exact Path is diagnostic-f
 <tr><td><strong>Cons</strong></td>
 <td>
 • Diagnostic takes time (45 min)<br>
-• Less flexible—system controls path<br>
+• Less flexible - system controls path<br>
 • Fewer subjects
 </td>
 <td>
@@ -124,10 +124,34 @@ You don't have to choose. Use the diagnostic, build fluency, reassess. It's all 
 
 ---
 
+## Frequently Asked Questions
+
+**Is Exact Path better than IXL?**
+
+Neither is better overall - they serve different purposes. Exact Path excels at diagnosing gaps and teaching concepts. IXL excels at drilling specific skills. Most OpenEd families use both.
+
+**How long does the Exact Path diagnostic take?**
+
+About 45 minutes per subject. It's thorough, which is why the personalized learning path is so accurate. Plan for a focused session without interruptions.
+
+**Can IXL replace a math curriculum?**
+
+No. IXL is practice, not instruction. It assumes concepts have been taught elsewhere. Use it alongside a curriculum or teaching tool like Khan Academy, not as a standalone program.
+
+**Is Exact Path free?**
+
+For OpenEd families, yes - it's included in the student library. Outside of OpenEd, it's a paid product typically sold to schools.
+
+**Which should I start with?**
+
+Start with Exact Path if you're unsure where your child's gaps are. The diagnostic will identify problem areas, then you can use IXL to drill those specific skills.
+
+---
+
 ## Related
 
-- [Khan Academy vs IXL](/compare/khan-academy-vs-ixl) — Free instruction vs paid practice
-- [Saxon Math vs Math-U-See](/compare/saxon-vs-math-u-see) — Spiral vs mastery curriculum
+- [Khan Academy vs IXL](/blog/khan-academy-vs-ixl) — Free instruction vs paid practice
+- [Saxon Math vs Math-U-See](/blog/saxon-vs-math-u-see) — Spiral vs mastery curriculum
 
 ---
 

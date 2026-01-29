@@ -105,7 +105,7 @@ curl -X POST "$UPLOAD_URL" \
   -F "X-Amz-Signature=$SIGNATURE" \
   -F "success_action_status=201" \
   -F "Content-Type=image/png" \
-  -F "Cache-Control=max-age=31536000, immutable" \
+  -F "Cache-Control=max-age=31536000, must-revalidate" \
   -F "file=@/path/to/image.png"
 ```
 
@@ -118,11 +118,56 @@ https://cdn.prod.website-files.com/67c7406fc9e6913d1b92e341/{asset_id}_{filename
 
 ### Step 3: Convert Markdown to HTML
 
+**CRITICAL: Strip these from body content:**
+- H1 title (becomes `name` field)
+- Metadata lines: `**Meta Title:**`, `**Meta Description:**`, `**URL:**`
+- Word count lines: `*Word count:*`
+- Horizontal rules (`---`)
+- Em dashes (`—`) → replace with spaced hyphens (` - `)
+
 **Key Rules:**
-1. **Remove title** - The H1 becomes the `name` field, not in content
-2. **Split by blank lines** - Paragraphs are separated by blank lines
-3. **Convert links before bold** - So `**[text](url)**` works correctly
-4. **Exclude thumbnail from body** - Only include non-thumbnail images
+1. **Strip metadata** - Match both `**Meta Title:**` (bold) and `*Meta Title:` (italic)
+2. **Replace em dashes globally** - Before any other processing
+3. **Split by blank lines** - Paragraphs are separated by blank lines
+4. **Convert links before bold** - So `**[text](url)**` works correctly
+5. **Handle tables properly** - Filter empty cells from `|` delimiters
+6. **Exclude thumbnail from body** - Only include non-thumbnail images
+
+**Metadata stripping patterns:**
+```python
+def is_metadata_line(line):
+    """Lines to strip from body content."""
+    patterns = [
+        r'^\*\*Meta Title:\*\*',      # Bold format
+        r'^\*\*Meta Description:\*\*',
+        r'^\*\*URL:\*\*',
+        r'^\*Meta Title:',            # Italic format
+        r'^\*Meta Description:',
+        r'^\*URL:',
+        r'^Meta Title:',              # Plain format
+        r'^Meta Description:',
+        r'^URL:',
+        r'^\*Word count:',
+    ]
+    return any(re.match(p, line.strip(), re.IGNORECASE) for p in patterns)
+```
+
+**Table conversion:**
+```python
+def convert_table(block):
+    """Convert markdown table to HTML."""
+    lines = block.strip().split('\n')
+    html = '<table>'
+    for i, line in enumerate(lines):
+        if '---' in line:  # Skip separator
+            continue
+        # Split and filter empty cells from leading/trailing |
+        cells = [c.strip() for c in line.split('|') if c.strip()]
+        tag = 'th' if i == 0 else 'td'
+        row = ''.join(f'<{tag}>{convert_inline(c)}</{tag}>' for c in cells)
+        html += f'<tr>{row}</tr>'
+    return html + '</table>'
+```
 
 **Image format in rich text:**
 ```html
@@ -133,7 +178,7 @@ https://cdn.prod.website-files.com/67c7406fc9e6913d1b92e341/{asset_id}_{filename
 </figure>
 ```
 
-**Python converter reference:** See `convert_to_html.py` pattern in the project folder.
+**Reference implementation:** `Studio/SEO Content Production/fix_webflow_posts.py`
 
 ---
 
@@ -255,26 +300,35 @@ After publishing:
 
 ## Common Issues
 
-**Issue:** Thumbnail not appearing in CMS (most common)
-**Fix:** The presigned URL request creates an asset placeholder, but you MUST complete the S3 upload for the image to actually exist. Verify the S3 upload returns status 201 with XML containing `<PostResponse><Location>...</Location></PostResponse>`. If the S3 upload wasn't completed, the asset ID exists but has no actual file - re-request the presigned URL and complete the upload.
+**Issue:** Metadata showing in body (Meta Title, Meta Description, URL)
+**Fix:** Strip lines matching `**Meta Title:**`, `**Meta Description:**`, `**URL:**` (bold format). Also check italic format `*Meta Title:*`. The converter must handle BOTH formats.
+
+**Issue:** Tables not rendering correctly
+**Fix:** When splitting on `|`, the first and last elements are empty strings (from leading/trailing `|`). Filter: `cells = [c.strip() for c in line.split('|') if c.strip()]`
+
+**Issue:** Em dashes in content
+**Fix:** Replace globally BEFORE any other processing: `content = content.replace('—', ' - ')`
+
+**Issue:** S3 upload returns 403 Access Denied
+**Fix:** Cache-Control must be `max-age=31536000, must-revalidate` (NOT `immutable`)
+
+**Issue:** Thumbnail not appearing in CMS
+**Fix:** The presigned URL request creates an asset placeholder, but you MUST complete the S3 upload. Verify S3 returns status 201 with XML containing `<PostResponse>`.
 
 **Issue:** Thumbnail appears twice
-**Fix:** Don't include thumbnail/header image in the `content` field - it auto-displays above the header
+**Fix:** Don't include thumbnail in `content` field - it auto-displays above header
 
 **Issue:** Links broken
-**Fix:** Convert links before bold in markdown processing
+**Fix:** Convert links BEFORE bold: process `[text](url)` first, then `**text**`
 
 **Issue:** Author not showing
 **Fix:** Use author ID as string, not array (unlike post-type)
 
-**Issue:** curl errors with special characters
-**Fix:** Use Python requests instead of curl for complex JSON payloads
-
 **Issue:** Status 202 treated as error
-**Fix:** Status 202 (Accepted) is success - means async processing. Check 200, 201, AND 202.
+**Fix:** 202 (Accepted) is success for async processing. Check 200, 201, AND 202.
 
 **Issue:** Numbered lists not converting
-**Fix:** Match `^\d+\.` pattern and wrap items in `<ol><li>...</li></ol>`
+**Fix:** Match `^\d+\.` pattern and wrap in `<ol><li>...</li></ol>`
 
 ---
 
@@ -314,7 +368,13 @@ The converter should handle:
 
 ## Example Files
 
-Working examples in recent projects:
-- `Studio/SEO Content Production/Open Education Hub/Apprenticeships CTE/convert_to_html.py`
-- `Studio/SEO Content Production/Open Education Hub/Apprenticeships CTE/update_post_v6.py`
+**Recommended reference (most robust):**
+- `Studio/SEO Content Production/fix_webflow_posts.py` - Complete converter with all edge cases handled
+
+**Batch upload:**
+- `Studio/SEO Content Production/batch_webflow_upload.py` - Upload multiple articles
+- `Studio/SEO Content Production/update_thumbnails.py` - Upload thumbnails to existing posts
+
+**Legacy examples:**
+- `Studio/SEO Content Production/Open Education Hub/Deep Dive Studio/Apprenticeships CTE/convert_to_html.py`
 - `Studio/OpenEd Weekly/2026-01-24 - Weekly/create_newsletter_post.py` (newsletter workflow)
