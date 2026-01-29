@@ -83,10 +83,13 @@ OpenEd Vault/.claude/skills/meta-ads-creative/
 - [x] Wrote 50 ad concepts V2 (all new formats, zero overlap with V1)
 - [x] Applied sticky sentence techniques (alliteration, contrast, rhythm)
 - [x] Created shareable 2026-Meta-Ad-Trends-Research.md
+- [x] Performance analysis complete (see Dandelion research)
+- [x] Improved retargeting concepts with "evidence over accusation" approach
 
 ### In Progress
-- [ ] Integration with Retargeting Strategy FY26-27
-- [ ] Selection of concepts for Pillar 1, 2, 3 campaigns
+- [ ] Pillar 1 ads: build 5 variations (Week of Feb 9)
+- [ ] Pillar 1 launch: Feb 16
+- [ ] Pillars 2 & 3 creative: March 1
 
 ### Backlog
 - [ ] Link meta-ads-creative skill to dude-with-sign-writer for text-only ads
@@ -94,6 +97,7 @@ OpenEd Vault/.claude/skills/meta-ads-creative/
 - [ ] Identify Partnership Ad creator candidates (homeschool mom influencers)
 - [ ] Write nurture email sequences that complement ad campaigns
 - [ ] Test organic-first strategy (post Reels, boost winners)
+- [ ] Curriculum-Targeting-Campaign small test ($100-200)
 
 ---
 
