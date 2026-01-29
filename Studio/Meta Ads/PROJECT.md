@@ -128,8 +128,16 @@ OpenEd Vault/.claude/skills/meta-ads-creative/
 
 ## Related Projects
 
-- [Retargeting Strategy FY26-27](../Retargeting%20Strategy%20FY26-27/PROJECT.md) - Campaign structure using these concepts
-- [Social Media Skills Audit](../../.claude/skills/SOCIAL-MEDIA-SKILLS-AUDIT-2026.md) - Analysis of all social/content skills
+| Project | Location | Relationship |
+|---------|----------|--------------|
+| **Project Dandelion** | `Projects/Project-Dandelion/` | Parent - research, performance analysis, playbook |
+| **Retargeting Strategy** | `Projects/Retargeting Strategy FY26-27/` | Pillar 1/2/3 campaign structure |
+| **Curriculove** | `Projects/Lead Magnet Project/curriculove/` | Curriculum-targeting landing page |
+| **Analytics & Attribution** | `Studio/Analytics & Attribution/` | Tracking, HubSpot, pixel |
+
+**Skills:**
+- `meta-ads-creative` - Ad concept generation (4-phase workflow)
+- `dude-with-sign-writer` - One-liners for text-only ads
 
 ---
 
