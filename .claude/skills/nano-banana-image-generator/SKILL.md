@@ -105,7 +105,12 @@ Adapt the optimized prompt to 2-3 different styles from `references/styles/`:
 
 **Default behavior:** For blog thumbnails and article headers, use watercolor-line style unless otherwise specified. This style provides warmth and approachability while maintaining editorial quality.
 
-**New Yorker style:** When user asks for "New Yorker cartoon," "editorial cartoon," or observational humor illustrations, load `references/newyorker-cartoon.md` for the full style guide including caption formulas, humor principles, and prompt template.
+**New Yorker style:** When user asks for "New Yorker cartoon," "editorial cartoon," or observational humor illustrations, load `references/styles/newyorker-cartoon.md` for the full style guide including caption formulas, humor principles, and prompt template.
+
+**For comic ideation:** Use the `single-panel-comic` skill first to generate concepts and captions using Elijah's formula library, then return here for image generation. The workflow is:
+```
+single-panel-comic (ideation + caption) → nano-banana-image-generator (visual)
+```
 
 Present all variations to user so they can choose which to generate, or generate all.
 

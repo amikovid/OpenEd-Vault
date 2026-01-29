@@ -100,13 +100,48 @@ STYLE NOTES: [Specific artistic direction]
 FORMAT: 1:1 square, black ink on white/cream background
 ```
 
-### Step 4: Generate via Image Prompt Generator
+### Step 4: Generate via Nano Banana
 
-Hand off to the `image-prompt-generator` skill for actual generation. Specify:
-- Use the New Yorker cartoon style (crosshatching, understated)
+Hand off to the `nano-banana-image-generator` skill for actual image generation.
+
+**The skill automatically loads** `references/styles/newyorker-cartoon.md` which defines:
+- Simple pen-and-ink (NOT heavily crosshatched)
+- Plain white background (NO texture)
 - 1:1 square format
-- Black ink on white/cream background
 - Caption in italic serif below
+- 80% white space - restraint is everything
+
+**Generation command:**
+
+```bash
+cd "/Users/charliedeist/Desktop/New Root Docs/OpenEd Vault"
+
+export GEMINI_API_KEY=$(grep GEMINI_API_KEY .env | cut -d'=' -f2) && \
+python ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
+  "A New Yorker-style single panel cartoon. Simple pen-and-ink sketch, 1:1 square format.
+
+Scene: [YOUR SCENE DESCRIPTION]
+
+Visual detail: [THE ABSURD ELEMENT]
+
+Caption in italic serif below: \"[YOUR CAPTION]\"
+
+CRITICAL STYLE NOTES:
+- Simple, quick pen strokes - like a confident napkin sketch
+- NO detailed crosshatching - only sparse, suggestive lines if any shading
+- Plain white background - NO texture, NO paper grain
+- Characters should be simple and schematic, not detailed
+- Minimal environment - suggest setting with just a few lines
+- 80% white space - restraint is everything
+
+AVOID: Heavy crosshatching, detailed rendering, textured backgrounds, cartoonish/animated style, busy compositions." \
+  --model pro \
+  --aspect 1:1 \
+  --output "Studio/Social Media/Comics" \
+  --name "comic-[short-name]"
+```
+
+**Iteration:** If the first generation is too detailed or crosshatched, regenerate with stronger emphasis on "simple napkin sketch" and "minimal lines."
 
 ---
 
@@ -186,10 +221,20 @@ Visual metaphor for what we actually choose.
 
 ## Integration with Other Skills
 
-- `image-prompt-generator` - For actual image generation (use New Yorker style)
+- **`nano-banana-image-generator`** - For actual image generation. Uses `references/styles/newyorker-cartoon.md` for the visual style. This is the primary handoff point.
 - `opened-identity` - Ensure alignment with OpenEd values
-- `text-content` - For accompanying social copy
+- `text-content` - For accompanying social copy when posting comics
 - `ghostwriter` - For longer-form content inspired by comics
+
+### Workflow Summary
+
+```
+single-panel-comic (ideation + caption)
+         ↓
+nano-banana-image-generator (visual generation)
+         ↓
+text-content (social copy for posting)
+```
 
 ---
 
