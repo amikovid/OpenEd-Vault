@@ -141,8 +141,37 @@ python ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
 - `--variations N` - generate N versions
 - `--output ./path` - save location (default: current directory)
 - `--name prefix` - filename prefix (output: `{prefix}_{timestamp}_{model}.png`)
+- `--edit path/to/image.png` - edit an existing image instead of generating from scratch
 
 **Note:** For flash model, aspect ratio config is ignored - include the ratio in your prompt text instead.
+
+### Editing Existing Images
+
+To modify an existing image, use the `--edit` flag with a path to the source image:
+
+```bash
+export GEMINI_API_KEY=$(grep GEMINI_API_KEY .env | cut -d'=' -f2) && \
+python ".claude/skills/image-prompt-generator/scripts/generate_image.py" \
+  "Add a striped shirt to the child. Remove the signature from the bottom right corner." \
+  --edit "Studio/Social Media/original-image.png" \
+  --model pro \
+  --aspect 1:1 \
+  --output "Studio/Social Media" \
+  --name "edited-image"
+```
+
+**Editing capabilities:**
+- Add, remove, or modify visual elements
+- Change clothing, backgrounds, or objects
+- Remove unwanted text, signatures, or watermarks
+- Adjust colors or style elements
+- Keep specific elements while changing others
+
+**Best practices for edit prompts:**
+- Be explicit about what to change AND what to keep
+- List changes as numbered items for clarity
+- Say "Keep everything else exactly the same" to preserve other elements
+- Use "Remove X" for deletions, "Change X to Y" for modifications
 
 **Output location:** ALWAYS save images in the same folder as the content they belong to - not a generic images dump. This is critical for organization.
 
@@ -168,11 +197,15 @@ python ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
 ## Step 5: Iterate
 
 After user reviews generated images:
-- **80% good?** Request specific edits conversationally rather than regenerating
+- **80% good?** Use `--edit` flag to make targeted changes to the existing image
 - **Composition off?** Adjust framing or element placement in prompt
 - **Wrong style?** Try a different style reference
 - **Too busy?** Simplify to fewer elements
 - **Colors wrong?** Be more explicit about palette
+
+**When to regenerate vs. edit:**
+- **Edit** when the image is mostly right but needs specific fixes (remove element, change clothing, fix text)
+- **Regenerate** when the composition, style, or concept needs a complete rethink
 
 ## Prompting Principles
 
