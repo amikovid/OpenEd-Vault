@@ -82,7 +82,7 @@ This quarter I'll likely still run over 25 hours as I build out the systems. Goa
 
 1. **Video capacity** - We currently have none. Elijah fills this gap for retargeting creative and organic social.
 
-2. **Editorial quality** - Linda catches what AI and I miss. Fewer embarrassing typos, tighter prose.
+2. **Last-mile capacity** - A senior editor catches what AI and I miss, and helps Chavilah get drafts across the finish line. Fewer bottlenecks, tighter prose.
 
 3. **My time on growth** - Less execution, more strategy. I can focus on Curriculove conversion, SEO architecture, and the systems that scale.
 
@@ -104,6 +104,6 @@ This quarter I'll likely still run over 25 hours as I build out the systems. Goa
 
 ## Ask
 
-Approve ~$1,900/month net new spend to add Linda and Elijah while I transition Angel's work to Chavilah.
+Approve ~$1,900/month net new spend to add a last-mile editor and Elijah while I transition Angel's work to Chavilah.
 
 Happy to discuss any of this.
