@@ -72,7 +72,9 @@ Consider two approaches to teaching the scientific method:
 
 [Connor Boyack](https://opened.co/blog/5-questions-with-tuttle-twins-creator-connor-boyack), creator of the Tuttle Twins book series, calls traditional education the "just in case" model. Just in case you become a rocket scientist, memorize the quadratic equation now. Just in case you become a marine biologist, know that the mitochondria is the powerhouse of the cell.
 
-The problem? That's not how humans actually learn.
+Of course you can argue that these are important pieces of knowledge for any well-rounded adult.
+
+The problem is... that's not how humans learn best.
 
 "When your refrigerator breaks down," Boyack points out, "at no point do you say, 'I'm so glad that eleven years ago I read the instruction manual cover to cover just in case.' Of course not. Just in time for when you need to fix it, you're pulling up YouTube, calling Uncle Bob who's super handy."
 
