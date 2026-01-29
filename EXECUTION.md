@@ -42,8 +42,8 @@
 
 | Project | Status | Next Action | Due |
 |---------|--------|-------------|-----|
-| **Project Dandelion** | 🔄 Active | Sprint 01 execution | Feb 7 |
-| **Retargeting Strategy** | 🔄 Active | Build Pillar 1 ads | Feb 9-15 |
+| **Project Dandelion** | 🔄 Active | Sprint 01 Week 2 - ads live | Feb 7 |
+| ↳ Retargeting Strategy | 🔄 Active | Build Pillar 1 ads (child of Dandelion) | Feb 9-15 |
 | **Eddie Awards** | 📋 Planning | Finalize branding with Ella | Feb 10 |
 | **Lead Magnet / Curriculove** | 🔄 Active | Quiz dev continues | Ongoing |
 | **Tools Directory** | 🔄 Active | Publish Teaching Textbooks | This week |
@@ -109,6 +109,10 @@
 - [x] Deleted empty sync-webflow skill (2026-01-29)
 - [x] Moved 4 stray files from Studio root (2026-01-29)
 - [x] Deleted test todo file (2026-01-29)
+- [x] Reconceived Project Dandelion as paid acquisition hub (2026-01-29)
+- [x] Updated PROJECT.md with research findings and cross-references (2026-01-29)
+- [x] Linked Retargeting Strategy as child of Dandelion (2026-01-29)
+- [x] Created playbook/ folder structure (2026-01-29)
 
 ---
 
