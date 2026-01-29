@@ -2,50 +2,41 @@
 
 ## SUBJECT LINE OPTIONS
 
-**Contrarian Truth:**
-1. Project-based learning actually works (42 chars)
-2. Why project-based learning beats textbooks (43 chars)
-3. Project-based learning: the research is in (44 chars)
+**Curiosity-Based:**
+1. Why project-based learning actually works
+2. Learning by doing (the science and the how-to)
+3. What if your kid learned by building things?
 
-**Curiosity Gap:**
-4. What project-based learning gets right (40 chars)
-5. The case for project-based learning (36 chars)
-6. How project-based learning changes kids (41 chars)
+**Specificity-Based:**
+4. Project-based learning: a practical guide
+5. The homeschool parent's guide to project-based learning
+6. How to start project-based learning at home
 
-**Challenge + Data:**
-7. Project-based learners outperform. Here's why. (48 chars)
-8. The science behind project-based learning (42 chars)
+**Hybrid:**
+7. Project-based learning for homeschool families
+8. A practical guide to project-based learning
+9. Project-based learning: real examples + how to start
 
-**This vs That:**
-9. Project-based learning vs worksheets (37 chars)
-10. Textbooks vs treehouses: a guide (34 chars)
-
-**Benefit-Forward:**
-11. A practical guide to project-based learning (45 chars)
-12. Project-based learning for homeschool families (48 chars)
-
-**Recommended:** #5 "The case for project-based learning" or #7 "Project-based learners outperform. Here's why."
+**Recommended:** #5 or #8
 
 ---
 
 ## PREVIEW TEXT
 
-A 25-second experiment killed a kid's love of science. A treehouse saved it. Our new guide covers the research, real examples, and a 7-step framework to start this weekend.
+A 25-second compass experiment destroyed a kid's love of science. Years later, a treehouse saved it. Here's what project-based learning actually looks like - and how to get started.
 
 ---
 
-**SUBJECT:** The case for project-based learning
-**PREVIEW:** A 25-second experiment killed a kid's love of science. A treehouse saved it. Our new guide covers the research, real examples, and a 7-step framework to start this weekend.
+**SUBJECT:** The homeschool parent's guide to project-based learning
+**PREVIEW:** A 25-second compass experiment destroyed a kid's love of science. Years later, a treehouse saved it. Here's what project-based learning actually looks like - and how to get started.
 
 ---
 
 Greetings Eddies!
 
-Quick poll: How many of you remember the formula for centrifugal force from high school physics? Now how many of you remember how to ride a bike?
+We just published a new deep dive on project-based learning - what it actually looks like, why it works, and how to start at home.
 
-Exactly. We just published a guide on project-based learning - the approach that explains why your kid will remember building a go-kart long after they've forgotten the quadratic formula.
-
-Let's dive in.
+Here's the opening. Full guide linked at the bottom.
 
 ---
 
@@ -57,7 +48,7 @@ Jack Casdorph remembers the day clearly. His class magnetized a needle, floated 
 
 Instead, the teacher handed out worksheets. For the next half hour, students copied - verbatim - what they were supposed to have learned. "Even though matter and energy were not created or destroyed," Jack recalls, "my interest in science at that time was totally destroyed."
 
-Jack went on to become a mechanical engineer and educator who now runs [Creator's Craft Crates](https://cleanyourcraft.com/) - hands-on STEM kits that let kids build pinball machines, car launchers, and other projects that actually work. It's the approach that saved his own curiosity years later, when his father refused to build him a treehouse and offered to help him build one instead.
+Jack went on to become a mechanical engineer and educator who now advocates for project-based learning - the approach that saved his own curiosity years later, when his father refused to build him a treehouse and offered to help him build one instead.
 
 ---
 
@@ -123,20 +114,3 @@ By the end, Jack understood carpentry, basic engineering, planning, and persiste
 That's all for today!
 
 – Charlie (the OpenEd newsletter guy)
-
----
-
-## ARTICLE EDITS TO APPLY
-
-**1. Intro paragraph edit (already in newsletter above):**
-
-Change:
-> Jack went on to become a mechanical engineer and educator who now advocates for project-based learning - the approach that saved his own curiosity years later, when his father refused to build him a treehouse and offered to help him build one instead.
-
-To:
-> Jack went on to become a mechanical engineer and educator who now runs [Creator's Craft Crates](https://cleanyourcraft.com/) - hands-on STEM kits that let kids build pinball machines, car launchers, and other projects that actually work. It's the approach that saved his own curiosity years later, when his father refused to build him a treehouse and offered to help him build one instead.
-
-**2. Resources section edit - add to "Subscription Boxes That Support PBL":**
-
-After Crunch Labs bullet, add:
-> * [**Creator's Craft Crates**](https://cleanyourcraft.com/) - Jack Casdorph's hands-on STEM kits (pegboard pinball, car launchers, track designers). Launching a full curriculum on [Kickstarter July 24th](https://cleanyourcraft.com/).
