@@ -11,6 +11,10 @@ Usage:
     python generate_image.py "Add snow to the roof" --input ./base-image.png
     python generate_image.py "Change the color to blue" --input ./image.png --model pro
 
+    # Edit existing image
+    python generate_image.py "Remove the hat and add sunglasses" --edit path/to/image.png
+    python generate_image.py "Change background to beach" --edit image.png --model pro
+
 Environment:
     GEMINI_API_KEY or GOOGLE_API_KEY must be set
 
@@ -123,14 +127,20 @@ def generate_image(
                 aspectRatio=aspect_ratio,
             ),
         )
-        print(f"Generating with {model_id}...")
+        if input_image:
+            print(f"Editing image with {model_id}...")
+        else:
+            print(f"Generating with {model_id}...")
         print(f"Aspect ratio: {aspect_ratio}")
     else:
         # Flash model doesn't support aspect ratio config
         config = types.GenerateContentConfig(
             response_modalities=["TEXT", "IMAGE"],
         )
-        print(f"Generating with {model_id}...")
+        if input_image:
+            print(f"Editing image with {model_id}...")
+        else:
+            print(f"Generating with {model_id}...")
         print(f"Note: flash model uses default aspect ratio (include ratio in prompt text)")
 
     # Generate

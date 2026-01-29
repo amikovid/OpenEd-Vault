@@ -22,19 +22,11 @@ Far side Gallery Gary Larson
 --
 
 3. "The Upgrade"
-A child sits in a doctor's office. The doctor holds up an X-ray showing a heart, imagination clouds, and wonder. Doctor to parents: "Good news - we can remove all of this before kindergarten."
+A child sits in a doctor's office. The doctor holds up an X-ray showing a heart, imagination clouds, and wonder. Doctor to parents: "Good news - we can remove all of this before first grade."
 
 10. "Commencement"
-Graduation ceremony, but the graduates are marching directly off the stage into a giant meat grinder. The banner reads "CONGRATULATIONS - YOU'RE READY!" Parents in the audience are weeping with pride, not horror.
+Graduation ceremony, but the graduates are marching directly off the stage into a giant meat grinder. The banner reads "CONGRATULATIONS - YOU'RE READY!" Parents in the audience are weeping with pride.
 
-6. "The Aquarium"
-A family of fish stands outside a glass tank, tapping on it, watching a human inside at a desk doing paperwork. Little fish to parent: "Why does it just sit there?" Parent fish: "They do that for 40 years, then they die."
-
-19. "The Zoo"
-Aliens visiting a "HUMAN ZOO" exhibit. One enclosure labeled "MIDDLE MANAGEMENT" shows a human sending emails to himself. Adjacent enclosure "INFLUENCER" shows one taking selfies of the wall. Alien child: "They seem sad." Alien parent: "They were sad before we got here."
-
-17. "Food Chain"
-A salmon swimming upstream, wearing a tiny business suit and carrying a briefcase. Other salmon around him, also in suits. At the top of the waterfall: a bear in a chef's hat, holding a frying pan.
 
 1. "The Convergence Point"
 A Venn diagram come to life. Overlapping circles labeled "PARENTS: Want Face," "TEACHERS: Want Paycheck," "ADMIN: Want No Problems," "GOVERNMENT: Want Compliance." In the tiny overlap at the center, a child sits at a desk. Label on the overlap: "EDUCATION."
@@ -48,7 +40,7 @@ Ed at lunch table, surrounded by other horses. Thought bubble shows complex flow
 7. "Ed's Adaptation"
 Three-stage evolution diagram. Stage 1: Young Ed, eyes full of stars, holding a book with wonder. Stage 2: Teenage Ed, eyes dimmer, holding a study guide. Stage 3: Adult Ed, eyes completely dead, holding a diploma. Caption: "SUCCESSFUL ADAPTATION TO ENVIRONMENT."
 
-Wolf parent dropping kid at a building where a sheep teaches "Predator Studies" from a PowerPoint. 
+Wolf parent dropping kid at a classroom where a sheep teaches "Predator Studies" from a PowerPoint. 
 
 A salmon trying to teach a bear cub to fish. The cub is in a tiny desk, taking notes. Actual mother bear watches through window, baffled. Sign on door: "CERTIFIED AQUATIC PROTEIN ACQUISITION SPECIALIST."
 
@@ -73,3 +65,24 @@ Lion covered in hunting scars sits across from a gazelle in HR. Gazelle: "Impres
 Ed the horse on deathbed "I wish I spent more of my youth memorizing answers."
 
 Two doors. "LEARNING" - dusty, cobwebbed, unused. "CREDENTIALS" - worn smooth, line out the door.
+
+--
+
+A child sits in a doctor's office. The doctor holds up an X-ray showing a heart, imagination clouds, and wonder. Doctor to parents: "Good news - we can remove all of this before first grade." "
+
+Wolf parent dropping kid at a classroom where a sheep teaches "Predator Studies" from a PowerPoint. 
+
+Eagle dropping eaglet at a classroom door. Inside, a penguin at a chalkboard: "FLIGHT THEORY."
+
+Caveman dad watching his son make fire successfully. A bureaucrat taps his shoulder: "Excuse me, do you have your teaching licence?"
+
+Ed the horse on deathbed "I wish I spent more of my youth memorizing answers."
+
+Heaven's gates. A soul arrives, met by an angel with a clipboard. Angel: "It says here you spent 14,000 hours preparing for tests about things you immediately forgot.
+
+A cat proudly presents a dead bird to his classmates. Teacher (also a cat): "Nice effort, but you're supposed to use the MLA format."
+
+Socrates teaching students under a tree, pointing at the sky. A bureaucrat taps his shoulder: "I'm going to need to see your state certification.
+
+A cookie cutter factory. Children of all shapes enter a machine on one side. Identical gingerbread-man-shaped humans exit the other. A few crumbled, broken but colorful pieces fall into a reject bin labeled "extra stuff".
+
