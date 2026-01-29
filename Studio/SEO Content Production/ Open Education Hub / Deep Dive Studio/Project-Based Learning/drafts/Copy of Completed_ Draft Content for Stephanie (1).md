@@ -44,13 +44,7 @@ Project-based learning is education through extended, real-world projects where 
 
 The key word is *meaningful*. A worksheet about fractions isn't project-based learning. Neither is a diorama assigned by a teacher with a rubric. Project-based learning starts with something the child actually wants to create, solve, or understand \- and lets the learning emerge from that pursuit.
 
-Jack Casdorph describes traditional education as spending too much time on the wrong side of a spectrum:
-
-```
-ABSTRACT ←――――――――――――――――――――→ APPLIED
-Math → Science → Engineering → Technology/Making
-
-```
+Jack Casdorph describes traditional education as spending too much time on the wrong side of a spectrum - from abstract (math) on the far left to applied (building stuff) on the right. Science and engineering are in between.
 
 "The stuff on the right isn't even touched in most education," he explains on the [OpenEd podcast](https://opened.co/blog/have-we-been-teaching-stem-completely-backwards-the-case-for-project-based-learning). Traditional schools start with theory and hope students eventually connect it to reality. Project-based learning flips this: start with reality, and theory follows naturally.
 
