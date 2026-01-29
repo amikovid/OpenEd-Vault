@@ -46,12 +46,19 @@ This project contains:
 ```
 Meta Ads/
 ├── PROJECT.md                          ← You are here
-├── testimonials.md                     ← Source testimonials for copy
+├── testimonials.md                     ← Source testimonials for copy (72KB)
 ├── 50-Ad-Concepts-January-2026.md      ← V1: Notes App, Tweet, Reddit, Meme, UGC formats
 ├── 50-Ad-Concepts-V2-January-2026.md   ← V2: Text-Only, Split-Screen, Green Screen, Ad Reaction, Micro-Series, Partnership
 ├── 2026-Meta-Ad-Trends-Research.md     ← Research on what's working in 2026
+├── meta-ads-strategy-reference.md      ← Ben Heath + Jamie Stenton framework
+├── newsletter-scaling-reference.md     ← Nathan May ARPU validation
+├── meta-ads-best-practices.md          ← Quick reference (6 Elements)
 │
-└── Ad Creative Concepts/               ← (Legacy individual concept files)
+├── Curriculum-Targeting-Campaign/      ← Sub-project: curriculum-specific ads → Curriculove
+│   └── PROJECT.md
+│
+└── Archive/
+    └── Ad-Creative-Concepts/           ← Legacy individual concept files (superseded by consolidated docs)
 ```
 
 **Related skill:**
