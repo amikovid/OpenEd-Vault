@@ -71,7 +71,7 @@ This quarter I'll likely still run over 25 hours as I build out the systems. Goa
 
 | Line Item | Monthly |
 |-----------|---------|
-| Linda Taylor (new) | +$1,000 |
+| Last-mile editor (new) | +~$1,000 |
 | Elijah (new) | +$1,500 |
 | Angel (eliminated) | -$600 |
 | **Net new spend** | **+$1,900** |
@@ -97,7 +97,7 @@ This quarter I'll likely still run over 25 hours as I build out the systems. Goa
 | This week | Transition Angel out, brief Chavilah on podcast |
 | Feb 1 | Chavilah owns first podcast end-to-end |
 | Feb 1 | Elijah starts on retargeting creative |
-| Feb 15 | Linda starts on SEO article edits |
+| Feb 15 | Last-mile editor onboarded |
 | Mar 1 | New structure fully operational |
 
 ---
