@@ -31,7 +31,7 @@ I'm proposing a leaner content team structure that adds video capacity and edito
 |------|--------|------------|---------|
 | Content Lead | Charlie | 20-25 | $5,500 |
 | Content Ops | Chavilah | 20-25 | $2,000 |
-| Senior Editor | Linda Taylor | 5 | $1,000 |
+| Last-Mile Editor | TBD (someone like Linda Taylor) | 5 | ~$1,000 |
 | Video/Ads | Elijah | 10-15 | $1,500 |
 | **Total** | | ~55-70 hrs | **$10,000** |
 
@@ -50,8 +50,8 @@ Podcast production moves to Chavilah. With Descript workflows and clearer templa
 - Social scheduling and nearbound outreach (~10 hrs)
 - Slack automations let her run things by me quickly without meetings
 
-**Linda Taylor (new, 5 hrs)**
-Senior editor for final polish on SEO articles and newsletter proofread. Fills a quality gap I've been covering myself.
+**Last-Mile Editor (new, ~5 hrs)**
+Someone like Linda Taylor - a senior editor who helps Chavilah get content across the finish line. Takes drafts from 90% to published: final polish on SEO articles, newsletter proofread, tightening prose. This is the quality gap I've been covering myself, and it's the bottleneck that slows everything down.
 
 **Elijah (new, 10-15 hrs)**
 Video and paid creative - our biggest capacity gap. Handles short-form video (Reels, TikTok, Shorts) and Meta ad creative refresh.
