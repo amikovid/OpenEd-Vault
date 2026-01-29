@@ -4,7 +4,7 @@ Portable prompt templates for high-end AI image generation. Works with Gemini Im
 
 ---
 
-## 1. Crumpled Vinyl Sticker
+## 1\. Crumpled Vinyl Sticker
 
 **Use case:** Brand logos, mascots, icons rendered as worn stickers
 
@@ -25,13 +25,16 @@ The camera is locked in a strict, perfectly parallel top-down flat lay view. The
 ```
 
 **Tips:**
+
 - Use with `--input` flag to preserve specific artwork/logo
+
 - Works best at 1:1 aspect ratio
+
 - Specify brand colors explicitly
 
 ---
 
-## 2. Floating Editorial Apparel
+## 2\. Floating Editorial Apparel
 
 **Use case:** Swag mockups, merch store images, product shots
 
@@ -55,15 +58,18 @@ Style: Hyper-realistic editorial fashion photography. Clean, high-key aesthetic.
 ```
 
 **Tips:**
+
 - Use with `--input` flag to preserve specific designs
+
 - 3:4 or 4:5 aspect ratio works well for vertical garments
+
 - Be explicit about preserving design elements
 
 ---
 
-## 3. Luxury Concept Product
+## 3\. Luxury Concept Product
 
-**Use case:** "What if [X] was a high-end brand?" conceptual products
+**Use case:** "What if \[X\] was a high-end brand?" conceptual products
 
 ```
 [BRAND/PHILOSOPHY NAME]:
@@ -89,7 +95,7 @@ A seamless, impeccably clean studio cyclorama background in [PASTEL TONE - e.g.,
 **Example brand interpretations:**
 
 | Brand/Philosophy | Material Vocabulary | Potential Object |
-|------------------|---------------------|------------------|
+| --- | --- | --- |
 | Montessori | Beechwood, brass, geometric precision | Tactile learning instruments |
 | Classical Education | Dark walnut, aged leather, parchment | Scholar's reading lectern |
 | Unschooling | Reclaimed wood, raw brass, blown glass | Curiosity specimen cabinet |
@@ -99,7 +105,7 @@ A seamless, impeccably clean studio cyclorama background in [PASTEL TONE - e.g.,
 
 ---
 
-## 4. Isometric Schematic Diagram
+## 4\. Isometric Schematic Diagram
 
 **Use case:** Conceptual infographics, system maps, comparison diagrams
 
@@ -125,8 +131,11 @@ AVOID: Color fills (or specify muted palette), digital rendering, photorealism. 
 ```
 
 **Tips:**
+
 - 16:9 works well for wide diagrams
+
 - Can add subtle color washes while keeping hand-drawn feel
+
 - Good for showing relationships between concepts
 
 ---
@@ -134,13 +143,21 @@ AVOID: Color fills (or specify muted palette), digital rendering, photorealism. 
 ## Generation Notes
 
 **Gemini Nano Banana Pro settings:**
+
 - `--model pro` for quality and aspect ratio control
+
 - `--aspect` options: 1:1, 4:3, 3:4, 16:9, 9:16
+
 - `--input [image]` for rework/reference mode
+
 - `--variations N` for multiple outputs
 
 **General tips:**
+
 - Natural language beats tag soup
+
 - Be explicit about what to preserve vs. what to generate
+
 - Describe materials by feel, not just name
+
 - Include the "why" for better AI inference
