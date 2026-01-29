@@ -1,22 +1,22 @@
 ---
-title: "9 Future-Proof Career Prep Strategies for Homeschooled Teens"
+title: 9 Future-Proof Career Prep Strategies for Homeschooled Teens
 url: https://opened.co/blog/homeschool-career-prep-future-proof
 slug: homeschool-career-prep-future-proof
 type: blog
-date: 2025-08-01
-meta_description: ""
-summary: "Career prep for the AI age: 9 experts share alternatives to college including skilled trades, tech certifications, apprenticeships, and entrepreneurship paths."
+date: 2025-08-01T00:00:00.000Z
+meta_description: ''
+summary: 'Career prep for the AI age: 9 experts share alternatives to college including skilled trades, tech certifications, apprenticeships, and entrepreneurship paths.'
 webflow_id: 688cdd7f1487498945dd7718
 last_synced: 2026-01-02 20:57
 ---
-
 # 9 Future-Proof Career Prep Strategies for Homeschooled Teens
 
-**URL:** [https://opened.co/blog/homeschool-career-prep-future-proof](https://opened.co/blog/homeschool-career-prep-future-proof)
-**Type:** blog
+**URL:** [https://opened.co/blog/homeschool-career-prep-future-proof](https://opened.co/blog/homeschool-career-prep-future-proof)\
+**Type:** blog\
 **Published:** 2025-08-01
 
 ## Summary
+
 Career prep for the AI age: 9 experts share alternatives to college including skilled trades, tech certifications, apprenticeships, and entrepreneurship paths.
 
 ## Content
@@ -51,79 +51,40 @@ As a teen or a parent, you don’t need to follow all of them. Just pick the one
 
 You can also try our interactive career prep advisor – get personalized recommendations:
 
-
-
-
-
-
 ## Loading...
 
-
-
-
-Back
+Back\
 Next
-
-
-
-
-
-
 
 Analyzing your responses...
 
-
-
-
-
-
 ## Get Your Results
-
 
 Would you like us to email you a copy?
 
-
-
-
-
 Email Me My Results
-
 
 No Thanks, Show Results Now
 
-
-
-
-
-
-
 ## Your Personalized Career Recommendations
 
-
-
-Take Assessment Again
+Take Assessment Again\
 [Share with a Friend](#)
-
-
-
-
-
-
-
-
 
 ### **1. Ken Coleman: Stop Building Well-Rounded Kids**
 
 **What the old playbook gets wrong:** Pushing kids to be competent at everything instead of excellent at something.
 
-“I'm so sick of hearing this: ‘I want a well-rounded kid,’” says Ken Coleman, host of [*Front Row Seat*](https://www.youtube.com/@FrontRowSeat) at[ Ramsey Solutions](https://www.ramseysolutions.com/). “Nobody goes to Home Depot and asks for a well-rounded sander. The tools that get the job done have an edge to them.”
+“I'm so sick of hearing this: ‘I want a well-rounded kid,’” says Ken Coleman, host of *[Front Row Seat](https://www.youtube.com/@FrontRowSeat)* at[ Ramsey Solutions](https://www.ramseysolutions.com/). “Nobody goes to Home Depot and asks for a well-rounded sander. The tools that get the job done have an edge to them.”
 
 Ken’s core message is that kids don’t thrive when they spend most of their time improving from a 3 to a 5 on a 10-point scale. “The world doesn’t pay for fives,” he says. “The soul doesn’t thrive doing fives. The world pays for nines and tens.”
 
 Instead of obsessing over weaknesses, he encourages parents to help their kids lean into their strengths—what he calls their **“Three Wires”**:
 
 1. **Talent** – what you do best
+
 2. **Passion** – what you love doing
+
 3. **Mission** – the results you want to produce
 
 If your child uses what they do best to do work they love that creates results they care about, they’re on the right track—even if they bring home a C in math.
@@ -136,11 +97,15 @@ Not degrees, not GPA, not well-roundedness. “They want coachability, character
 
 **Key Resources:**
 
-- [*Find the Work You're Wired to Do*](https://www.ramseysolutions.com/store/books/find-the-work-youre-wired-to-do-by-ken-coleman) – Ken’s latest book (student and adult editions)
+- *[Find the Work You're Wired to Do](https://www.ramseysolutions.com/store/books/find-the-work-youre-wired-to-do-by-ken-coleman)* – Ken’s latest book (student and adult editions)
+
 - [Get Clear Career Assessment (Student Version)](https://ter.li/krbn8l) – Ken’s tool for identifying strengths and ideal career paths (free with the book)
+
 - [CliftonStrengths Assessment](https://www.gallup.com/cliftonstrengths/en/home.aspx) – Build on natural talents rather than fix weaknesses
+
 - [CareerOneStop Self-Assessments](https://www.careeronestop.org/ExploreCareers/Assessments/self-assessments.aspx) – Department of Labor tools for career planning
-- [O*NET Interest Profiler](https://www.mynextmove.org/explore/ip) – Match interests to career paths and required education
+
+- [O\*NET Interest Profiler](https://www.mynextmove.org/explore/ip) – Match interests to career paths and required education
 
 ### **2. Aaron Osmond: Certification Plus Strategic Networking**
 
@@ -152,7 +117,7 @@ Osmond built his own tech career without a degree—starting as a WordPerfect re
 
 “Even the best certification won’t land you a job if no one knows you have it. But a connection alone won’t help if you can’t deliver once you’re in the door.”
 
-This blend of signal and substance is what Knowledge Pillars aims to deliver. Their live, in-browser certification exams assess students in real time using the actual tools (e.g. WordPress, Python, JavaScript), offering proof that’s impossible to fake—and recognized by employers. [**Note: **Knowledge Pillars courses are available to teens in OpenEd at no cost.]
+This blend of signal and substance is what Knowledge Pillars aims to deliver. Their live, in-browser certification exams assess students in real time using the actual tools (e.g. WordPress, Python, JavaScript), offering proof that’s impossible to fake—and recognized by employers. \[\*\*Note: \*\*Knowledge Pillars courses are available to teens in OpenEd at no cost.\]
 
 **What employers actually want:**
 
@@ -161,9 +126,13 @@ Real-world skills, critical thinking, and a portfolio that proves it. As Osmond 
 **Key Resources:**
 
 - [Knowledge Pillars Certifications](https://knowledge-pillars.com/certifications/) – Hands-on, in-browser certification exams in coding and web development
+
 - [GitHub](https://github.com/) – Host and showcase technical projects with public portfolio links
+
 - [AWS Certifications](https://aws.amazon.com/certification/) – Cloud computing credentials (also includes links to Azure and Google Cloud)
+
 - [LinkedIn Learning](https://www.linkedin.com/learning/) – Courses with certificates that are visible to recruiters
+
 - OpenEd[ Podcast: The Truth About Tech Careers (No Degree Required)](https://opened.co/blog/f0-9f-8e-99-ef-b8-8fepisode-003-the-truth-about-tech-careers-in-2024-no-degree-required)
 
 ### **3. Rose Ybaben: The Elimination Method**
@@ -187,11 +156,17 @@ Start with self-discovery. Try new things. Use what you *don’t* enjoy to narro
 **Key Resources:**
 
 - [Soaring2College Counseling](https://soaring2college.com/) – Individualized guidance based on elimination-based exploration
+
 - [CareerOneStop Self-Assessments](https://www.careeronestop.org/ExploreCareers/Assessments/self-assessments.aspx) – Interest, skills, and values discovery
-- [O*NET Interest Profiler](https://www.mynextmove.org/explore/ip) – Career matching based on personality
+
+- [O\*NET Interest Profiler](https://www.mynextmove.org/explore/ip) – Career matching based on personality
+
 - [BigFuture by College Board](https://bigfuture.collegeboard.org/) – Compare careers, majors, and college options
+
 - [OpenEd Academy Virtual High School](https://openedacademy.com/) – Design a personalized diploma path aligned to life goals
+
 - [EF Gap Year Programs](https://efgapyear.com/) – Structured post-grad exploration and skill-building
+
 - [Community College Dual Enrollment](https://icangotocollege.com/dual-enrollment-program) – Academic and technical pathways for high schoolers
 
 ## **4. Mike Rowe: AI-Proof Skilled Trades**
@@ -211,7 +186,9 @@ Rowe’s message is simple: the most *essential* work—the work that keeps the 
 Skilled trades remain one of the most future-proof paths in the economy:
 
 - The U.S. will need **500,000 electricians** in the next few years
+
 - The **BlueForge Alliance** needs **140,000 skilled tradespeople** to build nuclear submarines
+
 - The **auto repair industry** is short **80,000 collision repair technicians**
 
 These are jobs with six-figure ceilings, no college debt, and a clearer connection between input and output. And yet, most students never hear about them.
@@ -229,16 +206,20 @@ Don’t just teach your kid to learn. Teach them to build, fix, install, weld, o
 **Key Resources:**
 
 - [Mike Rowe Works Foundation](https://www.mikeroweworks.org/) – Scholarships for students pursuing skilled trades
+
 - [SkillsUSA](https://www.skillsusa.org/) – Career competitions and leadership training in technical fields
+
 - [Apprenticeship.gov](https://www.apprenticeship.gov/) – Federal database of apprenticeship programs by trade and state
+
 - [Tooling U-SME](https://www.toolingu.com/) – Online industry-aligned training for manufacturing and skilled trades
+
 - Local Trade Unions – Search by region for apprenticeship and pre-apprenticeship pathways (no central URL)
 
 ### **5. Connor Boyack: Business Apprenticeships**
 
 **What the old playbook gets wrong:** Teaching theoretical knowledge “just in case” instead of real-world skills “just in time.”
 
-“There are two different models of how people learn,” says Connor Boyack, author of [the *Tuttle Twins* series](https://tuttletwins.com/collections?srsltid=AfmBOorQKAtg7mSijjevYqKtJLdrSwoWG-vb22Le0Q2JhW7pJ5rwobP7) and president of the[ Libertas Network](https://libertas.org/). “The traditional school system uses a ‘just in case’ model—memorize everything just in case you need it someday. But that’s not how real learning happens. That’s not how adults operate in the real world.”
+“There are two different models of how people learn,” says Connor Boyack, author of [the ](https://tuttletwins.com/collections?srsltid=AfmBOorQKAtg7mSijjevYqKtJLdrSwoWG-vb22Le0Q2JhW7pJ5rwobP7)*[Tuttle Twins](https://tuttletwins.com/collections?srsltid=AfmBOorQKAtg7mSijjevYqKtJLdrSwoWG-vb22Le0Q2JhW7pJ5rwobP7)*[ series](https://tuttletwins.com/collections?srsltid=AfmBOorQKAtg7mSijjevYqKtJLdrSwoWG-vb22Le0Q2JhW7pJ5rwobP7) and president of the[ Libertas Network](https://libertas.org/). “The traditional school system uses a ‘just in case’ model—memorize everything just in case you need it someday. But that’s not how real learning happens. That’s not how adults operate in the real world.”
 
 Boyack argues that what most kids need is *just-in-time* learning: the ability to find the right information, apply it quickly, and solve a problem when it matters. That’s why he’s bullish on business apprenticeships—and why Libertas acquired[ Praxis](https://discoverpraxis.com/), a year-long alternative to college that combines 30 hours per week of real work with structured professional development.
 
@@ -253,9 +234,13 @@ Apprenticeship is not a fallback—it’s a fast track.
 **Key Resources:**
 
 - [Praxis](https://discoverpraxis.com/) – 10-month business apprenticeship combining paid work with career training
-- [*Skip College* (book)](https://www.amazon.com/Skip-College-Launch-Without-Distractions/dp/1943521387) – Alternatives to traditional higher education
+
+- *[Skip College](https://www.amazon.com/Skip-College-Launch-Without-Distractions/dp/1943521387)*[ (book)](https://www.amazon.com/Skip-College-Launch-Without-Distractions/dp/1943521387) – Alternatives to traditional higher education
+
 - [Tuttle Twins](https://tuttletwins.com/) – Economics and entrepreneurship education in story form for all ages
+
 - [Children’s Entrepreneur Market](https://kidsmarkets.com/) – Real-world selling and learning experiences for kids
+
 - [Be Your Future Self Now (book)](https://www.amazon.com/Your-Future-Self-Now-Transformation/dp/1401967574) – Benjamin Hardy’s book on goal-setting and future-oriented thinking guide for teens and adults
 
 ### **6. Michael Gibson: Entrepreneurship**
@@ -278,48 +263,60 @@ Skip the signaling treadmill. Start small. Solve real problems. Share what you b
 
 **Future-focused problems:**
 
-In his book[ *Paper Belt on Fire*](https://www.amazon.com/Paper-Belt-Fire-Renegade-Investors/dp/1641772621), Gibson outlines the “10 unsolved problems” in energy, education, health, and infrastructure that could define the next century. He challenges young people to treat these like modern-day moonshots:
+In his book[ ](https://www.amazon.com/Paper-Belt-Fire-Renegade-Investors/dp/1641772621)*[Paper Belt on Fire](https://www.amazon.com/Paper-Belt-Fire-Renegade-Investors/dp/1641772621)*, Gibson outlines the “10 unsolved problems” in energy, education, health, and infrastructure that could define the next century. He challenges young people to treat these like modern-day moonshots:
 
 “If you solve one of these, you’ll win a Nobel Prize. You’ll change the world. You’ll matter.”
 
 **Key Resources:**
 
 - [1517 Fund](https://www.1517fund.com/) – VC firm backing founders without credentials, degrees, or permission
+
 - [Thiel Fellowship](https://thielfellowship.org/) – $100,000 grants for young people to build instead of attend college
-- [*Paper Belt on Fire* (book)](https://www.amazon.com/Paper-Belt-Fire-Fight-Progress/dp/164177245X) – Gibson’s critique of higher ed and map for entrepreneurial rebellion
+
+- *[Paper Belt on Fire](https://www.amazon.com/Paper-Belt-Fire-Fight-Progress/dp/164177245X)*[ (book)](https://www.amazon.com/Paper-Belt-Fire-Fight-Progress/dp/164177245X) – Gibson’s critique of higher ed and map for entrepreneurial rebellion
+
 - [AngelList](https://angel.co/) – Platform to join early-stage startups or raise capital
+
 - [Y Combinator](https://www.ycombinator.com/) – Leading startup accelerator, accepting founders regardless of degrees
+
 - [The Network State by Balaji Srinivasan](https://thenetworkstate.com/) – Vision for decentralized learning, governance, and entrepreneurship
 
 ### **7. Ben Smallbone & Ben Kasica: The Creator Economy**
 
 **What the old playbook gets wrong:** Waiting for permission from gatekeepers instead of starting now and building an audience directly.
 
-“When I moved to Hollywood,” recalls [*Homestead*](https://www.angel.com/movies/homestead) showrunner and former Skillet guitarist Ben Kasica, “a friend asked me: ‘What are you waiting for? Are you waiting for somebody to pick you?’ That hit me. No one’s going to stumble on you and hand you $5 million to make your dream film. Just start doing something. Anything. Make one thing, and you're already ahead of most people in Hollywood.”
+“When I moved to Hollywood,” recalls *[Homestead](https://www.angel.com/movies/homestead)* showrunner and former Skillet guitarist Ben Kasica, “a friend asked me: ‘What are you waiting for? Are you waiting for somebody to pick you?’ That hit me. No one’s going to stumble on you and hand you $5 million to make your dream film. Just start doing something. Anything. Make one thing, and you're already ahead of most people in Hollywood.”
 
-That do-it-yourself ethos also defines *Homestead* director Ben Smallbone, who never went to film school. He started by making rough home movies with his siblings—including the future duo [*For King & Country*](https://www.forkingandcountry.com/?srsltid=AfmBOor4RrdbaVhQYSjAHiWA4SkG8hSC-_cJZcB4zkc8nvL2LLF67FS9). His education? Homeschooling by day, filmmaking by night.
+That do-it-yourself ethos also defines *Homestead* director Ben Smallbone, who never went to film school. He started by making rough home movies with his siblings—including the future duo *[For King & Country](https://www.forkingandcountry.com/?srsltid=AfmBOor4RrdbaVhQYSjAHiWA4SkG8hSC-_cJZcB4zkc8nvL2LLF67FS9)*. His education? Homeschooling by day, filmmaking by night.
 
 **The new creative path:** Both filmmakers emphasize that the tools to create—and to launch a career—are now fully accessible. “There are scenes in *Homestead* we shot on a camera you can buy at Best Buy,” Smallbone explains. “Technology is no longer the limiter. Curiosity is.”
 
 Their shared experience as homeschoolers gave them the freedom and time to experiment. Kasica joined a national touring band at 16. Smallbone built a body of creative work years before most kids graduate high school. “We didn’t know what the box was,” he says. “So we didn’t feel constrained by it.”
 
-**Portfolio over pedigree:** The entertainment industry no longer hires based on degrees—it hires based on what you’ve made. That’s the driving idea behind [*Sneak on the Lot*](https://www.sneakonthelot.com/), a hands-on film education platform co-founded by Hollywood veterans Chet Thomas and Darrin Fletcher. Their virtual backlot helps students move from classroom to production set, casting actors and hiring crew directly from the platform.
+**Portfolio over pedigree:** The entertainment industry no longer hires based on degrees—it hires based on what you’ve made. That’s the driving idea behind *[Sneak on the Lot](https://www.sneakonthelot.com/)*, a hands-on film education platform co-founded by Hollywood veterans Chet Thomas and Darrin Fletcher. Their virtual backlot helps students move from classroom to production set, casting actors and hiring crew directly from the platform.
 
 **A message for young creators:** Don’t wait. Make something. Fail forward. Build your portfolio instead of collecting debt. You no longer need permission to start.
 
 ### **Key Resources:**
 
 - [Sneak on the Lot](https://www.sneakonthelot.com/) — Hands-on filmmaking curriculum and virtual backlot connecting students to real jobs on real productions
+
 - [Angel Studios](https://www.angel.com/) — A creator-led film platform where audiences decide what gets made
+
 - [NoFilmSchool](https://nofilmschool.com/) — Practical guides, gear reviews, and production tips for indie filmmakers
+
 - [YouTube Creator Academy](https://creatoracademy.youtube.com/) — Free tools and lessons for building and monetizing a creator channel
+
 - [MasterClass](https://www.masterclass.com/) — Learn directly from Hollywood-level directors, screenwriters, and producers
+
 - [Film Freeway](https://filmfreeway.com/) — A platform for submitting films to festivals and competitions worldwide
+
 - [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) — Industry-standard editing and production software with student pricing
+
 - [Unity](https://unity.com/) — Game engine used for building immersive film sets and virtual production workflows
 
 We’ve covered a lot—from AI panic to credential collapse to the rise of the portfolio economy. But the throughline is simple: in a world defined by uncertainty, the edge belongs to those who are curious enough to start. Not wait. Not get picked. Just start. That’s the story behind Praxis. That’s the story behind OpenEd. And it’s the story behind every one of the people we featured in this guide.
 
 So no, I’m not worried about AI taking all the jobs. I’m more interested in what you’re going to do with it. The new playbook isn’t about security—it’s about agency. Try something. Make something. Build proof. And if you’re wondering how to begin, we built OpenEd for exactly that.
 
-[**Apply now**](https://opened.co/apply)—and start designing the education that actually prepares your kids for what’s next.
+**[Apply now](https://opened.co/apply)**—and start designing the education that actually prepares your kids for what’s next.
