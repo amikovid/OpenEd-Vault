@@ -1,40 +1,45 @@
 ---
-title: A Sneak Peek at the 2025 Marketplace!
-url: https://opened.co/blog/a-sneak-peek-at-the-2025-marketplace
+title: "A Sneak Peek at the 2025 Marketplace!"
 slug: a-sneak-peek-at-the-2025-marketplace
+url: https://opened.co/blog/a-sneak-peek-at-the-2025-marketplace
 type: announcements
-date: 2025-04-28T00:00:00.000Z
-meta_description: ''
-summary: 'You may have heard (or read!) about our new approach to curriculum access — a dynamic marketplace of resources coming to the OpenEd platform for the 2025-2026 program year. Today, I’m thrilled to take it one step further and give you a sneak peek at what’s inside! '
+date: 2025-04-28
 webflow_id: 681275b899d5d5d2987a8df4
-last_synced: 2026-01-02 20:57
+author_id: 68127561ec860a104fd9aa89
+thumbnail: https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/681275aa1e0f56374c6ee225_Blog-Banners-OpenEd-11.avif
+meta_description: ""
+summary: "You may have heard (or read!) about our new approach to curriculum access — a dynamic marketplace of resources coming to the OpenEd platform for the 2025-2026 program year. Today, I’m thrilled to take it one step further and give you a sneak peek at what’s inside!"
+created_on: 2025-04-30T19:10:48.360Z
+last_updated: 2026-01-15T14:55:07.777Z
+last_published: 2026-01-20T13:50:34.025Z
+last_synced: 2026-01-30 11:00
 ---
+
 # A Sneak Peek at the 2025 Marketplace!
 
-**URL:** [https://opened.co/blog/a-sneak-peek-at-the-2025-marketplace](https://opened.co/blog/a-sneak-peek-at-the-2025-marketplace)\
-**Type:** announcements\
+**URL:** [https://opened.co/blog/a-sneak-peek-at-the-2025-marketplace](https://opened.co/blog/a-sneak-peek-at-the-2025-marketplace)
+**Type:** Announcements
 **Published:** 2025-04-28
+**Thumbnail:** ![](https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/681275aa1e0f56374c6ee225_Blog-Banners-OpenEd-11.avif)
 
 ## Summary
-
 You may have heard (or read!) about our new approach to curriculum access — a dynamic marketplace of resources coming to the OpenEd platform for the 2025-2026 program year. Today, I’m thrilled to take it one step further and give you a sneak peek at what’s inside!
+
 
 ## Content
 
-You may have heard ([or read](https://opened.co/announcements/a-new-approach-to-curriculum-access/)!) about our new approach to curriculum access — a dynamic **marketplace of resources** coming to the OpenEd platform for the 2025-2026 program year. Today, I’m thrilled to take it one step further and give you a **sneak peek** at what’s inside!
+You may have heard ([or read](https://opened.co/blog/a-new-approach-to-curriculum-access)!) about our new approach to curriculum access — a dynamic **marketplace of resources** coming to the OpenEd platform for the 2025-2026 program year. Today, I’m thrilled to take it one step further and give you a **sneak peek** at what’s inside!
 
 ## **More Flexibility, Less Stress**
 
 We’ve been working closely with curriculum providers to lock in **pre-order pricing**, helping your wallet go further while giving you more options and less pressure. Just the way it should be.
 
-🗓️ \*\*Pre-order pricing is guaranteed through July 31, 2025, \*\*so now’s a great time to start exploring!
+🗓️ **Pre-order pricing is guaranteed through July 31, 2025, **so now’s a great time to start exploring!
 
-**[Click here](https://drive.google.com/file/d/18BQIxqBZ-urOMASfpgq7xKoDgF9Poj8t/view?usp=sharing)** to review our sneak peek. Each resource is linked so you can:
+[**Click here**](https://drive.google.com/file/d/18BQIxqBZ-urOMASfpgq7xKoDgF9Poj8t/view?usp=sharing) to review our sneak peek. Each resource is linked so you can:
 
 - Browse provider sites
-
 - Set up preview accounts (when available)
-
 - Get a feel for which tools fit your students best
 
 The marketplace offers everything from full curriculum packages to enrichment add-ons, with the freedom to **mix, match, and personalize** your child’s education plan. Go ahead and take a look!
@@ -43,7 +48,7 @@ The marketplace offers everything from full curriculum packages to enrichment ad
 
 Our goal? To be a strong partner in making **access easier and more affordable**.
 
-\*\*Have Feedback or Questions? \*\*Send us a note at [help@opened.co](mailto:help@opened.co). We share every message with our Curriculum Team. Your voice directly shapes what comes next.
+**Have Feedback or Questions? **Send us a note at [help@opened.co](mailto:help@opened.co). We share every message with our Curriculum Team. Your voice directly shapes what comes next.
 
 Thank you for being part of this journey. The 2025-26 program year is already shaping up to be our biggest (and best!) yet, and we’re so glad you’re with us.
 

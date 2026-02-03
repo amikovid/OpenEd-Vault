@@ -7,9 +7,11 @@ import json
 import hashlib
 import requests
 from pathlib import Path
+from dotenv import load_dotenv
 
-# Configuration
-API_KEY = "032c44041102703cc26944fe7e886b86467da16d228f55eb8d8f4cf75fd3ed7d"
+# Load API key from .env
+load_dotenv(Path(__file__).resolve().parents[4] / ".env")
+API_KEY = os.getenv("WEBFLOW_API_KEY")
 SITE_ID = "67c7406fc9e6913d1b92e341"
 POSTS_COLLECTION = "6805bf729a7b33423cc8a08c"
 BLOG_POST_TYPE = "6805d44048df4bd97a0754ed"

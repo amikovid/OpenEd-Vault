@@ -13,6 +13,7 @@ Environment: Requires SLACK_BOT_TOKEN in .env
 
 import os
 import re
+import json
 import feedparser
 import requests
 from datetime import datetime, timedelta
@@ -22,6 +23,25 @@ import time
 
 # Load environment
 load_dotenv(Path(__file__).parent.parent / ".env")
+
+# Tracking file path
+TRACKING_PATH = Path(__file__).parent.parent / "Projects/RSS-Curation/tracking.json"
+
+
+def load_tracking() -> dict:
+    """Load tracking data from JSON file"""
+    try:
+        with open(TRACKING_PATH, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {"lastRun": None, "items": {}, "stats": {"totalTracked": 0, "duplicatesPrevented": 0}}
+
+
+def save_tracking(tracking: dict):
+    """Save tracking data to JSON file"""
+    tracking["lastRun"] = datetime.now().isoformat()
+    with open(TRACKING_PATH, 'w') as f:
+        json.dump(tracking, f, indent=2)
 
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 SLACK_CHANNEL = "C07U9S53TLL"  # #market-daily channel ID
@@ -34,8 +54,9 @@ FEEDS = [
     ("Claire Honeycutt", "https://honeycutt.substack.com/feed"),
     ("Peter Gray", "https://petergray.substack.com/feed"),
     ("After Babel (Jon Haidt)", "https://afterbabel.com/feed"),
-    ("Freddie deBoer", "https://freddiedeboer.substack.com/feed"),
-    ("Rob Henderson", "https://robkhenderson.substack.com/feed"),
+    # REMOVED: Off-topic culture commentary, not homeschool-relevant
+    # ("Freddie deBoer", "https://freddiedeboer.substack.com/feed"),
+    # ("Rob Henderson", "https://robkhenderson.substack.com/feed"),
     ("Let Grow", "https://letgrow.org/feed/"),
     ("Corey DeAngelis", "https://deangeliscorey.substack.com/feed"),
     ("Lenore Skenazy", "https://reason.com/people/lenore-skenazy/feed/"),
@@ -143,10 +164,23 @@ NO_KEYWORDS = [
     "esa", "voucher", "school choice week", "legislation",
     "trump", "biden", "republican", "democrat", "congress",
     "ice raid", "immigration", "deportation",
+    "moms for liberty", "culture war", "book review",
+    "universal eligibility", "universal access",
 
     # Public school focused
     "public school", "district", "superintendent", "principal",
     "classroom", "school board", "standardized test",
+    "charter school", "charter agreement",
+    "pre-k application", "3-k application",
+    "school closure", "school safety officer",
+    "snow day", "weather day",
+
+    # State/local politics (not homeschool-specific)
+    "governor", "lawmakers", "legislature", "bill tracker",
+
+    # Off-topic health/misc
+    "oral health", "school chef", "healthy habits",
+    "child care", "day care",
 
     # Generic/off-topic
     "college admission", "higher ed", "university",
@@ -218,13 +252,16 @@ def get_description(source: str, title: str) -> str:
         return "Fresh perspective on education"
 
 
-def fetch_feeds(hours: int = 24) -> list:
-    """Fetch all feeds and return items from last N hours"""
+def fetch_feeds(hours: int = 24, tracking: dict = None) -> list:
+    """Fetch all feeds and return items from last N hours, skipping tracked URLs"""
     cutoff = datetime.now() - timedelta(hours=hours)
     items = []
     errors = []
+    skipped = 0
+    tracked_urls = set(tracking.get("items", {}).keys()) if tracking else set()
 
     print(f"Fetching {len(FEEDS)} feeds (last {hours} hours)...")
+    print(f"Tracking {len(tracked_urls)} known URLs for deduplication")
 
     for name, url in FEEDS:
         try:
@@ -233,6 +270,11 @@ def fetch_feeds(hours: int = 24) -> list:
                 title = entry.get('title', 'No title')[:120]
                 link = entry.get('link', '')
                 summary = entry.get('summary', '')[:300]
+
+                # Skip if already tracked
+                if link in tracked_urls:
+                    skipped += 1
+                    continue
 
                 # Clean HTML from summary
                 summary = re.sub(r'<[^>]+>', '', summary)
@@ -261,6 +303,8 @@ def fetch_feeds(hours: int = 24) -> list:
 
         time.sleep(0.2)  # Rate limiting
 
+    if skipped:
+        print(f"Skipped {skipped} already-tracked URLs")
     if errors:
         print(f"Errors ({len(errors)}): {', '.join(errors[:5])}...")
 
@@ -372,9 +416,36 @@ def main():
     print(f"RSS Daily Curation - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 60)
 
-    # Fetch and score
-    items = fetch_feeds(hours=24)
-    print(f"\nFetched {len(items)} items from last 24 hours")
+    # Parse --hours flag (default 24)
+    hours = 24
+    for arg in sys.argv:
+        if arg.startswith("--hours="):
+            hours = int(arg.split("=")[1])
+
+    # Load tracking for deduplication
+    tracking = load_tracking()
+    print(f"Last run: {tracking.get('lastRun', 'never')}")
+
+    # Fetch and score (with deduplication)
+    items = fetch_feeds(hours=hours, tracking=tracking)
+    print(f"\nFetched {len(items)} NEW items from last {hours} hours")
+
+    # Add new items to tracking
+    today = datetime.now().strftime('%Y-%m-%d')
+    for item in items:
+        if item['link'] not in tracking['items']:
+            tracking['items'][item['link']] = {
+                'firstSeen': today,
+                'score': item['score'].lower(),
+                'status': 'new',
+                'source': item['source'],
+                'title': item['title'][:100]
+            }
+            tracking['stats']['totalTracked'] = len(tracking['items'])
+
+    # Save tracking
+    save_tracking(tracking)
+    print(f"Tracking updated: {tracking['stats']['totalTracked']} total URLs")
 
     # Count by score
     definitely = [i for i in items if i['score'] == 'DEFINITELY']

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Content Production Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #191919;
+      --bg-secondary: #252525;
+      --bg-tertiary: #2f2f2f;
+      --bg-hover: #373737;
+      --text-primary: #ebebeb;
+      --text-secondary: #9b9b9b;
+      --text-muted: #6b6b6b;
+      --border: #373737;
+      --accent: #2eaadc;
+      --accent-hover: #3dbde8;
+      --success: #4daa57;
+      --warning: #e69f00;
+      --danger: #eb5757;
+      --purple: #9b59b6;
+      --orange: #e67700;
+      --pink: #e91e63;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 24px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* Master Progress */
+    .master-progress {
+      padding: 24px 32px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .progress-label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .progress-count {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--success));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    /* Main Layout */
+    .main-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: calc(100vh - 160px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      padding: 16px 0;
+      overflow-y: auto;
+    }
+
+    .sidebar-section {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-header {
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .project-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: background 0.15s;
+      gap: 12px;
+    }
+
+    .project-item:hover {
+      background: var(--bg-hover);
+    }
+
+    .project-item.active {
+      background: var(--bg-tertiary);
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    .project-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .project-name {
+      flex: 1;
+      font-size: 14px;
+    }
+
+    .project-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* Progress Ring */
+    .progress-ring {
+      width: 32px;
+      height: 32px;
+      position: relative;
+    }
+
+    .progress-ring svg {
+      transform: rotate(-90deg);
+    }
+
+    .progress-ring-bg {
+      fill: none;
+      stroke: var(--bg-tertiary);
+      stroke-width: 3;
+    }
+
+    .progress-ring-fill {
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.5s ease;
+    }
+
+    /* Content Area */
+    .content {
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    /* View Tabs */
+    .view-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      background: var(--bg-secondary);
+      padding: 4px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+
+    .view-tab {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+    }
+
+    .view-tab:hover {
+      background: var(--bg-hover);
+      color: var(--text-primary);
+    }
+
+    .view-tab.active {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    /* Kanban Board */
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      min-height: 500px;
+    }
+
+    .kanban-column {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      margin-bottom: 12px;
+    }
+
+    .column-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .column-title {
+      font-size: 14px;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .column-count {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .column-cards {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 100px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      border-color: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .card.selected {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-hover);
+      color: var(--text-secondary);
+    }
+
+    .card-tag.priority {
+      background: rgba(235, 87, 87, 0.2);
+      color: var(--danger);
+    }
+
+    .card-tag.project {
+      background: rgba(46, 170, 220, 0.2);
+      color: var(--accent);
+    }
+
+    /* Quick Wins Section */
+    .quick-wins {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    .quick-wins h3 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quick-wins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+
+    .keyword-card {
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .keyword-name {
+      font-size: 14px;
+    }
+
+    .keyword-stats {
+      text-align: right;
+    }
+
+    .keyword-position {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--warning);
+    }
+
+    .keyword-impressions {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Calendar View */
+    .calendar-view {
+      display: none;
+    }
+
+    .calendar-view.active {
+      display: block;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    .calendar-nav button {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .calendar-nav button:hover {
+      background: var(--bg-hover);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: 120px repeat(7, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .calendar-cell {
+      background: var(--bg-secondary);
+      padding: 12px;
+      min-height: 80px;
+    }
+
+    .calendar-cell.header {
+      font-weight: 600;
+      text-align: center;
+      min-height: auto;
+      padding: 12px 8px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .calendar-cell.week-label {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .calendar-item {
+      background: var(--bg-tertiary);
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-bottom: 4px;
+      border-left: 3px solid;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .calendar-item:hover {
+      transform: translateX(2px);
+    }
+
+    /* Move Modal */
+    .move-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .move-modal.active {
+      display: flex;
+    }
+
+    .move-modal-content {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 24px;
+      width: 400px;
+      max-width: 90vw;
+    }
+
+    .move-modal h3 {
+      margin-bottom: 16px;
+    }
+
+    .move-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .move-option {
+      padding: 12px;
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+      border: none;
+      color: var(--text-primary);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .move-option:hover {
+      background: var(--bg-hover);
+    }
+
+    .move-cancel {
+      margin-top: 16px;
+      padding: 10px;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    /* Prompt Output */
+    .prompt-output {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .prompt-text {
+      flex: 1;
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+      font-size: 13px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .copy-btn {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+    }
+
+    /* Kanban view toggle */
+    .kanban-view {
+      display: block;
+    }
+
+    .kanban-view.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>SEO Content Production</h1>
+    <div class="header-meta">
+      <span>Q1 2026 Target: 92 articles</span>
+      <span>•</span>
+      <span id="last-updated">Last updated: Feb 2, 2026</span>
+    </div>
+  </div>
+
+  <div class="master-progress">
+    <div class="progress-header">
+      <span class="progress-label">Overall Progress</span>
+      <span class="progress-count"><span id="total-published">0</span> / 92</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="master-progress-fill" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-header">Projects</div>
+        <div class="project-item active" data-project="all">
+          <div class="project-icon" style="background: var(--accent)">📊</div>
+          <span class="project-name">All Content</span>
+          <span class="project-count" id="all-count">92</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-header">Sub-Projects</div>
+        <div id="project-list"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-header">Quick Actions</div>
+        <div class="project-item" onclick="addNewCard()">
+          <div class="project-icon" style="background: var(--success)">+</div>
+          <span class="project-name">Add Content</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="view-tabs">
+        <button class="view-tab active" onclick="switchView('kanban')">Kanban</button>
+        <button class="view-tab" onclick="switchView('calendar')">Calendar</button>
+      </div>
+
+      <div class="kanban-view" id="kanban-view">
+        <div class="kanban-board" id="kanban-board"></div>
+
+        <div class="quick-wins">
+          <h3>🎯 Quick Wins (Positions 11-20)</h3>
+          <div class="quick-wins-grid" id="quick-wins-grid"></div>
+        </div>
+      </div>
+
+      <div class="calendar-view" id="calendar-view">
+        <div class="calendar-header">
+          <h3 id="calendar-month">January - February 2026</h3>
+          <div class="calendar-nav">
+            <button onclick="prevMonth()">← Prev</button>
+            <button onclick="nextMonth()">Next →</button>
+          </div>
+        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="move-modal" id="move-modal">
+    <div class="move-modal-content">
+      <h3>Move "<span id="move-card-title"></span>"</h3>
+      <div class="move-options" id="move-options"></div>
+      <button class="move-cancel" onclick="closeMoveModal()">Cancel</button>
+    </div>
+  </div>
+
+  <div class="prompt-output">
+    <div class="prompt-text" id="prompt-text">Select a card to see actions...</div>
+    <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
+  </div>
+
+  <script>
+    // State
+    const state = {
+      selectedProject: 'all',
+      selectedCard: null,
+      currentView: 'kanban',
+      calendarMonth: 0, // 0 = Jan 2026, 1 = Feb 2026
+    };
+
+    const columns = [
+      { id: 'backlog', name: 'Backlog', color: '#6b6b6b' },
+      { id: 'research', name: 'Research', color: '#9b59b6' },
+      { id: 'drafting', name: 'Drafting', color: '#e69f00' },
+      { id: 'review', name: 'Review', color: '#2eaadc' },
+      { id: 'published', name: 'Published', color: '#4daa57' }
+    ];
+
+    const projects = [
+      { id: 'state-pages', name: 'State Pages', icon: '🗺️', color: '#2eaadc', target: 9 },
+      { id: 'grade-guides', name: 'Grade Level Guides', icon: '📚', color: '#9b59b6', target: 8 },
+      { id: 'tools-directory', name: 'Tools Directory', icon: '🔧', color: '#e67700', target: 20 },
+      { id: 'guest-contributors', name: 'Guest Contributors', icon: '✍️', color: '#e91e63', target: 5 },
+      { id: 'versus', name: 'Versus Comparisons', icon: '⚔️', color: '#4daa57', target: 10 },
+      { id: 'article-factory', name: 'Article Factory', icon: '🏭', color: '#6b6b6b', target: 40 }
+    ];
+
+    // Initial cards based on your data
+    const cards = [
+      // State Pages
+      { id: 1, title: 'Oregon Homeschool Guide', project: 'state-pages', status: 'drafting', priority: false },
+      { id: 2, title: 'Nevada Homeschool Guide', project: 'state-pages', status: 'backlog', priority: true },
+      { id: 3, title: 'Utah Homeschool Guide', project: 'state-pages', status: 'drafting', priority: false },
+      { id: 4, title: 'Indiana Homeschool Guide', project: 'state-pages', status: 'backlog', priority: false },
+      { id: 5, title: 'Kansas Homeschool Guide', project: 'state-pages', status: 'backlog', priority: false },
+      { id: 6, title: 'Arkansas Homeschool Guide', project: 'state-pages', status: 'backlog', priority: false },
+      { id: 7, title: 'Iowa Homeschool Guide', project: 'state-pages', status: 'backlog', priority: false },
+      { id: 8, title: 'Minnesota Homeschool Guide', project: 'state-pages', status: 'backlog', priority: false },
+      { id: 9, title: 'Montana Homeschool Guide', project: 'state-pages', status: 'backlog', priority: false },
+
+      // Grade Guides
+      { id: 10, title: 'Kindergarten Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 11, title: '1st Grade Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 12, title: '2nd Grade Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 13, title: '3rd Grade Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 14, title: '4th Grade Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 15, title: '5th Grade Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 16, title: 'Middle School Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+      { id: 17, title: 'High School Curriculum', project: 'grade-guides', status: 'backlog', priority: false },
+
+      // Versus
+      { id: 18, title: 'IXL vs Exact Path', project: 'versus', status: 'drafting', priority: false },
+      { id: 19, title: 'Outschool vs OpenEd', project: 'versus', status: 'backlog', priority: true },
+      { id: 20, title: 'Khan Academy vs IXL', project: 'versus', status: 'backlog', priority: false },
+      { id: 21, title: 'Sonlight vs My Father\'s World', project: 'versus', status: 'backlog', priority: false },
+
+      // Guest Contributors
+      { id: 22, title: 'Justin Skycak - Math Learning', project: 'guest-contributors', status: 'research', priority: false },
+      { id: 23, title: 'Matt Beaudreau - Apogee', project: 'guest-contributors', status: 'backlog', priority: false },
+
+      // Specialty Articles
+      { id: 24, title: 'Military Families Guide', project: 'article-factory', status: 'backlog', priority: false },
+      { id: 25, title: 'ADHD Homeschool Guide', project: 'article-factory', status: 'backlog', priority: false },
+    ];
+
+    const quickWins = [
+      { keyword: 'marilyn vos savant', position: 11.5, impressions: 1014 },
+      { keyword: 'john taylor gatto', position: 11.6, impressions: 935 },
+      { keyword: 'free homeschool resources', position: 15.4, impressions: 641 },
+      { keyword: 'free homeschool curriculum', position: 12.4, impressions: 606 },
+      { keyword: 'lexia', position: 17.3, impressions: 363 },
+      { keyword: 'john gatto', position: 11.0, impressions: 343 },
+      { keyword: 'typing com', position: 11.7, impressions: 334 }
+    ];
+
+    const calendarData = [
+      // January 2026
+      { week: 'Jan 6-10', items: [
+        { title: 'Outschool vs OpenEd', project: 'versus', day: 1 }
+      ]},
+      { week: 'Jan 13-17', items: [
+        { title: 'Nevada Homeschool Guide', project: 'state-pages', day: 2 }
+      ]},
+      { week: 'Jan 20-24', items: [
+        { title: 'Military Families Guide', project: 'article-factory', day: 3 }
+      ]},
+      { week: 'Jan 27-31', items: [
+        { title: 'ADHD Homeschool Guide', project: 'article-factory', day: 4 }
+      ]},
+      // February 2026
+      { week: 'Feb 3-7', items: [
+        { title: 'Oregon Guide (Publish)', project: 'state-pages', day: 1 },
+        { title: 'Utah Guide (Publish)', project: 'state-pages', day: 3 }
+      ]},
+      { week: 'Feb 10-14', items: [
+        { title: 'IXL vs Exact Path', project: 'versus', day: 2 }
+      ]},
+      { week: 'Feb 17-21', items: [
+        { title: 'Justin Skycak Article', project: 'guest-contributors', day: 1 }
+      ]},
+      { week: 'Feb 24-28', items: [
+        { title: 'Kindergarten Curriculum', project: 'grade-guides', day: 2 }
+      ]}
+    ];
+
+    // Render functions
+    function renderProjectList() {
+      const list = document.getElementById('project-list');
+      list.innerHTML = projects.map(p => {
+        const projectCards = cards.filter(c => c.project === p.id);
+        const published = projectCards.filter(c => c.status === 'published').length;
+        const pct = Math.round((published / p.target) * 100);
+
+        return `
+          <div class="project-item ${state.selectedProject === p.id ? 'active' : ''}"
+               data-project="${p.id}" onclick="selectProject('${p.id}')">
+            <div class="project-icon" style="background: ${p.color}">${p.icon}</div>
+            <span class="project-name">${p.name}</span>
+            <div class="progress-ring">
+              <svg width="32" height="32">
+                <circle class="progress-ring-bg" cx="16" cy="16" r="12"></circle>
+                <circle class="progress-ring-fill" cx="16" cy="16" r="12"
+                  stroke="${p.color}"
+                  stroke-dasharray="${75.4}"
+                  stroke-dashoffset="${75.4 - (75.4 * pct / 100)}">
+                </circle>
+              </svg>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderKanban() {
+      const board = document.getElementById('kanban-board');
+      const filteredCards = state.selectedProject === 'all'
+        ? cards
+        : cards.filter(c => c.project === state.selectedProject);
+
+      board.innerHTML = columns.map(col => {
+        const colCards = filteredCards.filter(c => c.status === col.id);
+        return `
+          <div class="kanban-column">
+            <div class="column-header">
+              <div class="column-dot" style="background: ${col.color}"></div>
+              <span class="column-title">${col.name}</span>
+              <span class="column-count">${colCards.length}</span>
+            </div>
+            <div class="column-cards">
+              ${colCards.map(card => renderCard(card)).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderCard(card) {
+      const project = projects.find(p => p.id === card.project);
+      return `
+        <div class="card ${state.selectedCard?.id === card.id ? 'selected' : ''}"
+             onclick="selectCard(${card.id})">
+          <div class="card-title">${card.title}</div>
+          <div class="card-meta">
+            <span class="card-tag project" style="background: ${project.color}20; color: ${project.color}">
+              ${project.name}
+            </span>
+            ${card.priority ? '<span class="card-tag priority">Priority</span>' : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderQuickWins() {
+      const grid = document.getElementById('quick-wins-grid');
+      grid.innerHTML = quickWins.map(kw => `
+        <div class="keyword-card">
+          <div class="keyword-name">${kw.keyword}</div>
+          <div class="keyword-stats">
+            <div class="keyword-position">#${kw.position}</div>
+            <div class="keyword-impressions">${kw.impressions.toLocaleString()} imp/mo</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById('calendar-grid');
+      const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      const startWeek = state.calendarMonth * 4;
+      const weeks = calendarData.slice(startWeek, startWeek + 4);
+
+      let html = '<div class="calendar-cell header"></div>';
+      html += days.map(d => `<div class="calendar-cell header">${d}</div>`).join('');
+
+      weeks.forEach(week => {
+        html += `<div class="calendar-cell week-label">${week.week}</div>`;
+        for (let i = 0; i < 7; i++) {
+          const dayItems = week.items.filter(item => item.day === i);
+          html += `<div class="calendar-cell">
+            ${dayItems.map(item => {
+              const project = projects.find(p => p.id === item.project);
+              return `<div class="calendar-item" style="border-color: ${project.color}">${item.title}</div>`;
+            }).join('')}
+          </div>`;
+        }
+      });
+
+      grid.innerHTML = html;
+
+      document.getElementById('calendar-month').textContent =
+        state.calendarMonth === 0 ? 'January 2026' : 'February 2026';
+    }
+
+    function updateMasterProgress() {
+      const published = cards.filter(c => c.status === 'published').length;
+      const pct = (published / 92) * 100;
+      document.getElementById('total-published').textContent = published;
+      document.getElementById('master-progress-fill').style.width = pct + '%';
+      document.getElementById('all-count').textContent = cards.length;
+    }
+
+    function updatePrompt() {
+      const prompt = document.getElementById('prompt-text');
+
+      if (!state.selectedCard) {
+        prompt.textContent = 'Select a card to see actions...';
+        return;
+      }
+
+      const card = state.selectedCard;
+      const project = projects.find(p => p.id === card.project);
+      const col = columns.find(c => c.id === card.status);
+
+      let action = '';
+      if (card.status === 'backlog') {
+        action = `Start research for "${card.title}" - gather sources, identify keywords, outline structure.`;
+      } else if (card.status === 'research') {
+        action = `Begin drafting "${card.title}" - use the research to create first draft following SEO guidelines.`;
+      } else if (card.status === 'drafting') {
+        action = `Review "${card.title}" - run through quality loop, check for AI tells, verify SEO optimization.`;
+      } else if (card.status === 'review') {
+        action = `Publish "${card.title}" to Webflow - final checks complete, ready for deployment.`;
+      } else {
+        action = `"${card.title}" is published. Monitor performance in GA4/GSC.`;
+      }
+
+      prompt.textContent = action;
+    }
+
+    // Interactions
+    function selectProject(id) {
+      state.selectedProject = id;
+      state.selectedCard = null;
+
+      document.querySelectorAll('.project-item').forEach(el => {
+        el.classList.toggle('active', el.dataset.project === id);
+      });
+
+      renderKanban();
+      updatePrompt();
+    }
+
+    function selectCard(id) {
+      const card = cards.find(c => c.id === id);
+
+      if (state.selectedCard?.id === id) {
+        // Double click - open move modal
+        openMoveModal(card);
+      } else {
+        state.selectedCard = card;
+        renderKanban();
+        updatePrompt();
+      }
+    }
+
+    function openMoveModal(card) {
+      document.getElementById('move-modal').classList.add('active');
+      document.getElementById('move-card-title').textContent = card.title;
+
+      const options = document.getElementById('move-options');
+      options.innerHTML = columns.map(col => `
+        <button class="move-option" onclick="moveCard('${col.id}')">
+          Move to ${col.name}
+        </button>
+      `).join('');
+    }
+
+    function closeMoveModal() {
+      document.getElementById('move-modal').classList.remove('active');
+    }
+
+    function moveCard(newStatus) {
+      if (state.selectedCard) {
+        const card = cards.find(c => c.id === state.selectedCard.id);
+        card.status = newStatus;
+        closeMoveModal();
+        renderKanban();
+        renderProjectList();
+        updateMasterProgress();
+        updatePrompt();
+      }
+    }
+
+    function switchView(view) {
+      state.currentView = view;
+      document.querySelectorAll('.view-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.textContent.toLowerCase() === view);
+      });
+
+      document.getElementById('kanban-view').classList.toggle('hidden', view !== 'kanban');
+      document.getElementById('calendar-view').classList.toggle('active', view === 'calendar');
+
+      if (view === 'calendar') {
+        renderCalendar();
+      }
+    }
+
+    function prevMonth() {
+      if (state.calendarMonth > 0) {
+        state.calendarMonth--;
+        renderCalendar();
+      }
+    }
+
+    function nextMonth() {
+      if (state.calendarMonth < 1) {
+        state.calendarMonth++;
+        renderCalendar();
+      }
+    }
+
+    function addNewCard() {
+      const title = prompt('Enter content title:');
+      if (title) {
+        const projectId = state.selectedProject === 'all' ? 'article-factory' : state.selectedProject;
+        cards.push({
+          id: cards.length + 1,
+          title: title,
+          project: projectId,
+          status: 'backlog',
+          priority: false
+        });
+        renderKanban();
+        renderProjectList();
+        updateMasterProgress();
+      }
+    }
+
+    function copyPrompt() {
+      const text = document.getElementById('prompt-text').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Prompt';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Initialize
+    function init() {
+      renderProjectList();
+      renderKanban();
+      renderQuickWins();
+      updateMasterProgress();
+      updatePrompt();
+    }
+
+    init();
+  </script>
+</body>
+</html>

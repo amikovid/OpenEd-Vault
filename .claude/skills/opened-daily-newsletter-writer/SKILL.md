@@ -11,6 +11,61 @@ Creates Monday-Thursday daily newsletters (500-800 words) that challenge standar
 
 ---
 
+## Voice Priming (Read First)
+
+**Before writing, read these examples.** They're from Pirate Wires, adapted for OpenEd's family-friendly audience. Internalize the rhythm, then write in this style for education content.
+
+---
+
+### Example 1: Calling Out the Obvious
+
+> "A new MIT study claims LLM users 'consistently underperform' on neural and linguistic tests — and AI doomers are obsessed. A professor on Bluesky declares the 'death knell' of AI, and normies are 'terrified' ChatGPT will rot our brains. Of course, none of them read the 206-page report, which reveals 18 college students had 20min to write essays based on (boring) SAT prompts using only ChatGPT. They could barely recall what they 'wrote,' meaning they just copy/pasted, and their brain activity diminished. I mean, obviously, doing nothing tanks your brain activity (thank you, science)."
+
+**Use when:** Media spin on data, expert consensus that misses the obvious
+
+---
+
+### Example 2: The "You're the Problem" Flip
+
+> "Two things: unstructured time is the fundamental substrate for creativity. And, uh, have you guys tried just... dealing with this? Take away their devices. Give them chores. Chalk. Challenges. You don't have to pay for your kids to play outside. You can just force them to, for free. Take it from my boomer dad, who used to lock us out of the house in 100-degree heat. When we were thirsty, we drank from the hose, and nobody died. O accursed parents of modernity, you've forgotten that you guys are literally adults. Make choices, face consequences. It's gonna be OK."
+
+**Use when:** Parents/institutions blame external factors for problems they could solve
+
+---
+
+### Example 3: The "Let's Be Honest" Approach
+
+> "Last week, former OpenAI CTO Mira Murati raised $2 billion in seed funding (!) for her stealth AI startup, Thinking Machines Lab, valuing the six-month-old company at around $10 billion with, from best I can tell, no product or business... I think it's safe to say we've reached the 'irrational exuberance' stage of the AI hype cycle — but let's remember these guys are trying to catalyze a utopian singularity, which probably can't be overhyped? Then, just in terms of the salaries, I'm glad America is paying our star nerds more than our star basketball players (finally). Sorry haters, the only problem I see here is my own slow start."
+
+**Use when:** Admitting unpopular opinions, cutting through BS, honest about motivations
+
+---
+
+### Example 4: Ironic Contrast
+
+> "Bay Area electrical engineer Patrick McCabe has created an app called Solve SF that allows city residents to file 311 reports about issues like poop on the sidewalk in as little as 10 seconds, far faster than the city's official 311 app. Unfortunately, because nice things are illegal in San Francisco, the city is about to effectively shut down Solve SF when they discontinue use of the API it runs on, citing maintenance costs (don't worry, there's still budget for needle distribution)."
+
+**Use when:** Showing the gap between what institutions prioritize vs. what actually matters
+
+---
+
+### Voice Patterns to Use
+
+- **"Of course, none of them..."** — calling out the obvious
+- **"I mean, obviously..."** — before stating what should be self-evident
+- **Parenthetical asides** — "(thank you, science)" or "(from best I can tell, no product)"
+- **"(Rhetorical question. We all know why.)"** — when the answer is obvious
+- **Strong point of view** — no hedging, say what you think
+
+### Voice Patterns to Avoid
+
+- Staccato fragments: "100,000 tutors. 90+ languages. Results." → Write flowing sentences
+- Correlative constructions: "X isn't just Y — it's Z" → Find another way
+- Fake questions: "What if schools actually taught kids to think?" → Just tell them
+- Hedging: "might," "could," "possibly" → Be confident
+
+---
+
 ## Content Workflow Order
 
 **Full content drop order of operations:**
@@ -265,41 +320,15 @@ When multiple sources are provided with body text to reference, **hyperlink ALL 
 
 ---
 
-## Voice & Writing Style
+## Voice Reminders
 
-**Read these examples before writing. This is the voice.**
+**See "Voice Priming" section at top of this file for full examples.**
 
-### Example 1: AI Study (calling out the obvious)
-
-> "A new MIT study claims LLM users 'consistently underperform' on neural and linguistic tests — and AI doomers are obsessed. A professor on Bluesky declares the 'death knell' of AI, and normies are 'terrified' ChatGPT will rot our brains. Of course, none of them read the 206-page report, which reveals 18 college students had 20min to write essays based on (boring) SAT prompts using only ChatGPT. They could barely recall what they 'wrote,' meaning they just copy/pasted, lol, and their brain activity diminished. I mean, obviously, doing nothing tanks your brain activity (thank you, science)."
-
-### Example 2: Parent authority (the "you're the problem" move)
-
-> "Two things: unstructured time is the fundamental substrate for creativity. And, uh, have you guys tried just… dealing with this? Take away their devices. Give them chores. Chalk. Challenges. You don't have to pay for your kids to play outside. You can just force them to, for free. Take it from my boomer dad, who used to lock us out of the house in 100-degree heat. When we were thirsty, we drank from the hose, and nobody died lol. O accursed parents of modernity, you've forgotten that you guys are literally adults. Make choices, face consequences. It's gonna be OK."
-
-### Example 3: AI funding (let's be honest)
-
-> "Last week, former OpenAI CTO Mira Murati raised $2 billion in seed funding (!) for her stealth AI startup, Thinking Machines Lab, valuing the six-month-old company at around $10 billion with, from best I can tell, no product or business. I think it's safe to say we've reached the 'irrational exuberance' stage of the AI hype cycle — but let's remember these guys are trying to catalyze a utopian singularity, which probably can't be overhyped? Then, just in terms of the salaries, I'm glad America is paying our star nerds more than our star basketball players (finally). Sorry haters, the only problem I see here is my own slow start."
-
-### What makes these work
-
-- **Complete flowing sentences** - not fragments
-- **Parentheticals are rare and punchy** - "(from best I can tell, no product or business)"
-- **Says what everyone thinks** - "Of course, none of them read..."
-- **Confident, not snarky** - states observations directly
-- **Casual interjections** - "lol," "I mean," - but sparingly
-
-### Tone: Curious > Accusatory
-
-Notice gaps, don't blame. Let readers draw conclusions.
-
-**Bad:** "Schools prioritize fun over learning. Educators are failing our kids."
-
-**Good:** "Skycak's point isn't that educators are villains. It's that maximizing learning isn't the only thing schools are trying to do."
-
-### Hard Blocks
-
-Load `ai-tells` skill for banned words and patterns. The #1 tell: correlative constructions ("X isn't just Y - it's Z").
+Key reminders:
+- **Tone: Curious > Accusatory** — Notice gaps, don't blame. Let readers draw conclusions.
+- **Bad:** "Schools prioritize fun over learning. Educators are failing our kids."
+- **Good:** "Skycak's point isn't that educators are villains. It's that maximizing learning isn't the only thing schools are trying to do."
+- Load `ai-tells` skill for banned words. The #1 tell: correlative constructions ("X isn't just Y - it's Z").
 
 ---
 
@@ -387,14 +416,13 @@ cp [working-folder]/Newsletter_FINAL.md daily-newsletter-workflow/examples/[YYYY
 
 ## Reference Files
 
-**Primary voice reference (LOAD BEFORE WRITING):**
-- `.claude/skills/ghostwriter/references/pirate-wires-examples.md` - 11 real examples of the voice
+**Voice examples:** See "Voice Priming" section at top of this file (inline, no load needed)
 
-**Opening letter examples:**
-- `references/opening-letter-patterns.md` - Charlie's actual openings
+**For more techniques:** `references/pirate-wires-segment-techniques.md` - 7 techniques with TTT application tables
 
-**Content resources:**
-- [Tool Database](../../../Studio/Lead Magnet Project/OpenEd_Tool_Database.md)
+**Opening letter examples:** `references/opening-letter-patterns.md` - Charlie's actual openings
+
+**Content resources:** [Tool Database](../../../Studio/Lead Magnet Project/OpenEd_Tool_Database.md)
 
 **Related skills:**
 - `ai-tells` - Hard blocks (correlatives, banned words)

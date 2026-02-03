@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS Curation Dashboard</title>
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --bg-card: #ffffff;
+      --bg-hover: #faf7f2;
+      --border: #e8e2d9;
+      --text: #37352f;
+      --text-muted: #9b9a97;
+      --accent: #2eaadc;
+      --green: #0f7b6c;
+      --orange: #d9730d;
+      --red: #e03e3e;
+      --purple: #9065b0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 4px; }
+    h2 { font-size: 0.875rem; font-weight: 400; color: var(--text-muted); margin-bottom: 20px; }
+    .dashboard { max-width: 900px; margin: 0 auto; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    .stat-card .label { color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-card .value { font-size: 1.5rem; font-weight: 600; color: var(--text); }
+    .stat-card.definitely .value { color: var(--green); }
+    .stat-card.probably .value { color: var(--orange); }
+    .stat-card.new .value { color: var(--accent); }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .toolbar select {
+      padding: 8px 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    .toolbar select:focus { outline: none; border-color: var(--accent); }
+    .showing { color: var(--text-muted); font-size: 0.8rem; margin-left: auto; }
+
+    .save-btn {
+      padding: 8px 16px;
+      background: var(--green);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .save-btn:hover { opacity: 0.9; }
+    .save-btn.saved { background: var(--purple); }
+
+    .item-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .item {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      transition: background 0.1s;
+    }
+    .item:last-child { border-bottom: none; }
+    .item:hover { background: var(--bg-hover); }
+    .item-main { flex: 1; min-width: 0; }
+    .item-title {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .item-title:hover { color: var(--accent); }
+    .item-meta {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .badge-definitely { background: #dbeddb; color: var(--green); }
+    .badge-probably { background: #fdecc8; color: var(--orange); }
+    .badge-no { background: #e8e2d9; color: var(--text-muted); }
+    .badge-new { background: #d3e5ef; color: var(--accent); }
+    .badge-published { background: #e8deee; color: var(--purple); }
+    .badge-rejected { background: #e8e2d9; color: var(--text-muted); }
+
+    .item-actions { display: flex; gap: 6px; flex-shrink: 0; }
+    .btn {
+      padding: 6px 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: all 0.1s;
+    }
+    .btn:hover { background: var(--border); }
+    .btn-publish { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn-publish:hover { opacity: 0.9; background: var(--green); }
+    .btn-reject { background: var(--bg); color: var(--text-muted); }
+
+    .empty { padding: 40px; text-align: center; color: var(--text-muted); }
+
+    .save-section {
+      margin-top: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .save-section h3 { font-size: 0.9rem; margin-bottom: 8px; }
+    .save-section p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
+    .save-section textarea {
+      width: 100%;
+      height: 120px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: "SF Mono", Monaco, monospace;
+      font-size: 0.7rem;
+      padding: 10px;
+      resize: vertical;
+    }
+    .save-section .btn-row { display: flex; gap: 8px; margin-top: 10px; }
+    .copy-btn {
+      padding: 8px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .copy-btn:hover { background: var(--border); }
+
+    .feedback-section {
+      margin-top: 16px;
+      padding: 16px;
+      background: #fef6e7;
+      border: 1px solid #f0d9b5;
+      border-radius: 8px;
+    }
+    .feedback-section h3 { font-size: 0.9rem; color: var(--orange); margin-bottom: 8px; }
+    .feedback-section pre {
+      font-size: 0.75rem;
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>📡 RSS Curation Dashboard</h1>
+    <h2>Last run: <span id="last-run"></span></h2>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="label">Total</div><div class="value" id="stat-total">0</div></div>
+      <div class="stat-card definitely"><div class="label">Definitely</div><div class="value" id="stat-definitely">0</div></div>
+      <div class="stat-card probably"><div class="label">Probably</div><div class="value" id="stat-probably">0</div></div>
+      <div class="stat-card new"><div class="label">New</div><div class="value" id="stat-new">0</div></div>
+      <div class="stat-card"><div class="label">Used</div><div class="value" id="stat-published">0</div></div>
+      <div class="stat-card"><div class="label">Skipped</div><div class="value" id="stat-rejected">0</div></div>
+    </div>
+
+    <div class="toolbar">
+      <select id="filter-status" onchange="render()">
+        <option value="new">New only</option>
+        <option value="all">All statuses</option>
+        <option value="published">Used</option>
+        <option value="rejected">Skipped</option>
+      </select>
+      <select id="filter-score" onchange="render()">
+        <option value="all">All scores</option>
+        <option value="definitely">DEFINITELY</option>
+        <option value="probably">PROBABLY</option>
+        <option value="no">NO</option>
+      </select>
+      <select id="filter-source" onchange="render()">
+        <option value="all">All sources</option>
+      </select>
+      <span class="showing" id="showing"></span>
+      <button class="save-btn" onclick="saveChanges()">💾 Save Changes</button>
+    </div>
+
+    <div class="item-list" id="items"></div>
+
+    <div class="save-section">
+      <h3>Export Changes</h3>
+      <p>Copy this JSON and paste it back to Claude to save, or save directly to tracking.json</p>
+      <textarea id="export" readonly></textarea>
+      <div class="btn-row">
+        <button class="copy-btn" onclick="copyExport()">Copy JSON</button>
+        <button class="copy-btn" onclick="showFeedback()">Show Feedback Summary</button>
+      </div>
+    </div>
+
+    <div class="feedback-section" id="feedback" style="display:none;">
+      <h3>📊 Feedback for Scoring Refinement</h3>
+      <pre id="feedback-text"></pre>
+    </div>
+  </div>
+
+  <script>
+    // Embedded data
+    const data = {"lastRun":"2026-02-02T08:33:16.810736","items":{"https://reason.com/2026/01/29/how-a-kids-soccer-game-became-a-child-welfare-case/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"Lenore Skenazy","title":"How a Kids' Soccer Game Became a Child Welfare Case"},"https://blog.bravewriter.com/2026/01/28/podcast-active-wondering/":{"firstSeen":"2026-01-28","score":"definitely","status":"new","source":"Brave Writer","title":"[Podcast #324] The Practice of Active Wondering"},"https://www.reddit.com/r/homeschool/comments/1qqd3d8/homeschooling_dads_how_do_you_navigate_the/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"Homeschooling dads - how do you navigate the mom-dominated social scene?"},"https://www.reddit.com/r/homeschool/comments/1qq1yxd/considering_online_homeschool_options_with_live/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"considering online homeschool options with live classes"},"https://www.reddit.com/r/homeschool/comments/1qqfk27/winter_olympics_unit_study/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"Winter Olympics unit study"},"https://www.reddit.com/r/homeschool/comments/1qqh2v5/supplementing_with_workbooks/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"Supplementing with workbooks"},"https://www.reddit.com/r/homeschool/comments/1qqczy4/good_printer_for_home_use_at_the_moment/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"Good printer for home use?"},"https://www.reddit.com/r/homeschool/comments/1qqck5t/3rd_grade_math/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"3rd Grade Math"},"https://www.reddit.com/r/homeschool/comments/1qqhoie/homeschooling_in_texas/":{"firstSeen":"2026-01-29","score":"definitely","status":"new","source":"r/homeschool","title":"Homeschooling in Texas?"},"https://michaelbhorn.substack.com/p/foreword-to-virtual-schools-actual":{"firstSeen":"2026-01-29","score":"probably","status":"new","source":"Michael B. Horn","title":"Foreword to Virtual Schools, Actual Learning"},"https://simplycharlottemason.com/blog/how-to-teach-history-the-charlotte-mason-way/":{"firstSeen":"2026-01-29","score":"probably","status":"new","source":"Simply Charlotte Mason","title":"How to Teach History the Charlotte Mason Way"},"https://nheri.org/a-heuristic-model-to-guide-the-study-of-homeschoolers-academic-competence-by-carlos-valiente-tracy-l-spinrad-nancy-eisenberg-brian-d-ray/":{"firstSeen":"2026-01-29","score":"probably","status":"new","source":"NHERI","title":"A Heuristic Model to Guide the Study of Homeschoolers' Academic Competence"},"https://www.the74million.org/article/study-98-of-teens-have-school-cellphone-bans-but-majority-dont-follow-them/":{"firstSeen":"2026-01-29","score":"probably","status":"new","source":"The 74 Million","title":"Study: 98% of Teens Attend Schools Limiting Cellphones"},"https://www.chalkbeat.org/2026/01/29/should-schools-replace-snow-days-with-virtual-learning-and-remote-instruction/":{"firstSeen":"2026-01-29","score":"probably","status":"new","source":"Chalkbeat","title":"The downside of ending snow days"},"https://michaelbhorn.substack.com/p/using-ai-to-make-math-more-accessible":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Michael B. Horn","title":"Using AI to Make Math More Accessible"},"https://michaelbhorn.substack.com/p/ai-reality-check-and-is-grade-inflation":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Michael B. Horn","title":"AI Reality Check and Is Grade Inflation Deflating Trust in Schools?"},"https://freddiedeboer.substack.com/p/announcing-my-next-book-all-in-your":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Freddie deBoer","title":"Announcing My Next Book, All in Your Head: Illness as Identity, Trauma as Fashion, and the Desire to"},"https://freddiedeboer.substack.com/p/the-machine-gods-existence-would":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Freddie deBoer","title":"The Machine God's Existence Would Insist Upon Itself, Wouldn't It?"},"https://freddiedeboer.substack.com/p/inherent-vice-is-pt-andersons-best":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Freddie deBoer","title":"Inherent Vice is PT Anderson's Best Film"},"https://www.robkhenderson.com/p/the-billiard-ball-theory-of-human":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Rob Henderson","title":"The Billiard-Ball Theory of Human Nature"},"https://www.robkhenderson.com/p/men-have-grown-twice-as-much-as-women":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Rob Henderson","title":"Men Have Grown Twice As Much As Women Over Past Century"},"https://letgrow.org/mama-bear-and-the-5th-grade-bullying-incident/":{"firstSeen":"2026-02-02","score":"definitely","status":"new","source":"Let Grow","title":"Mama Bear and the 5th Grade Bullying Incident"},"https://blog.bravewriter.com/2026/01/30/importance-of-handwriting/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Brave Writer","title":"The Importance of Handwriting in the Age of AI"},"https://homeschoolhideout.com/how-summer-football-camps-can-boost-physical-skills-and-social-growth-for-homeschooled-kids/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Homeschool Hideout","title":"How Summer Football Camps Can Boost Physical Skills and Social Growth for Homeschooled Kids"},"https://homeschoolboss.com/2026/02/navigating-school-choice-funding-your-homeschool-journey/?utm_source=rss&utm_medium=rss&utm_campaign=navigating-school-choice-funding-your-homeschool-journey":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Homeschool Boss","title":"Navigating School Choice: Funding Your Homeschool Journey"},"https://raisinglifelonglearners.com/a-playful-low-stress-way-to-celebrate-groundhog-day-in-your-homeschool/?utm_source=rss&utm_medium=rss&utm_campaign=a-playful-low-stress-way-to-celebrate-groundhog-day-in-your-homeschool":{"firstSeen":"2026-02-02","score":"definitely","status":"new","source":"Raising Lifelong Learners","title":"A Playful, Low-Stress Way to Celebrate Groundhog Day in Your Homeschool"},"https://classicalconversations.com/blog/classical-education-myth-1-rote-memorization/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Classical Conversations","title":"Classical Education Myth #1: It's Just Rote Memorization (Here's The Truth)"},"https://classicalconversations.com/blog/classical-conversations-reviews/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Classical Conversations","title":"Classical Conversations Reviews: What 3,900+ Parents Really Say About CC"},"https://classicalconversations.com/blog/best-homeschool-field-trips-in-seattle/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Classical Conversations","title":"Best Homeschool Field Trips in Seattle: A Classical Education Guide"},"https://www.memoriapress.com/articles/letter-from-the-editor-teaching-as-soulcraft/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Memoria Press","title":"Letter from the Editor: Teaching as Soulcraft"},"https://www.memoriapress.com/articles/the-end-of-an-era-the-continuance-of-a-mission/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Memoria Press","title":"The End of an Era, the Continuance of a Mission"},"https://www.the74million.org/zero2eight/when-disasters-disrupt-child-care-her-nonprofit-is-a-lifeline-for-parents/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"When Disasters Disrupt Child Care, Her Nonprofit is a Lifeline for Parents"},"https://www.the74million.org/article/when-states-take-over-education-it-puts-black-children-last-in-line-every-time/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"The 74 Million","title":"Opinion: When States Take Over Education, It Puts Black Children Last in Line, Every Time"},"https://www.the74million.org/article/ai-trailblazer-google-doesnt-want-schools-to-bypass-the-human/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"AI Trailblazer Google Doesn't Want Schools to 'Bypass the Human'"},"https://www.the74million.org/article/how-this-school-chef-is-building-healthy-habits-one-vegetable-at-a-time/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"How This School Chef Is Building Healthy Habits One Vegetable at a Time"},"https://www.the74million.org/article/if-we-care-about-learning-we-must-care-about-kids-oral-health/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"Opinion: If We Care About Learning, We Must Care About Kids' Oral Health"},"https://www.the74million.org/article/iowa-governor-hopefuls-discuss-education-health-care-at-moms-for-liberty-debate/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"The 74 Million","title":"Iowa Governor Hopefuls Discuss Education, Health Care at Moms for Liberty Debate"},"https://www.the74million.org/article/these-kids-are-invisible-child-abuse-deaths-spur-clash-over-homeschool-regulation/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"'These Kids Are Invisible': Child Abuse Deaths Spur Clash Over Homeschool Regulation"},"https://www.the74million.org/article/hawaii-could-see-nations-highest-drop-in-high-school-graduates/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"Hawaii Could See Nation's Highest Drop In High School Graduates"},"https://www.the74million.org/zero2eight/here-are-the-early-childhood-services-that-might-pause-if-government-shuts-down-again/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"The 74 Million","title":"Here Are the Early Childhood Services that Might Pause if Government Shuts Down Again"},"https://www.the74million.org/article/how-ai-is-helping-nyc-english-teachers-improve-middle-school-reading-and-writing/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"The 74 Million","title":"Opinion: How AI Is Helping NYC English Teachers Improve Middle School Reading and Writing"},"https://www.gettingsmart.com/2026/02/02/confidence-engagement-and-love-the-missing-alumni-data-that-will-transform-k-12/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Getting Smart","title":"Confidence, Engagement, and Love: The Missing Alumni Data that Will Transform K-12"},"https://www.gettingsmart.com/2026/01/30/what-if-you-could-bring-the-restorative-benefits-of-nature-indoors/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Getting Smart","title":"What If You Could Bring the Restorative Benefits of Nature Indoors?"},"https://www.gettingsmart.com/2026/01/29/from-fringe-to-policy-how-ai-is-shifting-the-overton-window-in-k-12-education/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Getting Smart","title":"From Fringe to Policy: How AI Is Shifting the Overton Window in K-12 Education"},"https://www.gettingsmart.com/2026/01/28/measuring-what-matters-and-doing-it-well-innovating-assessment-in-the-ai-era/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Getting Smart","title":"Measuring What Matters and Doing it Well: Innovating Assessment in the AI Era"},"https://www.chalkbeat.org/philadelphia/2026/02/02/bulletproof-vests-coming-for-philly-school-safety-officers/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Chalkbeat","title":"Philadelphia school safety officers to get bulletproof vests, handcuffs, and new uniforms next fall"},"https://www.chalkbeat.org/colorado/2026/01/31/denver-teachers-students-march-on-day-of-nationwide-ice-protests/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Chalkbeat","title":"'People shouldn't live in fear': Denver students and teachers protest Trump immigration actions"},"https://www.chalkbeat.org/detroit/2026/01/31/hundreds-of-detroit-students-walk-out-of-school-to-protest-ice/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Chalkbeat","title":"Hundreds of Detroit students walk out of class to protest federal immigration enforcement"},"https://www.chalkbeat.org/newark/2026/01/27/new-jersey-renews-22-charter-school-agreements-nine-enrollment-expansions/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Chalkbeat","title":"New Jersey renews 22 charter school agreements and nine enrollment expansions, including two in Newa"},"https://www.chalkbeat.org/colorado/2026/01/30/colorado-school-finance-filed-early-amid-budget-pressures/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Chalkbeat","title":"Colorado lawmakers file the School Finance Act early. But will that really help districts?"},"https://www.chalkbeat.org/newyork/2026/01/30/nyc-3k-prek-application-surge-as-mamdani-expands-outreach-effort/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Chalkbeat","title":"NYC 3-K and pre-K applications: 50,000 families apply in 2 weeks"},"https://www.chalkbeat.org/tennessee/2026/01/30/snow-day-weather-closures/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Chalkbeat","title":"What happens when Tennessee schools run out of weather days?"},"https://www.chalkbeat.org/philadelphia/2026/01/30/give-feedback-on-the-school-closure-proposal/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Chalkbeat","title":"Here's how to give feedback on Philadelphia's school closure proposal"},"https://www.chalkbeat.org/indiana/2025/12/08/education-bills-2026-legislative-session/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Chalkbeat","title":"Education bill tracker: Indiana lawmakers advance bills on Indianapolis schools, cell phones, and mo"},"https://www.chalkbeat.org/detroit/2026/01/30/detroit-public-schools-2016-education-timeline/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Chalkbeat","title":"Timeline: How 2016 was a critical year for the future of Detroit schools"},"https://www.educationnext.org/science-of-memory-goes-to-school-ramirez-how-to-change-a-memory/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Education Next","title":"The Science of Memory Goes to School"},"https://www.educationnext.org/the-education-exchange-public-educations-no-good-very-bad-century-so-far/":{"firstSeen":"2026-02-02","score":"no","status":"new","source":"Education Next","title":"The Education Exchange: Public Education's No Good, Very Bad Century (So Far)"},"https://www.educationnext.org/the-culture-war-on-repeat-book-review-willing-warriors-mark-hlavacik/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Education Next","title":"The Culture War on Repeat"},"https://www.educationnext.org/readings-thin-line-between-difficult-and-boring/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Education Next","title":"Reading's Thin Line Between Difficult and Boring"},"https://www.edchoice.org/2026-robotics-ai-and-school-choice/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"EdChoice","title":"Robotics, AI, and School Choice: A Conversation with Jennifer Wolverton of MARS Microschool"},"https://www.edchoice.org/2026-announcing-staff-promotions-and-new-roles-at-edchoice/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"EdChoice","title":"Announcing Staff Promotions and New Roles at EdChoice"},"https://www.edchoice.org/2026-from-universal-eligibility-to-universal-access-the-next-phase-of-school-choice/":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"EdChoice","title":"From Universal Eligibility to Universal Access: The Next Phase of School Choice"},"https://crpe.org/the-debate-over-ai-in-education-is-stuck-lets-move-it-forward-in-responsible-ways-that-truly-serve-students/?utm_source=rss&utm_medium=rss&utm_campaign=the-debate-over-ai-in-education-is-stuck-lets-move-it-forward-in-responsible-ways-that-truly-serve-students":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"CRPE","title":"The Debate over AI in Education Is Stuck. Let's Move It Forward in Responsible Ways That Truly Serve"},"https://crpe.org/think-forward-building-a-coherent-approach-to-ai-in-education/?utm_source=rss&utm_medium=rss&utm_campaign=think-forward-building-a-coherent-approach-to-ai-in-education":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"CRPE","title":"Think Forward: Building a Coherent Approach to AI in Education"},"https://austinscholar.substack.com/p/austin-scholar-202-how-to-teach-your":{"firstSeen":"2026-02-02","score":"probably","status":"new","source":"Austin Scholar","title":"Austin Scholar #202: How to teach your kid creative writing"}},"stats":{"totalTracked":65,"duplicatesPrevented":0}};
+
+    const originalData = JSON.parse(JSON.stringify(data)); // snapshot for diff
+
+    function init() {
+      document.getElementById('last-run').textContent = new Date(data.lastRun).toLocaleString();
+      const sources = [...new Set(Object.values(data.items).map(i => i.source))].sort();
+      const sel = document.getElementById('filter-source');
+      sources.forEach(s => sel.innerHTML += `<option value="${s}">${s}</option>`);
+      render();
+    }
+
+    function render() {
+      const status = document.getElementById('filter-status').value;
+      const score = document.getElementById('filter-score').value;
+      const source = document.getElementById('filter-source').value;
+
+      const items = Object.values(data.items);
+      document.getElementById('stat-total').textContent = items.length;
+      document.getElementById('stat-definitely').textContent = items.filter(i => i.score === 'definitely').length;
+      document.getElementById('stat-probably').textContent = items.filter(i => i.score === 'probably').length;
+      document.getElementById('stat-new').textContent = items.filter(i => i.status === 'new').length;
+      document.getElementById('stat-published').textContent = items.filter(i => i.status === 'published').length;
+      document.getElementById('stat-rejected').textContent = items.filter(i => i.status === 'rejected').length;
+
+      const filtered = Object.entries(data.items)
+        .filter(([url, item]) => {
+          if (status !== 'all' && item.status !== status) return false;
+          if (score !== 'all' && item.score !== score) return false;
+          if (source !== 'all' && item.source !== source) return false;
+          return true;
+        })
+        .sort((a, b) => {
+          const scoreOrder = { definitely: 0, probably: 1, no: 2 };
+          const sA = scoreOrder[a[1].score] ?? 99;
+          const sB = scoreOrder[b[1].score] ?? 99;
+          if (sA !== sB) return sA - sB;
+          return (b[1].firstSeen || '').localeCompare(a[1].firstSeen || '');
+        });
+
+      document.getElementById('showing').textContent = `${filtered.length} items`;
+
+      const container = document.getElementById('items');
+      if (!filtered.length) {
+        container.innerHTML = '<div class="empty">No items match filters</div>';
+        return;
+      }
+
+      container.innerHTML = filtered.map(([url, item]) => `
+        <div class="item">
+          <div class="item-main">
+            <a class="item-title" href="${url}" target="_blank">${item.title || url}</a>
+            <div class="item-meta">
+              <span>${item.source || '?'}</span>
+              <span>${item.firstSeen || '?'}</span>
+              <span class="badge badge-${item.score}">${(item.score || '?').toUpperCase()}</span>
+              <span class="badge badge-${item.status}">${item.status || 'new'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            ${item.status === 'new' ? `
+              <button class="btn btn-publish" onclick="mark('${encodeURIComponent(url)}','published')">✓ Used</button>
+              <button class="btn btn-reject" onclick="mark('${encodeURIComponent(url)}','rejected')">✗ Skip</button>
+            ` : `
+              <button class="btn" onclick="mark('${encodeURIComponent(url)}','new')">↩ Reset</button>
+            `}
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('export').value = JSON.stringify(data, null, 2);
+    }
+
+    function mark(encodedUrl, status) {
+      const url = decodeURIComponent(encodedUrl);
+      if (data.items[url]) {
+        data.items[url].status = status;
+        render();
+      }
+    }
+
+    function saveChanges() {
+      const btn = document.querySelector('.save-btn');
+      navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+      btn.textContent = '✓ Copied to clipboard!';
+      btn.classList.add('saved');
+      setTimeout(() => {
+        btn.textContent = '💾 Save Changes';
+        btn.classList.remove('saved');
+      }, 2000);
+    }
+
+    function copyExport() {
+      navigator.clipboard.writeText(document.getElementById('export').value);
+    }
+
+    function showFeedback() {
+      const used = [];
+      const skipped = [];
+
+      Object.entries(data.items).forEach(([url, item]) => {
+        const orig = originalData.items[url];
+        if (item.status === 'published' && orig.status === 'new') {
+          used.push({ source: item.source, title: item.title, score: item.score });
+        }
+        if (item.status === 'rejected' && orig.status === 'new') {
+          skipped.push({ source: item.source, title: item.title, score: item.score });
+        }
+      });
+
+      let feedback = `KEPT (${used.length}):\n`;
+      used.forEach(i => feedback += `  [${i.score}] ${i.source}: ${i.title}\n`);
+      feedback += `\nSKIPPED (${skipped.length}):\n`;
+      skipped.forEach(i => feedback += `  [${i.score}] ${i.source}: ${i.title}\n`);
+
+      // Identify patterns
+      const skippedSources = {};
+      skipped.forEach(i => skippedSources[i.source] = (skippedSources[i.source] || 0) + 1);
+      const usedSources = {};
+      used.forEach(i => usedSources[i.source] = (usedSources[i.source] || 0) + 1);
+
+      feedback += `\nPATTERNS:\n`;
+      feedback += `  Sources to possibly remove from feed:\n`;
+      Object.entries(skippedSources).filter(([s,c]) => c >= 2 && !usedSources[s]).forEach(([s,c]) => {
+        feedback += `    - ${s} (${c} skipped, 0 used)\n`;
+      });
+
+      document.getElementById('feedback-text').textContent = feedback;
+      document.getElementById('feedback').style.display = 'block';
+    }
+
+    init();
+  </script>
+</body>
+</html>

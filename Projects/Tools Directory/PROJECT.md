@@ -1,38 +1,90 @@
 ---
 name: Tools Directory
-description: Teacher-reviewed curriculum database with E-E-A-T signals from OpenEd staff + parent voices
+description: SEO-optimized curriculum reviews with real teacher voices from OpenEd staff
 status: active
-parent: SEO Content Production
+parent: OpenEd Vault
 created: 2026-01-01
-updated: 2026-01-26
+updated: 2026-02-02
 ---
 
-## Session Starter Prompt
+# Tools Directory
 
-```
-I'm working on the OpenEd Tools Directory - a parent-reviewed curriculum database on Webflow.
+**Goal:** Parent- and teacher-reviewed curriculum database. Real voices, real opinions, SEO-optimized.
 
-Current state:
-- 3 reviews published (Math-U-See, Saxon, Beast Academy)
-- Teaching Textbooks draft ready
-- Webflow CMS connected (collection ID: 6811bc7ab1372f43ab83dec6)
-- 70+ tools mined from Slack with 150+ quotes
-
-Today's focus: [FILL IN - e.g., "Webflow template refactoring" / "Draft 3 more reviews" / "Fix author linking"]
-
-Read the full PROJECT.md at: OpenEd Vault/Projects/Tools Directory/PROJECT.md
-```
+**Published:** 3 / 20 target | **Drafted:** 4 | **Quotes compiled:** 8 tools
 
 ---
 
-## Curriculove Integration (NEW)
+## Current State
 
-**The Flywheel:**
+| Tool | Status | Author | Search Volume |
+|------|--------|--------|---------------|
+| Math-U-See | Published | Rachael Davie | 14.8K |
+| Saxon Math | Published | Rachael Davie | 12.1K |
+| Beast Academy | Published | Danielle Randall | 49.5K |
+| Teaching Textbooks | Drafted | Chelsea Forsythe | 22.2K |
+| Typing.com | Quotes ready | TBD | 33K |
+| Lexia | Quotes ready | TBD | 135K |
+| Prodigy Math | Quotes ready | TBD | 201K |
+| Reading Eggs | Quotes ready | TBD | 74K |
+
+---
+
+## SEO-Prioritized Queue
+
+Prioritized by: search volume, current ranking position, marketplace presence, quote availability.
+
+### Tier 1: Quick Wins (Already Ranking - Push to Page 1)
+
+| Tool | Position | Volume | Quotes | Action |
+|------|----------|--------|--------|--------|
+| **Typing.com** | #11.7 | 33K | 4 | Add Teacher's Take, optimize |
+| **Lexia** | #17.3 | 135K | 5 | Add Teacher's Take, optimize |
+
+### Tier 2: High Volume + In Marketplace
+
+| Tool | Volume | Competition | Quotes | Action |
+|------|--------|-------------|--------|--------|
+| **Prodigy Math** | 201K | 0.01 | 6 | Draft Teacher's Take |
+| **Reading Eggs** | 74K | 0.16 | 5 | Draft Teacher's Take |
+| **Beast Academy** | 49.5K | 0.25 | 8 | Published (add more quotes) |
+
+### Tier 3: Publish Existing Drafts
+
+| Tool | Volume | Status |
+|------|--------|--------|
+| **Teaching Textbooks** | 22.2K | Draft ready, needs Webflow item |
+
+### Tier 4: Future (Compile quotes, then draft)
+
+| Tool | Volume | Notes |
+|------|--------|-------|
+| Khan Academy | 2.24M | Massive volume, review/comparison angle |
+| All About Reading | 14.8K | Rachael has quotes |
+| Singapore Math | 18.1K | Rachael has quotes |
+| Life of Fred | 1.9K | Lower volume but niche audience |
+| Classical Conversations | 22.2K | Not in marketplace |
+| Abeka | 74K | Not in marketplace |
+
+---
+
+## Prioritization Heuristic
+
 ```
-Curriculove quiz → User reviews curricula → Reviews feed Tools Directory → Tools Directory SEO → Traffic discovers Curriculove
+Priority = (Search Volume x Marketplace_Multiplier) / (Competition + 0.1) x Ranking_Bonus
 ```
 
-**Key insight:** Curriculove generates *volume* of reviews (voice-enabled, low friction). Tools Directory needs *depth* (long-form, SEO-optimized). They complement each other:
+- **Marketplace Multiplier:** 2x if in marketplace, 1x if not
+- **Ranking Bonus:** 3x if position 11-20, 1.5x if 21-50, 1x if unranked
+- **Competition:** 0-1 from DataForSEO
+
+---
+
+## Curriculove Flywheel
+
+```
+Curriculove quiz -> User reviews -> Feed Tools Directory -> SEO traffic -> Discover Curriculove
+```
 
 | Curriculove | Tools Directory |
 |-------------|-----------------|
@@ -41,134 +93,49 @@ Curriculove quiz → User reviews curricula → Reviews feed Tools Directory →
 | Quantity play | Quality play |
 | Lead capture | SEO traffic |
 
-**Data flow:**
-1. Curriculove collects quick reviews (stars + highlights + concerns)
-2. Staff reviews aggregate Curriculove data as "What Parents Say"
-3. Tools Directory pages link to Curriculove for "Leave Your Review"
+---
+
+## Review Template
+
+Each review uses the toggle-based Webflow template:
+
+| Section | Content |
+|---------|---------|
+| **Quick Verdict** | One-paragraph OpenEd take |
+| **Teacher's Take** | Named author + headshot, narrative with woven colleague quotes |
+| **What Parents Say** | External community quotes (blogs, forums) |
+| **How It Works** | Subjects, grades, materials, lesson structure |
+| **Pricing** | Costs + cost-saving tips |
+| **FAQs & Alternatives** | Common questions + linked alternatives |
+
+Full writing guidelines: `TEACHERS_TAKE_GUIDELINES.md`
 
 ---
 
-# Tools Directory Project
+## Webflow CMS
 
-**Goal:** Parent-reviewed curriculum/tool database as an SEO play with real voices.
+- **Site:** opened.co/tools
+- **Tools Collection:** `6811bc7ab1372f43ab83dec6`
+- **Authors Collection:** `68089af9024139c740e4b922`
 
-**Q3 Target:** Launch with 20+ initial tool reviews
+### Published Authors
 
----
-
-## Strategic Intent
-
-Most curriculum review sites are:
-- Generic aggregations of other review sites
-- Written by nobody (or ChatGPT)
-- No real perspective or experience
-
-Ours will be:
-- Written by named parents (their byline, their perspective)
-- Based on actual interviews (Ella's pipeline)
-- Real opinions, not hedged everything-is-great reviews
-- SEO-optimized but authentically human
+| Author | Webflow ID | Specialty |
+|--------|------------|-----------|
+| Rachael Davie | `697133d342e4976b0b0f8019` | Math, former HS teacher |
+| Danielle Randall | TBD | Gifted learners |
+| Chelsea Forsythe | TBD | Independent curricula |
 
 ---
 
-## Key Decision: Author Model
+## Workflow
 
-**Option A: One author per tool (SELECTED)**
-- Each review has a named parent author
-- Their byline, their portfolio piece
-- Better for SEO (real author, E-E-A-T signals)
-- Better for community (parents become contributors)
-
-**Option B: Multiple reviews per tool** (future phase)
-- User-generated reviews
-- Rating aggregation
-- Requires account system
-- Save for v2
-
----
-
-## The Ella Interview Pipeline
-
-Ella does interview-style meetings (not podcasts) to gather source material.
-
-**Per interview yield:** ~5 tool reviews
-
-### Interview Template (send to Ella)
-
-**Opening:**
-- How long have you been homeschooling?
-- How many kids, what ages/grades?
-- What's your general approach? (Classical, Charlotte Mason, eclectic, etc.)
-
-**For each curriculum/tool:**
-1. What is it? (Name, subject, grade level)
-2. How long have you used it?
-3. What made you try it?
-4. What do your kids think of it?
-5. What works well?
-6. What doesn't work or who is it NOT for?
-7. How does it fit into your daily/weekly routine?
-8. Would you recommend it? To whom specifically?
-9. Anything you wish you'd known before starting?
-
-**Closing:**
-- What's the one tool you couldn't homeschool without?
-- Any tools you tried and abandoned? Why?
-- What's on your wishlist to try next?
-
----
-
-## Review Structure
-
-Each published review:
-
-```markdown
-# [Tool Name] Review: A [Grade Level] [Subject] Curriculum
-
-**Reviewed by:** [Parent Name], [City, State]
-**Family:** [X] kids, ages [Y-Z]
-**Homeschool style:** [Approach]
-**Used for:** [Duration]
-
-## The Bottom Line
-[One paragraph summary - would they recommend, to whom]
-
-## What We Loved
-- [Specific benefit 1]
-- [Specific benefit 2]
-- [Specific benefit 3]
-
-## What Didn't Work
-- [Honest criticism 1]
-- [Honest criticism 2]
-
-## Who This Is For
-[Specific family types, learning styles, situations]
-
-## Who Should Skip This
-[Honest about who it's NOT for]
-
-## Daily/Weekly Implementation
-[How they actually use it - practical details]
-
-## The Verdict
-[Rating or recommendation level]
-
----
-*[Parent Name] homeschools [X] children in [Location]. [One sentence about their approach or philosophy.]*
-```
-
----
-
-## SEO Targets by Category
-
-| Category | Example Keywords | Search Volume |
-|----------|------------------|---------------|
-| Math | "best homeschool math curriculum" | High |
-| Reading | "teach reading at home" | High |
-| Science | "homeschool science curriculum review" | Medium |
-| History | "classical history curriculum" | Medium |
-| Full Curriculum | "all in one homeschool curriculum" | High |
+1. **Identify target tool** (use SEO priority queue above)
+2. **Pull Slack quotes** (check `teacher-takes-compilation.md` first)
+3. **Draft Teacher's Take** using `TEACHERS_TAKE_GUIDELINES.md`
+4. **Send for teacher approval** via DM (see `permission-requests/`)
+5. **Publish to Webflow** via API
+6. **Monitor rankings** via weekly SEO report
 
 ---
 
@@ -176,139 +143,53 @@ Each published review:
 
 ```
 Tools Directory/
-├── PROJECT.md (this file)
-├── Interview Template.md
-├── Tools/
-│   └── [Tool Name]/
-│       ├── Parent_Interview.md
-│       ├── Review_Draft.md
-│       ├── Review_Final.md
-│       └── Meta.md (SEO keywords, internal links)
-├── Author Guidelines.md
-└── Publishing Calendar.md
+├── PROJECT.md                       <- You are here
+├── TEACHERS_TAKE_GUIDELINES.md      <- Writing voice + structure
+├── TOOL_REVIEW_TEMPLATE.md          <- Full review template
+├── Interview Template.md            <- Ella interview questions
+├── teacher-takes-compilation.md     <- Slack quotes by tool (Feb 2, 2026)
+├── webflow_tools_inventory.json     <- All 76 Webflow tool entries
+├── drafts/
+│   ├── math-u-see-v2.md             PUBLISHED
+│   ├── saxon-math.md                PUBLISHED
+│   ├── beast-academy.md             PUBLISHED
+│   ├── teaching-textbooks.md        READY
+│   └── khan-academy-review-draft.md Older format
+├── permission-requests/             <- Teacher sign-off records
+├── slack-reports/                   <- Raw Slack mining data
+├── Webflow Tools Redesign/          <- Page spec + design
+└── _archive/                        <- Old audit files
 ```
 
 ---
 
-## Webflow CMS Integration
+## Key People
 
-**Site:** opened.co
-**Tools Collection ID:** `6811bc7ab1372f43ab83dec6`
-**Authors Collection ID:** `68089af9024139c740e4b922`
-
-### Field Mapping (E-E-A-T First Structure)
-
-| Toggle Label | CMS Field | Content |
-|--------------|-----------|---------|
-| **Teacher's Take** | `subject-content` | Author byline, review intro, quick verdict, best for / not for |
-| **What Parents Say** | `teaching-format-content` | OpenEd teacher quotes + external quotes (woven as prose) |
-| **How It Works** | `pricing-content` | Subjects, grade levels, materials, lesson structure, parent involvement |
-| **Pricing** | `parent-involvement` | Costs, cost-saving tips |
-| **FAQs & Alternatives** | `parent-feedback-content` | Common questions, alternative curriculum links |
-
-### Publishing via API
-
-```bash
-# Update item
-curl -X PATCH "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}" \
-  -H "Authorization: Bearer $WEBFLOW_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"fieldData": {...}}'
-
-# Publish (required for changes to go live)
-curl -X POST "https://api.webflow.com/v2/collections/{collection_id}/items/publish" \
-  -H "Authorization: Bearer $WEBFLOW_API_KEY" \
-  -d '{"itemIds": ["{item_id}"]}'
-```
+| Person | Role in Project |
+|--------|----------------|
+| **Rachael Davie** | Lead reviewer, math specialist, most quotes |
+| **Danielle Randall** | Beast Academy champion, gifted learners |
+| **Chelsea Forsythe** | Independent curricula perspective |
+| **Karalee Sartin** | Curriculum team, marketplace knowledge |
+| **Keely Shaw-Kueper** | Math-U-See expert (personal + professional) |
+| **Fred** (SEO consultant) | Template feedback, SEO strategy |
 
 ---
 
-## Slack Mining (Source Material)
+## Dependencies
 
-**Report:** `slack-reports/tool-mentions-2026-01-21.md`
-**Tools mined:** 70+ curriculum tools with 150+ authentic teacher quotes
-
-### Top Tools by Quote Volume (prioritize these)
-1. Math-U-See (Rachael Davie - 4 quotes) ✓ DRAFTED
-2. Teaching Textbooks (Chelsea Forsythe)
-3. Saxon Math (Rachael Davie)
-4. Beast Academy (Danielle Randall)
-5. Life of Fred (Morgann Wray)
+- [ ] Teaching Textbooks Webflow item needs creating before publish
+- [ ] Author profile linking (currently hardcoded)
+- [ ] Teacher permission for Typing.com + Lexia + Prodigy + Reading Eggs reviews
+- [ ] External "What Parents Say" quotes for new reviews
 
 ---
 
-## Session Notes (2026-01-22)
+## Google Doc (Teacher Review Drafts)
 
-### Published Reviews (3 live)
-
-| Tool | Author | URL |
-|------|--------|-----|
-| Math-U-See | Rachael Davie | opened.co/tools/math-u-see |
-| Saxon Math | Rachael Davie | opened.co/tools/saxon-math |
-| Beast Academy | Danielle Randall | opened.co/tools/beast-academy-online |
-
-### Template Finalized
-
-- **Teacher's Take** leads with named author, weaves colleague quotes ("My colleague Keely notes...")
-- **What Parents Say** = external community only (blogs, forums)
-- **H2 headers** include tool name for SEO (e.g., "Math-U-See Pricing")
-- **Honest Best For / May Not Fit** lists
-- **Toggles kept** for UX - Google confirms accordion content indexed in mobile-first
-
-### Pending
-
-- **Teaching Textbooks** - Draft ready, needs Webflow item created first
-- **Author links** - Not yet connected to author profiles (hardcoded in template)
-- **External quotes** - What Parents Say sections need more attributed blog quotes
-
-### Authors in Webflow
-
-| Author | ID | Specialty |
-|--------|-----|-----------|
-| Rachael Davie | `697133d342e4976b0b0f8019` | Math, former HS teacher |
-| Danielle Randall | TBD | Gifted learners |
-| Chelsea Forsythe | TBD | Independent curricula |
+Existing draft with Math-U-See, Saxon, Beast Academy, Teaching Textbooks sent to teachers for sign-off:
+`https://docs.google.com/document/d/1omaj39CTcQzP4m1wnVqdsvfC93A3ou4rIu72Y0uUShE/edit`
 
 ---
 
-## Metrics
-
-- **Slack tools mined:** 70+
-- **Reviews drafted:** 4 (Math-U-See, Saxon, Beast Academy, Teaching Textbooks)
-- **Reviews published:** 3 / 20
-
----
-
-## Skills to Chain
-
-- `ghostwriter` - Human voice, anti-AI patterns
-- `ai-tells` - Check for AI writing patterns before publish
-
----
-
-## Drafts Ready
-
-```
-Tools Directory/drafts/
-├── math-u-see-v2.md        ✓ PUBLISHED
-├── saxon-math.md           ✓ PUBLISHED
-├── beast-academy.md        ✓ PUBLISHED
-├── teaching-textbooks.md   READY (needs Webflow item)
-└── khan-academy-review-draft.md  (older format)
-```
-
-## Next Priority Reviews
-
-From Slack mining, by quote volume:
-1. ~~Math-U-See~~ ✓
-2. ~~Saxon Math~~ ✓
-3. ~~Beast Academy~~ ✓
-4. Teaching Textbooks (draft ready)
-5. Life of Fred (Morgann Wray)
-6. All About Reading
-7. Singapore Math
-
----
-
-*Created: 2026-01-01*
-*Updated: 2026-01-22*
+*Updated: 2026-02-02*

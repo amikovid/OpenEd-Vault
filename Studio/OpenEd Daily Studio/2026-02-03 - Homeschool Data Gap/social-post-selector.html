@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Post Selector - Newsletter 2026-02-03</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #30363d;
+    }
+    h1 { font-size: 20px; font-weight: 600; }
+    .stats {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+    .stat { color: #8b949e; }
+    .stat-num { color: #58a6ff; font-weight: 600; }
+    .stat-num.selected { color: #3fb950; }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #30363d;
+    }
+    .tab {
+      padding: 10px 20px;
+      background: transparent;
+      border: none;
+      color: #8b949e;
+      cursor: pointer;
+      font-size: 14px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .tab:hover { color: #e6edf3; }
+    .tab.active {
+      color: #e6edf3;
+      border-bottom-color: #f78166;
+    }
+    .tab .count {
+      background: #30363d;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+
+    .posts-grid { display: flex; flex-direction: column; gap: 12px; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .post-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px;
+      transition: all 0.2s;
+    }
+    .post-card.selected {
+      border-color: #3fb950;
+      box-shadow: 0 0 0 1px #3fb950;
+    }
+    .post-card.removed {
+      opacity: 0.35;
+      border-style: dashed;
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: #e6edf3;
+    }
+    .post-meta {
+      font-size: 12px;
+      color: #8b949e;
+      background: #21262d;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .post-content {
+      width: 100%;
+      min-height: 140px;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 12px;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      background: #0d1117;
+      color: #e6edf3;
+      resize: vertical;
+    }
+    .post-content:focus {
+      outline: none;
+      border-color: #58a6ff;
+    }
+
+    .post-angle {
+      font-size: 12px;
+      color: #8b949e;
+      font-style: italic;
+      margin-top: 8px;
+      padding-left: 12px;
+      border-left: 2px solid #30363d;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      align-items: center;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #8b949e;
+      user-select: none;
+    }
+    .checkbox-label:hover { color: #e6edf3; }
+    .checkbox-label input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #3fb950;
+    }
+    .checkbox-label input:checked + span { color: #3fb950; }
+
+    .btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1px solid #30363d;
+      background: #21262d;
+      color: #e6edf3;
+      transition: all 0.15s;
+    }
+    .btn:hover { background: #30363d; }
+    .btn-remove {
+      background: transparent;
+      border-color: #f8514966;
+      color: #f85149;
+    }
+    .btn-remove:hover { background: #f8514922; }
+    .btn-restore {
+      background: transparent;
+      border-color: #3fb95066;
+      color: #3fb950;
+    }
+    .btn-restore:hover { background: #3fb95022; }
+
+    .output-section {
+      margin-top: 32px;
+      padding: 20px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+    }
+    .output-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .output-header h2 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .btn-copy {
+      background: #238636;
+      border-color: #238636;
+      color: #fff;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+    .btn-copy:hover { background: #2ea043; }
+    .btn-copy.copied {
+      background: #3fb950;
+    }
+
+    .output-box {
+      width: 100%;
+      min-height: 200px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      padding: 16px;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      background: #0d1117;
+      color: #8b949e;
+      resize: vertical;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #8b949e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Social Post Selector</h1>
+      <div class="stats">
+        <div class="stat"><span class="stat-num selected" id="selected-count">0</span> selected</div>
+        <div class="stat"><span class="stat-num" id="active-count">17</span> active</div>
+        <div class="stat"><span class="stat-num" id="removed-count">0</span> removed</div>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="linkedin">LinkedIn <span class="count">6</span></button>
+      <button class="tab" data-tab="x">X/Twitter <span class="count">5</span></button>
+      <button class="tab" data-tab="facebook">Facebook <span class="count">3</span></button>
+      <button class="tab" data-tab="instagram">Instagram <span class="count">3</span></button>
+    </div>
+
+    <div id="linkedin" class="tab-content active">
+      <div class="posts-grid">
+        <div class="post-card" data-id="li1">
+          <div class="post-header">
+            <span class="post-title">LinkedIn 1: "I Call BS" - Data vs Headlines</span>
+            <span class="post-meta">stat → Contrarian</span>
+          </div>
+          <textarea class="post-content">"Homeschooled kids fall behind."
+
+That's what the headlines say.
+
+Here's what the data says: homeschoolers score 34-39 percentile points above national averages on standardized tests.
+
+This isn't a single study. It's been replicated for decades. More than 78% of peer-reviewed studies show the same pattern. The advantage holds regardless of family income or parental education level.
+
+So why doesn't the coverage match the data?
+
+You already know the answer.</textarea>
+          <div class="post-angle">OpenEd angle: Challenges media narrative with hard data. Contrarian but defensible.</div>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="li2">
+          <div class="post-header">
+            <span class="post-title">LinkedIn 2: Study Summary - Data Authority</span>
+            <span class="post-meta">stat → Authority</span>
+          </div>
+          <textarea class="post-content">According to a nationwide study of nearly 12,000 homeschooled students:
+
+Homeschoolers scored 34-39 percentile points higher than national averages.
+
+The study (Dr. Brian D. Ray, 2009 Progress Report) has been validated by 78% of peer-reviewed research since.
+
+The performance advantage held regardless of:
+- Family income
+- Parental education level
+- Geographic location
+
+Yet every few weeks, another outlet runs a story about a homeschooled kid who "fell behind."
+
+Anecdote vs. data. One sells clicks. The other informs decisions.</textarea>
+          <div class="post-angle">OpenEd angle: Data-driven credibility. Positions OpenEd as research-informed.</div>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="li3">
+          <div class="post-header">
+            <span class="post-title">LinkedIn 3: Myth/Truth - Parent Agency</span>
+            <span class="post-meta">hot_take → Contrarian</span>
+          </div>
+          <textarea class="post-content">What most people get wrong about parental involvement in education:
+
+MYTH: Parents need expert credentials to make good education decisions
+TRUTH: Parents with real ownership get more involved and make better choices
+
+MYTH: More oversight produces better outcomes
+TRUTH: Research shows schools that treat parents as partners - not obstacles - are the ones thriving
+
+MYTH: Choice leads to chaos
+TRUTH: When families have skin in the game, their kids show greater tolerance for differing opinions
+
+Robert Enlow has spent 30 years watching this play out. The pattern is consistent.
+
+Give parents freedom and information. They figure it out.</textarea>
+          <div class="post-angle">OpenEd angle: Validates parent agency. Contrarian framing that challenges institutional assumptions.</div>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="li4">
+          <div class="post-header">
+            <span class="post-title">LinkedIn 4: Wrong/Right Question</span>
+            <span class="post-meta">hot_take → Authority</span>
+          </div>
+          <textarea class="post-content">The wrong question: Can parents be trusted to make education decisions?
+
+The right question: What happens when parents have skin in the game?
+
+EdChoice president Robert Enlow has watched this for 30 years:
+
+- Students perform slightly better on state tests
+- Graduation rates improve
+- College attendance increases
+- Parents engage more with teachers
+- Kids show greater tolerance for differing opinions
+
+This isn't an argument against any type of school. It's an observation about human behavior.
+
+We've seen enrollment shifts as families have grown accustomed to having choices in every other area of their lives.
+
+The schools thriving - public or private - are the ones treating parents as partners, not obstacles.</textarea>
+          <div class="post-angle">OpenEd angle: Reframes the debate. Not anti-school, pro-ownership.</div>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="li5">
+          <div class="post-header">
+            <span class="post-title">LinkedIn 5: List - Preply Tool</span>
+            <span class="post-meta">how_to → List</span>
+          </div>
+          <textarea class="post-content">Foreign language is where a lot of homeschool families hit a wall.
+
+It's hard to teach conversational Spanish when you maxed out at "Dónde está el baño."
+
+Preply fixes this with native-speaker tutoring:
+
+- 100,000+ tutors teaching 90+ languages
+- Filter by accent, schedule, budget, specialization
+- Practice with someone from Madrid or Tokyo instead of memorizing verb conjugations
+- Trial lessons run 25 or 50 minutes
+- Rates vary by language (some start surprisingly low)
+
+The results: 92% of learners say their tutor keeps them motivated. 88% report real improvement in speaking skills. 4.8-star rating across 21,000+ reviews.
+
+Real conversation beats flashcards.</textarea>
+          <div class="post-angle">OpenEd angle: Practical resource. Solves common homeschool pain point.</div>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="li6">
+          <div class="post-header">
+            <span class="post-title">LinkedIn 6: Quote + Hot Take</span>
+            <span class="post-meta">hot_take → Quote</span>
+          </div>
+          <textarea class="post-content">"When you have skin in the game, you make better decisions."
+
+Robert Enlow has watched what happens when families get more say in their kids' education for nearly 30 years.
+
+The finding that doesn't make headlines: the social effects.
+
+Families who feel ownership get more involved. They engage more with teachers. Their kids show greater tolerance for differing opinions.
+
+This isn't an argument about school types. It's about human behavior.
+
+We make better decisions about things we feel responsible for.</textarea>
+          <div class="post-angle">OpenEd angle: Leads with quote, builds authority through named source.</div>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="x" class="tab-content">
+      <div class="posts-grid">
+        <div class="post-card" data-id="x1">
+          <div class="post-header">
+            <span class="post-title">X 1: Commentary</span>
+            <span class="post-meta">stat → Commentary</span>
+          </div>
+          <textarea class="post-content">Headlines: "Homeschooled kid falls behind"
+
+Data: Homeschoolers score 34-39 percentile points above national averages
+
+78% of peer-reviewed studies confirm this
+
+Why doesn't the coverage match the data?
+
+(Rhetorical question. We all know why.)</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="x2">
+          <div class="post-header">
+            <span class="post-title">X 2: Paradox Hook</span>
+            <span class="post-meta">hot_take → Paradox</span>
+          </div>
+          <textarea class="post-content">Parents with fewer credentials but more ownership produce better outcomes than institutions with expertise but no skin in the game.
+
+This pattern has been consistent for 30 years.</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="x3">
+          <div class="post-header">
+            <span class="post-title">X 3: One-Liner</span>
+            <span class="post-meta">stat → One-liner</span>
+          </div>
+          <textarea class="post-content">The homeschool performance advantage has been replicated for decades.
+
+It holds regardless of family income or parental education level.
+
+The mainstream coverage? Anecdotes about kids who "fell behind."
+
+Data vs. headlines.</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="x4">
+          <div class="post-header">
+            <span class="post-title">X 4: Binary Framing</span>
+            <span class="post-meta">hot_take → Binary</span>
+          </div>
+          <textarea class="post-content">Schools that treat parents as partners are thriving.
+
+Schools that treat parents as obstacles are losing enrollment.
+
+This is true regardless of whether they're public or private.</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="x5">
+          <div class="post-header">
+            <span class="post-title">X 5: Quote Tweet Style</span>
+            <span class="post-meta">stat → Commentary</span>
+          </div>
+          <textarea class="post-content">"Homeschool students outperform public school peers in science, math, history, English, the ACT, and the SAT."
+
+This isn't obscure research. It's been replicated for decades.
+
+78% of peer-reviewed studies. 34-39 percentile point advantage.
+
+But sure, let's run another story about one kid who fell behind.
+
+h/t @ClassicLearner</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="facebook" class="tab-content">
+      <div class="posts-grid">
+        <div class="post-card" data-id="fb1">
+          <div class="post-header">
+            <span class="post-title">Facebook 1: Question Post</span>
+            <span class="post-meta">stat → Question</span>
+          </div>
+          <textarea class="post-content">Have you seen another article this week about a homeschooled kid who "fell behind"?
+
+Here's what the actual research shows: homeschoolers score 34-39 percentile points higher than average.
+
+Why do you think the coverage doesn't match the data?</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="fb2">
+          <div class="post-header">
+            <span class="post-title">Facebook 2: Validation Post</span>
+            <span class="post-meta">hot_take → Validation</span>
+          </div>
+          <textarea class="post-content">You're not crazy for wanting more say in your kid's education.
+
+Research shows: when parents have real ownership, kids perform better AND show more tolerance for different viewpoints.
+
+Give parents freedom and information - they figure it out.</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="fb3">
+          <div class="post-header">
+            <span class="post-title">Facebook 3: Agree/Disagree</span>
+            <span class="post-meta">hot_take → Engagement</span>
+          </div>
+          <textarea class="post-content">"Schools that treat parents as partners are thriving. Schools that treat parents as obstacles are losing enrollment."
+
+Agree or disagree?</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="instagram" class="tab-content">
+      <div class="posts-grid">
+        <div class="post-card" data-id="ig1">
+          <div class="post-header">
+            <span class="post-title">Instagram 1: Quote Card</span>
+            <span class="post-meta">hot_take → Visual: text on gradient</span>
+          </div>
+          <textarea class="post-content">"When you have skin in the game, you make better decisions."
+
+Give parents freedom and information. They figure it out.
+
+#homeschool #education #parentingtips #schoolchoice #homeschoollife</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="ig2">
+          <div class="post-header">
+            <span class="post-title">Instagram 2: Carousel Concept</span>
+            <span class="post-meta">stat → Visual: 5-slide carousel</span>
+          </div>
+          <textarea class="post-content">CAROUSEL SLIDES:
+1: "The research says one thing. The headlines say another."
+2: "Headlines: Homeschooled kid falls behind"
+3: "Research: 34-39 percentile points ABOVE average"
+4: "78% of peer-reviewed studies confirm this pattern"
+5: "Data vs. Headlines"
+
+CAPTION:
+Every few weeks another outlet runs a story about a homeschooled kid who "fell behind."
+
+Here's what 30 years of research actually shows.
+
+#homeschool #homeschooldata #educationresearch #alternativeeducation</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+
+        <div class="post-card" data-id="ig3">
+          <div class="post-header">
+            <span class="post-title">Instagram 3: Meme Repost (Ed the Horse)</span>
+            <span class="post-meta">visual → Meme</span>
+          </div>
+          <textarea class="post-content">Ed reads the fine print.
+
+(When you finally look at the actual research behind the headlines)
+
+#homeschoolmemes #educationmemes #homeschoolhumor #parentingmemes</textarea>
+          <div class="post-actions">
+            <label class="checkbox-label"><input type="checkbox"><span>Keep this one</span></label>
+            <button class="btn btn-remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="output-section">
+      <div class="output-header">
+        <h2>Selected Posts Output</h2>
+        <button class="btn btn-copy" id="copy-btn">Copy to Clipboard</button>
+      </div>
+      <textarea class="output-box" id="output" readonly>Select posts above by checking "Keep this one" - your selections will appear here as a prompt you can paste back into Claude.</textarea>
+    </div>
+  </div>
+
+  <script>
+    const state = {
+      posts: {},
+      activeTab: 'linkedin'
+    };
+
+    // Initialize state from DOM
+    document.querySelectorAll('.post-card').forEach(card => {
+      state.posts[card.dataset.id] = {
+        selected: false,
+        removed: false,
+        content: card.querySelector('.post-content').value,
+        title: card.querySelector('.post-title').textContent,
+        meta: card.querySelector('.post-meta').textContent
+      };
+    });
+
+    // Tab switching
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+        state.activeTab = tab.dataset.tab;
+      });
+    });
+
+    // Checkbox handling
+    document.querySelectorAll('.checkbox-label input').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const card = this.closest('.post-card');
+        const id = card.dataset.id;
+        state.posts[id].selected = this.checked;
+        card.classList.toggle('selected', this.checked);
+        updateStats();
+        updatePrompt();
+      });
+    });
+
+    // Remove/Restore handling
+    document.querySelectorAll('.btn-remove').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.post-card');
+        const id = card.dataset.id;
+        const isRemoved = card.classList.contains('removed');
+
+        if (isRemoved) {
+          card.classList.remove('removed');
+          state.posts[id].removed = false;
+          this.textContent = 'Remove';
+          this.classList.remove('btn-restore');
+          this.classList.add('btn-remove');
+        } else {
+          card.classList.add('removed');
+          card.classList.remove('selected');
+          state.posts[id].removed = true;
+          state.posts[id].selected = false;
+          card.querySelector('input[type="checkbox"]').checked = false;
+          this.textContent = 'Restore';
+          this.classList.remove('btn-remove');
+          this.classList.add('btn-restore');
+        }
+        updateStats();
+        updatePrompt();
+      });
+    });
+
+    // Content editing
+    document.querySelectorAll('.post-content').forEach(textarea => {
+      textarea.addEventListener('input', function() {
+        const card = this.closest('.post-card');
+        state.posts[card.dataset.id].content = this.value;
+        updatePrompt();
+      });
+    });
+
+    function updateStats() {
+      const posts = Object.values(state.posts);
+      const selected = posts.filter(p => p.selected && !p.removed).length;
+      const removed = posts.filter(p => p.removed).length;
+      const active = posts.length - removed;
+
+      document.getElementById('selected-count').textContent = selected;
+      document.getElementById('active-count').textContent = active;
+      document.getElementById('removed-count').textContent = removed;
+    }
+
+    function updatePrompt() {
+      const selected = [];
+
+      document.querySelectorAll('.post-card').forEach(card => {
+        const id = card.dataset.id;
+        const post = state.posts[id];
+        if (post.selected && !post.removed) {
+          selected.push({
+            id,
+            title: post.title,
+            meta: post.meta,
+            content: card.querySelector('.post-content').value
+          });
+        }
+      });
+
+      const output = document.getElementById('output');
+
+      if (selected.length === 0) {
+        output.value = 'Select posts above by checking "Keep this one" - your selections will appear here as a prompt you can paste back into Claude.';
+        return;
+      }
+
+      let prompt = `## SELECTED SOCIAL POSTS (${selected.length} total)\n\n`;
+      prompt += `Please post these to #content-inbox and/or schedule them.\n\n`;
+
+      selected.forEach((post, i) => {
+        prompt += `### ${i + 1}. ${post.title}\n`;
+        prompt += `**Format:** ${post.meta}\n\n`;
+        prompt += `\`\`\`\n${post.content}\n\`\`\`\n\n`;
+      });
+
+      prompt += `---\n\n`;
+      prompt += `**Nearbound tags to add:**\n`;
+      prompt += `- X: @ClassicLearner (Brett Pike)\n`;
+      prompt += `- LinkedIn: Tag EdChoice company page for Robert Enlow posts`;
+
+      output.value = prompt;
+    }
+
+    // Copy functionality
+    document.getElementById('copy-btn').addEventListener('click', function() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+
+      this.textContent = 'Copied!';
+      this.classList.add('copied');
+
+      setTimeout(() => {
+        this.textContent = 'Copy to Clipboard';
+        this.classList.remove('copied');
+      }, 2000);
+    });
+
+    // Initial state
+    updateStats();
+  </script>
+</body>
+</html>

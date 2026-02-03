@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Create the weekly newsletter as a Webflow blog post."""
 
+import os
 import requests
 import re
+from pathlib import Path
+from dotenv import load_dotenv
 
-# Webflow API config
-API_KEY = "032c44041102703cc26944fe7e886b86467da16d228f55eb8d8f4cf75fd3ed7d"
+# Load API key from .env
+load_dotenv(Path(__file__).resolve().parents[3] / ".env")
+API_KEY = os.getenv("WEBFLOW_API_KEY")
 COLLECTION_ID = "6805bf729a7b33423cc8a08c"  # Blog Posts collection
 CHARLIE_AUTHOR_ID = "68089b4d33745cf5ea4d746d"
 

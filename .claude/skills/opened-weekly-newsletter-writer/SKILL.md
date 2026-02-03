@@ -7,6 +7,28 @@ description: Creates Friday OpenEd Weekly digest newsletters consolidating the w
 
 Creates Friday digest newsletters synthesizing the week's content into six distinct newsletter sections, plus a bonus Phase 4 for creating Ed's Roundup Twitter thread strategy.
 
+## Content Engine Philosophy
+
+**This skill is part of a living system.** Every time we run this workflow, we should be:
+
+1. **Tightening** - Finding friction points and removing them. If something takes too long or requires too many steps, note it for skill improvement.
+
+2. **Connecting** - Looking for ways to involve other skills without adding friction:
+   - After drafting → `newsletter-to-social` for social spokes
+   - After identifying quotes → `nearbound` check for tagging
+   - After completion → `outreach-email-draft` for featured creators
+   - Quality concerns → `quality-loop` for review
+
+3. **Evolving** - When we discover better patterns mid-workflow, ask permission to update this skill in real-time. The skill should encode what we learn.
+
+4. **Proactive** - After completing the newsletter, automatically offer:
+   - Social post generation (6-9 posts)
+   - Ed's Roundup Twitter thread
+   - Outreach emails to featured creators
+   - HubSpot draft export
+
+**The goal:** Each run makes the next run better. Skills are energetic pathways - the more we use them, the sharper they get.
+
 **Not for:** Monday-Thursday daily newsletters (use `opened-daily-newsletter-writer`).
 
 **Requirements:** Flexible length (typically 1,500-2,500 words) • NO EMOJIS in body • Pirate Wires-influenced voice • All external links include source attribution in parentheses

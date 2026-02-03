@@ -1,20 +1,26 @@
 ---
 title: "🐴 What happens when a school actually trusts parents?"
-url: https://opened.co/blog/what-happens-when-a-school-actually-trusts-parents
 slug: what-happens-when-a-school-actually-trusts-parents
-type: daily
+url: https://opened.co/newsletter/what-happens-when-a-school-actually-trusts-parents
+type: daily_newsletters
 date: 2025-05-23
+webflow_id: 689613681597855b5d8cce6d
+author_id: 68089b4d33745cf5ea4d746d
+thumbnail: https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/689612fcda05e938b9ed857a_Daily_Thumbnail__4__5_.avif
 meta_description: ""
 summary: "Teresa King reveals education's trust problem. PLUS: OpenEd teachers share genius work-from-home hacks."
-webflow_id: 689613681597855b5d8cce6d
-last_synced: 2026-01-02 20:57
+created_on: 2025-08-08T15:10:32.738Z
+last_updated: 2026-01-28T21:00:20.504Z
+last_published: 2026-01-28T22:39:26.032Z
+last_synced: 2026-01-30 11:00
 ---
 
 # 🐴 What happens when a school actually trusts parents?
 
-**URL:** [https://opened.co/blog/what-happens-when-a-school-actually-trusts-parents](https://opened.co/blog/what-happens-when-a-school-actually-trusts-parents)
-**Type:** daily
+**URL:** [https://opened.co/newsletter/what-happens-when-a-school-actually-trusts-parents](https://opened.co/newsletter/what-happens-when-a-school-actually-trusts-parents)
+**Type:** Daily Newsletters
 **Published:** 2025-05-23
+**Thumbnail:** ![](https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/689612fcda05e938b9ed857a_Daily_Thumbnail__4__5_.avif)
 
 ## Summary
 Teresa King reveals education's trust problem. PLUS: OpenEd teachers share genius work-from-home hacks.
@@ -40,7 +46,7 @@ Just [**fill out this quick form**](https://forms.gle/1xzTLqtDAw8kvUcx8?utm_sour
 🍎 Why the world's smartest person predicted our current mess
 🍎 OpenEd teachers reveal their best work-life balance secrets
 
-*If you enjoy this edition, forward this email to a friend! First time reading? Subscribe and learn more at *[***OpenEd.co***](https://opened.co/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents)*.*
+*If you enjoy this edition, forward this email to a friend! First time reading? Subscribe and learn more at *[***OpenEd.co***](https://opened.co/)*.*
 
 ### 💡 DEEP DIVE
 
@@ -48,7 +54,7 @@ Just [**fill out this quick form**](https://forms.gle/1xzTLqtDAw8kvUcx8?utm_sour
 
 We need to talk about trust in education—or rather, how the lack of it in many traditional systems has created unintended consequences.
 
-Teresa King, the mind behind the brand-new [**OpenEd Academy,**](https://openedacademy.com/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents) puts it plainly: "Schools don't typically seem to trust parents."
+Teresa King, the mind behind the brand-new [**OpenEd Academy,**](https://openedacademy.com) puts it plainly: "Schools don't typically seem to trust parents."
 
 Of course, there are incredible schools and amazing teachers doing extraordinary work. But in many traditional systems, there's an underlying dynamic we all recognize but rarely discuss. It's that feeling in parent-teacher conferences when your insights about your own child seem to get lost in translation. When the dedicated teacher—working within rigid constraints—has to follow protocols that don't fit your unique kid.
 
@@ -73,7 +79,7 @@ Whether you're ready for algebra or still mastering multiplication, the structur
 
 **You're 12? Sixth-grade math.**
 
-[**Marilyn vos Savant (certified genius, highest IQ ever recorded) identified this pattern decades ago**](https://opened.co/blog/when-the-smartest-person-in-the-world-called-out-our-schools?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents):
+[**Marilyn vos Savant (certified genius, highest IQ ever recorded) identified this pattern decades ago**](https://opened.co/blog/when-the-smartest-person-in-the-world-called-out-our-schools?):
 
 "Children are sitting there and they are taught and told what to believe. They are passive from the very beginning."
 
@@ -95,7 +101,7 @@ That's why OpenEd built a virtual private school around a different question:
 
 OpenEd Academy doesn't hand you a preset curriculum with a "trust us" label. They ask, *"What does your child need?"* and trust families to be part of that answer.
 
-[Learn more](https://opened.co/blog/opened-academy?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents)
+[Learn more](https://opened.co/blog/opened-academy)
 
 They don't claim learning only counts within their system. If your kid learned something valuable, it counts. Period.
 
@@ -107,21 +113,21 @@ And maybe that trust creates positive ripples. Maybe parents rediscover confiden
 
 *The OpenEd Academy is now open for applications nationwide. If you know a family looking for alternatives, please forward this email or send the to the Academy website:*
 
-[***http://OpenEdAcademy.com***](http://openedacademy.com/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents)
+[***http://OpenEdAcademy.com***](http://openedacademy.com/)
 
 ### 🔍 TRENDS WE'RE WATCHING
 
 **The Great Educational Unbundling:** Michael Horn reports that 40% of students have left their assigned schools. Read [**the full Forbes article**](https://www.forbes.com/sites/michaelhorn/2025/04/24/disrupting-us-schools-wasnt-possible-before-that-may-be-changing/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents) to learn why.
 
-**The Workplace Revolution:** This week, our OpenEd teachers pulled back the curtain on how they're successfully balancing remote work with homeschooling. From 4am wake-ups to gymnastics office hours, they're proving that the traditional 9-5 is obsolete. [**Read their full strategies in our new blog post →**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents)
+**The Workplace Revolution:** This week, our OpenEd teachers pulled back the curtain on how they're successfully balancing remote work with homeschooling. From 4am wake-ups to gymnastics office hours, they're proving that the traditional 9-5 is obsolete. [**Read their full strategies in our new blog post →**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle)
 
-**The Validation Revolution:** [**OpenEd Academy**](https://openedacademy.com/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents) gives credit for real-world learning. Watch for this to spread as families demand recognition for learning that happens outside classroom walls. [**Watch the podcast →**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents)
+**The Validation Revolution:** [**OpenEd Academy**](https://openedacademy.com/) gives credit for real-world learning. Watch for this to spread as families demand recognition for learning that happens outside classroom walls. [**Watch the podcast →**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle)
 
 ### 🔨 TOOLS OF THE WEEK
 
 #### **From OpenEd Teachers: The Work-From-Home Survival Kit**
 
-After Wednesday's newsletter about remote work balance, [**our incredible teacher community shared even more strategies for juggling work and kids**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents). Here are their battle-tested tools:
+After Wednesday's newsletter about remote work balance, [**our incredible teacher community shared even more strategies for juggling work and kids**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle). Here are their battle-tested tools:
 
 **The Special-Occasion Activity Box** (Nicole A.): "I have a box full of things she does when I am working, and that is the only time that box comes out." Contents: puzzles, kinetic sand, bubbles, Leapfrog tablet, lacing animals. The exclusivity makes it special rather than a consolation prize.
 
@@ -135,12 +141,12 @@ After Wednesday's newsletter about remote work balance, [**our incredible teache
 
 **The Independence Builder** (Hayley B.): "A huge flex was teaching them to make their own lunches since a lot of meetings/events fall during those hours."
 
-[**See more strategies in our full blog post →**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents)
+[**See more strategies in our full blog post →**](https://opened.co/blog/how-opened-teachers-master-the-work-from-home-juggle)
 
 **This Week's Other Tools:**
 
 - [**Monument Valley ($3.99):**](https://www.monumentvalleygame.com/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents) The puzzle game teaching kids that frustration is temporary but problem-solving is forever
-- [**OpenEd Academy**](https://openedacademy.com/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=what-happens-when-a-school-actually-trusts-parents): Nationwide, fully-accredited private virtual school starting at $2,900/year nationwide (tell your friends!)
+- [**OpenEd Academy**](https://openedacademy.com): Nationwide, fully-accredited private virtual school starting at $2,900/year nationwide (tell your friends!)
 - **The Two-Newspaper Method**: Read opposing viewpoints daily to build critical thinking (via Marilyn vos Savant)
 
 ### 🔥 MEME OF THE WEEK

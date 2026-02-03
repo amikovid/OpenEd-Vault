@@ -36,7 +36,7 @@ from dotenv import load_dotenv
 AGENTS_DIR = Path(__file__).parent
 VAULT_ROOT = AGENTS_DIR.parent
 STATE_FILE = AGENTS_DIR / ".webflow_sync_state.json"
-CONTENT_DB = VAULT_ROOT / "Content" / "Master Content Database"
+CONTENT_DB = VAULT_ROOT / "Published Content"
 ENV_PATH = VAULT_ROOT / ".env"
 
 # Load environment

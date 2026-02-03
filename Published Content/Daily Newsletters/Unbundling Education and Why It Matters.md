@@ -1,20 +1,26 @@
 ---
 title: "Unbundling Education (and Why It Matters)"
-url: https://opened.co/blog/unbundling-education-and-why-it-matters
 slug: unbundling-education-and-why-it-matters
-type: daily
+url: https://opened.co/newsletter/unbundling-education-and-why-it-matters
+type: daily_newsletters
 date: 2024-08-06
+webflow_id: 6809b609c24ac45af76733ce
+author_id: 68089b4d33745cf5ea4d746d
+thumbnail: https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/680b2812e9bace1cfc83fbde_thumbnail.avif
 meta_description: ""
 summary: "Bite-sized brain food on the future of learning: podcast highlights with Michael B. Horn, homeschooling’s rapid rise, what “unbundling” education means, and a magical demo of kid-powered AI coding."
-webflow_id: 6809b609c24ac45af76733ce
-last_synced: 2026-01-02 20:57
+created_on: 2025-04-24T03:54:49.196Z
+last_updated: 2026-01-15T14:02:21.295Z
+last_published: 2026-01-20T13:50:34.025Z
+last_synced: 2026-01-30 11:00
 ---
 
 # Unbundling Education (and Why It Matters)
 
-**URL:** [https://opened.co/blog/unbundling-education-and-why-it-matters](https://opened.co/blog/unbundling-education-and-why-it-matters)
-**Type:** daily
+**URL:** [https://opened.co/newsletter/unbundling-education-and-why-it-matters](https://opened.co/newsletter/unbundling-education-and-why-it-matters)
+**Type:** Daily Newsletters
 **Published:** 2024-08-06
+**Thumbnail:** ![](https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/680b2812e9bace1cfc83fbde_thumbnail.avif)
 
 ## Summary
 Bite-sized brain food on the future of learning: podcast highlights with Michael B. Horn, homeschooling’s rapid rise, what “unbundling” education means, and a magical demo of kid-powered AI coding.
@@ -37,7 +43,7 @@ Let's dive in, shall we?
 
 Last week Michael B. Horn dropped some truth bombs about the future of education on the OpenEd podcast.
 
-Missed it? Watch/listen [**here**](https://opened.co/blog/%F0%9F%8E%99%EF%B8%8Fepisode-004-the-great-unbundling-with-michael-horn/) or read the transcript.
+Missed it? Watch/listen [**here**](https://opened.co/podcast/%F0%9F%8E%99%EF%B8%8Fepisode-004-the-great-unbundling-with-michael-horn/) or read the transcript.
 
 **Here are 3 things you need to know:**
 **1/ Schools are failing at “the hidden curriculum”**
@@ -55,8 +61,6 @@ Horn estimates that 10 million students have access to choice options. Still, mo
 
 Check out [**our thread**](https://x.com/OpenEdHQ/status/1828164861521735891?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=tl-dr-tuesday) breaking it down further:
 
-[Watch/Listen →](https:/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=tl-dr-tuesday)
-
 ### 🏫** The Great Education Exodus**
 
 Newsweek reports more parents opting for homeschooling due to various concerns about traditional schooling, putting pressure on public schools to evolve or lose enrollment ([**"Why Parents Are Pulling Their Kids Out of School"**](https://www.newsweek.com/2024/08/30/why-parents-pull-kids-out-school-homeschool-1941949.html?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=tl-dr-tuesday)).
@@ -71,7 +75,7 @@ Newsweek reports more parents opting for homeschooling due to various concerns a
 - **Safety, Satisfaction, and Personalization:** Parents seek safer environments, better educational experiences, and learning tailored to their child's needs.
 - **Forget old stereotypes:** Modern homeschoolers span all demographics and backgrounds – including those traditionally underserved by conventional schools.
 
-While homeschooling is surging in popularity, the article also highligts concerns around financial accessibility, oversight, and socialization opportunities. We hope to see more parents continue to reinvent homeschooling through the [**OpenEd**](https://opened.co/?utm_source=opened-daily.beehiiv.com&utm_medium=referral&utm_campaign=tl-dr-tuesday) model, with resources, quality assurance, and community courses.
+While homeschooling is surging in popularity, the article also highligts concerns around financial accessibility, oversight, and socialization opportunities. We hope to see more parents continue to reinvent homeschooling through the [**OpenEd**](https://opened.co) model, with resources, quality assurance, and community courses.
 
 ### 🪄** 8-Year-Old Coder Conjures Harry Potter App in <10 minutes**
 

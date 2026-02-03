@@ -1,20 +1,26 @@
 ---
 title: "🐴 Why John Taylor Gatto Quit"
-url: https://opened.co/blog/why-john-taylor-gatto-quit
 slug: why-john-taylor-gatto-quit
-type: daily
+url: https://opened.co/newsletter/why-john-taylor-gatto-quit
+type: daily_newsletters
 date: 2025-04-09
+webflow_id: 6809eb3fac8f668c770d94bf
+author_id: 68089b4d33745cf5ea4d746d
+thumbnail: https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/6809eb16e0099e377b5cab38_cd7974_93e1ce7400f64e52ae1066dc55843ceb_mv2.avif
 meta_description: ""
 summary: "An award-winning teacher reveals why he quit at the peak of his career. PLUS: Why phonics isn't enough to improve reading scores & 5 mental razors for better educational decisions."
-webflow_id: 6809eb3fac8f668c770d94bf
-last_synced: 2026-01-02 20:57
+created_on: 2025-04-24T07:41:51.205Z
+last_updated: 2026-01-15T15:12:31.370Z
+last_published: 2026-01-20T13:50:34.025Z
+last_synced: 2026-01-30 11:00
 ---
 
 # 🐴 Why John Taylor Gatto Quit
 
-**URL:** [https://opened.co/blog/why-john-taylor-gatto-quit](https://opened.co/blog/why-john-taylor-gatto-quit)
-**Type:** daily
+**URL:** [https://opened.co/newsletter/why-john-taylor-gatto-quit](https://opened.co/newsletter/why-john-taylor-gatto-quit)
+**Type:** Daily Newsletters
 **Published:** 2025-04-09
+**Thumbnail:** ![](https://cdn.prod.website-files.com/67e31168e49f5b7e6f76f0e5/6809eb16e0099e377b5cab38_cd7974_93e1ce7400f64e52ae1066dc55843ceb_mv2.avif)
 
 ## Summary
 An award-winning teacher reveals why he quit at the peak of his career. PLUS: Why phonics isn't enough to improve reading scores & 5 mental razors for better educational decisions.

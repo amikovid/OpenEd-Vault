@@ -1,4 +1,4 @@
-# OpenEd Content Engine
+I wanna kind of create like a content OS repo in GitHub that is drawing mostly from this # OpenEd Content Engine
 
 An AI-first content production system for OpenEd - alternative education company creating newsletters, podcasts, social media, SEO content, and educational resources.
 

@@ -4,6 +4,25 @@ Create ready-to-publish OpenEd Daily drafts in HubSpot from newsletter markdown.
 
 ---
 
+## CRITICAL: Image Format
+
+**Images MUST use this exact HTML format or they will render as broken links:**
+
+```html
+<center><a href="{blog_post_url}"><img src="{image_url}" width="600" height="338" style="width: 600px; height: auto; max-width: 600px; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
+```
+
+**Required elements:**
+- `<center>` wrapper tags
+- `<a href>` wrapper linking to the blog post (makes image clickable)
+- Explicit `width` and `height` attributes
+- `align="center"` attribute
+- Full inline styles
+
+**DO NOT use:** Simple `<img>` tags or markdown `![alt](url)` syntax - these will NOT render.
+
+---
+
 ## When to Use
 
 After the newsletter draft is complete and ready for HubSpot. This is the **last step** in the content workflow:
@@ -97,17 +116,24 @@ headers = {
 }
 
 def markdown_to_html(md):
-    """Convert newsletter markdown to HubSpot HTML"""
+    """Convert newsletter markdown to HubSpot HTML with inline styles"""
     html = md
 
-    # H1 headers (# THOUGHT: Title → <h1>THOUGHT: Title</h1>)
-    html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
+    # Inline style definitions
+    FONT_STACK = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+    P_STYLE = f"font-family: {FONT_STACK}; font-size: 18px; line-height: 1.65; margin: 0 0 20px 0; color: #333333;"
+    H1_STYLE = f"font-family: {FONT_STACK}; font-weight: 700; font-size: 32px; margin: 40px 0 20px 0; text-align: center; color: #333333; line-height: 1.25;"
+    H2_STYLE = f"font-family: {FONT_STACK}; font-weight: 600; font-size: 26px; margin: 32px 0 12px 0; text-align: center; color: #333333; line-height: 1.3;"
+    LINK_STYLE = "color: #03a4ea !important; text-decoration: underline; font-size: 18px; font-family: inherit; line-height: inherit;"
+
+    # H1 headers (# THOUGHT: Title → <h1 style="...">THOUGHT: Title</h1>)
+    html = re.sub(r'^# (.+)$', f'<h1 style="{H1_STYLE}">\\1</h1>', html, flags=re.MULTILINE)
 
     # H2 headers
-    html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
+    html = re.sub(r'^## (.+)$', f'<h2 style="{H2_STYLE}">\\1</h2>', html, flags=re.MULTILINE)
 
     # Dividers
-    html = re.sub(r'^---+$', '<hr>', html, flags=re.MULTILINE)
+    html = re.sub(r'^---+$', '<hr style="border: none; border-top: 1px solid #e0e0e0; margin: 24px 0;">', html, flags=re.MULTILINE)
 
     # Bold
     html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
@@ -115,8 +141,8 @@ def markdown_to_html(md):
     # Italic
     html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
 
-    # Links
-    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
+    # Links - add inline styles
+    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', f'<a href="\\2" style="{LINK_STYLE}">\\1</a>', html)
 
     # Paragraphs (double newlines)
     paragraphs = re.split(r'\n\n+', html)
@@ -125,15 +151,19 @@ def markdown_to_html(md):
         p = p.strip()
         if not p:
             continue
-        if p.startswith('<h1>') or p.startswith('<h2>') or p.startswith('<hr'):
+        if p.startswith('<h1') or p.startswith('<h2') or p.startswith('<hr'):
             html_parts.append(p)
         else:
-            html_parts.append(f'<p>{p}</p>')
+            html_parts.append(f'<p style="{P_STYLE}">{p}</p>')
 
     return '\n'.join(html_parts)
 
 def find_recent_oed_email():
-    """Find most recent OED campaign to clone"""
+    """Find most recent OED newsletter (BATCH_EMAIL type) to clone.
+
+    IMPORTANT: Must find actual newsletters, not automated emails like 'OpenEd Daily Opt In'.
+    Look for emails matching pattern: '1.29 OED', '2.3 OED', etc. (date prefix + OED)
+    """
     resp = requests.get(
         "https://api.hubapi.com/email/public/v1/campaigns",
         headers=headers,
@@ -147,8 +177,18 @@ def find_recent_oed_email():
             headers=headers
         ).json()
         name = detail.get('name', '')
-        if 'OED' in name or name.startswith('1.') or 'Daily' in name:
+        email_type = detail.get('type', '')
+
+        # Must be BATCH_EMAIL (not AUTOMATED_EMAIL) and match OED naming pattern
+        # Pattern: "1.29 OED - Title" or "2.3 OED - Title" (month.day OED)
+        is_batch = email_type == 'BATCH_EMAIL'
+        is_oed_newsletter = ' OED ' in name or ' OED -' in name or ' OEW ' in name
+
+        if is_batch and is_oed_newsletter:
+            print(f"Found: {name} (type: {email_type})")
             return detail.get('contentId')
+
+    print("WARNING: No OED newsletter found. Searched for BATCH_EMAIL with 'OED' in name.")
     return None
 
 def create_draft(name, subject, preview, body_html):
@@ -177,8 +217,10 @@ def create_draft(name, subject, preview, body_html):
         json={"name": name, "subject": subject}
     )
 
-    # Update content
-    requests.patch(
+    # Update content - MUST include BOTH widgets in same call
+    # deep_dive_content = main body HTML
+    # preview_text = email preview/preheader text
+    content_resp = requests.patch(
         f"https://api.hubapi.com/marketing/v3/emails/{clone_id}",
         headers=headers,
         json={
@@ -190,6 +232,10 @@ def create_draft(name, subject, preview, body_html):
             }
         }
     )
+
+    if content_resp.status_code != 200:
+        print(f"WARNING: Content update returned {content_resp.status_code}")
+        print(f"Response: {content_resp.text[:500]}")
 
     return clone_id, None
 
@@ -294,18 +340,19 @@ with open(image_path, 'rb') as f:
 
 Insert the image HTML **after the opening letter divider** and **before the H1 title**.
 
-**IMPORTANT:** Use `<center>` wrapper and explicit `width`/`height` attributes - this is the format that works in HubSpot emails:
+**IMPORTANT:** Use `<center>` wrapper, `<a href>` link wrapper, and explicit `width`/`height` attributes - this is the format that works in HubSpot emails:
 
 ```html
 <hr>
 
-<center><img src="{file_url}" width="600" height="338" style="width: 600px; height: auto; max-width: 600px; margin-left: auto; margin-right: auto; display: block;" align="center"></center>
+<center><a href="{blog_post_url}"><img src="{file_url}" width="600" height="338" style="width: 600px; height: auto; max-width: 600px; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
 
 <h1>Article Title</h1>
 ```
 
 **Key format requirements:**
 - Wrap in `<center>` tags
+- Wrap `<img>` in `<a href>` linking to the blog post (makes thumbnail clickable)
 - Include explicit `width` and `height` attributes
 - Use `align="center"` attribute
 - Full inline styles for margin and display

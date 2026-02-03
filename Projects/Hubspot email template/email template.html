@@ -1,0 +1,720 @@
+<!--
+  templateType: "email"
+  isAvailableForNewContent: true
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    lang="en"
+>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="x-apple-disable-message-reformatting" />
+        <meta
+            name="format-detection"
+            content="telephone=no, address=no, email=no, date=no"
+        />
+        <title>OpenEd Daily</title>
+
+        <!--[if mso]>
+            <noscript>
+                <xml>
+                    <o:OfficeDocumentSettings>
+                        <o:AllowPNG />
+                        <o:PixelsPerInch>96</o:PixelsPerInch>
+                    </o:OfficeDocumentSettings>
+                </xml>
+            </noscript>
+            <style type="text/css">
+                table {
+                    border-collapse: collapse;
+                    mso-table-lspace: 0pt;
+                    mso-table-rspace: 0pt;
+                }
+                td,
+                th {
+                    border-collapse: collapse;
+                    mso-line-height-rule: exactly;
+                }
+                a,
+                span,
+                td,
+                th {
+                    font-family: Arial, sans-serif;
+                }
+            </style>
+        <![endif]-->
+
+        <!-- Styles that HubSpot will inline -->
+        <style id="hs-inline-css">
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 18px;
+                line-height: 1.6;
+                color: #333333;
+                background-color: #ffffff;
+            }
+            a {
+                color: #03a4ea;
+                text-decoration: underline;
+                font-size: inherit;
+                font-family: inherit;
+                line-height: inherit;
+            }
+            p {
+                margin: 0 0 20px 0;
+                padding: 0;
+                font-size: 18px;
+                line-height: 1.65;
+            }
+            h1 {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 1.25;
+                color: #333333;
+                margin: 40px 0 20px 0;
+                text-align: center;
+            }
+            h2 {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 26px;
+                font-weight: 600;
+                line-height: 1.3;
+                color: #333333;
+                margin: 32px 0 12px 0;
+                text-align: center;
+            }
+            h3 {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 21px;
+                font-weight: 600;
+                line-height: 1.35;
+                color: #333333;
+                margin: 24px 0 10px 0;
+            }
+            /* Catch-all for pasted content that loses styling */
+            div, span, td, li, blockquote {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 18px;
+                line-height: 1.65;
+                color: #333333;
+            }
+            ul, ol {
+                font-size: 18px;
+                line-height: 1.65;
+                margin: 0 0 20px 0;
+                padding-left: 24px;
+            }
+            li {
+                margin-bottom: 8px;
+            }
+            /* Force size on any element with small font reset */
+            .article-content * {
+                font-size: inherit;
+            }
+            .article-content p,
+            .article-content div,
+            .article-content span,
+            .article-content li {
+                font-size: 18px;
+            }
+        </style>
+
+        <!-- Styles that cannot be inlined (resets and media queries) -->
+        <style type="text/css">
+            /* Prevent WebKit and Windows Mobile from changing default text sizes */
+            body,
+            table,
+            td,
+            a {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            /* Remove spacing around tables in Outlook */
+            table,
+            td {
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+            }
+
+            /* Better image rendering */
+            img {
+                -ms-interpolation-mode: bicubic;
+                border: 0;
+                height: auto;
+                line-height: 100%;
+                outline: none;
+                text-decoration: none;
+            }
+
+            /* Reset for iOS/Gmail auto-sizing */
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            /* Prevent iOS blue links on auto-detected content only */
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+                font-size: inherit !important;
+                font-family: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+            }
+
+            /* Force link colors - override any inheritance issues */
+            a[href] {
+                color: #03a4ea !important;
+            }
+            a[href].muted-link {
+                color: #666666 !important;
+            }
+
+            /* Responsive styles */
+            @media only screen and (max-width: 600px) {
+                .email-container {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+                .container-padding {
+                    padding: 16px !important;
+                }
+                .logo-img {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    height: auto !important;
+                }
+                .mobile-text {
+                    font-size: 18px !important;
+                    line-height: 1.6 !important;
+                }
+                h1,
+                .h1-mobile {
+                    font-size: 28px !important;
+                    line-height: 1.25 !important;
+                }
+                h2,
+                .h2-mobile {
+                    font-size: 23px !important;
+                    line-height: 1.3 !important;
+                }
+                .stack-column {
+                    display: block !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+                .button-td {
+                    padding: 12px 24px !important;
+                }
+                .footer-text {
+                    font-size: 12px !important;
+                    line-height: 1.5 !important;
+                }
+            }
+
+            /* Dark mode support */
+            @media (prefers-color-scheme: dark) {
+                body,
+                .email-container {
+                    background-color: #1a1a1a !important;
+                }
+                h1,
+                h2,
+                h3,
+                p,
+                td {
+                    color: #ffffff !important;
+                }
+            }
+        </style>
+
+        {{ standard_header_includes }}
+    </head>
+
+    <body
+        id="body"
+        style="
+            margin: 0;
+            padding: 0;
+            font-family:
+                -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto,
+                &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+            width: 100% !important;
+            min-width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        "
+    >
+        <!-- Preview Text (hidden preheader) -->
+        <div
+            id="preview_text"
+            style="
+                display: none;
+                font-size: 1px;
+                color: #ffffff;
+                line-height: 1px;
+                max-height: 0px;
+                max-width: 0px;
+                opacity: 0;
+                overflow: hidden;
+                mso-hide: all;
+            "
+        >
+            {% text "preview_text" label="Preview Text", value="",
+            no_wrapper=True %}
+            &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+        </div>
+
+        <!-- Full Width Background Table -->
+        <table
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            width="100%"
+            style="background-color: #ffffff"
+        >
+            <tr>
+                <td align="center" valign="top">
+                    <!--[if mso]>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" align="center">
+<tr>
+<td>
+<![endif]-->
+
+                    <!-- Email Container: 600px max-width -->
+                    <table
+                        role="presentation"
+                        class="email-container"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="600"
+                        style="
+                            width: 100%;
+                            max-width: 600px;
+                            margin: 0 auto;
+                            background-color: #ffffff;
+                        "
+                    >
+                        <!-- HEADER SECTION -->
+                        <tr>
+                            <td
+                                class="container-padding"
+                                style="padding: 20px 24px 0 24px"
+                            >
+                                <!-- Top Utility Bar -->
+                                <table
+                                    role="presentation"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    border="0"
+                                    width="100%"
+                                >
+                                    <tr>
+                                        <td
+                                            align="left"
+                                            valign="middle"
+                                            style="
+                                                padding: 8px 0;
+                                                font-family:
+                                                    -apple-system,
+                                                    BlinkMacSystemFont,
+                                                    &quot;Segoe UI&quot;,
+                                                    Roboto,
+                                                    &quot;Helvetica Neue&quot;,
+                                                    Helvetica, Arial, sans-serif;
+                                                font-size: 12px;
+                                                line-height: 1.4;
+                                                color: #666666;
+                                            "
+                                        >
+                                            <a
+                                                href="{{ view_as_page_url }}"
+                                                class="muted-link"
+                                                style="
+                                                    color: #666666 !important;
+                                                    text-decoration: underline;
+                                                    font-size: 12px;
+                                                    font-family: inherit;
+                                                    line-height: inherit;
+                                                "
+                                                >View in browser</a
+                                            >
+                                        </td>
+                                        <td
+                                            align="right"
+                                            valign="middle"
+                                            style="
+                                                padding: 8px 0;
+                                                font-family:
+                                                    -apple-system,
+                                                    BlinkMacSystemFont,
+                                                    &quot;Segoe UI&quot;,
+                                                    Roboto,
+                                                    &quot;Helvetica Neue&quot;,
+                                                    Helvetica, Arial, sans-serif;
+                                                font-size: 12px;
+                                                line-height: 1.4;
+                                                color: #666666;
+                                            "
+                                        >
+                                            <span style="font-size: 12px"
+                                                >Forwarded? </span
+                                            ><a
+                                                href="https://opened.co/resources"
+                                                target="_blank"
+                                                style="
+                                                    color: #03a4ea !important;
+                                                    text-decoration: underline;
+                                                    font-size: 12px;
+                                                    font-family: inherit;
+                                                    line-height: inherit;
+                                                "
+                                                >Subscribe</a
+                                            >
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- LOGO/BANNER SECTION -->
+                        <tr>
+                            <td
+                                align="center"
+                                style="padding: 16px 0 24px 0"
+                            >
+                                <!--[if mso]>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" align="center">
+            <tr>
+            <td>
+            <![endif]-->
+                                <a
+                                    href="https://opened.co/resources"
+                                    target="_blank"
+                                    style="
+                                        display: block;
+                                        text-decoration: none;
+                                    "
+                                >
+                                    <img
+                                        src="https://45961901.fs1.hubspotusercontent-na1.net/hub/45961901/hubfs/Daily%20Images/3.png?width=600&name=3.png"
+                                        alt="OpenEd Daily"
+                                        class="logo-img"
+                                        width="600"
+                                        style="
+                                            display: block;
+                                            width: 600px;
+                                            max-width: 100%;
+                                            height: auto;
+                                            border: 0;
+                                            font-family:
+                                                -apple-system,
+                                                BlinkMacSystemFont,
+                                                &quot;Segoe UI&quot;, Roboto,
+                                                &quot;Helvetica Neue&quot;,
+                                                Helvetica, Arial, sans-serif;
+                                            font-size: 18px;
+                                            color: #333333;
+                                        "
+                                    />
+                                </a>
+                                <!--[if mso]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+                            </td>
+                        </tr>
+
+                        <!-- MAIN ARTICLE SECTION (Single unified content area) -->
+                        <tr>
+                            <td
+                                class="container-padding article-content"
+                                style="padding: 0 24px 32px 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 18px; line-height: 1.65; color: #333333;"
+                            >
+                                {% module "deep_dive_content"
+                                path="@hubspot/rich_text", label="Deep Dive
+                                Content", html="
+                                <h1
+                                    style="
+                                        font-family: -apple-system, BlinkMacSystemFont, \&quot;Segoe UI\&quot;, Roboto, \&quot;Helvetica Neue\&quot;, Helvetica, Arial, sans-serif;
+                                        font-weight: 700;
+                                        font-size: 32px;
+                                        margin: 40px 0 20px 0;
+                                        text-align: center;
+                                        color: #333333;
+                                        line-height: 1.25;
+                                    "
+                                >
+                                    Section Title
+                                </h1>
+                                <p
+                                    style="
+                                        font-family: -apple-system, BlinkMacSystemFont, \&quot;Segoe UI\&quot;, Roboto, \&quot;Helvetica Neue\&quot;, Helvetica, Arial, sans-serif;
+                                        font-size: 18px;
+                                        line-height: 1.65;
+                                        margin: 0 0 20px 0;
+                                        color: #333333;
+                                    "
+                                >
+                                    This is where your article content goes. You
+                                    can write as much as you need, include
+                                    multiple paragraphs, and format the content
+                                    however works best.
+                                </p>
+                                <h2
+                                    style="
+                                        font-family: -apple-system, BlinkMacSystemFont, \&quot;Segoe UI\&quot;, Roboto, \&quot;Helvetica Neue\&quot;, Helvetica, Arial, sans-serif;
+                                        font-weight: 600;
+                                        font-size: 26px;
+                                        margin: 32px 0 12px 0;
+                                        color: #333333;
+                                        line-height: 1.3;
+                                    "
+                                >
+                                    Subsection Heading
+                                </h2>
+                                <p
+                                    style="
+                                        font-family: -apple-system, BlinkMacSystemFont, \&quot;Segoe UI\&quot;, Roboto, \&quot;Helvetica Neue\&quot;, Helvetica, Arial, sans-serif;
+                                        font-size: 18px;
+                                        line-height: 1.65;
+                                        margin: 0;
+                                        color: #333333;
+                                    "
+                                >
+                                    Continue with your detailed analysis and
+                                    insights.
+                                    <a
+                                        href="https://opened.co"
+                                        style="
+                                            color: #03a4ea !important;
+                                            text-decoration: underline;
+                                            font-size: inherit;
+                                            font-family: inherit;
+                                            line-height: inherit;
+                                        "
+                                        >Links will render in blue</a
+                                    >.
+                                </p>
+                                " %}
+                            </td>
+                        </tr>
+
+                        <!-- DIVIDER -->
+                        <tr>
+                            <td style="padding: 0 24px">
+                                <table
+                                    role="presentation"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    border="0"
+                                    width="100%"
+                                >
+                                    <tr>
+                                        <td
+                                            style="
+                                                border-bottom: 1px solid #e0e0e0;
+                                                font-size: 1px;
+                                                line-height: 1px;
+                                            "
+                                        >
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- END SECTION -->
+                        <tr>
+                            <td align="center" style="padding: 40px 24px">
+                                <p
+                                    style="
+                                        font-family:
+                                            -apple-system, BlinkMacSystemFont,
+                                            &quot;Segoe UI&quot;, Roboto,
+                                            &quot;Helvetica Neue&quot;,
+                                            Helvetica, Arial, sans-serif;
+                                        font-size: 18px;
+                                        line-height: 1.6;
+                                        margin: 0;
+                                        color: #666666;
+                                        text-align: center;
+                                    "
+                                >
+                                    Enjoyed this? Forward it to a friend.
+                                </p>
+                            </td>
+                        </tr>
+
+                        <!-- FOOTER DIVIDER -->
+                        <tr>
+                            <td style="padding: 0 24px">
+                                <table
+                                    role="presentation"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    border="0"
+                                    width="100%"
+                                >
+                                    <tr>
+                                        <td
+                                            style="
+                                                border-bottom: 1px solid #e8e8e8;
+                                                font-size: 1px;
+                                                line-height: 1px;
+                                            "
+                                        >
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- FOOTER SECTION -->
+                        <tr>
+                            <td
+                                align="center"
+                                class="container-padding"
+                                style="padding: 24px 24px 32px 24px"
+                            >
+                                <!-- Footer Links and Info -->
+                                <table
+                                    role="presentation"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    border="0"
+                                    width="100%"
+                                >
+                                    <tr>
+                                        <td
+                                            align="center"
+                                            class="footer-text"
+                                            style="
+                                                padding-bottom: 12px;
+                                                font-family:
+                                                    -apple-system,
+                                                    BlinkMacSystemFont,
+                                                    &quot;Segoe UI&quot;,
+                                                    Roboto,
+                                                    &quot;Helvetica Neue&quot;,
+                                                    Helvetica, Arial, sans-serif;
+                                                font-size: 12px;
+                                                line-height: 1.5;
+                                                color: #666666;
+                                            "
+                                        >
+                                            <a
+                                                href="{{ unsubscribe_link }}"
+                                                style="
+                                                    color: #03a4ea !important;
+                                                    text-decoration: underline;
+                                                    font-size: 12px;
+                                                    font-family: inherit;
+                                                    line-height: inherit;
+                                                "
+                                                >Update preferences</a
+                                            >
+                                            <span
+                                                style="
+                                                    color: #cccccc;
+                                                    padding: 0 6px;
+                                                "
+                                                >·</span
+                                            >
+                                            <a
+                                                href="{{ unsubscribe_link_all }}"
+                                                style="
+                                                    color: #03a4ea !important;
+                                                    text-decoration: underline;
+                                                    font-size: 12px;
+                                                    font-family: inherit;
+                                                    line-height: inherit;
+                                                "
+                                                >Unsubscribe</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            align="center"
+                                            class="footer-text"
+                                            style="
+                                                font-family:
+                                                    -apple-system,
+                                                    BlinkMacSystemFont,
+                                                    &quot;Segoe UI&quot;,
+                                                    Roboto,
+                                                    &quot;Helvetica Neue&quot;,
+                                                    Helvetica, Arial, sans-serif;
+                                                font-size: 11px;
+                                                line-height: 1.6;
+                                                color: #999999;
+                                            "
+                                        >
+                                            {{ site_settings.company_name
+                                            }}<span
+                                                style="
+                                                    color: #cccccc;
+                                                    padding: 0 4px;
+                                                "
+                                                >·</span
+                                            >{{
+                                            site_settings.company_street_address_1
+                                            }}<span
+                                                style="
+                                                    color: #cccccc;
+                                                    padding: 0 4px;
+                                                "
+                                                >·</span
+                                            >{{ site_settings.company_city }},
+                                            {{ site_settings.company_state }} {{
+                                            site_settings.company_zip }}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- End Email Container -->
+
+                    <!--[if mso]>
+</td>
+</tr>
+</table>
+<![endif]-->
+                </td>
+            </tr>
+        </table>
+        <!-- End Full Width Background Table -->
+
+        {{ standard_footer_includes }}
+    </body>
+</html>
