@@ -2198,9 +2198,9 @@
     "lessonDuration": "short"
   },
   {
-    "slug": "free-to-learn**-peter-gray",
+    "slug": "free-to-learn-peter-gray",
     "name": "Free to Learn** (Peter Gray)",
-    "imageUrl": "/images/curricula/free-to-learn**-peter-gray.png",
+    "imageUrl": "/images/curricula/free-to-learn-peter-gray.png",
     "logoUrl": null,
     "website": "",
     "gradeRange": "Parents",
@@ -2364,9 +2364,9 @@
     "lessonDuration": "short"
   },
   {
-    "slug": "good-inside**-dr.-becky-kennedy",
+    "slug": "good-inside-dr.-becky-kennedy",
     "name": "Good Inside** (Dr. Becky Kennedy)",
-    "imageUrl": "/images/curricula/good-inside**-dr.-becky-kennedy.png",
+    "imageUrl": "/images/curricula/good-inside-dr.-becky-kennedy.png",
     "logoUrl": null,
     "website": "",
     "gradeRange": "Parents",
@@ -2629,9 +2629,9 @@
     "lessonDuration": "short"
   },
   {
-    "slug": "hold-on-to-your-kids**-gordon-neufeld",
+    "slug": "hold-on-to-your-kids-gordon-neufeld",
     "name": "Hold On To Your Kids** (Gordon Neufeld)",
-    "imageUrl": "/images/curricula/hold-on-to-your-kids**-gordon-neufeld.png",
+    "imageUrl": "/images/curricula/hold-on-to-your-kids-gordon-neufeld.png",
     "logoUrl": null,
     "website": "",
     "gradeRange": "Parents",
@@ -4436,9 +4436,9 @@
     "lessonDuration": "medium"
   },
   {
-    "slug": "o*net-interest-profiler",
+    "slug": "onet-interest-profiler",
     "name": "O*NET Interest Profiler",
-    "imageUrl": "/images/curricula/o*net-interest-profiler.png",
+    "imageUrl": "/images/curricula/onet-interest-profiler.png",
     "logoUrl": null,
     "website": "",
     "gradeRange": "M-H",
@@ -6162,9 +6162,9 @@
     "lessonDuration": "medium"
   },
   {
-    "slug": "the-absorbent-mind**-maria-montessori",
+    "slug": "the-absorbent-mind-maria-montessori",
     "name": "The Absorbent Mind** (Maria Montessori)",
-    "imageUrl": "/images/curricula/the-absorbent-mind**-maria-montessori.png",
+    "imageUrl": "/images/curricula/the-absorbent-mind-maria-montessori.png",
     "logoUrl": null,
     "website": "",
     "gradeRange": "Parents",
@@ -6502,9 +6502,9 @@
     "lessonDuration": "long"
   },
   {
-    "slug": "the-well-trained-mind**-susan-wise-bauer",
+    "slug": "the-well-trained-mind-susan-wise-bauer",
     "name": "The Well-Trained Mind** (Susan Wise Bauer)",
-    "imageUrl": "/images/curricula/the-well-trained-mind**-susan-wise-bauer.png",
+    "imageUrl": "/images/curricula/the-well-trained-mind-susan-wise-bauer.png",
     "logoUrl": null,
     "website": "",
     "gradeRange": "Parents",
