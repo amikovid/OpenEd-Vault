@@ -59,12 +59,11 @@ FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
 PS = f"font-family: {FONT} !important; font-size: 18px !important; line-height: 1.65 !important; margin: 0 0 20px 0 !important; color: #333333 !important;"
 H1S = f"font-family: {FONT} !important; font-weight: 700 !important; font-size: 32px !important; margin: 40px 0 20px 0 !important; text-align: center !important; color: #333333 !important; line-height: 1.25 !important;"
 H2S = f"font-family: {FONT} !important; font-weight: 700 !important; font-size: 24px !important; margin: 32px 0 16px 0 !important; color: #333333 !important; line-height: 1.3 !important;"
-LS = "color: #03a4ea !important; text-decoration: underline !important; font-size: 18px !important; font-family: inherit !important; line-height: inherit !important;"
+LS = "color: #03a4ea !important; text-decoration: underline !important; font-size: inherit !important;"
 HRS = "border: none !important; border-top: 1px solid #e0e0e0 !important; margin: 24px 0 !important;"
-BYS = f"font-family: {FONT} !important; font-size: 16px !important; font-style: italic !important; color: #666666 !important; margin: 0 0 24px 0 !important; text-align: center !important;"
-CTAS = f"text-align: center !important; margin: 24px 0 !important; font-family: {FONT} !important; font-size: 18px !important; line-height: 1.65 !important; color: #333333 !important;"
 
-body_html = f'''<p style="{PS}">Greetings Eddies!</p>
+body_html = f'''
+<p style="{PS}">Greetings Eddies!</p>
 
 <p style="{PS}">Most of what we share about open education and homeschooling is written by parents, teachers, researchers, and policy people. Fair enough - they know things. But today we get to hear from someone who\u2019s actually living it right now.</p>
 
@@ -76,11 +75,11 @@ body_html = f'''<p style="{PS}">Greetings Eddies!</p>
 
 <hr style="{HRS}">
 
-<center><a href="{BLOG_URL}"><img src="{IMAGE_URL}" width="600" height="338" style="width: 600px !important; height: auto !important; max-width: 600px !important; margin-left: auto !important; margin-right: auto !important; display: block !important;" align="center"></a></center>
+<center><a href="{BLOG_URL}"><img src="{IMAGE_URL}" width="600" height="338" style="width: 600px !important; height: auto !important; max-width: 100% !important; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
 
-<h1 style="{H1S}">A 16-Year-Old Filmmaker Spent a Year Documenting Homeschoolers. Here\u2019s What He Found.</h1>
+<h1 style="{H1S}"><strong>A 16-Year-Old Filmmaker Spent a Year Documenting Homeschoolers. Here\u2019s What He Found.</strong></h1>
 
-<p style="{BYS}">By Ela Richmond</p>
+<p style="{PS}"><em>By Ela Richmond</em></p>
 
 <p style="{PS}">Ten teenagers sit in a New York apartment reading <em>Madame Bovary</em>. No parents. No teachers. No one telling them to stay on task. One of them organized the whole thing - the books, the food, the museum trips they take together afterward. Sometimes she makes enough dinner for everyone. Sometimes people go home hungry. She figures it out.</p>
 
@@ -102,7 +101,7 @@ body_html = f'''<p style="{PS}">Greetings Eddies!</p>
 
 <p style="{PS}">The part of our conversation that surprised me most came later - when Mason shared two honest criticisms of homeschooling that even its biggest advocates need to hear.</p>
 
-<p style="{CTAS}"><a href="{BLOG_URL}" style="{LS}"><strong>Watch or Read the Whole Thing &rarr;</strong></a></p>
+<p style="{PS}"><a href="{BLOG_URL}" style="{LS}"><strong>Watch or Read the Whole Thing &rarr;</strong></a></p>
 
 <hr style="{HRS}">
 

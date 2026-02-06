@@ -1,0 +1,1 @@
+Read the skill file at `.claude/skills/vault-guide/SKILL.md` and use it to orient the user to the OpenEd Vault. If they're a new team member or applicant, walk them through picking and completing a task. If they're Charlie, help them find what they're looking for or explore ideas. Adapt based on who you're talking to and what they need.

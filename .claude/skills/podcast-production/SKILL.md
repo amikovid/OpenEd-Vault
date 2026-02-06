@@ -28,12 +28,14 @@ PHASE 2: AUDIT + HUMAN REVIEW
   ────────── HUMAN CHECKPOINT: Select title + thumbnail ──────────
 
 PHASE 3: HANDOFF ASSEMBLY (converges to one document)
-  Step 4:   On-screen hook generation (3-5 per clip)
+  Step 4:   On-screen hook generation (3-4 per clip, * on recommended)
   Step 5:   Final clip markup (3 short + 2 long, edit-ready)
   Step 6:   Cold open assembly (2-3 options from selected clips)
-  Step 7:   YouTube description + chapters
-  Step 8:   Blog post direction + social tagging strategy
-            → EDITOR_HANDOFF.md (THE deliverable)
+  Step 7:   YouTube description + chapters (single code block, includes blog + transcript links)
+  Step 8:   Narrative snippets extraction → blog post draft
+  Step 9:   Social tagging strategy + platform post drafts
+  Step 10:  Blog thumbnail + infographic generation (nano-banana-image-generator)
+            → 3 Notion subpages + images in handoff folder
 ```
 
 ---
@@ -48,7 +50,12 @@ Studio/Podcast Studio/[Guest-Name]/
     ├── SEO_Keywords.md              # Keyword volumes + blog direction
     ├── Checkpoint_1_Audit.md        # Angles, clips, cold opens
     ├── Title_Options_By_Angle.md    # Framework-fit titles organized by angle
-    └── EDITOR_HANDOFF.md            # THE DELIVERABLE (everything the editor needs)
+    ├── EDITOR_HANDOFF.md            # Combined reference (all sections)
+    ├── POLISHED_TRANSCRIPT.md       # Cleaned transcript for publication
+    └── notion-export/              # Files that map 1:1 to Notion subpages
+        ├── editor-handoff.md        # → Notion subpage: "Editor Handoff"
+        ├── youtube-and-transcript.md # → Notion subpage: "YouTube + Polished Transcript"
+        └── blog-and-social.md       # → Notion subpage: "Blog Post + Social"
 ```
 
 ---
@@ -155,6 +162,8 @@ After angle selection, generate titles using the `youtube-title-creator` skill:
 
 **VERIFICATION RULE:** Any specific claim in a title (numbers, named concepts, frameworks) must cite the transcript moment that supports it. Never let a framework template inject a claim that isn't in the source.
 
+**Retain 5+ title options per angle** to give the associate/editor room to weigh in. Don't over-filter.
+
 After user narrows to 3-4 title finalists, produce 3 thumbnail concepts per title:
 - Visual description (what the thumbnail image shows)
 - On-screen text (2-4 words, complements title - never repeats it)
@@ -173,63 +182,182 @@ User selects:
 
 ## Phase 3: Handoff Assembly
 
-Everything converges into `EDITOR_HANDOFF.md`. Send to an Opus sub-agent with SOURCE.md + all prep files. The sub-agent builds the complete handoff document.
+Everything converges into **3 Notion subpages** under the episode's master Notion page. Each subpage is generated from a local markdown file in `prep/notion-export/`.
 
-### EDITOR_HANDOFF.md Structure
+### Output: 3 Notion Subpages
 
+**Subpage 1: Editor Handoff** (`notion-export/editor-handoff.md`)
 ```markdown
-# EDITOR HANDOFF: [Guest Name], [Company]
+# Editor Handoff: [Guest Name], [Company]
 
-## SECTION 1: EPISODE INFO
+## Episode Info
 - Guest, host, duration
 - YouTube title (selected)
 - Blog title (selected)
-- Thumbnail text suggestion
+- Thumbnail text options (3, * on recommended)
 
-## SECTION 2: COLD OPENS
+## Cold Opens
 - 2-3 options, each 25-35 seconds
 - Verbatim with ~~strikethrough~~ for cuts, *italics* for smoothing
 - [SWOOSH] between unrelated moments
 - Source timestamps for each segment
 
-## SECTION 3: SHORT CLIPS (3 total)
+## Short Clips (3 total)
 For each clip:
 - Timestamp range
-- On-screen hook options (3-4 per clip, * next to recommended)
+- On-screen hook options (3-4, * next to recommended)
 - Full verbatim transcript with edit markup
 - Caption (universal for FB, TikTok, IG, LinkedIn)
-- X variant (shorter, more conversational)
+- X variant
 
-## SECTION 4: LONG CLIPS (2 total)
+## Long Clips (2 total)
 For each clip:
 - Timestamp range
 - Narrative arc (setup → tension → payoff)
-- On-screen hook options (3 per clip)
+- On-screen hook options (3, * next to recommended)
 - Opening hook verbatim
 - Caption + X variant
-- Suggested standalone title
 
-## SECTION 5: YOUTUBE DESCRIPTION + CHAPTERS
-- Natural description (keyword-enriched, not stuffed)
-- Guest bio + links
-- Timestamped chapters (keyword-rich, 5-10 words each)
-
-## SECTION 6: SOCIAL QUOTES
-- 5 standalone quotes with timestamps
-- Use cases (quote cards, newsletter pullquotes, social posts)
-
-## SECTION 7: BLOG POST DIRECTION
-- Blog title (SEO optimized)
-- Target keyword + search volume
-- Standard narrative guide OR day-in-the-life format
-- 3-5 section suggestions with supporting transcript moments
-
-## SECTION 8: SOCIAL TAGGING & RESHARE STRATEGY
-- Guest handles per platform
-- Platform priority (based on guest research)
-- Tagging strategy per clip
-- Nearbound: what to offer guest to maximize reshare
+## Edit Markup Key
 ```
+
+**Subpage 2: YouTube + Polished Transcript** (`notion-export/youtube-and-transcript.md`)
+```markdown
+# YouTube + Polished Transcript: [Guest Name]
+
+## YouTube Title
+[Selected title]
+
+## Thumbnail Options
+1. "[Text]" *
+2. "[Text]"
+3. "[Text]"
+
+## YouTube Description
+(Single code block - copy-paste ready. Includes:)
+- Episode summary (2-3 sentences)
+- Blog link: "Read the full blog post: opened.co/blog/[slug]" (ABOVE timestamps)
+- Guest bio + social handles + resources
+- OpenEd links
+- Chapters (at the bottom)
+- NO "In this episode you'll learn" bullet section
+- NO transcript anchor link
+
+## Blog Slug
+[slug] → Full URL: https://opened.co/blog/[slug]
+
+## Polished Transcript
+(Generated from SOURCE.md. Section headers match chapter breakdown.
+Appended to blog post under #transcript anchor.)
+```
+
+**Subpage 3: Blog Post + Social** (`notion-export/blog-and-social.md`)
+```markdown
+# Blog Post + Social: [Guest Name]
+
+## SEO Metadata
+- Blog title (SEO optimized), target keyword, search volume, blog slug
+
+## Blog Post
+- Full blog post draft (~1,200 words)
+- Internal backlinks to relevant OpenEd content
+- Guest handles + URLs in About section at bottom
+
+## Social Tagging Strategy
+- Guest handles per platform (table format)
+- Platform priority ranking with reasoning
+
+## Platform-Specific Post Drafts
+For each platform, 1-2 ready-to-post drafts:
+- **LinkedIn** (2 posts: episode announcement + mid-week angle)
+- **X/Twitter** (2 posts: announcement + quote/stat hook)
+- **Instagram** (2 posts: carousel concept + quote card)
+- **Facebook** (1 post: full episode share)
+
+## Distribution Timing
+- Week 1: Launch day (all platforms) + staggered follow-ups
+- Week 2: Evergreen angles (repurposed quotes, stats)
+- Ongoing: Guest reshare coordination
+```
+
+### Step 8: Blog Post (Narrative Snippets Method)
+
+Before writing the blog post, extract narrative beats from the transcript:
+
+1. **Scan for story seeds** - transitions, contrast markers, failure admissions, turning points
+2. **Extract 3-5 narrative arcs** using the 6-beat structure:
+   - SETUP → DISASTER → FAILED APPROACH → INSIGHT → RESOLUTION → REFLECTION
+3. **Pick one arc as the spine** of the blog post
+4. **Weave other arcs** as supporting threads
+
+The blog post should read like a great New Yorker profile at blog scale - observational, unhurried, letting scenes and quotes do the work. Voice: Ela (warm, curious, conversational) elevated by narrative craft.
+
+**Blog post sub-agent reads:** SOURCE.md + GUEST_SOCIAL_RESEARCH.md + blog direction from subpage 3
+**Blog post sub-agent uses:** `narrative-snippets` → `podcast-blog-post-creator` → `ghostwriter`
+**Output:** ~1,200 word draft with SEO headers, 3-5 verbatim quotes, YouTube embed placeholder
+
+**Integration requirements:**
+- Include guest handles and URLs from GUEST_SOCIAL_RESEARCH.md (bio links, company URL)
+- Scan published OpenEd content for internal backlinking opportunities (link to relevant articles, guides, and other podcast episodes)
+- About section at bottom must include guest social handles with links
+
+### Blog Slug Convention
+
+Generate the slug during Phase 3 so it can be embedded in the YouTube description before publishing.
+
+**Pattern:** `opened.co/blog/[seo-keyword-slug]`
+**YouTube description must include:**
+- `Read the full blog post: https://opened.co/blog/[slug]` (placed ABOVE timestamps)
+
+### Step 10: Blog Thumbnail + Infographic
+
+Generate visual assets using the `nano-banana-image-generator` skill. Save all images in the **handoff folder** alongside the markdown files.
+
+**Required assets:**
+1. **Blog thumbnail** (16:9, watercolor-line style) - conceptual illustration for the blog post header and Webflow CMS
+2. **Infographic** (16:9, watercolor-line with Vox-style hierarchy) - data visualization or concept map for social sharing
+
+**Optional assets (if the episode warrants them):**
+- Quote card (1:1, opened-editorial style) - for Instagram/LinkedIn
+- Instagram carousel intro slide (4:5, watercolor-line)
+
+**Workflow:**
+```bash
+# Blog thumbnail
+python3 ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
+  "prompt" --model pro --aspect 16:9 \
+  --seo-name "[guest-slug]-podcast-thumbnail" \
+  --context "[Blog title]" \
+  --output "Studio/Podcast Studio/handoff-packages/[Guest-Name]/"
+
+# Optimize for Webflow
+python3 ".claude/skills/nano-banana-image-generator/scripts/image_optimizer.py" \
+  "Studio/Podcast Studio/handoff-packages/[Guest-Name]/[file].jpg" \
+  --use thumbnail
+```
+
+**Style selection guide:**
+- **watercolor-line** (DEFAULT) - Warm, editorial, works for narrative/emotional episodes
+- **opened-editorial** - Conceptual wit, better for data-driven or contrarian episodes
+- **minimalist-ink** - High contrast, good for "bold statement" thumbnails
+
+**Concept brainstorm:** Before generating, brainstorm 4-6 visual concepts with the user. Avoid generic education cliches (no lightbulbs, no raised hands, no stacks of books). Favor metaphor over literal depiction.
+
+**Infographic principles:**
+- Visual hierarchy does the work, not text
+- Labels only, no explanatory paragraphs
+- Icons should be hand-drawn style (not emoji)
+- Clear left-to-right or top-to-bottom flow
+- Pull key stats from the transcript (the guest's own data is most compelling)
+
+### Notion Export
+
+Push each subpage using:
+```bash
+python3 .claude/scripts/notion_markdown.py [file] --parent-id [episode-page-id] --title "[Subpage Title]"
+```
+
+Never use `--update` on the master episode page (it overwrites). Always create subpages.
 
 ### On-Screen Hook Standards
 
@@ -250,6 +378,14 @@ On-screen text is the #1 visual element. It does the PRIMARY work of stopping a 
 
 **"First 3 words" test:** The first 3 words someone reads do 80% of the work. Front-load the punch.
 
+**Length variety (REQUIRED):** Every set of 3-4 hook options must span at least 2 length categories:
+- **Punchy** (2-4 words): "Schools trap families?"
+- **Statement** (5-8 words): "The school choice argument nobody makes"
+- **Narrative** (9-15 words): "There's a cost every morning when a five-year-old walks in and knows"
+- **Full quote** (15+ words): "If your strategy for keeping families is making sure they can't leave, you've lost"
+
+If all hooks are the same length, redo them. The editor needs options that work at different scroll speeds.
+
 ### Edit Markup Convention
 
 ```
@@ -264,7 +400,7 @@ On-screen text is the #1 visual element. It does the PRIMARY work of stopping a 
 ## Key Principles
 
 1. **Verbatim only.** All quoted transcript exactly as spoken. Cut and rearrange, never paraphrase.
-2. **One deliverable.** Everything flows into EDITOR_HANDOFF.md. Don't over-generate intermediate docs.
+2. **Three subpages.** Everything flows into 3 Notion subpages: Editor Handoff, YouTube + Transcript, Blog + Social.
 3. **Mine the whole transcript.** The strongest moment might be at minute 48.
 4. **Bold over safe.** Contrarian > obvious. Tension > comfort.
 5. **5 clips total.** 3 short (30-90 sec) + 2 long (2-5 min). Quality over quantity.
@@ -285,7 +421,9 @@ On-screen text is the #1 visual element. It does the PRIMARY work of stopping a 
 | Step 3 | `youtube-title-creator` (119 frameworks) |
 | Step 4 | `video-caption-creation` (hook categories, Triple Word Score) |
 | Step 6 | `cold-open-creator` (optional reference) |
-| Step 8 | `podcast-blog-post-creator`, `day-in-the-life` (if applicable) |
+| Step 8 | `narrative-snippets` (extract beats) → `podcast-blog-post-creator` → `ghostwriter` (voice) |
+| Step 8 alt | `day-in-the-life` (if applicable) |
+| Step 10 | `nano-banana-image-generator` (thumbnail + infographic) |
 | Quality | `quality-loop` (for blog post draft) |
 
 ---
@@ -309,7 +447,7 @@ On-screen text is the #1 visual element. It does the PRIMARY work of stopping a 
 - [ ] Research exemplar podcast YouTube/IG channels for on-screen hook reference library
 - [ ] Improve `video-caption-creation` skill with complementarity principle + real education creator examples
 - [ ] Build dedicated title+thumbnail sub-agent with better variation examples from Creator Hooks
-- [ ] Add internal linking step (scan Master Content Index for backlinks in blog post + YouTube description)
+- [x] Add internal linking step (integrated into Step 8 blog post sub-agent)
 
 ---
 
