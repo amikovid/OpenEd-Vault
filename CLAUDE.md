@@ -23,9 +23,9 @@
 
 | Need | Go To |
 | --- | --- |
-| Daily/Weekly newsletter | Studio/OpenEd Daily/ + skill: opened-daily-newsletter-writer |
+| Daily/Weekly newsletter | Studio/OpenEd Daily Studio/ + skill: opened-daily-newsletter-writer |
 | SEO content | Studio/SEO Content Production/PROJECT.md |
-| Podcast workflow | Studio/Open Ed Podcasts/ + skill: podcast-production |
+| Podcast workflow | Studio/Podcast Studio/ + skill: podcast-production |
 | Social posts | skill: text-content + Studio/Social Media/FORMAT_INVENTORY.md |
 | Short-form video | skill: short-form-video + video-caption-creation |
 | Meta ads | Studio/Meta Ads/PROJECT.md |
@@ -50,8 +50,8 @@ Each project has a `PROJECT.md` with full context. Navigate there first.
 
 | Workflow | Location | Cadence |
 | --- | --- | --- |
-| OpenEd Daily | Studio/OpenEd Daily/ | Mon-Thu |
-| Podcasts | Studio/Open Ed Podcasts/ | Weekly |
+| OpenEd Daily | Studio/OpenEd Daily Studio/ | Mon-Thu |
+| Podcasts | Studio/Podcast Studio/ | Weekly |
 | Open Education Hub | Studio/Open Education Hub/ | As needed |
 
 ---
@@ -271,8 +271,44 @@ When creating social posts, check if any mentioned people are in the Nearbound i
 
 ---
 
+## Task Protocol
+
+Before starting work, check `tasks/` for assigned tasks:
+
+1. `glob tasks/*.md` to find all task files
+2. Read any with `assignee: claude` and `status: todo`
+3. Pick highest priority, update status to `in_progress`
+4. Execute the steps/acceptance criteria in the task body
+5. Update status to `done`, add completion notes to Context section
+
+**Task files live in `tasks/`** (53 files) - each is a `.md` file with YAML frontmatter (id, title, status, project, assignee, priority, effort, due, tags). The body contains Context, Steps (checkboxes), and Spec References.
+
+**Dashboard:** `cd task-dashboard && bun run server.ts` → http://localhost:8002
+
+**Status values:** `todo` | `in_progress` | `done` | `later`
+
+**Task hygiene (every session):**
+- Update task status and check off steps as you work
+- Capture loose ends and follow-ups as new task files
+- At session end, update Context sections with where you left off (file paths, draft versions, blockers)
+- Never leave useful knowledge only in conversation - put it in a task file
+
+---
+
 ## Maintenance
 
+### Structural Change Protocol (CRITICAL)
+When you add, rename, or remove skills, projects, folders, or workflows, update these documents:
+- **New skill** → Add to skill table in this file + `SKILL_ARCHITECTURE_MAP.md` + `vault-guide` SKILL.md
+- **New project/folder** → Add to folder tree in this file + `vault-guide` SKILL.md
+- **New task file** → Automatically handled by dashboard, but update batch task files if relevant
+- **Changed workflow** → Update `CONTENT_OS_MAP.md` + `PROJECT.md` for affected project
+- **New integration** → Update MCP table in `vault-guide` SKILL.md
+- **Published content** → Add to `Master_Content_Index.md`
+
+The vault-guide skill (`.claude/skills/vault-guide/SKILL.md`) is the onboarding document for new team members. It must stay current.
+
+### Session End
 - Update `NOW.md` at session end
 
 - Use `/handoff` to capture session context
@@ -295,4 +331,4 @@ When creating social posts, check if any mentioned people are in the Nearbound i
 
 ---
 
-*Last Updated: 2026-01-29*
+*Last Updated: 2026-02-04*

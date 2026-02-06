@@ -63,9 +63,7 @@ OpenEd Vault/                              CLAUDE.md ✓ + NOW.md ✓
 │   │   ├── hubspot-integration/           Email tracking
 │   │   └── reports/                       Performance data
 │   │
-│   ├── Content Staging Pipeline/          PROJECT.md (Notion integration)
-│   │
-│   └── _archive/                          Deprecated workflows
+│   └── _archive/                          Content Staging Pipeline + deprecated workflows
 │
 ├── Projects/                              ─────── DISCRETE PROJECTS ───────
 │   │

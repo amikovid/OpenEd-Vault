@@ -144,6 +144,6 @@ Charlie
 
 ## Related Files
 
-- `/OpenEd Vault/Studio/OpenEd Daily/2026-01-07 - Learning Science/JUSTIN_OUTREACH_EMAIL.md` - Previous outreach draft
+- `/OpenEd Vault/Studio/OpenEd Daily Studio/2026-01-07 - Learning Science/JUSTIN_OUTREACH_EMAIL.md` - Previous outreach draft
 - `/open-education/ai-adaptive-learning` - Published article featuring Justin
 - `/OpenEd Vault/.claude/skills/image-prompt-generator/output/ladder-watercolor_20260109_123443_pro.png` - Thumbnail draft

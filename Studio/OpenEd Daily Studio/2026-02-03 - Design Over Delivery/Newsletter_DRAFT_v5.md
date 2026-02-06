@@ -1,3 +1,12 @@
+---
+date: 2026-02-03
+day: Tuesday
+type: daily
+subject: "Two courses, one platform, opposite outcomes"
+status: draft
+segments: [thought, trend, tool]
+---
+
 # Newsletter Draft v5 - 2026-02-03 (Monday)
 
 **SUBJECT:** Two courses, one platform, opposite outcomes

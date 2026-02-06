@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Buying Ink Cartridges</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .card {
+    width: 1080px;
+    height: 1350px;
+    background: #fefcf7;
+    padding: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .header {
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #d97706;
+    margin-bottom: 16px;
+  }
+  .title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .title span { color: #dc2626; }
+  .subtitle {
+    font-size: 20px;
+    color: #777;
+    line-height: 1.5;
+  }
+  .cost-compare {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .cost-box {
+    flex: 1;
+    padding: 36px 28px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cost-bad {
+    background: #fef2f2;
+    border: 2px solid #fecaca;
+  }
+  .cost-good {
+    background: #f0fdf4;
+    border: 2px solid #bbf7d0;
+  }
+  .cost-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .cost-type {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .cost-bad .cost-type { color: #dc2626; }
+  .cost-good .cost-type { color: #16a34a; }
+  .cost-printer {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  .cost-printer-price {
+    font-size: 18px;
+    color: #999;
+    margin-bottom: 20px;
+  }
+  .cost-yearly {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .cost-amount {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cost-bad .cost-amount { color: #dc2626; }
+  .cost-good .cost-amount { color: #16a34a; }
+  .cost-period {
+    font-size: 16px;
+    color: #999;
+  }
+  .vs-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #999;
+    min-width: 48px;
+  }
+  .picks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .picks-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .pick {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+  }
+  .pick-badge {
+    min-width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+  }
+  .badge-ink { background: linear-gradient(135deg, #16a34a, #15803d); }
+  .badge-ink2 { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+  .badge-laser { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+  .pick-info { flex: 1; }
+  .pick-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .pick-desc {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.4;
+  }
+  .pick-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #16a34a;
+    text-align: right;
+  }
+  .rule {
+    text-align: center;
+    padding: 24px 40px;
+    background: #1a1a1a;
+    border-radius: 12px;
+  }
+  .rule-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+  .rule-text span { color: #fbbf24; }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .source {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.5;
+  }
+  .brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ddd;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="eyebrow">Homeschool Tool Guide</div>
+    <div class="title">Stop buying <span>ink cartridges.</span></div>
+    <div class="subtitle">Your $50 inkjet is the most expensive printer you own.</div>
+  </div>
+
+  <div class="cost-compare">
+    <div class="cost-box cost-bad">
+      <div>
+        <div class="cost-type">Inkjet + Cartridges</div>
+        <div class="cost-printer">Cheap inkjet printer</div>
+        <div class="cost-printer-price">~$50 upfront</div>
+      </div>
+      <div>
+        <div class="cost-yearly">3-year total cost</div>
+        <div class="cost-amount">$1,550</div>
+        <div class="cost-period">$500/yr in cartridges</div>
+      </div>
+    </div>
+    <div class="vs-circle">VS</div>
+    <div class="cost-box cost-good">
+      <div>
+        <div class="cost-type">Ink Tank Printer</div>
+        <div class="cost-printer">Epson EcoTank</div>
+        <div class="cost-printer-price">~$300 upfront</div>
+      </div>
+      <div>
+        <div class="cost-yearly">3-year total cost</div>
+        <div class="cost-amount">$340</div>
+        <div class="cost-period">Pennies per page</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="picks">
+    <div class="picks-title">Three that actually work</div>
+    <div class="pick">
+      <div class="pick-badge badge-ink">INK<br>TANK</div>
+      <div class="pick-info">
+        <div class="pick-name">Epson EcoTank ET-2850</div>
+        <div class="pick-desc">The homeschool workhorse. Duplex printing. Bottles last thousands of pages.</div>
+      </div>
+      <div class="pick-price">~$300</div>
+    </div>
+    <div class="pick">
+      <div class="pick-badge badge-ink2">INK<br>TANK</div>
+      <div class="pick-info">
+        <div class="pick-name">HP Smart Tank 7001</div>
+        <div class="pick-desc">Better for photos. Great for curriculum covers and art projects.</div>
+      </div>
+      <div class="pick-price">~$280</div>
+    </div>
+    <div class="pick">
+      <div class="pick-badge badge-laser">LASER</div>
+      <div class="pick-info">
+        <div class="pick-name">Brother HL-L2350DW</div>
+        <div class="pick-desc">B&W only. Indestructible. Toner lasts approximately forever.</div>
+      </div>
+      <div class="pick-price">~$150</div>
+    </div>
+  </div>
+
+  <div class="rule">
+    <div class="rule-text"><span>The rule:</span> never buy cartridges again.<br>Ink tanks or laser. Everything else is a trap.</div>
+  </div>
+
+  <div class="footer">
+    <div class="source">From the OpenEd Daily newsletter</div>
+    <div class="brand">OpenEd</div>
+  </div>
+</div>
+</body>
+</html>

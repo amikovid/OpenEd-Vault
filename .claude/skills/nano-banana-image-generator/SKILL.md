@@ -11,9 +11,10 @@ Generate professional, non-generic images using Nano Banana Pro (Gemini API).
 
 1. **Brainstorm Concepts** - Generate 4-6 high-level visual ideas
 2. **Select Direction** - User picks the concept they like
-3. **Optimize Prompt** - Refine into a strong, detailed prompt
-4. **Style Variations** - Adapt to 2-3 different visual styles
-5. **Generate Images** - Run via Gemini API
+3. **Source Reference Photos** - Find high-res images of real people/places (if applicable)
+4. **Optimize Prompt** - Refine into a strong, detailed prompt
+5. **Style Variations** - Adapt to 2-3 different visual styles
+6. **Generate Images** - Run via Gemini API
 
 ## Step 1: Brainstorm Concepts
 
@@ -66,7 +67,55 @@ When the user provides a topic or use case, generate 4-6 high-level visual conce
 
 Wait for user to select before proceeding.
 
-## Step 2: Optimize the Prompt
+## Step 2: Source Reference Photos (Person-Based Images)
+
+When generating images that depict a real person (tribute posters, portraits, editorial illustrations featuring someone's likeness), you **must** source a high-resolution reference photo before generating.
+
+### Why This Matters
+
+- Input photo resolution directly determines output quality. A 283px input produces a blurry, unusable output. A 1920px+ input produces sharp, detailed results.
+- The model needs a clear, well-lit photo to capture likeness accurately.
+- Photo era matters: a 1913 photo of someone will produce a young-looking result even if the prompt says "elderly."
+
+### Process
+
+1. **Search for the person** using WebSearch or WebFetch. Look for:
+   - Official organization pages (foundations, universities, publishers)
+   - Wikipedia/Wikimedia Commons (check actual resolution - thumbnails are too small)
+   - Library of Congress, public domain archives
+   - Professional photography sites, press kits
+
+2. **Verify resolution before downloading.** Target minimum 1000px on the longest edge, ideally 1920px+. Check the actual image dimensions, not the page thumbnail.
+
+3. **Verify the era/age.** If the content discusses someone in their later years, don't use a photo from their twenties. Match the photo to the narrative.
+
+4. **Download and save** to the same output directory as the final images, with a descriptive name:
+   - `{name}-reference-hires.jpg` - Primary reference photo
+   - `{name}-reference-{year}.jpg` - If era-specific (e.g., `montessori-reference-1946.jpg`)
+
+5. **Use with `--input` flag** when generating:
+   ```bash
+   python generate_image.py "prompt describing the style..." \
+     --input path/to/reference-hires.jpg \
+     --model pro --aspect 16:9
+   ```
+
+### Resolution Quick Reference
+
+| Input Resolution | Output Quality |
+|-----------------|---------------|
+| < 500px | Unusable - blurry, distorted |
+| 500-999px | Marginal - may work for stylized illustrations |
+| 1000-1920px | Good - suitable for most uses |
+| 1920px+ | Excellent - sharp detail, accurate likeness |
+
+### Troubleshooting Likeness
+
+- **Doesn't look like them?** Try a different reference photo with clearer facial features and better lighting.
+- **Wrong age?** Find a photo from the correct era.
+- **Wikimedia rate-limiting (429)?** Use alternative sources (LOC, official sites, press kits).
+
+## Step 3: Optimize the Prompt
 
 Once the user selects a concept, develop it into a full prompt. Structure:
 
@@ -145,20 +194,80 @@ python ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
 - `--aspect 16:9`, `1:1`, `9:16`, `3:4`, `4:3` (only works with pro model)
 - `--variations N` - generate N versions
 - `--output ./path` - save location (default: current directory)
-- `--name prefix` - filename prefix (output: `{prefix}_{timestamp}_{model}.png`)
-- `--edit path/to/image.png` - edit an existing image instead of generating from scratch
+- `--name prefix` - filename prefix (legacy, prefer `--seo-name`)
+- `--input path/to/image.png` - use a reference image for rework/edit mode
+- `--seo-name slug` - SEO-friendly filename (e.g. `john-taylor-gatto-education-reformer`). Output: `{slug}-gen.jpg`
+- `--context "Article title or topic"` - generates alt text suggestion in the metadata sidecar
+
+**Format detection:** The script detects the actual image format (JPEG vs PNG) from Gemini's response bytes and saves with the correct extension. No more `.png` files containing JPEG data.
+
+**Metadata sidecar:** Every generated image gets a `.meta.json` file alongside it containing:
+- `alt_text` - Auto-generated from prompt + context
+- `keywords` - Extracted from context
+- `original_format` - Detected format (jpeg/png)
+- `dimensions` - Width and height in pixels
+- `aspect_ratio` - The requested ratio
+- `prompt_summary` - First 200 chars of the prompt
+- `suggested_seo_name` - The seo-name if provided
 
 **Note:** For flash model, aspect ratio config is ignored - include the ratio in your prompt text instead.
 
+### SEO Workflow (Recommended for Blog Content)
+
+For any blog article or SEO content, use the full SEO workflow:
+
+```bash
+# 1. Generate with SEO name and context
+export GEMINI_API_KEY=$(grep GEMINI_API_KEY .env | cut -d'=' -f2) && \
+python3 ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
+  "A watercolor illustration of a child building a treehouse" \
+  --model pro --aspect 16:9 \
+  --seo-name "project-based-learning-treehouse" \
+  --context "How Project-Based Learning Transforms Homeschool Education" \
+  --output "Studio/SEO Content Production/project-based-learning/"
+
+# 2. Convert to WebP for web delivery
+python3 ".claude/skills/nano-banana-image-generator/scripts/image_optimizer.py" \
+  "Studio/SEO Content Production/project-based-learning/project-based-learning-treehouse-gen.jpg" \
+  --use thumbnail
+
+# Result: project-based-learning-treehouse-gen-thumbnail.webp (1200x675)
+# Plus updated .meta.json with WebP path and dimensions
+```
+
+### Image Optimizer
+
+The `image_optimizer.py` script converts images to WebP with target dimension presets. It keeps the original file intact (edit/rework needs the lossless source).
+
+```bash
+python3 ".claude/skills/nano-banana-image-generator/scripts/image_optimizer.py" \
+  path/to/image.jpg --use thumbnail
+```
+
+**Presets:**
+
+| Preset | Dimensions | Use Case |
+|--------|-----------|----------|
+| `thumbnail` | 1200x675 | Webflow blog thumbnails (16:9) |
+| `social-square` | 1080x1080 | Instagram, LinkedIn square |
+| `social-portrait` | 1080x1350 | Instagram portrait (4:5) |
+| `inline` | max-width 800px | In-article images |
+
+**Options:**
+- `--quality N` - WebP quality 1-100 (default: 85)
+- `--output ./path` - output directory (default: same as input)
+
+The optimizer updates the `.meta.json` sidecar with `webp_path`, `webp_dimensions`, and `webp_preset`.
+
 ### Editing Existing Images
 
-To modify an existing image, use the `--edit` flag with a path to the source image:
+To modify an existing image, use the `--input` flag with a path to the source image:
 
 ```bash
 export GEMINI_API_KEY=$(grep GEMINI_API_KEY .env | cut -d'=' -f2) && \
-python ".claude/skills/image-prompt-generator/scripts/generate_image.py" \
+python ".claude/skills/nano-banana-image-generator/scripts/generate_image.py" \
   "Add a striped shirt to the child. Remove the signature from the bottom right corner." \
-  --edit "Studio/Social Media/original-image.png" \
+  --input "Studio/Social Media/original-image.png" \
   --model pro \
   --aspect 1:1 \
   --output "Studio/Social Media" \
@@ -184,8 +293,8 @@ python ".claude/skills/image-prompt-generator/scripts/generate_image.py" \
 
 | Content Type | Output Location |
 |--------------|-----------------|
-| Newsletter | `Studio/OpenEd Daily/[date-folder]/` |
-| Podcast episode | `Studio/Open Ed Podcasts/[episode-folder]/` |
+| Newsletter | `Studio/OpenEd Daily Studio/[date-folder]/` |
+| Podcast episode | `Studio/Podcast Studio/[episode-folder]/` |
 | Blog article | `Studio/SEO Content Production/[article-folder]/` |
 | Guest contributor | `Studio/SEO Content Production/Guest Contributors/[name]/` |
 | Social media | `Studio/Social Media Transformation/[campaign]/` |
@@ -199,10 +308,10 @@ python ".claude/skills/image-prompt-generator/scripts/generate_image.py" \
 - `header-[concept].png` - Article header
 - `social-[platform].png` - Platform-specific social image
 
-## Step 5: Iterate
+## Step 6: Iterate
 
 After user reviews generated images:
-- **80% good?** Use `--edit` flag to make targeted changes to the existing image
+- **80% good?** Use `--input` flag to make targeted changes to the existing image
 - **Composition off?** Adjust framing or element placement in prompt
 - **Wrong style?** Try a different style reference
 - **Too busy?** Simplify to fewer elements
@@ -263,6 +372,7 @@ Brand and aesthetic style definitions:
 Saved prompts for reusable images:
 - `paper-airplane-newsletter.md` - Newsletter header variations
 - `ed-horse-error.md` - Ed mascot for error states
+- `dual-exposure-tribute.md` - Photo-grid composite tribute posters (Instagram 1:1 + thumbnail 16:9)
 
 ### scripts/ (in this skill folder)
 - `generate_image.py` - Gemini API image generation (Nano Banana / Nano Banana Pro)

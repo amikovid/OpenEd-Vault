@@ -93,11 +93,14 @@ Use `/seo-research` skill:
 
 ## Skills to Chain
 
+**Primary skill:** `guest-contributor-article` - Full end-to-end SOP with anti-hallucination gates.
+
 | Step | Skill |
 |------|-------|
+| **Full workflow** | `guest-contributor-article` |
 | SEO topic discovery | `seo-research` |
 | YouTube transcript | `youtube-downloader` |
-| Voice matching | `ghostwriter` + `human-writing` |
+| Voice matching | `ghostwriter` |
 | Draft quality | `quality-loop` |
 | Social amplification | `newsletter-to-social` |
 | Article titles | `article-titles` |

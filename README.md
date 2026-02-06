@@ -74,8 +74,8 @@ OpenEd Vault/
 ├── Master_Content_Index.md      # 406 published articles indexed
 │
 ├── Studio/                      # Active projects
-│   ├── OpenEd Daily/            # Mon-Thu newsletter workflow
-│   ├── Open Ed Podcasts/        # Weekly podcast workflow
+│   ├── OpenEd Daily Studio/      # Mon-Thu newsletter workflow
+│   ├── Podcast Studio/           # Weekly podcast workflow
 │   ├── SEO Content Production/  # Blog articles
 │   ├── Meta Ads/                # Ad creative library
 │   ├── Lead Magnet Project/     # Curriculove quiz app

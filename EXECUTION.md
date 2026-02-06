@@ -48,7 +48,7 @@
 | **Lead Magnet / Curriculove** | 🔄 Active | Quiz dev continues | Ongoing |
 | **Tools Directory** | 🔄 Active | Publish Teaching Textbooks | This week |
 | **KPI Discussions** | 📋 Planning | Q1 bonus structure | TBD |
-| **Content Staging Pipeline** | 🔄 Active | Test schedule-approved flow | This week |
+| **Content Staging Pipeline** | 📦 Archived | Absorbed into Social Media/PROJECT.md | — |
 
 ### Studio (Ongoing Workflows)
 
@@ -67,7 +67,7 @@
 | Meta Ads | ✅ Ready | 100 concepts done, awaiting Retargeting launch |
 | Analytics & Attribution | 🔄 Active | HubSpot setup complete, QBR items pending |
 | Nearbound Pipeline | 🔄 Active | 81 profiles, social enrichment ongoing |
-| Content Staging Pipeline | 🔄 Active | Notion infrastructure exists |
+| Content Staging Pipeline | 📦 Archived | Merged into Social Media/PROJECT.md (2026-02-04) |
 
 ---
 

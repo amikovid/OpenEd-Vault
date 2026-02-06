@@ -23,7 +23,7 @@ Generate daily social post suggestions from archive content. Surfaces evergreen 
 2. **Content Database** - `Content/Master Content Database/`
    - Full content files
 
-3. **Podcast Transcripts** - `Studio/Open Ed Podcasts/*/transcript.md`
+3. **Podcast Transcripts** - `Studio/Podcast Studio/*/transcript.md`
 
 ---
 

@@ -1,3 +1,12 @@
+---
+date: 2026-01-28
+day: Wednesday
+type: daily
+subject: "The homeschool parent's guide to project-based learning"
+status: draft
+segments: [deep-dive]
+---
+
 # OpenEd Daily — January 28, 2026
 
 ## SUBJECT LINE OPTIONS

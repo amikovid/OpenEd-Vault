@@ -7,7 +7,7 @@ How to find and integrate OpenEd's unique content advantage.
 ## Source 1: Podcast Archive
 
 ### Where to Find
-- Polished transcripts in `/Content/Open Ed Podcasts/`
+- Polished transcripts in `Studio/Podcast Studio/`
 - Episode folders contain source material and assets
 
 ### What to Look For

@@ -156,8 +156,8 @@ This is "dropshipping" for content - we don't manufacture from scratch, we sourc
 | Source | Location | Use For |
 |--------|----------|---------|
 | Blog archive (406 articles) | `../../Master_Content_Index.md` | All resurfacing |
-| Podcast episodes | `../../Open Ed Podcasts/` | Clips, quotes, video |
-| Newsletter archive | `../../OpenEd Daily/` | LinkedIn, short posts |
+| Podcast episodes | `../../Podcast Studio/` | Clips, quotes, video |
+| Newsletter archive | `../../OpenEd Daily Studio/` | LinkedIn, short posts |
 | Featured people | `../../Nearbound Pipeline/` | Tagging strategy |
 
 ---

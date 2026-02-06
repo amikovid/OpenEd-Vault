@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>OpenEd RSS Feeds</title>
+    <dateCreated>Thu, 05 Feb 2026 00:00:00 GMT</dateCreated>
+  </head>
+  <body>
+    <outline text="Tier 1 - Must Read" title="Tier 1 - Must Read">
+      <outline type="rss" text="Kerry McDonald (Forbes)" title="Kerry McDonald (Forbes)" xmlUrl="https://www.forbes.com/sites/kerrymcdonald/feed/" />
+      <outline type="rss" text="Fab Fridays" title="Fab Fridays" xmlUrl="https://newsletter.afabrega.com/feed/" />
+      <outline type="rss" text="Let Grow" title="Let Grow" xmlUrl="https://letgrow.org/feed/" />
+      <outline type="rss" text="Michael B. Horn" title="Michael B. Horn" xmlUrl="https://michaelbhorn.substack.com/feed" />
+      <outline type="rss" text="Homeschool Better Together" title="Homeschool Better Together" xmlUrl="https://pambarnhill.com/feed/" />
+      <outline type="rss" text="Justin Welsh - Saturday Solopreneur" title="Justin Welsh - Saturday Solopreneur" xmlUrl="https://kill-the-newsletter.com/feeds/rdq330sjnf5o71f6hul6.xml" />
+      <outline type="rss" text="Creator Hooks" title="Creator Hooks" xmlUrl="https://kill-the-newsletter.com/feeds/h9s4afhfl1h6qq3dwi97.xml" />
+    </outline>
+    <outline text="Tier 2 - Industry" title="Tier 2 - Industry">
+      <outline type="rss" text="EdChoice" title="EdChoice" xmlUrl="https://www.edchoice.org/feed/" />
+      <outline type="rss" text="The 74 Million" title="The 74 Million" xmlUrl="https://the74million.org/feed" />
+      <outline type="rss" text="Getting Smart" title="Getting Smart" xmlUrl="https://www.gettingsmart.com/feed/" />
+      <outline type="rss" text="EdSurge" title="EdSurge" xmlUrl="https://www.edsurge.com/articles_rss" />
+      <outline type="rss" text="Rick Hess (AEI)" title="Rick Hess (AEI)" xmlUrl="https://www.aei.org/profile/frederick-m-hess/feed/" />
+      <outline type="rss" text="NHERI" title="NHERI" xmlUrl="https://nheri.org/feed/" />
+      <outline type="rss" text="1000 Hours Outside" title="1000 Hours Outside" xmlUrl="https://www.1000hoursoutside.com/blog?format=rss" />
+      <outline type="rss" text="ClarifiEd" title="ClarifiEd" xmlUrl="https://www.clarified.life/feed" />
+      <outline type="rss" text="Peter Gray (Play Makes Us Human)" title="Peter Gray (Play Makes Us Human)" xmlUrl="https://petergray.substack.com/feed" />
+    </outline>
+    <outline text="Tier 3 - Homeschool Blogs" title="Tier 3 - Homeschool Blogs">
+      <outline type="rss" text="Simply Charlotte Mason" title="Simply Charlotte Mason" xmlUrl="http://simplycharlottemason.com/feed/" />
+      <outline type="rss" text="Christy-Faith" title="Christy-Faith" xmlUrl="https://christy-faith.com/feed/" />
+      <outline type="rss" text="Days With Grey" title="Days With Grey" xmlUrl="https://dayswithgrey.com/feed/" />
+      <outline type="rss" text="Simple Homeschool" title="Simple Homeschool" xmlUrl="http://feeds.feedburner.com/simplehomeschool" />
+      <outline type="rss" text="The Natural Homeschool" title="The Natural Homeschool" xmlUrl="http://www.thenaturalhomeschool.com/feed" />
+      <outline type="rss" text="Weird Unsocialized Homeschoolers" title="Weird Unsocialized Homeschoolers" xmlUrl="http://www.weirdunsocializedhomeschoolers.com/feed/" />
+      <outline type="rss" text="Raising Lifelong Learners" title="Raising Lifelong Learners" xmlUrl="https://raisinglifelonglearners.com/feed/" />
+      <outline type="rss" text="A Humble Place" title="A Humble Place" xmlUrl="http://ahumbleplace.com/feed/" />
+      <outline type="rss" text="Home-Centered Learning" title="Home-Centered Learning" xmlUrl="https://www.homecenteredlearning.com/blog?format=rss" />
+      <outline type="rss" text="Homeschool Better Together (Feedburner)" title="Homeschool Better Together (Feedburner)" xmlUrl="http://feeds.feedburner.com/EverydaySnapshots" />
+      <outline type="rss" text="Homegrown Learners" title="Homegrown Learners" xmlUrl="http://www.homegrownlearners.com/home/atom.xml" />
+      <outline type="rss" text="Humility and Doxology" title="Humility and Doxology" xmlUrl="https://humilityanddoxology.com/feed/" />
+      <outline type="rss" text="Withyweather" title="Withyweather" xmlUrl="https://withyweather.substack.com/feed" />
+      <outline type="rss" text="Coach Meg Thomas (KTN)" title="Coach Meg Thomas (KTN)" xmlUrl="https://kill-the-newsletter.com/feeds/hdjun97v4s6zfog1mp3e.xml" />
+      <outline type="rss" text="r/homeschool" title="r/homeschool" xmlUrl="https://www.reddit.com/r/homeschool/.rss" />
+    </outline>
+    <outline text="Tier 4 - Niche" title="Tier 4 - Niche">
+      <outline type="rss" text="Ed3 World" title="Ed3 World" xmlUrl="https://ed3world.substack.com/feed" />
+      <outline type="rss" text="Austin Scholar" title="Austin Scholar" xmlUrl="https://austinscholar.substack.com/feed" />
+    </outline>
+    <outline text="Tier 5 - Podcasts and Video" title="Tier 5 - Podcasts and Video">
+      <outline type="rss" text="Future of Education Podcast" title="Future of Education Podcast" xmlUrl="https://futureofeducationpod.com/feed/" />
+      <outline type="rss" text="Hannah Frankman (YouTube)" title="Hannah Frankman (YouTube)" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCJc7RzwJ0tIvPPMAM3iHZGQ" />
+      <outline type="rss" text="NREA Podcast" title="NREA Podcast" xmlUrl="https://feeds.simplecast.com/vLBlb6gi" />
+    </outline>
+    <outline text="Tier 6 - Google News Alerts" title="Tier 6 - Google News Alerts">
+      <outline type="rss" text="Google: homeschooling news" title="Google: homeschooling news" xmlUrl="https://news.google.com/rss/search?q=homeschooling%20news&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" />
+      <outline type="rss" text="Google: microschool" title="Google: microschool" xmlUrl="https://news.google.com/rss/search?q=microschool&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" />
+      <outline type="rss" text="Google: hybrid homeschool" title="Google: hybrid homeschool" xmlUrl="https://news.google.com/rss/search?q=hybrid%20homeschool&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" />
+      <outline type="rss" text="Google: learning pod" title="Google: learning pod" xmlUrl="https://news.google.com/rss/search?q=learning%20pod&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" />
+      <outline type="rss" text="Google: unschooling" title="Google: unschooling" xmlUrl="https://news.google.com/rss/search?q=unschooling&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" />
+    </outline>
+  </body>
+</opml>

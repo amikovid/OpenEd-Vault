@@ -1,61 +1,87 @@
 # OpenEd NOW
 
-**Last Updated:** 2026-02-02
+**Last Updated:** 2026-02-04
 
 ---
 
-## OPEN PROBLEM: Newsletter Voice (Pirate Wires + OpenEd)
+## Newsletter Batch Finalized - 2026-02-04
 
-**Status:** Unsolved. Drafts v1-v5 of "Design Over Delivery" newsletter all fall short.
+**6 newsletters finalized** from draft to publish-ready. Parents Know Best archived (superseded by Homeschool Data Gap).
 
-**The goal:** A subagent should reliably produce newsletter drafts in the modified Pirate Wires voice without needing 5 rounds of human revision.
+| Edition | Date | Type | Subject | Status |
+| --- | --- | --- | --- | --- |
+| Scrolling Is The New Smoking | Jan 27 (Tue) | TTT + WOTD | "Why The Minimalists pulled their daughter out" | FINAL |
+| Project-Based Learning | Jan 28 (Wed) | Deep Dive | "A practical guide to project-based learning" | FINAL |
+| Joshua Fields Millburn | Jan 29 (Thu) | Deep Dive | "Why The Minimalists quit traditional school" | FINAL |
+| Homeschool Data Gap | Feb 3 (Mon) | Meme + TTT | "The research says one thing. The headlines say another." | FINAL |
+| Design Over Delivery | Feb 4 (Wed) | TTT | "Two courses, one platform, opposite outcomes" | FINAL |
+| Gatto Deep Dive | Feb 5 (Thu) | Deep Dive | "He won Teacher of the Year. Then he quit." | FINAL |
 
-**What we've tried:**
+**Per edition:** Newsletter_FINAL.md + social_spokes.md (5 posts: 2 LinkedIn, 2 X, 1 Instagram) = 30 social posts total
 
-1. **Front-loaded Pirate Wires examples** in `opened-daily-newsletter-writer/SKILL.md` (4 condensed examples with use-case labels at the very top). Helped - drafts got noticeably closer - but the voice still reads like "someone describing Pirate Wires" rather than writing in it.
+**Infographics (5):** HTML files ready to screenshot/export
+- Homeschool performance data (bar chart, HSLDA stats)
+- Screen time stats (3x depression, 40% sleep problems)
+- Gatto's 7 Hidden Lessons (list format)
+- PBL spectrum (Abstract to Applied)
+- Printer cost comparison (inkjet vs ink tank vs laser)
 
-2. **Anti-patterns list** (staccato fragments, correlatives, fake questions, hedging). Prevents the worst AI tells but doesn't produce the positive quality we want.
+**Nearbound profiles created:** Brett Pike (@ClassicLearner), Robert Enlow (@Robert_Enlow/EdChoice), Julie Bogart (@JulieBogart/Brave Writer)
 
-3. **Pattern labels** ("Of course, none of them...", parenthetical asides, strong POV). The LLM recognizes and inserts these but they feel mechanical - like checking boxes rather than internalizing rhythm.
+**Open items:**
+- [ ] JFM podcast episode URL placeholder `[PODCAST_LINK]` in Scrolling newsletter
+- [ ] Design Over Delivery date: assigned to Feb 4 but calendar says Wednesday not Tuesday - verify intended send day
 
-4. **Separate "ai-tells" skill** as a blocking constraint. Good for catching errors in review. Does not help generation.
+---
 
-**What's still wrong:**
+## Newsletter Voice - UPDATED 2026-02-04
 
-- **Rhythm is off.** Pirate Wires sentences vary wildly in length - a 40-word sentence followed by a 4-word sentence. The drafts tend toward uniform medium-length sentences.
-- **Asides feel grafted on.** Real Pirate Wires parentheticals are *interruptions* to the writer's own thought. The LLM treats them as decorations added after the fact.
-- **Too clean.** The originals have a loose, almost reckless quality - digressions, admissions, self-corrections ("but let's remember," "sorry haters"). The drafts are too structured, too on-message.
-- **Missing the "I just noticed this" energy.** Pirate Wires reads like someone thinking in real time. The drafts read like someone who already thought it through and is presenting conclusions.
+**Status:** Hypothesis #5 executed. Pirate Wires examples replaced with Charlie's actual published newsletters.
 
-**Hypotheses for next session:**
+**What changed:** The `opened-daily-newsletter-writer/SKILL.md` Voice Priming section now uses 5 real OpenEd Daily excerpts instead of 4 adapted Pirate Wires examples. Source material: Gatto Deep Dive, Homeschool Data Gap, Design Over Delivery, Printers segment.
 
-1. **More examples, fewer instructions.** The skill currently has 4 Pirate Wires examples + ~20 lines of pattern rules. Ratio should probably be 10:1 examples to rules. The LLM learns voice from examples, not from descriptions of voice.
+**Why:** Pirate Wires is tech/politics snark; OpenEd Daily is education/parent authority. Same energy, different register. The LLM was imitating Pirate Wires rather than writing like Charlie. Using Charlie's own voice as the training set should fix the register mismatch.
 
-2. **Full paragraphs, not excerpts.** The current examples are single paragraphs. Maybe we need 2-3 *complete segments* (THOUGHT/TREND/TOOL length) written in the target voice so the model sees the full arc, not just isolated sentences.
+**Next test:** Generate a newsletter draft with the updated skill and compare against v1-v5 of Design Over Delivery. The "Homeschool Data Gap" draft remains the voice target - it has the real rhythm, asides that interrupt thought, and "I just noticed this" energy.
 
-3. **Write-then-rewrite pipeline.** Instead of one-shot generation, try: (a) draft in plain voice, (b) run a dedicated "voice transform" pass using the examples as few-shot. The `ghostwriter` and `human-writing` skills exist but aren't chained into the newsletter workflow.
+**Reference files:** Pirate Wires techniques still available at `references/pirate-wires-segment-techniques.md` for technique reference (not voice priming).
 
-4. **Temperature / sampling.** The "reckless" quality may require a looser generation pass. Consider: first draft at higher temperature, then tighten in editing pass.
+---
 
-5. **Charlie's actual newsletters as examples.** We have an archive at `daily-newsletter-workflow/examples/`. Pull 3-5 of the best and put them in the skill as the primary reference, not Pirate Wires excerpts (which are a different audience and register).
+## Vault Cleanup - COMPLETED 2026-02-04
 
-**Key discovery:** The "Homeschool Data Gap" draft (same date folder) is *far* closer to the target voice than any of the "Design Over Delivery" attempts. Compare the two directly. The Data Gap draft has the real rhythm - "I mean, this isn't obscure research. It's been replicated for decades. So why doesn't the coverage match the data? (Rhetorical question. We all know why.)" That's the voice. The Design Over Delivery drafts kept imitating Pirate Wires instead of writing like Charlie.
+**Full structural refactor of the OpenEd Vault.** Major changes:
 
-**Hypothesis #5 is probably the answer.** Use Charlie's own published newsletters as primary examples, not Pirate Wires. The register is different - Pirate Wires is tech/politics snark, OpenEd Daily is education/parent authority. Same energy, different register.
+### Folder Changes
+- `Studio/Open Ed Podcasts/` → merged into `Studio/Podcast Studio/` (orphaned file moved, empty folder deleted)
+- `Studio/Content Staging Pipeline/` → archived to `Studio/_archive/` (concepts absorbed into Social Media/PROJECT.md)
+- `Studio/SEO Content Production/skill-sandbox/` → deleted (180MB of unused git clones, zero references)
+- `Studio/Social Media/Comics/` → deleted (empty)
+- `Studio/Nearbound Pipeline/scripts/` → deleted (empty)
+- `Studio/Social Media/staging/drafts|ready|published/` → deleted (empty, never used)
 
-**Files involved:**
-- Skill: `.claude/skills/opened-daily-newsletter-writer/SKILL.md`
-- Voice examples: Same file, "Voice Priming" section
-- Anti-AI: `.claude/skills/ai-tells/SKILL.md`
-- Ghostwriter: `.claude/skills/ghostwriter/SKILL.md`
-- Test drafts: `Studio/OpenEd Daily Studio/2026-02-03 - Design Over Delivery/Newsletter_DRAFT_v*.md`
-- **Reference draft:** `Studio/OpenEd Daily Studio/2026-02-03 - Homeschool Data Gap/Newsletter_DRAFT.md` (this is the voice target)
+### Agents Cleanup
+- 12 files archived to `agents/_archived/` (5 superseded Webflow scripts, 5 test files, 1 debug script, 1 test config)
+- Active agents: `webflow_sync.py`, `rss_curation.py`, `scrape_starred.py`, `social_post_scheduler.py`, `social_media_agent.py`, `content_multiplier.py`
 
-**What worked well this session (non-voice):**
-- Playground HTML selector for social post triage - keep this pattern
-- Newsletter-to-social pipeline ran smoothly end-to-end
-- HubSpot email draft skill works after BATCH_EMAIL fix
-- Comic generation (Ed the Horse) is a good recurring format
+### Newsletter Archive Rotation
+- 10 daily newsletters (pre-2026-01-21) moved to `OpenEd Daily Studio/Archived/`
+- 1 weekly newsletter moved to `OpenEd Weekly/_archive/`
+- Active folders: 7 daily + 2 weekly
+
+### Social Media Consolidation
+- `Social Media/PROJECT.md` rewritten as unified hub (pipeline, platforms, approval, publishing)
+- Content Staging Pipeline workflow absorbed into Social Media
+- Frictionless Content Engine kept as subproject (Elijah's domain)
+- `staging/README.md` simplified
+
+### New Files Created
+- `SKILLS_SCORECARD.md` - Audit of all 46 active + 13 archived skills with recommendations
+- Newsletter frontmatter standardized across active drafts
+
+### Documentation Updated
+- `CLAUDE.md` - Fixed folder references (Open Ed Podcasts → Podcast Studio, OpenEd Daily → OpenEd Daily Studio)
+- Newsletter voice skill upgraded with real examples
 
 ---
 
@@ -238,8 +264,8 @@ All phases complete. Valuable parts moved:
 
 | Workflow | Location | Cadence |
 | --- | --- | --- |
-| OpenEd Daily | OpenEd Daily/ | Mon-Thu |
-| Podcasts | Open Ed Podcasts/ | Weekly |
+| OpenEd Daily | OpenEd Daily Studio/ | Mon-Thu |
+| Podcasts | Podcast Studio/ | Weekly |
 | Open Education Hub | Open Education Hub/ | As needed |
 
 ---

@@ -1,85 +1,76 @@
 # Social Media
 
 **Status:** Active
-**Purpose:** Platform strategies, content formats, and production systems
+**Purpose:** Multi-platform content production, approval, and distribution for OpenEd.
+
+---
+
+## How It Works
+
+```
+CONTENT SOURCES                    PRODUCTION                DISTRIBUTION
+──────────────────────────────────────────────────────────────────────────
+
+Newsletter (Mon-Thu)  ─┐
+Podcast episodes      ─┤
+Blog/Deep Dives       ─┼──► Framework Fitting ──► Slack #market-daily ──► GetLate API
+Archive (406 articles)─┤    (text-content skill)   (approval)             (8 platforms)
+Elijah video batches  ─┘
+```
+
+**One pipeline.** Content enters from any source, gets framework-fitted to platform templates, posted to Slack for approval, and scheduled via GetLate.
 
 ---
 
 ## Quick Navigation
 
-### Active Subprojects
-- `Frictionless Content Engine/PROJECT.md` - Automated content production system
-- `Platform Insights/` - Platform-specific strategies (7 platforms)
-- `Format Notes/` - Video arsenal and format definitions
-- `staging/` - Content awaiting scheduling
-
-### Related Files in Studio/
-- `../Social_Scheduling.md` - X post scheduling queue
-- `staging/Content_Concepts.md` - Calibration examples with feedback (moved from X_Post_Batch_Review.md)
-- `../Retargeting Strategy FY26-27/PROJECT.md` - Paid social
-
-### Related Projects
-- `../Nearbound Pipeline/PROJECT.md` - Rolodex for tagging
-- `../Analytics & Attribution/PROJECT.md` - Tracking performance
+| Need | Go To |
+|------|-------|
+| Format templates | `FORMAT_INVENTORY.md` |
+| Platform strategies | `Platform Insights/` (7 platforms) |
+| Elijah's production system | `Frictionless Content Engine/PROJECT.md` |
+| Calibration examples | `staging/Content_Concepts.md` |
+| Nearbound tagging | `../Nearbound Pipeline/people/` |
+| Retargeting creative | `../Meta Ads/PROJECT.md` |
 
 ---
 
-## What We're Building
+## Content Production
 
-One master `social-content-creation` skill that:
-1. Takes source content (article, podcast, newsletter, standalone idea)
-2. Routes to format-specific references based on content type
-3. Applies platform-specific heuristics
-4. Can fan out to parallel sub-agents for batch production
-
----
-
-## Skill Architecture (Target)
+### Framework Fitting (Core Method)
 
 ```
-social-content-creation/
-├── SKILL.md                      # Router + orchestration
-└── references/
-    ├── platforms/
-    │   ├── linkedin.md           # Thought leadership, comment-to-get
-    │   ├── x-twitter.md          # Retweet-worthy, "I wish I said that"
-    │   ├── facebook.md           # Engagement bait, text-on-background
-    │   ├── instagram.md          # Visual-first, Reels > static
-    │   ├── tiktok.md             # Educational entertainment
-    │   ├── youtube.md            # Shorts + community posts
-    │   └── pinterest.md          # SEO-focused pins
-    │
-    ├── formats/
-    │   ├── text-posts.md         # Framework fitting, post structures
-    │   ├── one-liners.md         # Dude-with-sign patterns
-    │   ├── video-clips.md        # Producible video arsenal
-    │   ├── carousels.md          # Multi-slide (future: BannerBear)
-    │   └── threads.md            # X threads, LinkedIn docs
-    │
-    └── methods/
-        ├── post-structures.md    # 100+ templates (existing)
-        ├── proliferation.md      # SCAMPER, Human Desires
-        └── framework-fitting.md  # Core methodology
+SOURCE → EXTRACT SNIPPETS → MATCH TO TEMPLATES → GENERATE DRAFTS → QUALITY GATE
 ```
+
+| Snippet Type | LinkedIn | X | Instagram |
+|---|---|---|---|
+| Hot take | Contrarian post | Paradox Hook | Quote card |
+| Stat | Authority post | Commentary | Carousel |
+| Story | Transformation | Thread | Reel/Carousel |
+| How-to | List post | Thread | Carousel |
+
+**Primary skill:** `text-content` (360+ templates)
+**Quality gate:** `quality-loop` (lite 3-judge for social)
+
+### Production Targets
+
+| Metric | Target |
+|--------|--------|
+| Production velocity | 2 videos + 2 text posts/day |
+| Human time per asset | <15 min |
+| Quality bar | No AI slop |
 
 ---
 
-## Platform Heuristics to Define
+## Platform Strategies
 
-For each platform, we need:
-
-1. **Success Heuristic** - What makes content work here
-2. **Optimal Formats** - What performs (length, media, etc.)
-3. **Anti-Patterns** - What fails
-4. **API Limitations** - What we can't do programmatically
-5. **Examples** - Proven posts
-
-### Quick Reference (Draft)
+Full guides in `Platform Insights/` folder. Quick reference:
 
 | Platform | Success Heuristic | Key Format |
 |----------|-------------------|------------|
 | **X/Twitter** | "I wish I said that" - retweet-worthy | Short, punchy, quotable |
-| **LinkedIn** | Thought leadership, vulnerability wins | Long-form (200-500 words) |
+| **LinkedIn** | Thought leadership, vulnerability | Long-form (200-500 words) |
 | **Facebook** | Engagement bait, comments drive reach | Questions, text-on-background |
 | **Instagram** | Visual-first, Reels > everything | Reels, then carousels |
 | **TikTok** | Educational entertainment | Hook in 1 sec, text-on-video |
@@ -88,18 +79,19 @@ For each platform, we need:
 
 ---
 
-## Video Arsenal (What We Can Actually Produce)
+## Video Arsenal
 
 ### Tier 1: No Filming Required
 - **Text on B-roll** - Stock footage + text overlays
 - **Screenshot + voiceover** - Tweet screenshots, article highlights
 - **Podcast clips** - Existing audio + captions + waveform
-- **Greenscreen memes** - Ed the Horse reacting to content
 
-### Tier 2: UGC/Mom Footage
-- **Day-in-life snippets** - Families can film specific moments
-- **Testimonial style** - Talking head responses
-- **Product demos** - Using curriculum, apps
+### Tier 2: Replicable Formats (Elijah)
+- **Pointing Format** - Point to tablet headline (90 sec production)
+- **Tablet Swivel** - Reveal message on tablet (90 sec)
+- **iPhone Notes Style** - Simple text on tablet (60 sec)
+- **"Is It Reimbursable?"** - Hold item, reveal answer (unique to OpenEd)
+- **Ed the Horse** - Character video with education commentary
 
 ### Tier 3: Produced Content
 - **Podcast video episodes** - Full production
@@ -107,70 +99,83 @@ For each platform, we need:
 
 ---
 
-## Content Being Consolidated
+## Approval & Publishing
 
-### From Studio/Social Media Transformation/
-- `Workflows/automation-priorities.md` - Tier system for automation
-- `Workflows/unified-taxonomy.md` - Classification system
-- `Workflows/social-orchestration-map.md` - Architecture thinking
-- `Content Formats/` - Notion exports (need to extract value, archive rest)
+### Workflow
 
-### From Studio/Social Media Engine/
-- `PROJECT.md` - API integration, Get Late workflow (keep as separate project)
-- This is about *distribution*, not *creation* - different concern
+1. **Create** - Framework fitting produces platform-optimized drafts
+2. **Post to Slack** - `slack-social-distribution` posts to #market-daily
+3. **Approve** - Human reacts with emoji (see below)
+4. **Schedule** - `schedule-approved` sends to GetLate API
+5. **Track** - URL populated, performance noted
 
-### From Studio/LinkedIn Content/
-- Example LinkedIn posts - extract patterns, archive folder
+### Slack Reactions
 
-### From Existing Skills/
-- `linkedin-content/` - 6 framework categories, 118 templates
-- `video-caption-creation/` - Triple Word Score, hook categories
-- `dude-with-sign-writer/` - 12 one-liner patterns
-- `social-content-creation/` - Framework fitting methodology
+| Emoji | Meaning |
+|-------|---------|
+| ✅ | Approved - schedule it |
+| ✍️ | Develop further (spawn framework fitting) |
+| ❌ | Skip |
+| 👀 | Claimed (someone's working on it) |
 
----
+### GetLate API
 
-## Work Completed
+8 platforms configured: LinkedIn, X, Instagram, Facebook, YouTube, TikTok, Pinterest, Threads.
 
-### Platform Insights (Created)
-- [x] `Platform Insights/linkedin.md` - 118 frameworks, comment-to-get strategy
-- [x] `Platform Insights/x-twitter.md` - Retweet-worthy heuristic, reply game
-- [x] `Platform Insights/facebook.md` - Question posts, engagement bait
-- [x] `Platform Insights/instagram.md` - Reels priority, visual-first
-- [x] `Platform Insights/tiktok.md` - Educational entertainment, no-face formats
-- [x] `Platform Insights/youtube.md` - Shorts + long-form strategy
-- [x] `Platform Insights/pinterest.md` - SEO gold mine
-
-### Format Definitions (Created)
-- [x] `Format Notes/video-arsenal.md` - Tier 1/2/3 producible formats
-
-### Still Needed
-- [ ] Text posts reference (consolidate post-structures)
-- [ ] One-liners reference (absorb dude-with-sign)
-- [ ] Carousels reference (document capability)
-- [ ] Threads reference (X threads, LinkedIn docs)
+**Credentials:** `GETLATE_API_KEY` in `.env`
+**Agent:** `agents/social_post_scheduler.py` (Notion queue integration)
+**Direct posting:** `agents/social_media_agent.py`
 
 ---
 
-## Decisions Needed
+## Notion Integration
 
-1. **Skill consolidation** - Merge linkedin-content, dude-with-sign into social-content-creation as references? Or keep as separate skills that get invoked?
+**Master Content Database:** `9a2f5189-6c53-4a9d-b961-3ccbcb702612`
 
-2. **Video-caption-creation** - Keep separate (it's format-specific) or merge?
+Status flow: `Idea` → `Staging` → `Approved` → `Scheduled` → `Posted`
 
-3. **Social Media Engine** - Keep as separate project (distribution) vs. merge (end-to-end)?
-
-4. **Sub-agent pattern** - When processing source content, spawn parallel agents for each format/platform combo?
+**Current state:** 100+ items in Staging need triage. See archived Content Staging Pipeline docs in `Studio/_archive/` for full Notion schema and triage plan.
 
 ---
 
-## Archive Plan
+## Subprojects
 
-Once consolidated:
-- `Studio/Social Media Transformation/` → Archive valuable docs, delete Notion cruft
-- `Studio/LinkedIn Content/` → Extract examples, archive folder
-- `Studio/Short-Form Video/` → Already empty, delete
+### Frictionless Content Engine
+**Owner:** Elijah (automation partner)
+**Location:** `Frictionless Content Engine/PROJECT.md`
+**Purpose:** Template-driven video + static production at velocity
+
+### Calibration
+**Location:** `staging/Content_Concepts.md`
+**Purpose:** 40+ post concepts with inline feedback (`{good}`, `{reject}`, `{needs work}`)
+**Use:** Reference before generating new content to calibrate quality bar
 
 ---
 
-*This is a working document. Update as decisions are made.*
+## Skills
+
+| Skill | Purpose |
+|-------|---------|
+| `text-content` | 360+ social templates, framework fitting |
+| `content-repurposer` | Source → multi-platform |
+| `newsletter-to-social` | Newsletter → 6-9 social posts |
+| `slack-social-distribution` | Post drafts to #market-daily |
+| `schedule-approved` | Notion → GetLate scheduling |
+| `video-caption-creation` | Hooks + captions for clips |
+| `short-form-video` | Reels/TikTok production |
+| `dude-with-sign-writer` | One-liner patterns |
+
+---
+
+## Content Sources
+
+| Source | Location | Use For |
+|--------|----------|---------|
+| Blog archive (406 articles) | `Master_Content_Index.md` | All resurfacing |
+| Podcast episodes | `../Podcast Studio/` | Clips, quotes, video |
+| Newsletter archive | `../OpenEd Daily Studio/` | LinkedIn, short posts |
+| Featured people | `../Nearbound Pipeline/people/` | Tagging strategy |
+
+---
+
+*Last updated: 2026-02-04*

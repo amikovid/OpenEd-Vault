@@ -6,6 +6,7 @@ Created: 2026-01-29
 
 import os
 import re
+import sys
 import json
 import hashlib
 import requests
@@ -26,6 +27,13 @@ BLOG_POST_TYPE = "6805d44048df4bd97a0754ed"
 CHARLIE_AUTHOR = "68089b4d33745cf5ea4d746d"
 
 BASE_PATH = Path(__file__).parent
+
+# Add seomachine tools to path for shared utilities
+_seomachine_tools = BASE_PATH / "seomachine" / "tools"
+if str(_seomachine_tools) not in sys.path:
+    sys.path.insert(0, str(_seomachine_tools))
+
+from seo_schema_generator import generate_all_schema
 
 # Articles to upload
 ARTICLES = [
@@ -159,12 +167,28 @@ def markdown_to_html(content):
     return '\n\n'.join(b for b in html_blocks if b)
 
 
-def upload_image(image_path):
+def detect_content_type(file_data):
+    """Detect image content type from magic bytes."""
+    if file_data[:8] == b'\x89PNG\r\n\x1a\n':
+        return 'image/png'
+    if file_data[:2] == b'\xff\xd8':
+        return 'image/jpeg'
+    if file_data[:4] == b'RIFF' and file_data[8:12] == b'WEBP':
+        return 'image/webp'
+    if file_data[:4] == b'GIF8':
+        return 'image/gif'
+    return 'image/png'  # fallback
+
+
+def upload_image(image_path, descriptive_name=None):
     """Upload image to Webflow CDN. Returns (asset_id, cdn_url)."""
+    upload_name = descriptive_name or image_path.name
+
     # Step 1: Get presigned URL
     with open(image_path, 'rb') as f:
         file_data = f.read()
     file_hash = hashlib.md5(file_data).hexdigest()
+    content_type = detect_content_type(file_data)
 
     resp = requests.post(
         f"https://api.webflow.com/v2/sites/{SITE_ID}/assets",
@@ -173,7 +197,7 @@ def upload_image(image_path):
             "Content-Type": "application/json"
         },
         json={
-            "fileName": image_path.name,
+            "fileName": upload_name,
             "fileHash": file_hash
         }
     )
@@ -190,32 +214,21 @@ def upload_image(image_path):
 
     if not upload_url:
         # Asset may already exist
-        cdn_url = f"https://cdn.prod.website-files.com/{SITE_ID}/{asset_id}_{image_path.name}"
+        cdn_url = data.get('hostedUrl', f"https://cdn.prod.website-files.com/{SITE_ID}/{asset_id}_{upload_name}")
         return asset_id, cdn_url
 
-    # Step 2: Upload to S3
-    files = {"file": (image_path.name, file_data, "image/png")}
-    form_data = {
-        "acl": upload_details.get("acl"),
-        "bucket": upload_details.get("bucket"),
-        "X-Amz-Algorithm": upload_details.get("X-Amz-Algorithm"),
-        "X-Amz-Credential": upload_details.get("X-Amz-Credential"),
-        "X-Amz-Date": upload_details.get("X-Amz-Date"),
-        "key": upload_details.get("key"),
-        "Policy": upload_details.get("Policy"),
-        "X-Amz-Signature": upload_details.get("X-Amz-Signature"),
-        "success_action_status": "201",
-        "Content-Type": "image/png",
-        "Cache-Control": "max-age=31536000, must-revalidate"
-    }
+    # Step 2: Upload to S3 - read ALL fields from uploadDetails
+    files = {"file": (upload_name, file_data, content_type)}
+    form_data = dict(upload_details)
+    form_data['Content-Type'] = content_type
 
     s3_resp = requests.post(upload_url, data=form_data, files=files)
 
-    if s3_resp.status_code != 201:
+    if s3_resp.status_code not in [200, 201]:
         print(f"  S3 upload failed: {s3_resp.status_code}")
         return None, None
 
-    cdn_url = f"https://cdn.prod.website-files.com/{SITE_ID}/{asset_id}_{image_path.name}"
+    cdn_url = f"https://cdn.prod.website-files.com/{SITE_ID}/{asset_id}_{upload_name}"
     return asset_id, cdn_url
 
 
@@ -227,25 +240,44 @@ def create_draft_post(article, thumbnail_asset_id, thumbnail_url):
 
     html_content = markdown_to_html(markdown)
 
-    payload = {
-        "isArchived": False,
-        "isDraft": True,
-        "fieldData": {
-            "name": article["name"],
-            "slug": article["slug"],
-            "post-type": [BLOG_POST_TYPE],
-            "summary": article["summary"],
-            "author": CHARLIE_AUTHOR,
-            "content": html_content
-        }
+    # Generate SEO schema
+    schemas = generate_all_schema(
+        headline=article["name"],
+        description=article["summary"],
+        date_published="2026-02-06T00:00:00.000Z",
+        slug=article["slug"],
+        html_content=html_content,
+        image_url=thumbnail_url,
+    )
+    faq_schema = schemas.get('faq', '')
+    if faq_schema:
+        print(f"  FAQ schema: {faq_schema.count('Question')} questions found")
+
+    field_data = {
+        "name": article["name"],
+        "slug": article["slug"],
+        "post-type": [BLOG_POST_TYPE],
+        "summary": article["summary"],
+        "author": CHARLIE_AUTHOR,
+        "content": html_content
     }
 
     # Add thumbnail if uploaded successfully
     if thumbnail_asset_id and thumbnail_url:
-        payload["fieldData"]["thumbnail"] = {
+        field_data["thumbnail"] = {
             "fileId": thumbnail_asset_id,
             "url": thumbnail_url
         }
+
+    # Add FAQ schema if generated
+    if faq_schema:
+        field_data["faq-schema"] = faq_schema
+
+    payload = {
+        "isArchived": False,
+        "isDraft": True,
+        "fieldData": field_data
+    }
 
     resp = requests.post(
         f"https://api.webflow.com/v2/collections/{POSTS_COLLECTION}/items",
@@ -280,9 +312,10 @@ def main():
             print(f"  WARNING: Thumbnail not found: {article['thumbnail_path']}")
             thumbnail_id, thumbnail_url = None, None
         else:
-            # Upload thumbnail
+            # Upload thumbnail with descriptive name
             print(f"  Uploading thumbnail...")
-            thumbnail_id, thumbnail_url = upload_image(article["thumbnail_path"])
+            descriptive_name = f"{article['slug']}-thumbnail{article['thumbnail_path'].suffix}"
+            thumbnail_id, thumbnail_url = upload_image(article["thumbnail_path"], descriptive_name)
             if thumbnail_id:
                 print(f"  Thumbnail uploaded: {thumbnail_id}")
             else:

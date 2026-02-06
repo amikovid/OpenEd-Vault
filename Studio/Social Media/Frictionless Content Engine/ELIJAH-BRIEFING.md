@@ -143,8 +143,8 @@ Markers:
 | Source | Size | Location |
 |--------|------|----------|
 | Blog archive | 406 articles | `Master_Content_Index.md` |
-| Podcast episodes | 50+ | `Studio/Open Ed Podcasts/` |
-| Newsletter archive | 200+ | `Studio/OpenEd Daily/` |
+| Podcast episodes | 50+ | `Studio/Podcast Studio/` |
+| Newsletter archive | 200+ | `Studio/OpenEd Daily Studio/` |
 | Testimonials database | 35+ stories | `Studio/Meta Ads/testimonials.md` |
 | Featured people (for tagging) | Growing | `Studio/Nearbound Pipeline/` |
 

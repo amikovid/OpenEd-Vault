@@ -4,22 +4,77 @@ Create ready-to-publish OpenEd Daily drafts in HubSpot from newsletter markdown.
 
 ---
 
-## CRITICAL: Image Format
+## Working Approach: Clone-and-Swap
 
-**Images MUST use this exact HTML format or they will render as broken links:**
+The proven pattern is to clone the working Gatto email and swap in new body HTML while preserving all widget metadata.
 
-```html
-<center><a href="{blog_post_url}"><img src="{image_url}" width="600" height="338" style="width: 600px; height: auto; max-width: 600px; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
+**Steps:**
+1. Clone the Gatto source email (ID: `206886611767`)
+2. GET the clone to extract full widget metadata (`module_id`, `type`, `order`, `label`, `css`, `styles`, `child_css`, `smart_type`)
+3. Replace ONLY `body.html` in both `deep_dive_content` AND `hs_email_body` widgets
+4. Preserve `deleted_at` on `hs_email_body`
+5. PATCH with `name`, `subject`, and `content.widgets` in a single call
+
+---
+
+## Critical Style Rules
+
+These are the EXACT style strings from the working Gatto email. Any deviation (extra CSS properties, different font sizes, `!important` on image margins) triggers HubSpot's CSS processor and breaks font sizing.
+
+### Paragraph Style
+
+```
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 18px !important; line-height: 1.65 !important; margin: 0 0 20px 0 !important; color: #333333 !important;
 ```
 
-**Required elements:**
-- `<center>` wrapper tags
-- `<a href>` wrapper linking to the blog post (makes image clickable)
-- Explicit `width` and `height` attributes
-- `align="center"` attribute
-- Full inline styles
+### Link Style (ONLY 3 properties - no font-family or line-height inherit)
 
-**DO NOT use:** Simple `<img>` tags or markdown `![alt](url)` syntax - these will NOT render.
+```
+color: #03a4ea !important; text-decoration: underline !important; font-size: inherit !important;
+```
+
+### H1 Style (wrap text in `<strong>` tag)
+
+```
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-weight: 700 !important; font-size: 32px !important; margin: 40px 0 20px 0 !important; text-align: center !important; color: #333333 !important; line-height: 1.25 !important;
+```
+
+Usage: `<h1 style="..."><strong>Title</strong></h1>`
+
+### H2 Style
+
+```
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-weight: 700 !important; font-size: 24px !important; margin: 32px 0 16px 0 !important; color: #333333 !important; line-height: 1.3 !important;
+```
+
+### HR Style
+
+```
+border: none !important; border-top: 1px solid #e0e0e0 !important; margin: 24px 0 !important;
+```
+
+### Image Style (max-width: 100% NOT 600px, NO !important on margin/display)
+
+```
+width: 600px !important; height: auto !important; max-width: 100% !important; margin-left: auto; margin-right: auto; display: block;
+```
+
+Image HTML format:
+```html
+<center><a href="{blog_post_url}"><img src="{image_url}" width="600" height="338" style="width: 600px !important; height: auto !important; max-width: 100% !important; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
+```
+
+---
+
+## NEVER DO
+
+- Use `font-size: 16px` or any non-18px size on paragraphs (breaks HubSpot's CSS processor)
+- Add extra properties on links beyond `color`, `text-decoration`, `font-size`
+- Use `!important` on image `margin-left`, `margin-right`, or `display`
+- Use a separate "byline" or "CTA" style - use standard paragraph style with `<em>` wrapper
+- Omit the leading newline before the first `<p>` tag (HTML must start with `\n<p` not `<p`)
+- Omit `<strong>` wrapper inside `<h1>`
+- Send partial widget data - always preserve ALL metadata fields from the GET response
 
 ---
 
@@ -30,7 +85,7 @@ After the newsletter draft is complete and ready for HubSpot. This is the **last
 1. Draft social media assets
 2. Publish blog post on Webflow
 3. Share social media with blog link
-4. **Newsletter via this skill** ← You are here
+4. **Newsletter via this skill**
 
 ---
 
@@ -41,99 +96,67 @@ A newsletter draft file with:
 - **PREVIEW:** line
 - Body content with H1 headers (# THOUGHT, # TOOL, # TREND)
 - Dividers (---) between sections
-- Sign-off: `– Charlie (the OpenEd newsletter guy)`
-
-Example structure:
-```markdown
-# Newsletter Draft - 2026-01-27 (Monday)
-
-**SUBJECT:** Why The Minimalists pulled their daughter out of school
-**PREVIEW:** Joshua's daughter had stomach aches every morning...
+- Sign-off: `-- Charlie (the OpenEd newsletter guy)`
 
 ---
 
-Greetings Eddies!
+## Complete Python Script
 
-Opening letter content here.
-
-– Charlie (the OpenEd newsletter guy)
-
----
-
-# THOUGHT: A JOB SHE'D DO FOR FREE
-
-Thought content...
-
----
-
-# TOOL: BEPRESENT
-
-Tool content...
-
----
-
-# TREND: WORD OF THE DAY
-
-Trend content...
-
----
-
-That's all for today!
-```
-
----
-
-## Process
-
-1. Read the newsletter draft
-2. Extract subject, preview, and body
-3. Convert markdown to HTML:
-   - `# HEADER` → `<h1>HEADER</h1>`
-   - `---` → `<hr>`
-   - `**bold**` → `<strong>`
-   - `[link](url)` → `<a href="url">`
-   - Paragraphs → `<p>` tags
-4. Clone most recent OED email (keeps template + targeting)
-5. Update name, subject, preview, body HTML
-6. Return HubSpot edit link
-
----
-
-## Run
-
-```bash
-cd "OpenEd Vault/Studio/SEO Content Production/seomachine"
-
-python3 << 'PYEOF'
+```python
 import requests
 import re
-import sys
+import json
+import copy
 
-TOKEN = "HUBSPOT_API_KEY_REDACTED"
-headers = {
+# --- Config ---
+TOKEN = os.environ.get("HUBSPOT_KEY")  # seomachine config .env token (has email scopes)
+PORTAL = "45961901"
+SOURCE_EMAIL_ID = "206886611767"  # Gatto - Version C (known working)
+
+HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json"
 }
 
+# --- Style Constants ---
+FONT_STACK = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+
+P_STYLE = f"font-family: {FONT_STACK} !important; font-size: 18px !important; line-height: 1.65 !important; margin: 0 0 20px 0 !important; color: #333333 !important;"
+H1_STYLE = f"font-family: {FONT_STACK} !important; font-weight: 700 !important; font-size: 32px !important; margin: 40px 0 20px 0 !important; text-align: center !important; color: #333333 !important; line-height: 1.25 !important;"
+H2_STYLE = f"font-family: {FONT_STACK} !important; font-weight: 700 !important; font-size: 24px !important; margin: 32px 0 16px 0 !important; color: #333333 !important; line-height: 1.3 !important;"
+LINK_STYLE = "color: #03a4ea !important; text-decoration: underline !important; font-size: inherit !important;"
+HR_STYLE = "border: none !important; border-top: 1px solid #e0e0e0 !important; margin: 24px 0 !important;"
+IMG_STYLE = "width: 600px !important; height: auto !important; max-width: 100% !important; margin-left: auto; margin-right: auto; display: block;"
+
+
 def markdown_to_html(md):
-    """Convert newsletter markdown to HubSpot HTML with inline styles"""
+    """Convert newsletter markdown to HubSpot HTML with inline styles.
+
+    CRITICAL: Uses exact Gatto style strings. Any deviation breaks mobile rendering.
+    Output MUST start with a leading newline before the first <p> tag.
+    """
     html = md
 
-    # Inline style definitions
-    FONT_STACK = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif"
-    P_STYLE = f"font-family: {FONT_STACK}; font-size: 18px; line-height: 1.65; margin: 0 0 20px 0; color: #333333;"
-    H1_STYLE = f"font-family: {FONT_STACK}; font-weight: 700; font-size: 32px; margin: 40px 0 20px 0; text-align: center; color: #333333; line-height: 1.25;"
-    H2_STYLE = f"font-family: {FONT_STACK}; font-weight: 600; font-size: 26px; margin: 32px 0 12px 0; text-align: center; color: #333333; line-height: 1.3;"
-    LINK_STYLE = "color: #03a4ea !important; text-decoration: underline; font-size: 18px; font-family: inherit; line-height: inherit;"
-
-    # H1 headers (# THOUGHT: Title → <h1 style="...">THOUGHT: Title</h1>)
-    html = re.sub(r'^# (.+)$', f'<h1 style="{H1_STYLE}">\\1</h1>', html, flags=re.MULTILINE)
+    # H1 headers - wrap text in <strong>
+    html = re.sub(
+        r'^# (.+)$',
+        f'<h1 style="{H1_STYLE}"><strong>\\1</strong></h1>',
+        html, flags=re.MULTILINE
+    )
 
     # H2 headers
-    html = re.sub(r'^## (.+)$', f'<h2 style="{H2_STYLE}">\\1</h2>', html, flags=re.MULTILINE)
+    html = re.sub(
+        r'^## (.+)$',
+        f'<h2 style="{H2_STYLE}">\\1</h2>',
+        html, flags=re.MULTILINE
+    )
 
     # Dividers
-    html = re.sub(r'^---+$', '<hr style="border: none; border-top: 1px solid #e0e0e0; margin: 24px 0;">', html, flags=re.MULTILINE)
+    html = re.sub(
+        r'^---+$',
+        f'<hr style="{HR_STYLE}">',
+        html, flags=re.MULTILINE
+    )
 
     # Bold
     html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
@@ -141,162 +164,152 @@ def markdown_to_html(md):
     # Italic
     html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
 
-    # Links - add inline styles
-    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', f'<a href="\\2" style="{LINK_STYLE}">\\1</a>', html)
+    # Links - ONLY 3 properties
+    html = re.sub(
+        r'\[([^\]]+)\]\(([^)]+)\)',
+        f'<a href="\\2" style="{LINK_STYLE}">\\1</a>',
+        html
+    )
 
-    # Paragraphs (double newlines)
+    # Paragraphs (split on double newlines)
     paragraphs = re.split(r'\n\n+', html)
     html_parts = []
     for p in paragraphs:
         p = p.strip()
         if not p:
             continue
-        if p.startswith('<h1') or p.startswith('<h2') or p.startswith('<hr'):
+        if p.startswith('<h1') or p.startswith('<h2') or p.startswith('<hr') or p.startswith('<center'):
             html_parts.append(p)
         else:
             html_parts.append(f'<p style="{P_STYLE}">{p}</p>')
 
-    return '\n'.join(html_parts)
+    # Leading newline is REQUIRED
+    return '\n' + '\n'.join(html_parts)
 
-def find_recent_oed_email():
-    """Find most recent OED newsletter (BATCH_EMAIL type) to clone.
 
-    IMPORTANT: Must find actual newsletters, not automated emails like 'OpenEd Daily Opt In'.
-    Look for emails matching pattern: '1.29 OED', '2.3 OED', etc. (date prefix + OED)
+def create_email_draft(name, subject, preview, body_html):
+    """Clone Gatto email, preserve widget metadata, swap body HTML.
+
+    Steps:
+    1. Clone source email
+    2. GET the clone to extract full widget metadata
+    3. Replace ONLY body.html in both widgets
+    4. Preserve deleted_at on hs_email_body
+    5. PATCH with name, subject, and content.widgets
     """
-    resp = requests.get(
-        "https://api.hubapi.com/email/public/v1/campaigns",
-        headers=headers,
-        params={"limit": 100}
-    )
-    campaigns = resp.json().get('campaigns', [])
 
-    for c in campaigns:
-        detail = requests.get(
-            f"https://api.hubapi.com/email/public/v1/campaigns/{c['id']}",
-            headers=headers
-        ).json()
-        name = detail.get('name', '')
-        email_type = detail.get('type', '')
-
-        # Must be BATCH_EMAIL (not AUTOMATED_EMAIL) and match OED naming pattern
-        # Pattern: "1.29 OED - Title" or "2.3 OED - Title" (month.day OED)
-        is_batch = email_type == 'BATCH_EMAIL'
-        is_oed_newsletter = ' OED ' in name or ' OED -' in name or ' OEW ' in name
-
-        if is_batch and is_oed_newsletter:
-            print(f"Found: {name} (type: {email_type})")
-            return detail.get('contentId')
-
-    print("WARNING: No OED newsletter found. Searched for BATCH_EMAIL with 'OED' in name.")
-    return None
-
-def create_draft(name, subject, preview, body_html):
-    """Clone OED template and update with new content"""
-
-    # Find template
-    content_id = find_recent_oed_email()
-    if not content_id:
-        return None, "No OED email found to clone"
-
-    # Clone
+    # Step 1: Clone
     clone_resp = requests.post(
         "https://api.hubapi.com/marketing/v3/emails/clone",
-        headers=headers,
-        json={"id": str(content_id)}
+        headers=HEADERS,
+        json={"id": SOURCE_EMAIL_ID}
     )
     if clone_resp.status_code != 200:
-        return None, f"Clone failed: {clone_resp.text}"
+        print(f"Clone failed: {clone_resp.status_code} {clone_resp.text}")
+        return None
+    clone_data = clone_resp.json()
+    clone_id = clone_data['id']
+    print(f"Cloned to {clone_id}")
 
-    clone_id = clone_resp.json()['id']
-
-    # Update metadata
-    requests.patch(
+    # Step 2: GET the clone to extract full widget metadata
+    get_resp = requests.get(
         f"https://api.hubapi.com/marketing/v3/emails/{clone_id}",
-        headers=headers,
-        json={"name": name, "subject": subject}
+        headers=HEADERS
     )
+    if get_resp.status_code != 200:
+        print(f"GET failed: {get_resp.status_code} {get_resp.text}")
+        return None
+    email_data = get_resp.json()
+    widgets = email_data.get('content', {}).get('widgets', {})
 
-    # Update content - MUST include BOTH widgets in same call
-    # deep_dive_content = main body HTML
-    # preview_text = email preview/preheader text
-    content_resp = requests.patch(
+    # Step 3: Build updated widgets preserving ALL metadata
+    updated_widgets = {}
+
+    # deep_dive_content - preserve all fields, replace body.html
+    if 'deep_dive_content' in widgets:
+        ddc = copy.deepcopy(widgets['deep_dive_content'])
+        ddc['body']['html'] = body_html
+        updated_widgets['deep_dive_content'] = ddc
+
+    # hs_email_body - preserve all fields INCLUDING deleted_at, replace body.html
+    if 'hs_email_body' in widgets:
+        heb = copy.deepcopy(widgets['hs_email_body'])
+        heb['body']['html'] = body_html
+        # deleted_at MUST be preserved
+        updated_widgets['hs_email_body'] = heb
+
+    # preview_text
+    if 'preview_text' in widgets:
+        pt = copy.deepcopy(widgets['preview_text'])
+        pt['body']['value'] = preview
+        updated_widgets['preview_text'] = pt
+
+    # Step 5: Single PATCH with name, subject, and content.widgets
+    patch_resp = requests.patch(
         f"https://api.hubapi.com/marketing/v3/emails/{clone_id}",
-        headers=headers,
+        headers=HEADERS,
         json={
+            "name": name,
+            "subject": subject,
             "content": {
-                "widgets": {
-                    "deep_dive_content": {"body": {"html": body_html}},
-                    "preview_text": {"body": {"value": preview}}
-                }
+                "widgets": updated_widgets
             }
         }
     )
 
-    if content_resp.status_code != 200:
-        print(f"WARNING: Content update returned {content_resp.status_code}")
-        print(f"Response: {content_resp.text[:500]}")
+    if patch_resp.status_code != 200:
+        print(f"PATCH failed: {patch_resp.status_code}")
+        print(f"Response: {patch_resp.text[:500]}")
+        return None
 
-    return clone_id, None
+    edit_url = f"https://app.hubspot.com/email/{PORTAL}/edit/{clone_id}"
+    print(f"Draft created: {edit_url}")
+    return clone_id
 
-# Usage: Pass file path as argument or edit inline
-# draft_path = sys.argv[1] if len(sys.argv) > 1 else "path/to/draft.md"
-PYEOF
-```
 
----
+# --- Usage Example ---
+if __name__ == "__main__":
+    # 1. Read your newsletter draft and extract fields
+    subject = "Why The Minimalists pulled their daughter out of school"
+    preview = "Joshua's daughter had stomach aches every morning..."
+    name = "2.6 OED - Why The Minimalists Pulled Their Daughter"
 
-## Example Usage
+    body_md = """Greetings Eddies!
 
-```python
-# After reading the draft file:
-subject = "Why The Minimalists pulled their daughter out of school"
-preview = "Joshua's daughter had stomach aches every morning..."
-name = "1.27 OED - Scrolling Is The New Smoking"
-body_md = """Greetings Eddies!
+Opening content here.
 
-Opening content...
-
-– Charlie (the OpenEd newsletter guy)
+-- Charlie (the OpenEd newsletter guy)
 
 ---
 
 # THOUGHT: A JOB SHE'D DO FOR FREE
 
-Content...
+Thought content here with a [link](https://example.com) inline.
+
+---
+
+# TOOL: BEPRESENT
+
+Tool content here.
+
+---
+
+# TREND: WORD OF THE DAY
+
+Trend content here.
+
+---
+
+That's all for today!
 """
 
-body_html = markdown_to_html(body_md)
-draft_id, error = create_draft(name, subject, preview, body_html)
+    # 2. Convert and create
+    body_html = markdown_to_html(body_md)
+    draft_id = create_email_draft(name, subject, preview, body_html)
 
-if draft_id:
-    print(f"✅ https://app.hubspot.com/email/{draft_id}/edit")
+    if draft_id:
+        print(f"Edit: https://app.hubspot.com/email/{PORTAL}/edit/{draft_id}")
 ```
-
----
-
-## Output
-
-Returns HubSpot edit URL. Draft includes:
-- ✅ Name (e.g., "1.27 OED - Scrolling Is The New Smoking")
-- ✅ Subject line
-- ✅ Preview text
-- ✅ Full body HTML with H1 headers and dividers
-- ✅ Template styling and targeting from most recent OED
-
-**Manual step:** Click publish in HubSpot (requires `marketing-email` scope to automate).
-
----
-
-## Formatting Notes
-
-The **newsletter drafting skill** should output drafts with:
-- H1 headers for THOUGHT, TOOL, TREND sections
-- Dividers (---) between opening letter and first section
-- Dividers between each section
-- Sign-off: `– Charlie (the OpenEd newsletter guy)`
-
-This skill converts that structure to HTML - it doesn't add formatting.
 
 ---
 
@@ -305,21 +318,20 @@ This skill converts that structure to HTML - it doesn't add formatting.
 **Token:** Use key from `Studio/SEO Content Production/seomachine/data_sources/config/.env` (has email scopes)
 **Note:** The root `.env` token does NOT have email scopes - use the seomachine config token.
 **Portal:** 45961901
+**Source email:** 206886611767 (Gatto - Version C)
 
 | Endpoint | Purpose |
 |----------|---------|
-| GET `/email/public/v1/campaigns` | Find OED emails to clone |
-| POST `/marketing/v3/emails/clone` | Clone template |
-| PATCH `/marketing/v3/emails/{id}` | Update content |
+| POST `/marketing/v3/emails/clone` | Clone Gatto source email |
+| GET `/marketing/v3/emails/{id}` | Extract widget metadata from clone |
+| PATCH `/marketing/v3/emails/{id}` | Update name, subject, and widgets |
 | POST `/filemanager/api/v3/files/upload` | Upload images |
 
 ---
 
 ## Uploading Thumbnail Images
 
-**IMPORTANT:** Thumbnails must be uploaded to HubSpot File Manager and placed ABOVE the H1 title in the content.
-
-### Step 1: Upload to File Manager
+Upload to HubSpot File Manager and place ABOVE the H1 title in the content.
 
 ```python
 upload_url = "https://api.hubapi.com/filemanager/api/v3/files/upload"
@@ -327,41 +339,41 @@ upload_url = "https://api.hubapi.com/filemanager/api/v3/files/upload"
 with open(image_path, 'rb') as f:
     files = {'file': ('thumbnail.png', f, 'image/png')}
     data = {
-        'folderPath': '/newsletters/2026-01',
+        'folderPath': '/newsletters/2026-02',
         'options': '{"access": "PUBLIC_INDEXABLE"}'
     }
-    headers = {"Authorization": f"Bearer {TOKEN}"}
+    auth_headers = {"Authorization": f"Bearer {TOKEN}"}
 
-    resp = requests.post(upload_url, headers=headers, files=files, data=data)
+    resp = requests.post(upload_url, headers=auth_headers, files=files, data=data)
     file_url = resp.json().get('objects', [{}])[0].get('url', '')
 ```
 
-### Step 2: Place in Content
-
-Insert the image HTML **after the opening letter divider** and **before the H1 title**.
-
-**IMPORTANT:** Use `<center>` wrapper, `<a href>` link wrapper, and explicit `width`/`height` attributes - this is the format that works in HubSpot emails:
+Insert the image HTML after the opening letter divider and before the H1 title:
 
 ```html
-<hr>
+<hr style="border: none !important; border-top: 1px solid #e0e0e0 !important; margin: 24px 0 !important;">
 
-<center><a href="{blog_post_url}"><img src="{file_url}" width="600" height="338" style="width: 600px; height: auto; max-width: 600px; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
+<center><a href="{blog_post_url}"><img src="{file_url}" width="600" height="338" style="width: 600px !important; height: auto !important; max-width: 100% !important; margin-left: auto; margin-right: auto; display: block;" align="center"></a></center>
 
-<h1>Article Title</h1>
+<h1 style="..."><strong>Article Title</strong></h1>
 ```
 
-**Key format requirements:**
-- Wrap in `<center>` tags
-- Wrap `<img>` in `<a href>` linking to the blog post (makes thumbnail clickable)
-- Include explicit `width` and `height` attributes
-- Use `align="center"` attribute
-- Full inline styles for margin and display
+Folder convention: `/newsletters/YYYY-MM/`
 
-### Folder Convention
+---
 
-Use `/newsletters/YYYY-MM/` for organization (e.g., `/newsletters/2026-01/`).
+## Output
+
+Returns HubSpot edit URL. Draft includes:
+- Name (e.g., "2.6 OED - Why The Minimalists Pulled Their Daughter")
+- Subject line
+- Preview text
+- Full body HTML with correct styles
+- Template styling and targeting from Gatto source
+
+**Manual step:** Click publish in HubSpot (requires `marketing-email` scope to automate).
 
 ---
 
 *Created: 2026-01-27*
-*Updated: 2026-01-29 - Added thumbnail upload workflow*
+*Updated: 2026-02-05 - Rewritten with proven clone-and-swap approach from Gatto email*

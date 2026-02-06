@@ -185,6 +185,29 @@ class DashboardHandler(SimpleHTTPRequestHandler):
       gap: 10px;
       flex-wrap: wrap;
     }}
+    .item-summary {{
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      margin-top: 4px;
+      max-height: 2.8em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }}
+    .item-summary.expanded {{
+      max-height: none;
+    }}
+    .engagement {{
+      display: inline-flex;
+      gap: 6px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }}
+    .engagement span {{
+      background: var(--bg);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }}
     .badge {{
       display: inline-block;
       padding: 2px 8px;
@@ -282,7 +305,12 @@ class DashboardHandler(SimpleHTTPRequestHandler):
       <div class="stat-card" style="border-color: #f5c518;"><div class="label">Starred</div><div class="value" id="stat-starred" style="color: #d4a000;">0</div></div>
     </div>
 
-    <div class="toolbar">
+    <div class="tabs" style="display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid var(--border);">
+      <button class="tab active" id="tab-triage" onclick="switchTab('triage')" style="padding:10px 20px;border:none;background:none;font-size:0.9rem;font-weight:600;cursor:pointer;border-bottom:2px solid var(--accent);margin-bottom:-2px;color:var(--accent);">Triage</button>
+      <button class="tab" id="tab-curated" onclick="switchTab('curated')" style="padding:10px 20px;border:none;background:none;font-size:0.9rem;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;color:var(--text-muted);">Curated (★)</button>
+    </div>
+
+    <div class="toolbar" id="toolbar-triage">
       <select id="filter-status" onchange="render()">
         <option value="new">New only</option>
         <option value="all">All statuses</option>
@@ -299,9 +327,22 @@ class DashboardHandler(SimpleHTTPRequestHandler):
       <select id="filter-source" onchange="render()">
         <option value="all">All sources</option>
       </select>
+      <select id="filter-channel" onchange="render()">
+        <option value="all">All channels</option>
+        <option value="rss">RSS Feeds</option>
+        <option value="reddit">Reddit</option>
+        <option value="x">X/Twitter</option>
+        <option value="hn">Hacker News</option>
+      </select>
       <span class="showing" id="showing"></span>
       <button class="btn-clear" onclick="clearProcessed()">🗑 Clear Done</button>
       <button class="save-btn" id="save-btn" onclick="saveToServer()">💾 Save</button>
+    </div>
+
+    <div class="toolbar" id="toolbar-curated" style="display:none;">
+      <span style="font-size:0.85rem;color:var(--text-muted);">Starred items for newsletter curation. Drag to reorder. Click to expand.</span>
+      <span class="showing" id="showing-curated"></span>
+      <button class="save-btn" onclick="saveToServer()">💾 Save</button>
     </div>
 
     <div class="item-list" id="items"></div>
@@ -327,6 +368,30 @@ class DashboardHandler(SimpleHTTPRequestHandler):
   <script>
     let data = {json.dumps(data)};
     let hasChanges = false;
+    let currentTab = 'triage';
+
+    function switchTab(tab) {{
+      currentTab = tab;
+      document.querySelectorAll('.tab').forEach(t => {{
+        t.style.borderBottomColor = 'transparent';
+        t.style.color = 'var(--text-muted)';
+        t.style.fontWeight = '500';
+      }});
+      const active = document.getElementById('tab-' + tab);
+      active.style.borderBottomColor = 'var(--accent)';
+      active.style.color = 'var(--accent)';
+      active.style.fontWeight = '600';
+      document.getElementById('toolbar-triage').style.display = tab === 'triage' ? 'flex' : 'none';
+      document.getElementById('toolbar-curated').style.display = tab === 'curated' ? 'flex' : 'none';
+      render();
+    }}
+
+    function getChannel(url, source) {{
+      if (source === 'X/Twitter') return 'x';
+      if (source === 'Hacker News') return 'hn';
+      if (url.includes('reddit.com') || (source && source.startsWith('r/'))) return 'reddit';
+      return 'rss';
+    }}
 
     function init() {{
       document.getElementById('last-run').textContent = data.lastRun
@@ -352,19 +417,30 @@ class DashboardHandler(SimpleHTTPRequestHandler):
       document.getElementById('stat-rejected').textContent = items.filter(i => i.status === 'rejected').length;
       document.getElementById('stat-starred').textContent = items.filter(i => i.starred).length;
 
-      const filtered = Object.entries(data.items)
-        .filter(([url, item]) => {{
-          if (status === 'starred') {{
-            if (!item.starred) return false;
-          }} else if (status === 'new') {{
-            // New view excludes starred items
-            if (item.status !== 'new' || item.starred) return false;
-          }} else if (status !== 'all' && item.status !== status) return false;
-          if (score !== 'all' && item.score !== score) return false;
-          if (source !== 'all' && item.source !== source) return false;
-          return true;
-        }})
-        .sort((a, b) => {{
+      const channel = document.getElementById('filter-channel') ? document.getElementById('filter-channel').value : 'all';
+
+      let filtered;
+      if (currentTab === 'curated') {{
+        // Curated tab: only starred items
+        filtered = Object.entries(data.items).filter(([url, item]) => item.starred);
+        const curatedCount = document.getElementById('showing-curated');
+        if (curatedCount) curatedCount.textContent = `${{filtered.length}} starred items`;
+      }} else {{
+        filtered = Object.entries(data.items)
+          .filter(([url, item]) => {{
+            if (status === 'starred') {{
+              if (!item.starred) return false;
+            }} else if (status === 'new') {{
+              if (item.status !== 'new') return false;
+            }} else if (status !== 'all' && item.status !== status) return false;
+            if (score !== 'all' && item.score !== score) return false;
+            if (source !== 'all' && item.source !== source) return false;
+            if (channel !== 'all' && getChannel(url, item.source) !== channel) return false;
+            return true;
+          }});
+      }}
+
+      filtered = filtered.sort((a, b) => {{
           const scoreOrder = {{ definitely: 0, probably: 1, no: 2 }};
           const sA = scoreOrder[a[1].score] ?? 99;
           const sB = scoreOrder[b[1].score] ?? 99;
@@ -385,11 +461,22 @@ class DashboardHandler(SimpleHTTPRequestHandler):
           <div class="item-main">
             <a class="item-title" href="${{url}}" target="_blank">${{item.title || url}}</a>
             <div class="item-meta">
+              <span style="background:${{
+                getChannel(url, item.source) === 'x' ? '#1DA1F2' :
+                getChannel(url, item.source) === 'reddit' ? '#FF4500' :
+                getChannel(url, item.source) === 'hn' ? '#FF6600' : 'var(--text-muted)'
+              }};color:#fff;padding:1px 6px;border-radius:3px;font-size:0.65rem;">${{
+                getChannel(url, item.source) === 'x' ? 'X' :
+                getChannel(url, item.source) === 'reddit' ? 'Reddit' :
+                getChannel(url, item.source) === 'hn' ? 'HN' : 'RSS'
+              }}</span>
               <span>${{item.source || '?'}}</span>
+              ${{item.author ? `<span>${{item.author}}</span>` : ''}}
               <span>${{item.firstSeen || '?'}}</span>
               <span class="badge badge-${{item.score}}">${{(item.score || '?').toUpperCase()}}</span>
-              <span class="badge badge-${{item.status}}">${{item.status || 'new'}}</span>
+              ${{item.upvotes ? `<span class="engagement"><span>♥ ${{item.upvotes}}</span>${{item.retweets ? `<span>🔁 ${{item.retweets}}</span>` : ''}}<span>💬 ${{item.num_comments || 0}}</span></span>` : ''}}
             </div>
+            ${{item.summary ? `<div class="item-summary" onclick="this.classList.toggle('expanded')">${{item.summary.replace(/</g, '&lt;').replace(/>/g, '&gt;')}}</div>` : ''}}
           </div>
           <div class="item-actions">
             <button class="btn btn-star ${{item.starred ? 'starred' : ''}}" onclick="toggleStar('${{encodeURIComponent(url)}}')">${{item.starred ? '★' : '☆'}}</button>

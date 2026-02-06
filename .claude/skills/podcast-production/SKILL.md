@@ -200,7 +200,7 @@ Example:
 **What it contains**:
 - Final YouTube title (with guest name for authority)
 - Thumbnail specification (2-4 words max, minimal design)
-- YouTube description (opening hook sentence + full description + resources + chapters)
+- YouTube description (natural description + resources + chapters)
 - Cold open script (verbatim clips)
 - All 3 approved social clips with on-screen hooks
 - Chapter breakdown (5-10 words per chapter title, keyword-rich)
@@ -213,7 +213,7 @@ Example:
 - Clean, streamlined specifications (no technical jargon)
 - Chapter titles follow "My First Million" style (compelling, descriptive)
 - Format: `(MM:SS) - Descriptive Chapter Title` (5-10 words max)
-- Description: Opening hook + full description + resources + chapters
+- Description: Natural description + resources + chapters (no artificial hook/body division)
 - Thumbnail: Simple visual + minimal text (2-4 words only)
 - All clips ready to copy/paste
 
@@ -253,22 +253,29 @@ Example:
 
 ## Final Assets Bundle (Post-Checkpoint)
 
-After all checkpoints are complete, consolidate publication-ready assets into a `final-assets/` folder:
+Organize each episode into `prep/` (working files) and `final-assets/` (publication-ready):
 
 ```
 Studio/Podcast Studio/[Episode Name]/
-├── SOURCE.md
-├── Checkpoint_1_*.md
-├── Checkpoint_2_*.md
-├── Checkpoint_3_*.md
-├── Checkpoint_4_*.md
+├── prep/
+│   ├── SOURCE.md
+│   ├── Checkpoint_1_*.md
+│   ├── Checkpoint_2_*.md
+│   ├── Checkpoint_3_*.md
+│   └── Checkpoint_4_*.md
 └── final-assets/
-    ├── blog-post.md       # Polished blog ready for Webflow
-    ├── social-plan.md     # Platform-specific posts + 7-day schedule
-    └── clips/             # (optional) Downloaded clip files
+    ├── day-in-the-life-blog.md   # Blog/newsletter ready for Webflow
+    ├── youtube-and-show-notes.md  # Full editor handoff (titles, clips, description)
+    ├── polished-transcript.md     # Cleaned transcript for publication
+    ├── social-plan.md             # Platform-specific posts + schedule
+    └── clips/                     # (optional) Downloaded clip files
 ```
 
-**`blog-post.md`** - The polished blog post from Checkpoint 4, cleaned up and ready to paste into Webflow. No checkpoint artifacts, just the final article.
+**`day-in-the-life-blog.md`** (or `blog-post.md`) - The polished blog post, cleaned up and ready to paste into Webflow. No checkpoint artifacts. Day-in-the-life format when the episode covers routine/environment. Standard blog when the episode is more topical.
+
+**`youtube-and-show-notes.md`** - Complete editor handoff: YouTube title/thumbnail options, description with chapters, cold open script, all social clips with edit markup and on-screen hooks, long clip titles/thumbnails, standalone content pieces, editor notes.
+
+**`polished-transcript.md`** - Full episode transcript cleaned for readability, with section headers matching chapters.
 
 **`social-plan.md`** - Contains:
 - Guest and brand handles for tagging
@@ -280,9 +287,9 @@ Studio/Podcast Studio/[Episode Name]/
 - Isaac coordination notes (if applicable)
 - Execution checklist
 
-This bundle structure keeps all publication-ready assets in one place, separate from working checkpoint files. When the episode is done, the `final-assets/` folder contains everything needed for distribution.
+This structure keeps working files separate from publication-ready assets. When the episode is done, `final-assets/` contains everything needed for distribution.
 
-**Archiving**: After publication, move checkpoint files and old drafts to `_archive/` subfolder to keep the episode folder clean.
+**Archiving**: After publication, the `prep/` folder already contains checkpoint history. No additional archiving needed.
 
 ---
 
@@ -321,6 +328,20 @@ Create narrative momentum. Clips should have complete arcs, not just be "good qu
 
 ### Brand Aligned
 All outputs reflect OpenEd visual and tonal guidelines. Homeschool parents should see themselves.
+
+### Internal Linking
+Before finalizing blog/newsletter assets, scan the Master Content Index (`Published Content/Master_Content_Index.md`) and published content folders for relevant backlinks. Look for:
+- Previous episodes featuring the same guest
+- Blog posts covering topics discussed in the episode (math curriculum, AI in education, classical education, reading, etc.)
+- Newsletter issues that referenced the guest or their work
+- Related podcast episodes with other guests on similar topics
+
+Insert 3-5 internal links naturally into the blog post, YouTube description, and show notes. Prioritize:
+1. Previous episodes with the same guest (always link)
+2. Pillar blog posts on topics the guest discusses (e.g., "Best Homeschool Math Curriculum" when Math Academy is mentioned)
+3. Related newsletters or articles that add context
+
+This step happens during final asset production, not during checkpoints.
 
 ---
 

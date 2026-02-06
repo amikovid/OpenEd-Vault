@@ -4,7 +4,7 @@ description: Open education's first major awards celebrating innovators in alter
 status: active
 parent: OpenEd Vault
 created: 2026-01-07
-updated: 2026-01-07
+updated: 2026-02-05
 ---
 
 # The 2026 Eddy Awards (The Eddys)
@@ -194,12 +194,46 @@ Eddie Awards/
 
 - [ ] Finalize branding/trophy design with Ella
 - [ ] Build landing page
-- [ ] Create nomination Google Form
+- [x] ~~Create nomination Google Form~~ → Nomination wizard built and deployed
 - [ ] Draft internal Slack announcement
 - [ ] Create Week 1 hype content
 - [x] Assemble judging panel candidates - see Google Doc below
 - [ ] Create shareable staff assets
 - [ ] Finalize Week 2 nominations comms
+- [ ] Embed/link nomination tool from Webflow landing page
+- [ ] Test nomination flow on mobile
+
+---
+
+## Nomination Tool
+
+**Live:** https://eddy-nominations.vercel.app
+**Backend:** Convex (`festive-rook-937`)
+**Source:** `~/project-temp/eddy-nominations/`
+
+### Architecture
+- Single-file HTML wizard (vanilla JS, no framework)
+- Convex HTTP action at `https://festive-rook-937.convex.site/nominate`
+- DM Sans font, coral-to-purple-to-blue gradient, Lucide-style SVG icons
+- Mobile-first (100dvh, safe-area-insets, 44px touch targets)
+
+### Flow
+1. Welcome screen (trophy image)
+2. Category selection (multi-select)
+3. Per-category nomination forms (nominee name, email, description, category-specific fields)
+4. Your Info (nominator details, newsletter subscribe)
+5. Success screen with nominee notification (mailto: draft + copy message)
+
+### Admin
+- Convex Dashboard: https://dashboard.convex.dev/t/chdeist/eddy-nominations
+- Query nominations: `nominations.list` (filter by category) or `nominations.count` (totals)
+
+### Deployment
+```bash
+cd ~/project-temp/eddy-nominations
+npx vercel --prod          # Frontend
+npx convex deploy          # Backend (if schema changes)
+```
 
 ---
 
@@ -210,8 +244,9 @@ Eddie Awards/
 | **Judge Selection & Outreach** | [Google Doc](https://docs.google.com/document/d/1jNCFz_fgTPkpWEzwPdn1GI4mfsRpUnxr9VSfsU2skJk/edit) | 27 potential judges by tier, personalized email templates |
 | **Campaign Assets** | `Campaign Assets.md` | Landing page copy, form fields, Slack announcements, social templates |
 | **Nominations Comms** | `Nominations-Comms.md` | Week 2 content: Facebook posts, Instagram options, newsletter draft |
+| **Nomination Tool Source** | `~/project-temp/eddy-nominations/` | Convex backend + HTML wizard frontend |
 
 ---
 
 *Created: 2026-01-07*
-*Updated: 2026-01-28*
+*Updated: 2026-02-05*

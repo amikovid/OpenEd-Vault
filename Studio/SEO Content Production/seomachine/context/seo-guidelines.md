@@ -24,7 +24,7 @@ AI tools have made it trivially easy to generate "SEO content" on any topic. The
 **REQUIRED before any article:**
 
 #### 1. Podcast Archive Search
-- Location: `/Content/Open Ed Podcasts/`
+- Location: `Studio/Podcast Studio/`
 - Look for: Direct quotes, personal stories, expert perspectives, curriculum recommendations
 - Attribution format: `[Quote] — [Name], [Role], on the [OpenEd Podcast](link)`
 

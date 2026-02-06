@@ -1,224 +1,186 @@
 ---
 name: ghostwriter
-description: Master the art of converting source material into authentic, human-written content. Transform transcripts, notes, and research into polished prose that avoids AI tells while maintaining distinctive voice. Incorporates universal writing fundamentals with anti-AI pattern detection.
+description: Transform source material into authentic, human-written content. Use for ANY writing task - newsletters, articles, social posts, emails. Combines voice transformation, AI pattern detection, and Charlie Deist's signature moves. Replaces the old ai-tells and human-writing skills.
 ---
 
-# Ghostwriter Skill
+# Ghostwriter
 
-## Purpose
+Transform source material into authentic prose that reads like a real person wrote it.
 
-This skill transforms source material - transcripts, notes, research, interviews - into authentic, human-written content that reads naturally without obvious AI tells.
-
-**Core Philosophy:** The best ghostwriting is invisible. Readers should feel like they're reading a real person's thoughts, not a filtered or processed version of source material.
-
-## When to Use This Skill
-
-- Converting transcripts or interviews into polished articles or newsletters
-- Refining notes into publishable content
-- Converting source material into different voices or styles
-- Ensuring written content reads authentically human
-
-**Use in conjunction with:**
-- Style reference files for adapting to specific voices
-- The `ai-tells` skill for pattern detection and forbidden syntax
+**This is the single writing quality skill.** It replaces `ai-tells` and `human-writing`. Load this for any writing task.
 
 ---
 
-## Universal Writing Fundamentals
+## The One Rule
 
-### 1. Energy Transfer
+**Never use the correlative construction.** This is the #1 AI tell:
+- "X isn't just Y - it's Z"
+- "It's not about X, it's about Y"
+- "More than just X, it's Y"
 
-**The best writing is a transfer of energy from writer to reader.**
-
-- Write conversations, not speeches
-- Be personable, especially in email and newsletters
-- Speak WITH your audience, not AT them
-- Remove corporate jargon, academic language, and media buzzwords
-
-### 2. Conciseness is King
-
-**Always remove surplus words. Every word should earn its place.**
-
-1. Write your first draft (don't hold back)
-2. Read it aloud
-3. Delete anything that repeats, softens, sounds formal, or takes extra words
-
-### 3. The SUCKS Framework
-
-**S - Specific:** Write for ONE person (your "One True Fan")
-**U - Unique & Useful:** Does this change how your reader thinks, feels, or acts?
-**C - Clear, Curious, Conversational:** Main idea unmissable, reads like talking to a friend
-**K - Kept Simple & Structured:** Simple ideas, clear progression
-
-**Application checklist:**
-- [ ] Who is my ONE True Fan reading this?
-- [ ] What will they think, feel, or do differently after?
-- [ ] Could a 12-year-old understand the main point?
-- [ ] Does this flow like a conversation?
-
-### 4. Be Undeniable
-
-Transform vague claims into concrete specifics.
-
-- "This year, I helped 13 clients boost their website traffic by 87%-256% in just one month. Here's how:"
-
-Replace vague language with data, examples, specifics, or personal experience.
-
-### 5. Craft Sticky Sentences
-
-Use these techniques to create memorable statements:
-
-| Technique | Example |
-|-----------|---------|
-| Alliteration | "Specificity is the secret" |
-| Symmetry | "Read for awareness. Write for understanding." |
-| Contrast | "To be everywhere is to be nowhere." |
-| Rhyme | "Tell a story or lose your glory" |
-| Rhythm | "When you can't wait to share it, they can't help but read it" |
-
-For maximum stickiness, combine techniques. See `references/sticky-sentences-expanded.md` for deep dives.
+Find another way. State the thing directly.
 
 ---
 
-## Leverage Human Desires
+## Forbidden Patterns (Quick Reference)
 
-Great writing taps into 8 core human desires. Choose 1-2 per piece:
+These are immediate flags. Full list: `references/forbidden-patterns.md`
 
-| Desire | Use When | Signal Words |
-|--------|----------|--------------|
-| Safety of Tribe | Community content | belong, together |
-| Survival & Success | Achievement content | breakthrough, unlock |
-| Life Enjoyment | Lifestyle content | freedom, experience |
-| Social Acceptance | Status content | elite, insider |
-| Comfort & Clarity | Explanatory content | simple, easy |
-| Freedom From Fear | Protective content | protect, avoid |
-| Perceived Status | Authority content | research, discovered |
+**Constructions:** "The truth is..." / "Now more than ever..." / "No fluff. No filler. Just results."
 
-**Full reference:** `references/human-desires.md`
+**Rhetorical flourishes:** "The best part? ..." / "Here's the thing..." / "Sound familiar?" / "What if I told you..."
 
----
+**Openers:** "In today's fast-paced..." / "In the ever-evolving..." / "Gone are the days..." / "Let's dive in..."
 
-## Dash Usage
+**Staccato fragments:** "Simple. Clear. Effective." / Short. Choppy. Sentences. Like. This.
 
-Use regular hyphens with spaces for parenthetical breaks - like this - not em dashes or en dashes.
+**Triple adjectives:** "Fast, efficient, reliable" - AI groups everything in threes.
 
-- "Education is changing - and parents are noticing"
+**AI vocabulary:** delve, comprehensive, crucial, vital, leverage, landscape, navigate, foster, facilitate, realm, paradigm, embark, journey, tapestry, myriad, multifaceted, seamless, cutting-edge, supercharge, skyrocket, unlock
+
+**Thesaurus abuse:** utilize (use), implement (start), optimize (improve), facilitate (help)
+
+**Hedging:** might/could/perhaps/possibly, "It's worth noting...", "It could be argued..."
+
+**Empty enthusiasm:** "Absolutely!", "Great question!", "You're absolutely right!"
 
 ---
 
-## AI Pattern Detection
+## Format Constraints
 
-**For comprehensive AI pattern detection and forbidden syntax, load the `ai-tells` skill.**
-
-Key patterns to eliminate:
-- Correlative constructions ("X aren't just Y - they're Z")
-- Overuse of "just" and "actually"
-- Hedge words (might, could, perhaps)
-- Passive voice
-- Corporate jargon
-- Vague language
+- **Dashes:** hyphens with spaces - like this - not em dashes
+- **No emojis** in body content
+- **No bold** for emphasis within paragraphs (bold is for headers/labels only)
+- **No** "In conclusion" or "In summary"
+- Limit transitions to: but, and, so, then, because. Remove: furthermore, moreover, additionally.
 
 ---
 
-## The Ghostwriting Workflow
+## Charlie's Signature Moves
 
-### Step 1: Understand Your Source Material
+When writing in Charlie's voice or for OpenEd:
 
-Read through everything completely:
+1. **Aphoristic Opening** - Thesis as proverb
+   - "A vigorous life is the best training for a 50-mile march."
+
+2. **Personal-to-Universal Bridge** - Start specific, expand to cultural/historical commentary, return with new meaning
+
+3. **Intellectual Name-Drop (Earned)** - Reference thinkers only when directly relevant. Always explain why.
+
+4. **Contrarian Hook** - Challenge received wisdom without edgelording
+   - "In 99% of cases of chronic sedentarism, the inactive person is not lazy. They're bored."
+
+5. **Incarnational Detail** - Specific, sensory, grounding
+   - RFK walking in "leather Oxford dress shoes"
+
+6. **Self-Deprecating Confession** - Prevents preachiness, builds trust
+   - "I write this admonition as someone who often scrolls Twitter on the couch"
+
+**Target tone:** A coach who has done the thing and believes you can too. A friend who tells you the truth because he respects you. A fellow traveler, slightly ahead on the path.
+
+---
+
+## The Workflow
+
+### Step 1: Understand Source
+
 - What's the core insight or story?
 - What's the emotional arc?
-- What would your One True Fan need to understand?
+- What's the 30-second version?
 
-### Step 2: Apply the SUCKS Framework
+### Step 2: Apply SUCKS Framework
 
-Before writing, answer: Who, What's unique, Is it clear, Is it simple?
+**S** - Specific: Write for ONE person
+**U** - Unique & Useful: Does this change how they think, feel, or act?
+**C** - Clear, Curious, Conversational: Reads like talking to a friend
+**K** - Kept Simple & Structured: Simple ideas, clear progression
+**S** - Sticky: Memorable phrases they'll repeat
 
-### Step 3: Choose Your Voice
+Full reference: `references/sucks-framework.md`
 
-| Style | Use For | Reference |
-|-------|---------|-----------|
-| Pirate Wires | Contrarian, calling out truths | `references/pirate-wires-style.md` |
-| Packy McCormick | Trends, accessible analysis | `references/packy-mccormick-style.md` |
-| Justin Mikolay | Refining, limited word count | `references/justin-mikolay-style.md` |
-| One Thing Better | Decisions, tradeoffs | `references/one-thing-better-style.md` |
-| Default | Professional, direct | Clear and authentic |
+### Step 3: Write or Edit
 
-### Step 4: Convert Source Material
+If editing AI output: **Rewrite, don't patch.** Identify the core message and reconstruct from scratch.
 
-1. Extract key quotes and ideas
-2. Translate into chosen voice
-3. Structure with clear beginning, middle, end
-4. Use specific examples and concrete details
-5. Create energy transfer (conversation, not lecture)
+### Step 4: Apply Sticky Sentences
 
-### Step 5: Apply Sticky Sentences
+Identify 2-3 most important statements. Try alliteration, symmetry, contrast, rhyme, or rhythm. Combine for maximum stickiness. Full reference: `references/sticky-sentences-expanded.md`
 
-Identify 2-3 most important statements. Add alliteration, symmetry, contrast, or rhythm.
+### Step 5: Eliminate AI Tells
 
-### Step 6: Eliminate AI Tells
+Scan against `references/forbidden-patterns.md`. Key checks:
+- [ ] Correlative constructions
+- [ ] "Just" and "actually" more than once
+- [ ] Hedge words (might, could, perhaps)
+- [ ] Passive voice
+- [ ] Corporate jargon / thesaurus abuse
+- [ ] Vague claims without specifics
+- [ ] Forbidden flourishes and openers
 
-**Load the `ai-tells` skill and run its checklist.** Key areas:
-- Forbidden syntax patterns
-- Overused words
-- Hedging language
-- Passive voice
-- Corporate jargon
+### Step 6: Read Aloud
 
-**Test:** Would this sentence appear in a ChatGPT output? If yes, rewrite it.
+- Does it sound like a real person talking?
+- Does energy transfer (conversation, not lecture)?
+- Is every sentence earning its place?
 
-### Step 7: Read Aloud & Quality Check
-
-- [ ] Does it sound like a real person talking?
-- [ ] Could I email this to my One True Fan without embarrassment?
-- [ ] Does energy transfer (not feel formal)?
-- [ ] Is every sentence earning its place?
-- [ ] Do important ideas have sticky phrasing?
+**The final test:** Would this sentence appear in a ChatGPT output? If yes, rewrite it.
 
 ---
 
-## Elements of Effective Ghostwritten Content
+## Writing Fundamentals
 
-1. **Capture attention immediately** - First sentence must hook
-2. **Use specific numbers** - "1.5 million" not "many"
-3. **Employ pattern interrupts** - Surprise the reader
-4. **Address problems directly** - Name the struggle
-5. **Write with confidence** - Eliminate hedge words
-6. **Highlight concrete benefits** - "Double output in 30 days"
-7. **Include social proof** - Results, credentials, validation
-8. **Ask powerful questions** - Make readers think
-9. **Incorporate warnings** - Create urgency, show stakes
-10. **Remind, don't just inform** - Confirm what readers sense
+### Energy Transfer
 
----
+The best writing is a transfer of energy from writer to reader. Write conversations, not speeches. Speak WITH your audience, not AT them.
 
-## Common Pitfalls to Avoid
+### Conciseness
 
-| Pitfall | Bad | Good |
-|---------|-----|------|
-| Over-Processing | Corporate-speak | Authentic voice preserved |
-| AI Phrases | "Moreover," "Furthermore" | Natural transitions |
-| Losing Insight | Polish hides core idea | Clarity enhances meaning |
-| Sounding Generic | Could be about anything | Specific perspective |
-| Hedging | "It might be possible..." | "This is true because..." |
+Every word earns its place. Write first draft freely, then delete anything that repeats, softens, sounds formal, or takes extra words.
 
----
+### Be Undeniable
 
-## Reference Materials
+Transform vague claims into concrete specifics:
+- Bad: "We've helped many clients"
+- Good: "We helped 13 clients boost traffic by 87%-256% in one month"
 
-### Style Guides
-- `references/pirate-wires-style.md` - Authentic, conversational, contrarian
-- `references/pirate-wires-examples.md` - Real examples
-- `references/packy-mccormick-style.md` - Analytical enthusiasm
-- `references/justin-mikolay-style.md` - Discovery by deletion
-- `references/one-thing-better-style.md` - Decision frameworks
+### Leverage Human Desires
 
-### Technique Deep Dives
-- `references/sticky-sentences-expanded.md` - Extended sticky sentence guide
-- `references/human-desires.md` - 8 core human desires reference
+Choose 1-2 per piece:
 
-### Related Skills
-- `ai-tells` - Comprehensive forbidden patterns and AI detection
+| Desire | Use When |
+|--------|----------|
+| Safety of Tribe | Community content |
+| Survival & Success | Achievement content |
+| Life Enjoyment | Lifestyle content |
+| Social Acceptance | Status content |
+| Comfort & Clarity | Explanatory content |
+| Freedom From Fear | Protective content |
+
+Full reference: `references/human-desires.md`
 
 ---
 
-*Use the 7-step workflow for any conversion task. Always start with SUCKS and end with reading aloud.*
+## Voice References
+
+For adapting to specific styles, read these for the vibe:
+- `references/pirate-wires-style.md` + `pirate-wires-examples.md` - Contrarian, calling out truths
+- `references/packy-mccormick-style.md` - Trends, accessible analysis
+- `references/justin-mikolay-style.md` - Discovery by deletion, refining
+- `references/one-thing-better-style.md` - Decisions, tradeoffs
+
+---
+
+## References
+
+| File | Contents |
+|------|----------|
+| `references/forbidden-patterns.md` | Complete AI pattern detection (200+ patterns) |
+| `references/humanization-workflow.md` | Step-by-step editing process + Charlie's moves |
+| `references/sucks-framework.md` | Pre-writing checklist |
+| `references/sticky-sentences-expanded.md` | Deep dive on memorable phrasing techniques |
+| `references/human-desires.md` | 8 core desires for emotional hooks |
+| `references/pirate-wires-*.md` | Voice examples |
+
+---
+
+*Consolidates the former `ai-tells`, `human-writing`, and `ghostwriter` skills. Last updated: 2026-02-04.*

@@ -1,3 +1,12 @@
+---
+date: 2026-02-03
+day: Tuesday
+type: daily
+subject: "The research says one thing. The headlines say another."
+status: draft
+segments: [meme, thought, trend, tool]
+---
+
 # Newsletter Draft - 2026-02-03 (Monday)
 
 **SUBJECT:** The research says one thing. The headlines say another.

@@ -46,18 +46,13 @@ A single document containing:
 ### YouTube Description
 
 **Structure:**
-1. Opening hook sentence (1 sentence max)
-2. Full description (2-3 sentences)
-3. Resources section (with clickable links)
-4. Chapters section (formatted timestamps)
-
-YouTube Description: Opening hook sentence (using exact keyword phrase in first 100 chars) + full description + resources + chapters. Ensure the description anchors the technical solution in a daily routine to maximize semantic search relevance.
+1. Description (natural, conversational - no artificial hook/body division)
+2. Resources section (with clickable links)
+3. Chapters section (formatted timestamps)
 
 **Example:**
 
-Parents worry about smartphones destroying their kids' mental health. But research shows something very different is actually causing anxiety and depression in teens.
-
-In this episode, biopsychologist Dr. Peter Gray reveals what 83% of anxious teens actually cite as their primary source of stress—and it's not what you think. He breaks down decades of research, challenges the popular narrative about social media, and explains why we keep blaming new media instead of looking at the real problem.
+Biopsychologist Dr. Peter Gray reveals what 83% of anxious teens actually cite as their primary source of stress - and it's not smartphones. He breaks down decades of research showing that every summer when school closes, teen mental health improves, and every fall when it reopens, it gets worse again. He challenges the popular social media narrative and explains why we keep blaming new media instead of looking at the real problem.
 
 **Resources:**
 - Peter Gray's Substack: https://petergray.substack.com/

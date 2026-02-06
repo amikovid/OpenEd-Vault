@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gatto's Seven Lessons</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .card {
+    width: 1080px;
+    height: 1350px;
+    background: #faf8f5;
+    padding: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .header {
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8b6914;
+    margin-bottom: 16px;
+  }
+  .title {
+    font-size: 44px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    font-size: 19px;
+    color: #666;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .lessons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .lesson {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px 28px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .lesson-number {
+    font-size: 32px;
+    font-weight: 900;
+    color: #c9a227;
+    min-width: 48px;
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .lesson-content {
+    flex: 1;
+  }
+  .lesson-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .lesson-desc {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.45;
+  }
+  .quote-section {
+    text-align: center;
+    padding: 0 40px;
+  }
+  .quote-mark {
+    font-size: 64px;
+    color: #c9a227;
+    line-height: 0.5;
+    margin-bottom: 12px;
+  }
+  .quote-text {
+    font-size: 21px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .quote-attr {
+    font-size: 15px;
+    color: #999;
+    margin-top: 12px;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .source {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.5;
+  }
+  .brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ccc;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="eyebrow">John Taylor Gatto</div>
+    <div class="title">The 7 Hidden Lessons<br>Every School Teaches</div>
+    <div class="subtitle">From "The Seven-Lesson Schoolteacher" - his NYC Teacher of the Year acceptance speech</div>
+  </div>
+
+  <div class="lessons">
+    <div class="lesson">
+      <div class="lesson-number">1</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Confusion</div>
+        <div class="lesson-desc">Everything taught out of context. History separated from literature, math from science - all divided by bells.</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-number">2</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Class Position</div>
+        <div class="lesson-desc">Children sorted, ranked, and labeled. "I'm not a math person" becomes a self-fulfilling prophecy.</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-number">3</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Indifference</div>
+        <div class="lesson-desc">When the bell rings, drop whatever you're doing. This teaches kids not to care too deeply about anything.</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-number">4</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Emotional Dependency</div>
+        <div class="lesson-desc">Stars, red checks, smiles, frowns. Children become dependent on external validation.</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-number">5</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Intellectual Dependency</div>
+        <div class="lesson-desc">Wait to be told what to think. Good students wait for the teacher to tell them what to study.</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-number">6</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Provisional Self-Esteem</div>
+        <div class="lesson-desc">Your worth is determined by grades. Self-respect depends on expert opinion.</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-number">7</div>
+      <div class="lesson-content">
+        <div class="lesson-name">Surveillance</div>
+        <div class="lesson-desc">Constant monitoring normalized. No private time, no private space. Always being watched.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-section">
+    <div class="quote-mark">"</div>
+    <div class="quote-text">I can't teach this way any longer. If you hear of a job where I don't have to hurt kids to make a living, let me know.</div>
+    <div class="quote-attr">— John Taylor Gatto, Wall Street Journal (1991)</div>
+  </div>
+
+  <div class="footer">
+    <div class="source">Read the full deep dive at opened.co/blog/5369</div>
+    <div class="brand">OpenEd</div>
+  </div>
+</div>
+</body>
+</html>

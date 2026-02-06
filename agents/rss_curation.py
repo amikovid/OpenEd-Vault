@@ -182,6 +182,14 @@ NO_KEYWORDS = [
     "oral health", "school chef", "healthy habits",
     "child care", "day care",
 
+    # Religious/devotional
+    "biblical perspective", "psalm", "scripture", "devotional",
+    "prayer life", "faith-based", "christian school",
+
+    # Union/labor politics
+    "teachers union", "union strike", "staffing demands",
+    "pay equity", "pay gap",
+
     # Generic/off-topic
     "college admission", "higher ed", "university",
     "corporate training", "workplace",
@@ -190,8 +198,20 @@ NO_KEYWORDS = [
 # High-value sources (always consider DEFINITELY if not filtered out)
 HIGH_VALUE_SOURCES = [
     "Lenore Skenazy", "Peter Gray", "Let Grow", "Kerry McDonald",
-    "r/homeschool", "r/unschool", "Pam Barnhill", "1000 Hours Outside",
+    "Pam Barnhill", "1000 Hours Outside",
     "Jon Haidt", "After Babel",
+]
+
+# Reddit requires higher bar - generic posts shouldn't auto-qualify
+REDDIT_DEFINITELY_KEYWORDS = [
+    # Only high-signal Reddit discussions
+    "thriving", "flourishing", "self-directed", "unschooling success",
+    "data", "research", "study", "statistic",
+    "documentary", "nyt", "new york times", "washington post",
+    "microschool", "learning pod", "forest school",
+    "neurodiversity", "twice exceptional", "2e",
+    "college admission", "sat", "act score",
+    "socialization", "social skills",
 ]
 
 
@@ -204,6 +224,10 @@ def score_item(source: str, title: str, summary: str) -> str:
         if kw.lower() in text:
             return "NO"
 
+    # Reddit has a separate, higher bar
+    if "r/" in source:
+        return score_reddit_item(text)
+
     # Check DEFINITELY keywords
     definitely_score = 0
     for kw in DEFINITELY_KEYWORDS:
@@ -214,16 +238,36 @@ def score_item(source: str, title: str, summary: str) -> str:
     if any(hv in source for hv in HIGH_VALUE_SOURCES):
         definitely_score += 2
 
-    # Extra boost for Reddit (gold mine)
-    if "r/" in source:
-        definitely_score += 1
-
     if definitely_score >= 2:
         return "DEFINITELY"
     elif definitely_score >= 1:
         return "PROBABLY"
     else:
         return "PROBABLY"  # Default to PROBABLY, not NO
+
+
+def score_reddit_item(text: str) -> str:
+    """Score Reddit items with a higher bar - only strong signals qualify"""
+    # Reddit DEFINITELY requires specific high-signal keywords
+    reddit_score = 0
+    for kw in REDDIT_DEFINITELY_KEYWORDS:
+        if kw.lower() in text:
+            reddit_score += 1
+
+    # Also check general DEFINITELY keywords but require more matches
+    general_score = 0
+    for kw in DEFINITELY_KEYWORDS:
+        if kw.lower() in text:
+            general_score += 1
+
+    if reddit_score >= 1 and general_score >= 1:
+        return "DEFINITELY"
+    elif reddit_score >= 1 or general_score >= 2:
+        return "PROBABLY"
+    elif general_score >= 1:
+        return "PROBABLY"
+    else:
+        return "NO"  # Generic Reddit posts filtered out
 
 
 def get_description(source: str, title: str) -> str:
@@ -416,15 +460,27 @@ def main():
     print(f"RSS Daily Curation - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 60)
 
-    # Parse --hours flag (default 24)
-    hours = 24
+    # Parse --hours flag; default: auto-calculate from lastRun
+    hours = None
     for arg in sys.argv:
         if arg.startswith("--hours="):
             hours = int(arg.split("=")[1])
 
     # Load tracking for deduplication
     tracking = load_tracking()
-    print(f"Last run: {tracking.get('lastRun', 'never')}")
+    last_run = tracking.get('lastRun')
+    print(f"Last run: {last_run or 'never'}")
+
+    # Auto-calculate hours from lastRun if not specified
+    if hours is None:
+        if last_run:
+            last_run_dt = datetime.fromisoformat(last_run)
+            hours_since = (datetime.now() - last_run_dt).total_seconds() / 3600
+            hours = max(int(hours_since) + 1, 6)  # At least 6h, round up
+            print(f"Auto-fetching since last run: {hours} hours")
+        else:
+            hours = 48  # First run: cast a wider net
+            print(f"First run - fetching last {hours} hours")
 
     # Fetch and score (with deduplication)
     items = fetch_feeds(hours=hours, tracking=tracking)
@@ -439,7 +495,8 @@ def main():
                 'score': item['score'].lower(),
                 'status': 'new',
                 'source': item['source'],
-                'title': item['title'][:100]
+                'title': item['title'][:100],
+                'summary': item.get('summary', '')[:300],
             }
             tracking['stats']['totalTracked'] = len(tracking['items'])
 

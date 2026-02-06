@@ -126,15 +126,8 @@ def create_markdown_file(post, content_db_path):
     else:
         date_str = ''
 
-    # Build URL based on type
-    if 'Podcast' in post_type:
-        url = f"https://opened.co/podcast/{slug}"
-    elif 'Daily' in post_type:
-        url = f"https://opened.co/newsletter/{slug}"
-    elif 'Announcement' in post_type:
-        url = f"https://opened.co/blog/{slug}"
-    else:
-        url = f"https://opened.co/blog/{slug}"
+    # Build URL - all content lives under /blog/ on the live site
+    url = f"https://opened.co/blog/{slug}"
 
     # Escape quotes for YAML
     escaped_title = title.replace('"', "'")

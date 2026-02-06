@@ -1,3 +1,12 @@
+---
+date: 2026-01-29
+day: Thursday
+type: daily
+subject: "Why The Minimalists quit traditional school"
+status: draft
+segments: [deep-dive]
+---
+
 # Newsletter Draft - 2026-01-29 (Wednesday)
 
 **SUBJECT:** Why The Minimalists quit traditional school

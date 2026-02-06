@@ -278,14 +278,73 @@ Now generating social suggestions...
 
 ---
 
+## Image SEO Workflow
+
+**Before uploading images**, optimize them:
+
+1. **Format detection**: The upload function now detects actual image format via magic bytes. No more JPEG-as-PNG mismatches.
+2. **WebP conversion**: Use the image optimizer before uploading:
+   ```bash
+   python3 .claude/skills/nano-banana-image-generator/scripts/image_optimizer.py \
+     path/to/thumbnail.jpg --use thumbnail
+   ```
+3. **Descriptive filenames**: Upload with SEO names (e.g. `peter-gray-education-thumbnail.webp`), not timestamps.
+4. **Alt text**: Always provide descriptive alt text. The converter warns on empty alt text.
+5. **Smart loading**: The HTML converter automatically sets `loading="eager" fetchpriority="high"` on the first image and `loading="lazy"` on the rest.
+6. **Dimensions**: Pass image metadata to the converter to add `width`/`height` attributes (prevents CLS):
+   ```python
+   from markdown_to_webflow import markdown_to_html, load_image_meta_from_sidecars
+   meta = load_image_meta_from_sidecars("path/to/article/images/")
+   html = markdown_to_html(content, image_meta=meta)
+   ```
+
+## Schema Markup
+
+**After converting HTML**, generate structured data:
+
+```python
+from seo_schema_generator import generate_all_schema
+
+schemas = generate_all_schema(
+    headline="Article Title",
+    description="Meta description",
+    date_published="2026-02-06",
+    slug="article-slug",
+    html_content=html,
+    image_url=thumbnail_cdn_url,
+    image_width=1200,
+    image_height=675,
+)
+
+# schemas['blog_posting'] - BlogPosting JSON-LD (handled by template)
+# schemas['faq'] - FAQPage JSON-LD (goes in faq-schema CMS field)
+```
+
+The `faq-schema` CMS field must be created in Webflow Designer first (plain text, multi-line).
+
+## Meta Description Validation
+
+```python
+from markdown_to_webflow import validate_meta_description
+
+valid, messages = validate_meta_description(summary, keyword="homeschool math")
+for msg in messages:
+    print(f"  {msg}")
+```
+
+Checks: 120-160 char length, keyword presence.
+
 ## Checklist
 
 Before publishing:
 
 - [ ] Author identified or created
+- [ ] Thumbnail optimized to WebP with descriptive filename
 - [ ] Thumbnail uploaded (separate from body content)
 - [ ] Body images uploaded with descriptive alt text
-- [ ] Markdown converted to HTML correctly
+- [ ] Meta description validated (120-160 chars, keyword present)
+- [ ] Markdown converted to HTML (smart loading, dimensions)
+- [ ] FAQ schema generated and included in payload
 - [ ] Post created as draft
 - [ ] Reviewed in Webflow dashboard
 - [ ] Published when ready
@@ -295,6 +354,7 @@ After publishing:
 - [ ] Social suggestions generated (Step 6 - automatic)
 - [ ] Suggestions posted to #content-inbox
 - [ ] Report URL to user for verification
+- [ ] Verify schema with Google Rich Results Test
 
 ---
 

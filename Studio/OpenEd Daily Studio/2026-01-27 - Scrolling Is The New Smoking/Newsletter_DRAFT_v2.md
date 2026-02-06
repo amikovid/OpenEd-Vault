@@ -1,3 +1,12 @@
+---
+date: 2026-01-27
+day: Tuesday
+type: daily
+subject: "Why The Minimalists pulled their daughter out of school"
+status: draft
+segments: [thought, trend, tool]
+---
+
 # Newsletter Draft v2 - 2026-01-27 (Monday)
 
 **SUBJECT:** Why The Minimalists pulled their daughter out of school
