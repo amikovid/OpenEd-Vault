@@ -329,6 +329,20 @@ That's all for today!
 
 ---
 
+## Formatting Rules (Weekly Newsletter)
+
+### Images Above Titles
+Thumbnail images ALWAYS go ABOVE the H1 section title. This is critical for the weekly format.
+
+### H1 for Section Headers
+Weekly newsletter sections (Featured Podcast, Deep Dive, Trends, Tools, etc.) use H1 (`#`), not H2 (`##`).
+
+### Opening Letter Has No Header
+The opening letter has no `## OPENING LETTER` header or divider before it. It starts right after the frontmatter.
+
+### Source Attribution
+Source goes in italics right after the link text: `[**Headline**](url) *(Source)* - Description`
+
 ## Uploading Thumbnail Images
 
 Upload to HubSpot File Manager and place ABOVE the H1 title in the content.

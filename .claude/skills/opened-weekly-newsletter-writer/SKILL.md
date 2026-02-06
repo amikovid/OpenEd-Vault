@@ -33,6 +33,47 @@ Creates Friday digest newsletters synthesizing the week's content into six disti
 
 **Requirements:** Flexible length (typically 1,500-2,500 words) • NO EMOJIS in body • Pirate Wires-influenced voice • All external links include source attribution in parentheses
 
+## Formatting Rules (Critical)
+
+### Images Above Titles
+Thumbnail/header images ALWAYS go ABOVE the H1 section title, not below it:
+```
+![](image-url)
+
+# Section Title Here
+```
+
+### H1 for All Sections
+Section titles use `#` (H1), not `##` (H2). This applies to: Featured Podcast, Deep Dive, Trends, Tools, From the Community, Ed's Stable.
+
+### Opening Letter Has No Header
+The opening letter starts immediately after the frontmatter - no `## OPENING LETTER` header, no dividing line before it. Just launch into the content.
+
+### Include Links Early in Opening Letter
+Include links to the podcast episode and deep dive article inline in the opening letter. Many readers won't scroll past the opening - give them the links up front.
+
+### Source Attribution Format
+Put the source in italics right after the link, before the description:
+```
+[**Compelling Headline**](url) *(Source Name)* - Short teasing description.
+```
+NOT at the end of the paragraph: `...description. (Source Name)`
+
+### Link Text = Compelling Headlines
+Never just copy the article's actual title for link text. Write a compelling, curiosity-driven headline. Think: what would make someone stop scrolling? MFM energy - tease the value, open a loop.
+
+**Good:** `[**Why your kid struggles with algebra (it started in 3rd grade)**](url)`
+**Bad:** `[**Test Results Reveal a Deeper Issue in Math**](url)`
+
+**Good:** `[**This school finishes all academics by 10am**](url)`
+**Bad:** `[**Alpha School Students Finish Academics in 2 Hours**](url)`
+
+### Trends/Tools: Short and Teasing
+1-2 sentences max per item. Don't explain the whole article - open a curiosity loop that earns the click. Leave something out. Tease the value.
+
+**Good:** "Short passages 'better prepare them for high school,' they said. The real reason is more uncomfortable than that."
+**Bad:** "The richest public middle school in DC told parents their 8th graders won't read complete novels anymore. Short passages 'better prepare them for high school.' The author argues the real problem: we've confused difficult with boring, and are training kids to never wrestle with anything longer than a page."
+
 ## Workflow
 
 ### Phase 1: Gather & Organize Source Material
@@ -62,65 +103,77 @@ If creating `Source_Material.md`, include:
 
 ### Phase 2: Draft Opening Letter
 
+**No header.** The opening letter starts right after frontmatter - no `## OPENING LETTER`, no divider.
+
 Create opening section that:
-- Opens with greeting ("Greetings Eddies!" or similar)
-- Features the main giveaway/announcement winner/deadline
-- Includes light humor (corny joke, relatable observation)
-- States what's NOT you (if applicable - "you didn't win")
-- Explains the fairness/transparency (e.g., Python script selection)
-- Mentions consolation prizes/alternatives
-- Ends with clear CTA and links
-- Signs off: "– Charlie (the OpenEd newsletter guy)"
+- Opens with greeting ("Happy Friday!" or similar)
+- Names the 1-2 conversations/stories that define this week
+- Includes inline links to the podcast and deep dive early (many readers won't scroll)
+- Connects the week's content with a through-line (what ties it all together?)
+- Keeps it conversational and specific - name people, reference moments
+- Signs off: "- Charlie (the OpenEd newsletter guy)"
 
 **Opening Letter Example Structure:**
-1. Greeting + Main announcement
-2. Light humor about the "you didn't win" situation
-3. Context/transparency about selection process
-4. Consolation prizes or alternatives
-5. Clear deadline + CTA link
+1. Greeting
+2. Name the week's lead story with link (podcast, deep dive, or both)
+3. Name the second story with link
+4. One sentence connecting them (the through-line)
+5. "That's the thread this week."
 6. Charlie signature
 
 ### Phase 3: Draft All Remaining Newsletter Sections
 
 Create `Weekly_Newsletter_Draft.md` with six sections:
 
-**DEEP DIVE: [Article Title]**
-- Feature the week's main article/guide
-- 3-4 paragraphs, third-person or narrative style
-- Hook with compelling angle (can reference notable figures like Adam Savage)
-- Include key data point(s)
-- End with link to full article: `[Read the full guide on OpenEd](URL)`
+**Featured Podcast** (image above title)
+```
+![](thumbnail-url)
 
-**[PODCAST TITLE]: [Episode Title]**
-- Brief setup (guest, host, topic)
+# Compelling Title for the Episode
+```
+- *By [Author Name]* byline below title
+- Brief setup, then the story
 - One compelling moment or key insight
 - 2-3 direct quotes from transcript
-- Practical takeaway or hook
-- Link to listen: `[Listen to the full episode](URL)`
+- Honest criticisms or nuance (shows we're not cheerleading)
+- Link to listen + link to read: `[Listen](URL) | [Read the write-up](URL)`
+
+**Deep Dive** (image above title)
+```
+![](thumbnail-url)
+
+# Compelling Title for the Article
+```
+- 3-4 paragraphs, narrative style
+- Hook with compelling angle
+- Include key data point(s) or memorable quote
+- End with link: `[Read the full deep dive](URL)`
 
 **Trends We're Following**
-- 4-6 data-driven trends/stories from the week
-- Each with compelling headline and 1-2 sentence description
-- Include relevant data/stats that support the trend
-- Source attribution in parentheses: `([Source Name](URL))`
-- Focus on what makes each trend noteworthy, not just what happened
+- 4-6 items, each 1-2 sentences MAX
+- Compelling headline as link text (not the article's actual title)
+- Source in italics right after link: `[**Headline**](url) *(Source)* - Tease.`
+- Open a curiosity loop - don't explain the whole article
+- Focus on what makes each trend surprising or urgent
 
 **Tools We're Bookmarking**
 - 6-10 resources, tools, curricula, or recommendations
-- NO category grouping (list sequentially)
-- Each with: Tool name (hyperlinked) + benefit-first description (1-2 sentences)
-- Attribution woven into text naturally (see Phase 5 attribution style)
-- Write to earn the click: hint at value without explaining everything
-- Use Pirate Wires tone: observational, slightly irreverent
-- **Reddit posts: MAX ONE per newsletter** — pick the best insight, not multiple threads
-- If featuring tools from the Deep Dive, consolidate into one summary entry
+- Same format: `[**Headline**](url) *(Source)* - Tease.`
+- Each 1-2 sentences MAX - earn the click by leaving something out
+- Benefit-first, not feature-first
+- Reddit posts welcome here when they contain practical value (curriculum recs, milestone celebrations, etc.)
+
+**From the Community** (optional section)
+- Voices from Reddit, X, blogs that don't fit neatly into Trends or Tools
+- More conversational/narrative than the link-heavy sections above
+- Good for: community conversations, viral moments, honest/uncomfortable threads
+- Format: `**"Title"** *(Source)* - Brief description. [Link](url)`
 
 **Ed's Stable**
-- Social media highlights from the week
-- Reference recent Instagram/social posts from OpenEd
-- Include quirky brand moments (horse mask, chalkboard, etc.)
-- 2-3 specific post examples with themes
-- Close with reflection that ties newsletter theme to community/brand energy
+- Closing synthesis that ties the week's through-line together
+- Can reference social media posts, carousels, or Facebook content from the week
+- Close with the question or idea that connects everything
+- Include links to blog + podcast at the bottom
 
 **Closing:**
 ```

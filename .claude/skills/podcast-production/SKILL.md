@@ -1,403 +1,327 @@
 ---
 name: podcast-production
-description: Complete workflow for producing podcast episodes from raw transcript to publishable YouTube and social media assets. Four-checkpoint system for strategic decision-making plus final polished assets.
+description: Produce podcast episodes from Notion transcript to a single editor handoff document. Three phases with two human decision points.
 ---
 
-# Podcast Production Skill
+# Podcast Production Skill (v2)
 
-## Overview
+Transform a podcast transcript into a single **EDITOR_HANDOFF.md** - the one document your video editor needs. Three phases, two human checkpoints, converging on one deliverable.
 
-Transform a raw podcast transcript into polished, multi-platform content assets through four strategic checkpoints. Each checkpoint delivers decision-ready analysis in a markdown file for your feedback before proceeding. You'll provide feedback directly in the checkpoint documents, then we'll iterate before moving to the next phase. Final outputs include publication-ready YouTube strategy and a narrative-driven blog post.
-
-**Workflow Structure:**
-- Start with `[Guest]_Source_Material.md` (raw transcript + notes)
-- Create `Checkpoint_1_Comprehensive_Analysis.md` (your feedback here)
-- Create `Checkpoint_2_Cold_Opens_and_Clips.md` (your feedback here)
-- Create `Checkpoint_3_YouTube_Strategy.md` (your feedback here)
-- Create `Checkpoint_4_Polished_Transcript_and_Blog.md` (final deliverable)
+**Previous version:** `SKILL_v1_archive.md` (4-checkpoint system, retired Feb 2026)
 
 ---
 
-## Execution Model: Subagents for Context Preservation
+## The Pipeline
 
-**CRITICAL**: Each checkpoint should be executed by a dedicated subagent (using the Task tool) to preserve context window in the main conversation. The workflow is:
-
-1. **Main agent** reads source material, confirms approach with user
-2. **Subagent 1** executes Checkpoint 1, writes file, reports back summary
-3. **User reviews**, provides feedback on Big Idea selection
-4. **Subagent 2** executes Checkpoint 2 (reads Checkpoint 1 + source), writes file, reports back
-5. **User reviews**, approves cold open and clips
-6. **Subagent 3** executes Checkpoint 3 (reads prior checkpoints), writes file, reports back
-7. **User reviews**, approves YouTube strategy
-8. **Subagent 4** executes Checkpoint 4 (reads all prior work), writes final deliverables
-
-**Subagent prompt template:**
 ```
-You are executing [Checkpoint N] of the podcast production workflow.
+PHASE 1: SETUP (automated, no LLM needed for import)
+  Step 0:   Import from Notion → SOURCE.md
+  Step 0.5: Guest social research → GUEST_SOCIAL_RESEARCH.md
+  Step 1:   SEO keyword research → SEO_Keywords.md
 
-Episode: [Guest Name]
-Working directory: [path to episode folder]
+PHASE 2: AUDIT + HUMAN REVIEW
+  Step 2:   Audit (angles, clips, cold opens, blog format assessment)
+            → Checkpoint_1_Audit.md
+  ────────── HUMAN CHECKPOINT: Select angle + approve clips ──────────
+  Step 3:   Title + thumbnail variations (YouTube title + blog title)
+            → Title_Options_By_Angle.md
+  ────────── HUMAN CHECKPOINT: Select title + thumbnail ──────────
 
-Read the following files:
-- SOURCE.MD (raw transcript)
-- [Any prior checkpoint files]
-
-Create: Checkpoint_[N]_[Name].md following the podcast-production skill format.
-
-[Specific checkpoint instructions from skill]
-
-Write the checkpoint file and report back with:
-1. Key decisions/recommendations
-2. Questions for user feedback
+PHASE 3: HANDOFF ASSEMBLY (converges to one document)
+  Step 4:   On-screen hook generation (3-5 per clip)
+  Step 5:   Final clip markup (3 short + 2 long, edit-ready)
+  Step 6:   Cold open assembly (2-3 options from selected clips)
+  Step 7:   YouTube description + chapters
+  Step 8:   Blog post direction + social tagging strategy
+            → EDITOR_HANDOFF.md (THE deliverable)
 ```
 
-This preserves context by having each subagent start fresh with only the necessary files, rather than accumulating the entire conversation history.
+---
 
-## When to Use This Skill
+## Folder Structure
 
-- You have a raw podcast transcript and need to identify the strongest marketing angle
-- You want to create a cold open that hooks listeners immediately
-- You need YouTube titles and thumbnail strategies
-- You're creating social clips from podcast material
-- You want to create SEO-optimized blog content from the episode
-- You want all assets aligned with OpenEd brand identity
+```
+Studio/Podcast Studio/[Guest-Name]/
+└── prep/
+    ├── SOURCE.md                    # Raw transcript from Notion
+    ├── GUEST_SOCIAL_RESEARCH.md     # Handles, platforms, reshare strategy
+    ├── SEO_Keywords.md              # Keyword volumes + blog direction
+    ├── Checkpoint_1_Audit.md        # Angles, clips, cold opens
+    ├── Title_Options_By_Angle.md    # Framework-fit titles organized by angle
+    └── EDITOR_HANDOFF.md            # THE DELIVERABLE (everything the editor needs)
+```
 
 ---
 
-## Session Startup
+## Phase 1: Setup
 
-At the start of each podcast production session, sync the content database:
+### Step 0: Import from Notion
 
 ```bash
-cd "Content/Misc. Utilities/seomachine" && python3 -c "
-from dotenv import load_dotenv
-load_dotenv('data_sources/config/.env')
-from data_sources.modules.webflow import sync_content_database
-sync_content_database()
-"
+python3 /Users/charliedeist/Desktop/New\ Root\ Docs/.claude/scripts/notion_import.py <page_id> --title -o "Studio/Podcast Studio/[Guest-Name]/prep/SOURCE.md"
 ```
 
-This pulls latest content from Webflow to `Content/Master Content Database/` for internal linking and context.
+No LLM tokens. Direct Notion API to markdown. Creates the folder structure automatically.
+
+To find page IDs for recorded episodes, query the Podcast Master Calendar Notion database (`d60323d3-8162-4cd0-9e1c-1fea5aad3801`) filtering for `Status = Recorded`.
+
+### Step 0.5: Guest Social Research
+
+Run a web search sub-agent to find:
+- All personal + company handles (LinkedIn, X, IG, TikTok, YouTube)
+- Which platform is their strongest (by engagement, not follower count)
+- What kind of content they typically post/share
+- Mutual connections with OpenEd
+- Collaboration history (have they shared our content before?)
+
+Output: `GUEST_SOCIAL_RESEARCH.md`
+
+This informs clip selection (which platforms matter?) and social strategy (tagging, reshare potential).
+
+### Step 1: SEO Keyword Research
+
+Use DataForSEO to research 5-7 keywords related to the guest's topic. Focus on:
+- Guest name + company (branded volume)
+- Core topic terms (e.g., "microschool", "how to start a microschool")
+- Related high-intent queries
+
+Output: `SEO_Keywords.md` - consolidated summary, not individual briefs.
+
+This informs title selection and blog post direction. YouTube title and blog title should be DIFFERENT:
+- **YouTube title** = CTR optimized (curiosity, emotion, pattern interrupt)
+- **Blog title** = SEO optimized (target keyword in title, search intent match)
 
 ---
 
-## THE FOUR CHECKPOINTS
+## Phase 2: Audit + Human Review
 
-### Checkpoint 1: Comprehensive Analysis (90-120 min)
+### Step 2: Audit
 
-**Goal**: Understand the episode, identify strongest themes, and inventory building blocks for all downstream content (social clips, long-form clips, blog posts, newsletters).
+Send to an Opus sub-agent with the full SOURCE.md. The audit produces:
 
-**Your deliverable**: `Checkpoint_1_Comprehensive_Analysis.md`
+1. **Angles** (3-5 distinct marketing angles, each with a 1-sentence pitch)
+2. **Short clips** (5-8 candidates, 30-90 sec each)
+   - Verbatim quotes with timestamps
+   - Category: Counterintuitive / Memorable / Relatable / Practical / Emotional
+3. **Long clips** (3-4 candidates, 2-5 min each)
+   - Narrative arc summary
+   - Opening hook verbatim
+4. **Cold open candidates** (2-3 montage arrangements using [SWOOSH] transitions)
+5. **Blog format assessment** - Is this a "day-in-the-life" candidate or standard blog?
+6. **Timestamp index** - Full chapter-by-chapter breakdown
 
-**Document Structure** (in this order):
-1. **Episode Metadata** (guest, host, duration, credentials)
-2. **The TED Talk Version** (2-3 orthogonal angles that capture what the episode delivers - emphasize salience over clickability)
-3. **5 Big Ideas** (potential marketing angles for different assets)
-4. **Chapter Outline** (timestamped)
-5. **Snippet Inventory** (25-30 short quotable moments, 5-30 sec each, labeled S1-S29)
-6. **Guest Voice Inventory** (sticky phrases, syntax patterns, named concepts)
-7. **Quote Bank** (organized by theme)
-8. **Surprising Points** (contradictions with common belief)
-9. **Top Recommendation** (with reasoning)
+**CRITICAL RULES:**
+- All quotes VERBATIM. Never paraphrase.
+- Mine the ENTIRE transcript, not just the first half.
+- Bold over safe. Surprising, contrarian moments beat obvious observations.
+- Target 5-8 clips in the audit (mine broadly), user will whittle to 5 final.
 
-**Snippet Inventory Format** - Each snippet MUST include:
-- Label (S1, S2, etc.)
-- Category (Counterintuitive, Memorable Quotes, Relatable/Funny, Practical/Actionable, Emotional, Origin Story)
+Output: `Checkpoint_1_Audit.md`
+
+**Sub-agent prompt template:**
+```
+You are auditing a podcast transcript for content production.
+
+Episode: [Guest Name]
+Working directory: [path to prep/]
+
+Read SOURCE.md (the full transcript).
+
+Produce Checkpoint_1_Audit.md with:
+- 3-5 angles (1-sentence pitch each)
+- 5-8 short clip candidates (30-90 sec, verbatim with timestamps)
+- 3-4 long clip candidates (2-5 min, narrative arc + opening hook verbatim)
+- 2-3 cold open montage arrangements
+- Day-in-the-life assessment (yes/no with reasoning)
+- Full timestamp index
+
+Rules: ALL quotes verbatim. Mine the entire transcript. Bold over safe.
+```
+
+### HUMAN CHECKPOINT 1
+
+Present the audit summary. User selects:
+- **Primary angle** (which direction for the episode)
+- **5 clips** (3 short + 2 long) from the candidates
+- **Cold open preference** (or direction for assembly)
+- **Blog format** (standard or day-in-the-life)
+
+### Step 3: Title + Thumbnail Variations
+
+After angle selection, generate titles using the `youtube-title-creator` skill:
+- 5 titles per angle using the 119 Creator Hooks frameworks
+- Each title includes: framework reference, psychological principles, thumbnail text suggestion
+- Organize by angle so user can see which direction has the strongest title
+
+**VERIFICATION RULE:** Any specific claim in a title (numbers, named concepts, frameworks) must cite the transcript moment that supports it. Never let a framework template inject a claim that isn't in the source.
+
+After user narrows to 3-4 title finalists, produce 3 thumbnail concepts per title:
+- Visual description (what the thumbnail image shows)
+- On-screen text (2-4 words, complements title - never repeats it)
+- Why this pairing works
+
+Output: `Title_Options_By_Angle.md`
+
+### HUMAN CHECKPOINT 2
+
+User selects:
+- **YouTube title** (CTR optimized)
+- **Blog title** (SEO optimized, different from YouTube)
+- **Thumbnail direction**
+
+---
+
+## Phase 3: Handoff Assembly
+
+Everything converges into `EDITOR_HANDOFF.md`. Send to an Opus sub-agent with SOURCE.md + all prep files. The sub-agent builds the complete handoff document.
+
+### EDITOR_HANDOFF.md Structure
+
+```markdown
+# EDITOR HANDOFF: [Guest Name], [Company]
+
+## SECTION 1: EPISODE INFO
+- Guest, host, duration
+- YouTube title (selected)
+- Blog title (selected)
+- Thumbnail text suggestion
+
+## SECTION 2: COLD OPENS
+- 2-3 options, each 25-35 seconds
+- Verbatim with ~~strikethrough~~ for cuts, *italics* for smoothing
+- [SWOOSH] between unrelated moments
+- Source timestamps for each segment
+
+## SECTION 3: SHORT CLIPS (3 total)
+For each clip:
 - Timestamp range
-- **Speaker attribution** (JOSHUA, ISAAC, ELA, etc.)
-- Verbatim quote
+- On-screen hook options (3-4 per clip, * next to recommended)
+- Full verbatim transcript with edit markup
+- Caption (universal for FB, TikTok, IG, LinkedIn)
+- X variant (shorter, more conversational)
 
-Example:
-```
-**[S1] "No Shoulds, Only Coulds" (18:21-18:52) - JOSHUA**
-> "There are no shoulds, there are only coulds..."
-```
+## SECTION 4: LONG CLIPS (2 total)
+For each clip:
+- Timestamp range
+- Narrative arc (setup → tension → payoff)
+- On-screen hook options (3 per clip)
+- Opening hook verbatim
+- Caption + X variant
+- Suggested standalone title
 
-**The TED Talk Version** - Provide 2-3 somewhat orthogonal angles:
-- What is this episode *actually* about? (salience)
-- What's the surprising/counterintuitive framing? (interest)
-- What's the practical takeaway? (utility)
+## SECTION 5: YOUTUBE DESCRIPTION + CHAPTERS
+- Natural description (keyword-enriched, not stuffed)
+- Guest bio + links
+- Timestamped chapters (keyword-rich, 5-10 words each)
 
-**User decision point**: Which Big Idea/angle to pursue for primary assets?
+## SECTION 6: SOCIAL QUOTES
+- 5 standalone quotes with timestamps
+- Use cases (quote cards, newsletter pullquotes, social posts)
 
-**IMPORTANT**: Balance clickability with salience. Lean toward what the episode actually delivers rather than what might get the most clicks but misrepresent the content.
+## SECTION 7: BLOG POST DIRECTION
+- Blog title (SEO optimized)
+- Target keyword + search volume
+- Standard narrative guide OR day-in-the-life format
+- 3-5 section suggestions with supporting transcript moments
 
-**Reference**: See `references/checkpoint-1-example.md` for detailed example
-
----
-
-### Checkpoint 2: Cold Opens & Clips (120-150 min)
-
-**Prerequisites**: Checkpoint 1 complete + Big Idea selected
-
-**Goal**: Create one approved cold open script and identify 3-5 approved social clips with on-screen hooks.
-
-**Your deliverable**: `Checkpoint_2_Cold_Opens_and_Clips.md`
-
-**Process** (two-step):
-1. **First: Arrange snippets into cold open options** — Using the Snippet Inventory from Checkpoint 1, combine snippets (by label: S1, S2, etc.) into 3-5 cold open arrangements. Use [SWOOSH] to indicate transitions between unrelated moments.
-2. **Then: Expand selected snippets into full clips** — Build out the best snippets into complete 45-90 second clips with full verbatim transcripts and edit markup.
-
-**What it contains**:
-- 3-5 cold open options (montages of snippets with [SWOOSH] transitions)
-- One selected cold open script (22-35 seconds)
-- On-screen text hooks (2-4 words each for social media captions)
-- 3-5 approved social clips (45-90 sec each, full verbatim transcripts with edit markup)
-- Each clip includes: timestamp range, on-screen hook, full transcript with ~~strikethrough~~ for cuts and *italics* for minor edits
-
-**Output format**:
-- Cold open: Montage structure using [SWOOSH] between unrelated moments, not linear narrative extracts
-- Clips: Verbatim with edit markup (~~cuts~~, *changes*), timestamps throughout
-- Hooks: 2-4 words maximum for mobile readability
-- All clips ready for editor handoff
-
-**Skills used**:
-- **video-caption-creation**: For on-screen text hooks and short-form video captions (generates 3-5 hook options per clip)
-- **cold-open-creator**: For cold open methodology (optional reference)
-
-**Clip Types** (create a mix):
-
-| Type | Duration | Structure | Best For |
-|------|----------|-----------|----------|
-| **Single Topic** | 45-90 sec | One complete idea with setup → tension → payoff | Actionable tips, counterintuitive insights, emotional moments |
-| **Supercut / Montage** | 45-60 sec | Quick cuts with [SWOOSH] between unrelated moments | "Day in the life," personality showcase, vibe/energy clips |
-
-**Supercut Template:**
-```
-**On-screen hook options:**
-- "[Caption option 1]"
-- "[Caption option 2]"
-
-**Format:** Quick cuts, [SWOOSH] between each moment. ~45-60 seconds total.
-
----
-
-**SPEAKER (timestamp):** [Short moment - 5-10 sec]
-
-[SWOOSH]
-
-**SPEAKER (timestamp):** [Short moment - 5-10 sec]
-
-[SWOOSH]
-
-(continue for 5-8 moments, end on emotional or memorable beat)
+## SECTION 8: SOCIAL TAGGING & RESHARE STRATEGY
+- Guest handles per platform
+- Platform priority (based on guest research)
+- Tagging strategy per clip
+- Nearbound: what to offer guest to maximize reshare
 ```
 
-**User decision point**: Approve cold open and social clips for Checkpoint 3
+### On-Screen Hook Standards
 
-**Reference**: See `references/checkpoint-2-example.md` for detailed example
+On-screen text is the #1 visual element. It does the PRIMARY work of stopping a scroll.
 
----
+**Requirements per clip:**
+- 3-4 hook options per clip
+- Star (*) next to recommended pick
+- No category labels, no rationale - just the options
 
-### Checkpoint 3: YouTube Strategy (90-120 min)
+**Hook categories:**
+- **Polarizing** - Takes a side. "Schools trap families?"
+- **Counter-Intuitive** - Surprises. "The school choice argument nobody makes"
+- **Direct Challenge** - Confronts viewer. "Your kid's teacher hates their job"
+- **Curiosity Gap** - Opens a loop. "55% want to quit"
 
-**Prerequisites**: Checkpoint 2 complete + Cold open selected
+**Complementarity principle:** On-screen text should ADD context that makes the audio land harder, not just label the clip. The gap between what you read and what you hear creates curiosity.
 
-**Goal**: Define YouTube title, thumbnail, description, and chapter timestamps.
+**"First 3 words" test:** The first 3 words someone reads do 80% of the work. Front-load the punch.
 
-**Your deliverable**: `Checkpoint_3_YouTube_Strategy.md`
-
-**What it contains**:
-- Final YouTube title (with guest name for authority)
-- Thumbnail specification (2-4 words max, minimal design)
-- YouTube description (natural description + resources + chapters)
-- Cold open script (verbatim clips)
-- All 3 approved social clips with on-screen hooks
-- Chapter breakdown (5-10 words per chapter title, keyword-rich)
-
-**Skills used**:
-- **youtube-title-creator**: For YouTube title strategy
-- **opened-identity**: For brand alignment verification
-
-**Output format**:
-- Clean, streamlined specifications (no technical jargon)
-- Chapter titles follow "My First Million" style (compelling, descriptive)
-- Format: `(MM:SS) - Descriptive Chapter Title` (5-10 words max)
-- Description: Natural description + resources + chapters (no artificial hook/body division)
-- Thumbnail: Simple visual + minimal text (2-4 words only)
-- All clips ready to copy/paste
-
-**User decision point**: Approve final specifications and move to Checkpoint 4
-
-**Reference**: See `references/checkpoint-3-example.md` for detailed example
-
----
-
-### Checkpoint 4: Polished Transcript & Blog Post (120-180 min)
-
-**Prerequisites**: Checkpoint 3 complete + All selections locked
-
-**Goal**: Create publication-ready transcript and SEO-optimized blog post.
-
-**Your deliverables**:
-- `[Guest]_YouTube_and_Show_Notes.md` (refined from Checkpoint 3)
-- `[Guest]_Polished_Transcript.md` (new, contains transcript + blog)
-
-**What it contains**:
-- Full polished transcript (cleaned for readability)
-- Embedded blog post (~1,000 words) focused on core insight
-- Guest bio and resource links
-- SEO headers and structure
-
-**Skills used**:
-- **transcript-polisher**: For transcript cleanup and formatting
-- **podcast-blog-post-creator**: For narrative-driven blog post creation in Ela's voice
-
-**Output structure**:
-1. `[Guest]_YouTube_and_Show_Notes.md` — Handoff file for video production (title, thumbnail, cold open, show notes, timestamps)
-2. `[Guest]_Polished_Transcript.md` — Publication-ready transcript with embedded blog post
-
-**Reference**: See `references/checkpoint-4-example.md` for detailed example
-
----
-
-## Final Assets Bundle (Post-Checkpoint)
-
-Organize each episode into `prep/` (working files) and `final-assets/` (publication-ready):
+### Edit Markup Convention
 
 ```
-Studio/Podcast Studio/[Episode Name]/
-├── prep/
-│   ├── SOURCE.md
-│   ├── Checkpoint_1_*.md
-│   ├── Checkpoint_2_*.md
-│   ├── Checkpoint_3_*.md
-│   └── Checkpoint_4_*.md
-└── final-assets/
-    ├── day-in-the-life-blog.md   # Blog/newsletter ready for Webflow
-    ├── youtube-and-show-notes.md  # Full editor handoff (titles, clips, description)
-    ├── polished-transcript.md     # Cleaned transcript for publication
-    ├── social-plan.md             # Platform-specific posts + schedule
-    └── clips/                     # (optional) Downloaded clip files
+~~strikethrough~~ = cut this (editor removes)
+*italics* = minor smoothing edit (change spoken word)
+[SWOOSH] = visual transition between unrelated segments
+[AMAR] = speaker label
 ```
 
-**`day-in-the-life-blog.md`** (or `blog-post.md`) - The polished blog post, cleaned up and ready to paste into Webflow. No checkpoint artifacts. Day-in-the-life format when the episode covers routine/environment. Standard blog when the episode is more topical.
+---
 
-**`youtube-and-show-notes.md`** - Complete editor handoff: YouTube title/thumbnail options, description with chapters, cold open script, all social clips with edit markup and on-screen hooks, long clip titles/thumbnails, standalone content pieces, editor notes.
+## Key Principles
 
-**`polished-transcript.md`** - Full episode transcript cleaned for readability, with section headers matching chapters.
-
-**`social-plan.md`** - Contains:
-- Guest and brand handles for tagging
-- Clips inventory with Descript links
-- Long-form YouTube clip titles and descriptions
-- Short-form captions (Reels/TikTok/Shorts)
-- Platform-specific posts (LinkedIn, X, Facebook)
-- 7-day posting schedule
-- Isaac coordination notes (if applicable)
-- Execution checklist
-
-This structure keeps working files separate from publication-ready assets. When the episode is done, `final-assets/` contains everything needed for distribution.
-
-**Archiving**: After publication, the `prep/` folder already contains checkpoint history. No additional archiving needed.
+1. **Verbatim only.** All quoted transcript exactly as spoken. Cut and rearrange, never paraphrase.
+2. **One deliverable.** Everything flows into EDITOR_HANDOFF.md. Don't over-generate intermediate docs.
+3. **Mine the whole transcript.** The strongest moment might be at minute 48.
+4. **Bold over safe.** Contrarian > obvious. Tension > comfort.
+5. **5 clips total.** 3 short (30-90 sec) + 2 long (2-5 min). Quality over quantity.
+6. **Same caption everywhere.** One caption per clip for FB/TikTok/IG/LinkedIn. Optional X variant.
+7. **Title + thumbnail are a pair.** Design them together. Thumbnail complements, never repeats.
+8. **YouTube title != blog title.** YouTube = CTR. Blog = SEO.
+9. **On-screen hooks are the #1 priority.** 3-5 variations per clip, not afterthoughts.
+10. **Guest research informs everything.** Know their platforms before selecting clips.
 
 ---
 
-## WORKFLOW TIMELINE & FILE STRUCTURE
+## Skill Dependencies
 
-| Phase | Duration | Input | Output File | Your Action |
-|-------|----------|-------|------|---|
-| **Setup** | 10 min | Raw materials | `[Guest]_Source_Material.md` | Provide feedback on context/notes |
-| **Checkpoint 1** | 90-120 min | Source material | `Checkpoint_1_Comprehensive_Analysis.md` | Select Big Idea to pursue |
-| **Checkpoint 2** | 120-150 min | Checkpoint 1 approved | `Checkpoint_2_Cold_Opens_and_Clips.md` | Approve cold open & clips |
-| **Checkpoint 3** | 90-120 min | Checkpoint 2 approved | `Checkpoint_3_YouTube_Strategy.md` | Approve title/thumbnail/chapters |
-| **Checkpoint 4** | 120-180 min | Checkpoint 3 approved | `Checkpoint_4_Polished_Transcript_and_Blog.md` | Review & publish |
-| **Final Bundle** | 15-30 min | All checkpoints complete | `final-assets/` folder | Consolidate for distribution |
-| **TOTAL** | **6-9 hours** | Raw transcript | All publication-ready assets | 5 decision points |
-
----
-
-## KEY PRINCIPLES
-
-### Verbatim Only
-All quoted transcript must be exactly as spoken. You can cut/rearrange, never paraphrase.
-
-### Mine the Entire Transcript
-Don't limit analysis to one section. The strongest angle might be anywhere.
-
-### Bold Over Safe
-Surprising, contrarian moments beat safe, obvious observations.
-
-### Story Over Summary
-Create narrative momentum. Clips should have complete arcs, not just be "good quotes."
-
-### Simple Over Complex
-- Thumbnails: 3 elements max
-- Titles: One clear idea
-- Clips: Clear beginning, middle, end
-
-### Brand Aligned
-All outputs reflect OpenEd visual and tonal guidelines. Homeschool parents should see themselves.
-
-### Internal Linking
-Before finalizing blog/newsletter assets, scan the Master Content Index (`Published Content/Master_Content_Index.md`) and published content folders for relevant backlinks. Look for:
-- Previous episodes featuring the same guest
-- Blog posts covering topics discussed in the episode (math curriculum, AI in education, classical education, reading, etc.)
-- Newsletter issues that referenced the guest or their work
-- Related podcast episodes with other guests on similar topics
-
-Insert 3-5 internal links naturally into the blog post, YouTube description, and show notes. Prioritize:
-1. Previous episodes with the same guest (always link)
-2. Pillar blog posts on topics the guest discusses (e.g., "Best Homeschool Math Curriculum" when Math Academy is mentioned)
-3. Related newsletters or articles that add context
-
-This step happens during final asset production, not during checkpoints.
+| Step | Skills Used |
+|------|-------------|
+| Step 0 | `notion_import.py` (script, not skill) |
+| Step 1 | `seo-research` / DataForSEO |
+| Step 3 | `youtube-title-creator` (119 frameworks) |
+| Step 4 | `video-caption-creation` (hook categories, Triple Word Score) |
+| Step 6 | `cold-open-creator` (optional reference) |
+| Step 8 | `podcast-blog-post-creator`, `day-in-the-life` (if applicable) |
+| Quality | `quality-loop` (for blog post draft) |
 
 ---
 
-## SKILL DEPENDENCIES
+## Common Mistakes
 
-| Checkpoint | Required Skills | Optional Skills |
-|------------|-----------------|-----------------|
-| **1** | None (pure analysis) | — |
-| **2** | `cold-open-creator`, `video-caption-creation` | — |
-| **3** | `youtube-title-creator`, `opened-identity` | — |
-| **4** | `transcript-polisher`, `podcast-blog-post-creator` | `day-in-the-life`, `verified-review` |
-
-**Optional skill triggers:**
-- `day-in-the-life`: When guest describes daily/weekly homeschool structure. Use Guest Voice Inventory to preserve their voice.
-- `verified-review`: When guest mentions specific curricula/tools. Creates 300-500 word reviews with real parent attribution.
+- Fabricating claims in titles (e.g., "6 Levels of Teaching" when transcript has no such framework)
+- Single on-screen hook per clip instead of 3-5 options
+- Generating platform-specific captions (same caption everywhere, X variant only)
+- Thumbnail text that repeats the title
+- Ignoring guest's social presence until the end
+- SEO research after title selection instead of before
+- Cold opens before clip selection (cold opens are assembled FROM clips)
+- 25+ snippet inventory when 5-8 targeted clips is better
 
 ---
 
-## QUALITY GATES
+## Next Priorities (Skill Improvements Backlog)
 
-| Transition | Key Checks |
-|------------|------------|
-| **1→2** | 5 distinct Big Ideas? One obvious choice? Entire transcript mined? |
-| **2→3** | Cold open passes 4/5 tests (Stranger, Itch, Stakes, Tease, Emotion)? Ends on cliffhanger? 22-35 sec? All verbatim? |
-| **3→4** | Title clear + includes guest? Thumbnail simple (2-4 words)? Chapter titles keyword-rich? Brand aligned? |
-| **4→Publish** | Transcript clean? Blog ~1,000 words? Conversational tone? All assets ready? |
-
----
-
-## COMMON MISTAKES
-
-❌ Mining only part of transcript | ❌ Paraphrasing (all quotes verbatim) | ❌ Complex thumbnails (3 elements max) | ❌ Safe over surprising | ❌ Cold open too long (25-35s max) | ❌ Resolving cliffhanger | ❌ Skipping quality gates | ❌ Blog too formal (write like Ela)
+- [ ] Build `youtube_autocomplete.py` using DataForSEO for YouTube search suggestions
+- [ ] Research exemplar podcast YouTube/IG channels for on-screen hook reference library
+- [ ] Improve `video-caption-creation` skill with complementarity principle + real education creator examples
+- [ ] Build dedicated title+thumbnail sub-agent with better variation examples from Creator Hooks
+- [ ] Add internal linking step (scan Master Content Index for backlinks in blog post + YouTube description)
 
 ---
 
-## REFERENCES
+## References
 
-For detailed instructions and examples, see:
-- `references/checkpoint-1-example.md` — Complete Checkpoint 1 example
-- `references/checkpoint-2-example.md` — Complete Checkpoint 2 example
-- `references/checkpoint-3-example.md` — Complete Checkpoint 3 example (YouTube specifications format)
-- `references/checkpoint-4-example.md` — Complete Checkpoint 4 example (Polished transcript + blog post)
-
----
-
-## RELATED SKILLS
-
-`cold-open-creator` | `video-caption-creation` | `youtube-title-creator` | `podcast-blog-post-creator` | `transcript-polisher` | `opened-identity` | `day-in-the-life` | `verified-review`
+- `references/checkpoint-1-template.md` - Detailed audit template
+- `references/checkpoint-2-example.md` - Cold open + clip example (Claire Honeycutt)
+- `references/checkpoint-3-example.md` - YouTube strategy example
+- `references/checkpoint-4-example.md` - Polished transcript + blog example
+- `references/day-in-the-life-format.md` - Day-in-the-life blog template
+- `SKILL_v1_archive.md` - Previous 4-checkpoint system
 
 ---
 
-## SUCCESS METRICS
-
-| Platform | Key Metrics |
-|----------|-------------|
-| **YouTube** | CTR >6%, retention in first 5 sec, viewers finish |
-| **Blog** | SEO ranking, engagement to guest bio, shareability |
-| **Social** | Clips standalone, text works without audio, platform fit |
-| **Overall** | Theme alignment, brand consistency, team handoff ready |
+*Rewritten Feb 6, 2026 after Amar Kumar session. See `Studio/Podcast Studio/Amar-Kumar/prep/SKILL_IMPROVEMENT_NOTES.md` for detailed rationale.*
