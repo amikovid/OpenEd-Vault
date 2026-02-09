@@ -79,6 +79,15 @@ True learning is a process of iteration, feedback, and growth—not a one-time p
 #### 3. Agency and Curiosity at the Center
 The most profound learning happens when driven by the learner. Open Education gives children voice and choice, trusting them to follow curiosity and develop self-direction.
 
+### How We Work (Team Culture)
+
+These aren't slogans - they're how we actually operate:
+
+- **"I did" over "we should"** - Bias toward shipping real work over strategizing about it. A published draft beats a perfect plan.
+- **Customer first, always** - Sarah's fears and dreams drive every piece of content. When in doubt, ask "does this help Sarah?"
+- **Ask questions, but try first** - Self-directed people thrive here. Explore before escalating.
+- **Ship, then polish** - Done is better than perfect. Get it out, then iterate.
+
 ---
 
 ## Our Audience: Sarah (The One True Fan)

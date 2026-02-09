@@ -212,7 +212,7 @@ After completing a hub, **proactively offer spokes**.
 | Meta ads | meta-ads-creative + dude-with-sign-writer |
 | Work summaries | work-summary (git → Slack updates) |
 
-All skills: `.claude/skills/` (45+ active)
+All skills: `.claude/skills/` (60 active)
 
 ---
 
@@ -281,9 +281,9 @@ Before starting work, check `tasks/` for assigned tasks:
 4. Execute the steps/acceptance criteria in the task body
 5. Update status to `done`, add completion notes to Context section
 
-**Task files live in `tasks/`** (53 files) - each is a `.md` file with YAML frontmatter (id, title, status, project, assignee, priority, effort, due, tags). The body contains Context, Steps (checkboxes), and Spec References.
+**Task files live in `tasks/`** - each is a `.md` file with YAML frontmatter (id, title, status, project, assignee, priority, effort, due, tags). The body contains Context, Steps (checkboxes), and Spec References.
 
-**Dashboard:** `cd task-dashboard && bun run server.ts` → http://localhost:8002
+**Dashboard:** `cd task-dashboard && bun run server.ts` → http://localhost:8002 (unified dashboard at root level, scans all project areas)
 
 **Status values:** `todo` | `in_progress` | `done` | `later`
 
@@ -323,7 +323,7 @@ The vault-guide skill (`.claude/skills/vault-guide/SKILL.md`) is the onboarding 
 
 | Folder | Purpose |
 | --- | --- |
-| .claude/skills/ | 45+ active skills |
+| .claude/skills/ | 60 active skills |
 | .claude/work-summaries/ | Daily work updates for Slack |
 | Projects/OpenEd-Content-OS/ | Content OS - pathways, formats, architecture |
 | Projects/Project-Dandelion/ | Paid acquisition hub |

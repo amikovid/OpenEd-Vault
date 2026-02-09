@@ -1,67 +1,18 @@
-I wanna kind of create like a content OS repo in GitHub that is drawing mostly from this # OpenEd Content Engine
+# OpenEd Content Engine
 
-An AI-first content production system for OpenEd - alternative education company creating newsletters, podcasts, social media, SEO content, and educational resources.
+An AI-first content production system for [OpenEd](https://myopened.com) - an alternative education company helping families find and fund homeschooling, microschools, and learning pods across 9 US states (AR, IN, IA, KS, MN, MT, NV, OR, UT).
 
-**Operating States:** AR, IN, IA, KS, MN, MT, NV, OR, UT (9 states)
-
----
-
-## What This Is
-
-This is a Claude Code workspace with **39 specialized skills** that enable one person to operate a complete content machine. Instead of generic AI prompting, we built specialized workflows encoded as markdown files that Claude loads on demand.
-
-### The Challenge It Solves
-
-Traditional content teams need 5-7 people:
-
-- Daily newsletter (4/week) - 1 writer + 1 editor
-
-- Weekly podcast - 1 producer + 1 editor
-
-- Blog articles (2-4/month) - 1-2 writers
-
-- Social posts (5-10/day) - 1 social manager
-
-- SEO content (ongoing) - 1 specialist
-
-**This system lets one person maintain consistent quality across all channels.**
+This workspace replaces a 5-7 person content team with **60 specialized AI skills** that produce newsletters, podcasts, SEO articles, tool reviews, social content, and ad creative.
 
 ---
 
-## Quick Start
+## Getting Started
 
-### 1\. Clone and Setup
+**If you're a new team member or applicant**, run `/vault-guide` in Claude Code. It will walk you through the workspace interactively.
 
-```bash
-git clone [repo-url]
-cd OpenEd-Vault
-```
+**For full system context**, start with `CLAUDE.md` - it's the master routing document.
 
-### 2\. Copy Environment Files
-
-```bash
-# Root level
-cp .env.example .env
-
-# Claude settings
-cp .claude/settings.local.example.json .claude/settings.local.json
-
-# Curriculove app (if using)
-cp Studio/Lead\ Magnet\ Project/curriculove/.env.example \
-   Studio/Lead\ Magnet\ Project/curriculove/.env.local
-```
-
-### 3\. Add Your API Keys
-
-Edit each `.env` file with your credentials. See the `.example` files for what's needed.
-
-### 4\. Open with Claude Code
-
-```bash
-claude
-```
-
-Claude will automatically read `CLAUDE.md` for context.
+**For current priorities**, check `NOW.md`.
 
 ---
 
@@ -69,181 +20,102 @@ Claude will automatically read `CLAUDE.md` for context.
 
 ```
 OpenEd Vault/
-├── CLAUDE.md                    # AI instructions (auto-loaded)
-├── NOW.md                       # Current state, priorities
-├── Master_Content_Index.md      # 406 published articles indexed
+├── CLAUDE.md                          ← Start here (master context)
+├── NOW.md                             ← Current state & priorities
+├── EXECUTION.md                       ← Weekly execution plan
+├── tasks/                             ← Task files (source of truth)
+├── task-dashboard/                    ← Kanban board (port 8002)
 │
-├── Studio/                      # Active projects
-│   ├── OpenEd Daily Studio/      # Mon-Thu newsletter workflow
-│   ├── Podcast Studio/           # Weekly podcast workflow
-│   ├── SEO Content Production/  # Blog articles
-│   ├── Meta Ads/                # Ad creative library
-│   ├── Lead Magnet Project/     # Curriculove quiz app
-│   └── Social Media/            # Format inventory
+├── Studio/                            ← Where content gets made
+│   ├── SEO Content Production/        ← Blog articles, deep dives, thinkers series
+│   ├── Podcast Studio/                ← Episode production
+│   ├── OpenEd Daily Studio/           ← Mon-Thu newsletter
+│   ├── OpenEd Weekly/                 ← Friday roundup newsletter
+│   ├── Social Media/                  ← Format inventory, post drafts
+│   ├── Meta Ads/                      ← Ad concepts & creative
+│   ├── Nearbound Pipeline/            ← Contact profiles + social handles
+│   ├── Analytics & Attribution/       ← HubSpot, GA4
+│   └── Nano/                          ← Image generation workspace
 │
-├── Content/                     # Published archive
-├── CRM/                         # Contact database (382)
-├── Archive/                     # Historical content
+├── Projects/                          ← Discrete initiatives
+│   ├── OpenEd-Content-OS/             ← System architecture docs
+│   ├── Lead Magnet Project/           ← Curriculove quiz app
+│   ├── Tools Directory/               ← Reviews + teacher quotes
+│   ├── Eddie Awards/                  ← Awards program
+│   ├── Project-Dandelion/             ← Paid acquisition
+│   └── RSS-Curation/                  ← Feed pipeline
 │
-└── .claude/
-    ├── skills/                  # 39 production skills
-    ├── references/              # On-demand context docs
-    └── sessions/                # Conversation history
+├── Published Content/                 ← Archive of shipped articles
+├── CRM/                               ← Contact database
+├── references/                        ← Research & reference docs
+│
+├── .claude/
+│   ├── skills/                        ← 60 production skills
+│   ├── commands/                      ← Slash commands
+│   └── references/                    ← Program details, content index
+│
+└── agents/                            ← Automation scripts
 ```
 
 ---
 
-## Key Skills
+## How Skills Work
 
-| Skill | Purpose | Key Feature |
-| --- | --- | --- |
-| text-content | Social posts | 360+ templates, platform routing |
-| podcast-production | Episode workflow | 4 checkpoints to publish |
-| opened-daily-newsletter-writer | Mon-Thu newsletters | Thought-Trend-Tool format |
-| quality-loop | Iterative drafting | 5-judge quality gates |
-| image-prompt-generator | AI images | Gemini API, style library |
-| ghostwriter | Human voice | Anti-AI pattern detection |
-| short-form-video | Reels/TikTok | Sponge-then-sharpen method |
-| seo-research | Keywords | DataForSEO integration |
+Skills are markdown files that encode complete workflows - methodology, references, quality gates. Invoke with `/skill-name` or "use the [skill-name] skill."
 
-### How Skills Work
+| Category | Skills |
+|----------|--------|
+| **Writing** | `ghostwriter`, `de-ai-ify`, `quality-loop`, `opened-identity` |
+| **Newsletter** | `opened-daily-newsletter-writer`, `opened-weekly-newsletter-writer`, `newsletter-subject-lines` |
+| **Podcast** | `podcast-production`, `transcript-polisher`, `cold-open-creator`, `narrative-snippets` |
+| **SEO** | `seo-content-production`, `seomachine`, `seo-research`, `open-education-hub-deep-dives` |
+| **Social** | `text-content` (360+ templates), `content-repurposer`, `newsletter-to-social`, `short-form-video` |
+| **Visual** | `nano-banana-image-generator`, `video-generator`, `video-caption-creation` |
+| **Ads** | `meta-ads-creative`, `dude-with-sign-writer` |
+| **Distribution** | `x-posting`, `x-article-converter`, `youtube-clip-extractor` |
 
-Skills are markdown files with:
-
-1. **Frontmatter** - Name, description, when to invoke
-
-2. **Methodology** - Complete process
-
-3. **References** - Supporting docs loaded on demand
-
-Invoke with: `/skill-name` or "use the \[skill-name\] skill"
+Full skill dependency chains: `Projects/OpenEd-Content-OS/SKILL_ARCHITECTURE_MAP.md`
 
 ---
 
 ## Hub-and-Spoke Model
 
-One hub piece generates multiple spokes:
+One hub piece generates multiple derivative spokes:
 
-```
-                    ┌─────────────────┐
-                    │    PODCAST      │
-                    │   (Hub Piece)   │
-                    └────────┬────────┘
-                             │
-        ┌────────────────────┼────────────────────┐
-        │                    │                    │
-        ▼                    ▼                    ▼
-┌───────────────┐   ┌───────────────┐   ┌───────────────┐
-│   Blog Post   │   │    Social     │   │  Newsletter   │
-│   (Spoke)     │   │   (Spoke)     │   │   (Spoke)     │
-└───────────────┘   └───────────────┘   └───────────────┘
-```
-
-| Hub Type | Skill | Natural Spokes |
-| --- | --- | --- |
-| Podcast | podcast-production | Blog, clips, LinkedIn, newsletter |
-| Deep Dive | open-education-hub-deep-dives | 3-5 LinkedIn, Twitter, newsletter |
-| Newsletter | opened-daily-newsletter-writer | LinkedIn post, Twitter thread |
+| Hub | Skill | Natural Spokes |
+|-----|-------|----------------|
+| Podcast | `podcast-production` | Blog, clips, LinkedIn, newsletter |
+| Newsletter (Daily) | `opened-daily-newsletter-writer` | LinkedIn, X, Instagram |
+| Newsletter (Weekly) | `opened-weekly-newsletter-writer` | LinkedIn roundup |
+| Deep Dive | `open-education-hub-deep-dives` | LinkedIn, X threads |
 
 ---
 
-## Writing Rules
+## Setup
 
-**Hard rules for all public content:**
+```bash
+git clone [repo-url]
+cd OpenEd-Vault
+cp .env.example .env    # Add your API keys
+claude                   # Opens Claude Code with full context
+```
 
-### Never Use Correlative Constructions
-
-- ❌ "X isn't just Y - it's Z"
-
-- ❌ "It's not about X, it's about Y"
-
-- This is the #1 AI tell
-
-### Avoid AI-isms
-
-**Words:** delve, comprehensive, crucial, leverage, landscape, navigate, foster, paradigm, journey, tapestry, myriad, seamless
-
-**Phrases:**
-
-- "The best part? ..." / "The secret? ..."
-
-- "What if I told you..."
-
-- "In today's fast-paced..."
-
-- Staccato patterns: "No fluff. No filler. Just results."
-
-### Dash Style
-
-- ✅ Use hyphens with spaces - like this
-
-- ❌ Never em dashes
+See `.env.example` for required credentials. Never commit `.env` files.
 
 ---
 
 ## External Integrations
 
-| Service | Purpose | Setup |
-| --- | --- | --- |
-| Notion | Content database | MCP server in settings.local.json |
-| DataForSEO | Keyword research | Credentials in .env |
-| GetLate | Social scheduling | API key in .env |
-| Webflow | Blog sync | API key in .env |
-| Gemini | AI images, long context | API key in .env |
-| ManyChat | Instagram automation | API key in .env |
+| Service | Purpose |
+|---------|---------|
+| Slack | Read/search/post messages (MCP) |
+| Notion | Podcast calendar, content database (MCP) |
+| Webflow | Blog + tools CMS publishing (MCP) |
+| Google Drive | Doc sharing & review (MCP) |
+| Apify | YouTube scraping (MCP) |
+| DataForSEO | Keyword research |
+| Gemini | AI images, long context |
 
 ---
 
-## Key Files
-
-| File | Purpose |
-| --- | --- |
-| CLAUDE.md | AI instructions, auto-loaded |
-| NOW.md | Current state, priorities, blockers |
-| Master_Content_Index.md | 406 published articles by tag |
-| Studio/Social Media/FORMAT_INVENTORY.md | Social format guide with scoring |
-| .claude/references/opened-program-details.md | Program specifics by state |
-
----
-
-## Development
-
-### Curriculove App
-
-```bash
-cd Studio/Lead\ Magnet\ Project/curriculove
-npm install
-npm run dev
-```
-
-### Webflow Sync
-
-```bash
-python3 agents/webflow_sync_agent.py
-```
-
----
-
-## Security Notes
-
-- **Never commit `.env` files** - Use `.env.example` templates
-
-- **Never commit `settings.local.json`** - Contains API keys
-
-- Share credentials via secure channel (Slack, 1Password)
-
----
-
-## Support
-
-For questions about:
-
-- **Content workflows** - Check skill files in `.claude/skills/`
-
-- **Current state** - Read `NOW.md`
-
-- **Project specifics** - See `PROJECT.md` in each Studio folder
-
----
-
-*Built with Claude Code. Last updated: 2026-01-15*
+*Built with Claude Code. Last updated: 2026-02-09*
