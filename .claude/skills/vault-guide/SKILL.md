@@ -187,6 +187,15 @@ Based on their proposal direction, help them narrow to ONE focus:
 
 Guide them through actually making something. This is the most important phase - **real output matters more than understanding the system.**
 
+**Your job here is to help them help Charlie.** Whatever they produce should be actually useful - something that moves OpenEd forward, not a practice exercise. Think about what Charlie needs and help the candidate deliver it.
+
+**If they're unsure what to do**, offer concrete suggestions:
+- "Want to try drafting a newsletter from source material? I can show you how the process works."
+- "We could take an existing podcast transcript and turn it into a blog post."
+- "There's a backlog of content that could be repurposed for social - want to try a batch?"
+
+**If they say "I'm not sure"**, that's fine. Tell them so. Help them explore until something clicks. Not everyone knows immediately - the process of looking around and asking questions is valuable too.
+
 ### For a Writing Task:
 1. Read the relevant task file together - understand the Context and Steps
 2. Load the appropriate skill (e.g., `seo-content-production` for a blog post)
@@ -210,7 +219,7 @@ Guide them through actually making something. This is the most important phase -
 ### For Any Task:
 - Remind them of the naming convention: descriptive names that capture WHAT and WHEN (e.g., `beast-academy-first-draft-20260210.md`)
 - Help them save their work to the right location
-- Celebrate what they produced - this is real work that has real value
+- The goal is output that's genuinely useful to Charlie - not a demo piece
 
 ---
 
