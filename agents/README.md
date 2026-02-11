@@ -153,6 +153,29 @@ Posts are organized into folders by type:
 
 ## Other Agents
 
+### content_performance_agent.py
+
+**Closes the analytics feedback loop.** Pulls performance data from GA4, Meta, YouTube, HubSpot, and GSC, calculates a 0-100 composite score for each published content piece, and writes scores back to Notion Master Content Database.
+
+```bash
+# Score all unscored content
+python3 content_performance_agent.py
+
+# Score specific type
+python3 content_performance_agent.py --type blog
+python3 content_performance_agent.py --type social
+
+# Generate digest only (no Notion writes)
+python3 content_performance_agent.py --digest-only --output slack
+```
+
+**Requires:** NOTION_API_KEY + any combination of GA4, Meta, YouTube, HubSpot, GSC keys in `.env`. Gracefully degrades - only uses modules with valid credentials.
+
+**Skill reference:** `.claude/skills/content-performance-scoring/SKILL.md`
+**Quick reference:** `.claude/references/content-performance-scoring-quickref.md`
+
+---
+
 ### social_media_agent.py
 
 Posts content to social media via GetLate API.

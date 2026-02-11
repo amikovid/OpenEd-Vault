@@ -121,6 +121,25 @@ Use these IDs when filtering by Content Format relation.
 | Publish Date | date | Actual publish date |
 | Author/Partner | multi_select | Content creator |
 
+### Performance Tracking Properties (Added 2026-02-11)
+
+These properties are populated by `agents/content_performance_agent.py`. See `.claude/skills/content-performance-scoring/SKILL.md` for full details.
+
+| Property | Type | Notes |
+|----------|------|-------|
+| Performance Score | number | 0-100 composite score (percentile-ranked) |
+| Score Label | select | Top Performer / Strong / Average / Underperforming / Poor |
+| Impressions | number | Total impressions/views across platforms |
+| Engagements | number | Total likes + comments + shares + saves |
+| Engagement Rate | number | Engagements / Impressions as percentage |
+| Clicks | number | Link clicks (social) or pageviews (blog) |
+| Conversions | number | HubSpot-tracked conversions (blog only) |
+| Trend | select | Rising / Stable / Declining |
+| Last Scored | date | When analytics were last pulled |
+| Content Theme | multi_select | Topic tags for theme-level analysis |
+| Score Notes | rich_text | AI-generated one-line insight |
+| Platform Post IDs | rich_text | JSON: {"x": "id", "linkedin": "id"} |
+
 ---
 
 ## Common Query Patterns
